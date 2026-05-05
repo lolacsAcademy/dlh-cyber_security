@@ -1,2 +1,2 @@
 #!/bin/bash
-ss -tunap
+ss -t -a -n -p
