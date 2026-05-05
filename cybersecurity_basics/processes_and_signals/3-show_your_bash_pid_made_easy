@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Displays PID and name of processes containing bash
+# Displays PID and process name containing bash
 # shellcheck disable=SC2009
-grep bash /proc/*/cmdline 2>/dev/null
+grep -l bash /proc/[0-9]*/cmdline 2>/dev/null | sed 's#/proc/##; s#/cmdline##'
