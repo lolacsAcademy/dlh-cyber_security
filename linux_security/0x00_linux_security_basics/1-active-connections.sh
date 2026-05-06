@@ -1,2 +1,2 @@
 #!/bin/bash
-ss -tunap
+sudo ss -tunap
