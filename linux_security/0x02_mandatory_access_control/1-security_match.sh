@@ -1,2 +1,2 @@
 #!/bin/bash
-aa-status
+sudo apparmor_status
