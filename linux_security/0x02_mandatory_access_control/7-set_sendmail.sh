@@ -1,2 +1,2 @@
 #!/bin/bash
-semanage boolean --modify --on httpd_can_sendmail
+semanage boolean -m --on httpd_can_sendmail
