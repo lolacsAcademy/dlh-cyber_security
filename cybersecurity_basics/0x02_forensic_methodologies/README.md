@@ -16,3 +16,6 @@
 ## Task 4 - Pinpointing the Attack Method
 - Analysis: Unpatched remote management service on open port = Known Vulnerability exploit
 - Answer: C) Exploit of a Known Vulnerability
+## Task 5 - Unveiling the Ripple Effect
+- Analysis: Subtle CRM breach on a company built on data integrity = brand reputation & trust damaged
+- Answer: B) Undermining of brand reputation and customer trust
