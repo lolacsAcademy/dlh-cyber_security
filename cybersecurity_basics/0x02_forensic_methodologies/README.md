@@ -3,3 +3,7 @@
 ## Task 0 - The Case of the Mysterious Image
 - Tool used: exiftool
 - Finding: Author metadata field contained `Sherlock_Holbies`
+## Task 1 - Unraveling Location Clues from Image Metadata
+- Tool used: exiftool
+- GPS found: 37°46'53.82"N, 122°24'29.84"W
+- Finding: Broadway & Taylor St, San Francisco, CA
