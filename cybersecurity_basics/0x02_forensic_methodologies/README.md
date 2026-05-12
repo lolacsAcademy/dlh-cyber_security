@@ -13,3 +13,6 @@
 ## Task 3 - Identifying the Vulnerability Type
 - Analysis: Malicious queries injected through login form = SQL Injection
 - Answer: B) SQL Injection (SQLi)
+## Task 4 - Pinpointing the Attack Method
+- Analysis: Unpatched remote management service on open port = Known Vulnerability exploit
+- Answer: C) Exploit of a Known Vulnerability
