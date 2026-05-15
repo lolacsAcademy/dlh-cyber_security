@@ -1,2 +1,0 @@
-#!/bin/bash
-john --wordlist=/usr/share/wordlists/rockyou.txt --format=Raw-MD5 $1 && john --show --format=Raw-MD5 $1 | grep -v "password hash" | awk -F: '{print $2}' > 4-password.txt
