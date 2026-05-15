@@ -8,3 +8,5 @@ Script that hashes a given password using SHA-256 algorithm and stores the resul
 Script that hashes a given password using MD5 algorithm and stores the result in 2_hash.txt
 ## Task 3 - Secure Password Hash
 Script that accepts a password as argument, combines it with a random 16-character value using OpenSSL, and generates a SHA-512 hash stored in 3_hash.txt
+## Task 4 - Wordlist Mode
+Script that cracks passwords using John the Ripper's Wordlist Mode with the RockYou wordlist, accepts hash.txt as argument and stores cracked passwords in 4-password.txt
