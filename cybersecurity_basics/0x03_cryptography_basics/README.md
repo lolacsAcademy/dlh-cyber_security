@@ -10,3 +10,5 @@ Script that hashes a given password using MD5 algorithm and stores the result in
 Script that accepts a password as argument, combines it with a random 16-character value using OpenSSL, and generates a SHA-512 hash stored in 3_hash.txt
 ## Task 4 - Wordlist Mode
 Script that cracks passwords using John the Ripper's Wordlist Mode with the RockYou wordlist, accepts hash.txt as argument and stores cracked passwords in 4-password.txt
+## Task 5 - Windows Authentication Cracking
+Script that cracks NTLM/NT hash format passwords using John the Ripper, accepts hash.txt as argument and stores the cracked password in 5-password.txt
