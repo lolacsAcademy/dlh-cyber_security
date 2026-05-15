@@ -16,3 +16,5 @@ Script that cracks NTLM/NT hash format passwords using John the Ripper, accepts 
 Script that cracks a SHA-256 hashed password using John the Ripper, accepts crack.txt as argument and stores the cracked password in 6-password.txt
 ## Task 7 - Hashcat Straight Attack
 Script that cracks an MD5 hashed password using Hashcat with the RockYou wordlist, accepts hash.txt as argument and stores the cracked password in 7-password.txt
+## Task 8 - Hashcat Combination
+Script that combines two wordlists using Hashcat, accepts wordlist1.txt and wordlist2.txt as arguments and outputs all combined passwords
