@@ -14,3 +14,5 @@ Script that cracks passwords using John the Ripper's Wordlist Mode with the Rock
 Script that cracks NTLM/NT hash format passwords using John the Ripper, accepts hash.txt as argument and stores the cracked password in 5-password.txt
 ## Task 6 - John Cracking
 Script that cracks a SHA-256 hashed password using John the Ripper, accepts crack.txt as argument and stores the cracked password in 6-password.txt
+## Task 7 - Hashcat Straight Attack
+Script that cracks an MD5 hashed password using Hashcat with the RockYou wordlist, accepts hash.txt as argument and stores the cracked password in 7-password.txt
