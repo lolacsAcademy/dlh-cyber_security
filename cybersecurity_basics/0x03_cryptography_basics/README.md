@@ -12,3 +12,5 @@ Script that accepts a password as argument, combines it with a random 16-charact
 Script that cracks passwords using John the Ripper's Wordlist Mode with the RockYou wordlist, accepts hash.txt as argument and stores cracked passwords in 4-password.txt
 ## Task 5 - Windows Authentication Cracking
 Script that cracks NTLM/NT hash format passwords using John the Ripper, accepts hash.txt as argument and stores the cracked password in 5-password.txt
+## Task 6 - John Cracking
+Script that cracks a SHA-256 hashed password using John the Ripper, accepts crack.txt as argument and stores the cracked password in 6-password.txt
