@@ -18,3 +18,5 @@ Script that searches SNMP configuration for lines containing the public communit
 Script that checks SMTP server configuration for STARTTLS security feature and reports if it is not configured.
 ## Task 9 - TLS Version Testing
 Test which TLS versions are supported by Google using OpenSSL and record results in a JSON file.
+## Task 10 - Check for Weak SSL/TLS Ciphers
+Script that tests an SSL/TLS server for weak ciphers using nmap ssl-enum-ciphers script.
