@@ -1,2 +1,2 @@
 #!/bin/bash
-find / -type d -perm -o+w -exec echo {} \; -exec chmod o-w {} \;
+find / -type d -perm -o+w -print -exec chmod o-w {} \;
