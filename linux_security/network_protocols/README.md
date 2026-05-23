@@ -6,3 +6,5 @@ Script that configures iptables to block all incoming traffic by default while k
 Script that finds all world-writable directories, displays their paths and fixes permissions so only the owner can write to them.
 ## Task 3 - Identify Common Vulnerabilities
 Script that runs a Lynis audit to check for unpatched vulnerabilities and security weaknesses on the system.
+## Task 4 - Audit SSH Configuration
+Script that checks and reports non-standard SSH configuration settings found in /etc/ssh/sshd_config.
