@@ -12,3 +12,5 @@ Script that checks and reports non-standard SSH configuration settings found in 
 Review and improve SSH server configuration to follow security best practices, ensuring only secure protocols and authentication methods are used.
 ## Task 6 - Check for NFS Vulnerabilities
 Script that scans for NFS shares accessible by anyone on the network using showmount.
+## Task 7 - Audit SNMP Configuration
+Script that searches SNMP configuration for lines containing the public community string which allows public access.
