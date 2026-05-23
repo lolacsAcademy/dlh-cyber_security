@@ -16,3 +16,5 @@ Script that scans for NFS shares accessible by anyone on the network using showm
 Script that searches SNMP configuration for lines containing the public community string which allows public access.
 ## Task 8 - Examine SMTP Server Settings
 Script that checks SMTP server configuration for STARTTLS security feature and reports if it is not configured.
+## Task 9 - TLS Version Testing
+Test which TLS versions are supported by Google using OpenSSL and record results in a JSON file.
