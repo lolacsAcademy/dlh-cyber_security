@@ -10,3 +10,5 @@ Script that runs a Lynis audit to check for unpatched vulnerabilities and securi
 Script that checks and reports non-standard SSH configuration settings found in /etc/ssh/sshd_config.
 ## Task 5 - SSH Configuration Hardening
 Review and improve SSH server configuration to follow security best practices, ensuring only secure protocols and authentication methods are used.
+## Task 6 - Check for NFS Vulnerabilities
+Script that scans for NFS shares accessible by anyone on the network using showmount.
