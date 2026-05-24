@@ -22,3 +22,5 @@ Test which TLS versions are supported by Google using OpenSSL and record results
 Script that tests an SSL/TLS server for weak ciphers using nmap ssl-enum-ciphers script.
 ## Task 11 - HTTP to HTTPS Comparison
 Observation task comparing HTTP and HTTPS websites in order to understand security differences using browser Developer Tools.
+## Task 12 - Simulate DoS Attack on HTTP Server
+Script that simulates a basic Denial of Service attack on an HTTP server using hping3.
