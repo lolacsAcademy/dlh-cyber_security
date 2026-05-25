@@ -8,3 +8,4 @@
 - 4-dig_all.sh: Retrieve all DNS records of a domain
 - 5-subfinder.sh: Fetch subdomains of a domain
 - holbertonschool_report.md: Shodan reconnaissance report for holbertonschool.com
+- 100-flag.txt: CTF flag from passive.hbtn TXT record
