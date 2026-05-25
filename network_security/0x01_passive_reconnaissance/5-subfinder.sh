@@ -1,2 +1,2 @@
 #!/bin/bash
-subfinder -silent -d $1|tee >(while read s;do echo $s,$(dig +short $s|head -n1);done>$1.txt)
+subfinder -silent -d $1 -nW -oI|cut -d',' -f1,2|tee $1.txt
