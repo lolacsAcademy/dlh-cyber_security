@@ -5,3 +5,4 @@ Task 2 - Find hidden flag in page source code
 Task 3 - Find vulnerable injectable page
 Task 4 - SQLmap database and tables enumeration
 Task 5 - Find second flag in Users table via SQLmap dump
+Task 6 - Directory enumeration to find hidden admin panel
