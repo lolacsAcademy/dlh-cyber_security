@@ -12,3 +12,5 @@ Scans a subnetwork to discover live hosts using ICMP Echo scan.
 Scans a subnetwork to discover live hosts using ICMP Timestamp scan.
 ### 3-icmp_address_mask_scan.sh
 Scans a subnetwork to discover live hosts using ICMP Address Mask scan.
+### 4-tcp_syn_ping.sh
+Scans a subnetwork to discover live hosts using TCP SYN Ping scan.
