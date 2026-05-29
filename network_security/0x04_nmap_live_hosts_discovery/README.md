@@ -16,3 +16,5 @@ Scans a subnetwork to discover live hosts using ICMP Address Mask scan.
 Scans a subnetwork to discover live hosts using TCP SYN Ping scan.
 ### 5-tcp_ack_ping.sh
 Scans a subnetwork to discover live hosts using TCP ACK Ping scan.
+### 100-flag.txt
+CTF flag found in UDP port 256 mdns service version.
