@@ -10,3 +10,5 @@ Scans a subnetwork to discover live hosts using ARP scan.
 Scans a subnetwork to discover live hosts using ICMP Echo scan.
 ### 2-icmp_timestamp_scan.sh
 Scans a subnetwork to discover live hosts using ICMP Timestamp scan.
+### 3-icmp_address_mask_scan.sh
+Scans a subnetwork to discover live hosts using ICMP Address Mask scan.
