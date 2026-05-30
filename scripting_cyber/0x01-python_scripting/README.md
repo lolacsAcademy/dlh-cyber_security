@@ -12,3 +12,5 @@ Python scripts for cybersecurity tasks including DNS resolution, network scannin
 Resolves a domain name to its IPv4 address using the socket library.
 ### Task 1 - DNS Records
 Queries and displays all DNS record types (A, AAAA, MX, NS, TXT, SOA) for a given domain using the dnspython library.
+### Task 2 - Download a Web Page
+Downloads and saves a web page's HTML content using the requests and BeautifulSoup libraries.
