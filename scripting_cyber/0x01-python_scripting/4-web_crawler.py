@@ -4,33 +4,28 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 
 
-def crawl_website(start_url, max_depth=2, visited=None):
+def crawl_website(start_url, max_depth=2):
     """Crawls a website recursively and collects internal links."""
-    if visited is None:
-        visited = set()
+    discovered = set()
 
-    if max_depth == 0 or start_url in visited:
-        return visited
+    def explore(current_url, remaining_depth):
+        if remaining_depth == 0 or current_url in discovered:
+            return
+        try:
+            response = requests.get(current_url, timeout=5)
+            discovered.add(current_url)
+            print(f"Crawling: {current_url}")
+            soup = BeautifulSoup(response.text, 'html.parser')
+            base_domain = urlparse(start_url).netloc
+            for anchor in soup.find_all('a', href=True):
+                full_url = urljoin(current_url, anchor['href'])
+                if urlparse(full_url).netloc == base_domain:
+                    explore(full_url, remaining_depth - 1)
+        except Exception:
+            pass
 
-    try:
-        page = requests.get(start_url, timeout=5)
-        visited.add(start_url)
-        print(f"Crawling: {start_url}")
-
-        parsed = BeautifulSoup(page.text, 'html.parser')
-        origin = urlparse(start_url).netloc
-
-        for anchor in parsed.find_all('a', href=True):
-            full_url = urljoin(start_url, anchor['href'])
-            full_url_domain = urlparse(full_url).netloc
-
-            if full_url_domain == origin and full_url not in visited:
-                crawl_website(full_url, max_depth - 1, visited)
-
-    except Exception:
-        pass
-
-    return visited
+    explore(start_url, max_depth)
+    return discovered
 
 
 if __name__ == "__main__":
