@@ -18,3 +18,5 @@ Downloads and saves a web page's HTML content using the requests and BeautifulSo
 Retrieves and displays HTTP response headers from a website using the requests library.
 ### Task 4 - Web Crawler
 Recursively crawls a website and discovers internal links up to a specified depth using requests and BeautifulSoup.
+### Task 5 - Port Scanner
+Checks if a specific port is open on a host using the socket module.
