@@ -16,3 +16,5 @@ Queries and displays all DNS record types (A, AAAA, MX, NS, TXT, SOA) for a give
 Downloads and saves a web page's HTML content using the requests and BeautifulSoup libraries.
 ### Task 3 - Get HTTP Headers
 Retrieves and displays HTTP response headers from a website using the requests library.
+### Task 4 - Web Crawler
+Recursively crawls a website and discovers internal links up to a specified depth using requests and BeautifulSoup.
