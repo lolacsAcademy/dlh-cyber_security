@@ -10,3 +10,5 @@ Python scripts for cybersecurity tasks including DNS resolution, network scannin
 ## Tasks
 ### Task 0 - DNS Resolver
 Resolves a domain name to its IPv4 address using the socket library.
+### Task 1 - DNS Records
+Queries and displays all DNS record types (A, AAAA, MX, NS, TXT, SOA) for a given domain using the dnspython library.
