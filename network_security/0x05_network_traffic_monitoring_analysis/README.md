@@ -16,3 +16,5 @@ TCP connection analysis - identified SYN/FIN packets, destination port and total
 Advanced filtering - extracted FTP password from mixed network traffic.
 ### 5-flag.txt
 TCP stream reconstruction - extracted fragmented secret message across multiple packets.
+### 7-flag.txt
+RDP attack analysis - identified attacker IP, connection attempts and successful username.
