@@ -12,3 +12,5 @@ HTTP traffic analysis - extracted Base64 encoded credentials from POST Authoriza
 DNS query analysis - identified suspicious domain and resolved IP address.
 ### 3-flag.txt
 TCP connection analysis - identified SYN/FIN packets, destination port and total packets.
+### 4-flag.txt
+Advanced filtering - extracted FTP password from mixed network traffic.
