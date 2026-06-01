@@ -6,3 +6,5 @@ This project contains network traffic analysis tasks using PCAP files and tools 
 
 ### 0-flag.txt
 Basic packet analysis - identifies source IP and HTTP port from network capture.
+### 1-flag.txt
+HTTP traffic analysis - extracted Base64 encoded credentials from POST Authorization header.
