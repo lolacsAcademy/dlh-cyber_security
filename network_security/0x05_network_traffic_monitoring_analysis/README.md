@@ -14,3 +14,5 @@ DNS query analysis - identified suspicious domain and resolved IP address.
 TCP connection analysis - identified SYN/FIN packets, destination port and total packets.
 ### 4-flag.txt
 Advanced filtering - extracted FTP password from mixed network traffic.
+### 5-flag.txt
+TCP stream reconstruction - extracted fragmented secret message across multiple packets.
