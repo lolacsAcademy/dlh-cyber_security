@@ -10,3 +10,5 @@ Basic packet analysis - identifies source IP and HTTP port from network capture.
 HTTP traffic analysis - extracted Base64 encoded credentials from POST Authorization header.
 ### 2-flag.txt
 DNS query analysis - identified suspicious domain and resolved IP address.
+### 3-flag.txt
+TCP connection analysis - identified SYN/FIN packets, destination port and total packets.
