@@ -1,9 +1,6 @@
 # 0x05 Network Traffic Monitoring & Analysis
-
 This project contains network traffic analysis tasks using PCAP files and tools like tshark, tcpdump and Wireshark.
-
 ## Tasks
-
 ### 0-flag.txt
 Basic packet analysis - identifies source IP and HTTP port from network capture.
 ### 1-flag.txt
@@ -16,5 +13,7 @@ TCP connection analysis - identified SYN/FIN packets, destination port and total
 Advanced filtering - extracted FTP password from mixed network traffic.
 ### 5-flag.txt
 TCP stream reconstruction - extracted fragmented secret message across multiple packets.
+### 6-flag.txt
+Malicious traffic detection - identified C2 server IP, port, beacon count and exfiltration keyword.
 ### 7-flag.txt
 RDP attack analysis - identified attacker IP, connection attempts and successful username.
