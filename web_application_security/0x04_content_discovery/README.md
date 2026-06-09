@@ -1,28 +1,16 @@
-# 0x04 Content Discovery
+0x04 Content Discovery
 
-## Objective
-Use Gobuster `dir` mode to discover hidden directories and `.php` endpoints.
+What is this project
+Learning how to find hidden files and pages on a website.
 
-## Target
-http://web0x04.hbtn
+Target
+http://web0x04.hbtn/
 
-## Tools Used
-- gobuster
-- Kali Linux
+Way of working
+Used Gobuster dir mode to discover hidden directories and endpoints.
+Checked HTTP responses and headers for hidden data.
 
-## Wordlists Used
-- gobuster-common.txt
-- WP_Word_list.txt
-
-## Method
-- Ran Gobuster in dir mode
-- Fuzzed directories and PHP endpoints using `-x php`
-- Analyzed HTTP status codes (200, 301, 302, 403)
-
-## Findings
-- Discovered hidden directories
-- Identified WordPress-related endpoints
-- Extracted flag from HTTP response header
-
-## Flag File
+Files
+0-flag.txt
+1-flag.txt
 4-flag.txt
