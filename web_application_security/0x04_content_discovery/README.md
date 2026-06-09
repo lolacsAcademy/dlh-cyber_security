@@ -13,3 +13,4 @@ I also inspected HTTP response headers using curl to find hidden flags in custom
 ## Files
 - 0-flag.txt
 - 1-flag.txt
+- 0x04 Content Discovery - Gobuster dir mode task
