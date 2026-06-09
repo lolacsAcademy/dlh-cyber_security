@@ -6,8 +6,10 @@ Learning how to find hidden files and pages on a website manually.
 ## Target
 http://web0x04.hbtn/
 
-## way of working
+## Way of working
 I checked robots.txt, sitemap.xml and favicon.ico to find hidden paths and flags.
+I also inspected HTTP response headers using curl to find hidden flags in custom headers.
 
 ## Files
-- 0-flag.tx
+- 0-flag.txt
+- 1-flag.txt
