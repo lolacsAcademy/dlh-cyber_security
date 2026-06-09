@@ -1,16 +1,28 @@
 # 0x04 Content Discovery
 
-## What is this project
-Learning how to find hidden files and pages on a website manually.
+## Objective
+Use Gobuster `dir` mode to discover hidden directories and `.php` endpoints.
 
 ## Target
-http://web0x04.hbtn/
+http://web0x04.hbtn
 
-## Way of working
-I checked robots.txt, sitemap.xml and favicon.ico to find hidden paths and flags.
-I also inspected HTTP response headers using curl to find hidden flags in custom headers.
+## Tools Used
+- gobuster
+- Kali Linux
 
-## Files
-- 0-flag.txt
-- 1-flag.txt
-- 0x04 Content Discovery - Gobuster dir mode task
+## Wordlists Used
+- gobuster-common.txt
+- WP_Word_list.txt
+
+## Method
+- Ran Gobuster in dir mode
+- Fuzzed directories and PHP endpoints using `-x php`
+- Analyzed HTTP status codes (200, 301, 302, 403)
+
+## Findings
+- Discovered hidden directories
+- Identified WordPress-related endpoints
+- Extracted flag from HTTP response header
+
+## Flag File
+4-flag.txt
