@@ -11,41 +11,25 @@ Architecture:
 - Integration with hospital systems
 
 ## System Architecture
-+------------------+
 
-|  Mobile Client    |
-
-|  (iOS/Android)    |
-
-+--------+----------+
-
-|
-
-| HTTPS
-
-|
-
-+--------v----------+
-
-|   REST API         |
-
-|   Backend          |
-
-+--------+----------+
-
-|
-
-+----+----+
-
-|         |
-
-+---v---+ +---v------------+
-
-| Cloud  | | Hospital        |
-
-| DB     | | Systems         |
-
-+--------+ +-----------------+
+    +------------------+
+    |  Mobile Client    |
+    |  (iOS/Android)    |
+    +--------+----------+
+             |
+             | HTTPS
+             |
+    +--------v----------+
+    |   REST API         |
+    |   Backend          |
+    +--------+----------+
+             |
+        +----+----+
+        |         |
+    +---v---+ +---v------------+
+    | Cloud  | | Hospital        |
+    | DB     | | Systems         |
+    +--------+ +-----------------+
 
 ## 1. Most Critical Asset
 
@@ -164,5 +148,5 @@ Encrypt messages both at rest and in transit, and restrict database access to on
 5. **Regular Security Testing** - Periodically testing the app and API (vulnerability scanning, penetration testing) helps catch new weaknesses before attackers find them, especially important since the app integrates with external hospital systems.
 
 ## References
-- HIPAA Security Rule (U.S. Department of Health and Human Services).
+- HIPAA Security Rule (U.S. Department of Health and Human Services): https://www.hhs.gov/hipaa/for-professionals/security/index.html
 - OWASP Cheat Sheet Series - Threat Modeling Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html
