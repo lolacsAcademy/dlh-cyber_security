@@ -11,58 +11,35 @@ Architecture:
 - Stripe payment integration
 
 ## System Architecture
-+------------------+
 
-|  User Browser    |
-
-|  (React Frontend)|
-
-+--------+---------+
-
-|
-
-| HTTPS
-
-|
-
-========= TRUST BOUNDARY #1 =========
-
-|
-
-+--------v---------+
-
-|   Node.js API    |
-
-|     Backend      |
-
-+--------+---------+
-
-|
-
-|
-
-========= TRUST BOUNDARY #2 =========
-
-|
-
-+--------v---------+
-
-| PostgreSQL DB    |
-
-+------------------+
-     |
-     |
-========= TRUST BOUNDARY #3 =========
-
-|
-
-+--------v---------+
-
-| Stripe Payment   |
-
-|    Service       |
-
-+------------------+
+    +------------------+
+    |  User Browser    |
+    |  (React Frontend)|
+    +--------+---------+
+             |
+             | HTTPS
+             |
+    ===== TRUST BOUNDARY #1 =====
+             |
+    +--------v---------+
+    |   Node.js API    |
+    |     Backend      |
+    +--------+---------+
+             |
+             |
+    ===== TRUST BOUNDARY #2 =====
+             |
+    +--------v---------+
+    | PostgreSQL DB    |
+    +------------------+
+             |
+             |
+    ===== TRUST BOUNDARY #3 =====
+             |
+    +--------v---------+
+    | Stripe Payment   |
+    |    Service       |
+    +------------------+
 
 ## 1. STRIDE Threats for Checkout Process
 
@@ -160,15 +137,15 @@ A trust boundary exists wherever data moves from one trust level to another.
 The product search function accepts user input. If the backend builds SQL queries using string concatenation instead of parameterized queries, an attacker can inject SQL commands through the search box.
 
 Example:
-```sql
-SELECT * FROM products WHERE name LIKE '%user_input%';
-```
+
+    SELECT * FROM products WHERE name LIKE '%user_input%';
+
 Attacker input: `' OR 1=1 --`
 
 Resulting query:
-```sql
-SELECT * FROM products WHERE name LIKE '%' OR 1=1 --';
-```
+
+    SELECT * FROM products WHERE name LIKE '%' OR 1=1 --';
+
 This can expose all records or allow further database attacks.
 
 **DREAD Scoring** (scale 1-10, using the official rating scale)
