@@ -197,7 +197,7 @@ DREAD Score = (D + R + E + A + D) / 5
 - Consider an ORM that prevents raw SQL injection by design.
 
 ## References
-- OWASP STRIDE Threat Modeling Guidance.
-- OWASP SQL Injection Prevention Cheat Sheet.
-- Stripe Security Best Practices.
+- OWASP Cheat Sheet Series - Threat Modeling Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html
+- OWASP Cheat Sheet Series - SQL Injection Prevention Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
+- Security at Stripe: https://stripe.com/security
 - Meier, J. D., Mackman, A., Dunner, M., Vasireddy, S., Escamilla, R., & Murukan, A. (2003). Improving Web Application Security: Threats and Countermeasures. Microsoft Corporation.
