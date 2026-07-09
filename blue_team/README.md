@@ -5,3 +5,4 @@ Security posture assessment project for MedDefense Health Systems (fictional sce
 ## Tasks
 
 - Task 0: 1x00_first_watch/0-environment_summary.md
+- Task 1: 1x00_first_watch/1-incident_classification.md
