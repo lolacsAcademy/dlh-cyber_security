@@ -9,3 +9,4 @@ Task 4: 4-social_engineering_analysis.md
 Task 5: 5-supply_chain_assessment.md
 Task 6: 6-threat_actor_matrix.md
 Task 7: 7-attack_surface_map.md
+Task 8: 8-technical_vectors.md
