@@ -7,3 +7,4 @@ Task 2: 2-ransomware_assessment.md
 Task 3: 3-insider_assessment.md
 Task 4: 4-social_engineering_analysis.md
 Task 5: 5-supply_chain_assessment.md
+Task 6: 6-threat_actor_matrix.md
