@@ -20,3 +20,4 @@ Security posture assessment project for MedDefense Health Systems (fictional sce
 - Task 13: 1x00_first_watch/13-reality_check.md
 - Task 14: 1x00_first_watch/14-risk_decisions.md
 - Task 15: 1x00_first_watch/15-predecessor_review.md
+- Task 16: 1x00_first_watch/16-security_posture_assessment.md
