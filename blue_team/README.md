@@ -11,3 +11,4 @@ Security posture assessment project for MedDefense Health Systems (fictional sce
 - Task 4: 1x00_first_watch/4-control_inventory.md
 - Task 5: 1x00_first_watch/5-control_gaps.md
 - Task 6: 1x00_first_watch/6-compensating_controls.md
+- Task 7: 1x00_first_watch/7-asset_registry.md
