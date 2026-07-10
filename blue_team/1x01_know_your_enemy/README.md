@@ -3,3 +3,4 @@ MedDefense threat landscape project.
 
 Task 0: 0-threat_landscape_summary.md
 Task 1: 1-threat_actor_taxonomy.md
+Task 2: 2-ransomware_assessment.md
