@@ -12,3 +12,4 @@ Task 7: 7-attack_surface_map.md
 Task 8: 8-technical_vectors.md
 Task 9: 9-vector_asset_matrix.md
 Task 10: 10-kill_chains.md
+Task 11: 11-stride_ehr.md
