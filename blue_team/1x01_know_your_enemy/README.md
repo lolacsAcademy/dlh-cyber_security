@@ -19,3 +19,4 @@ Task 14: 14-threat_scenarios.md
 Task 15: 15-gap_threat_correlation.md
 Task 16: 16-threat_priority_assessment.md
 Task 17: 17-threat_evolution.md
+Task 18: 18-threat_landscape_report.md
