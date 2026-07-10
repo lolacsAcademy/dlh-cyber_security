@@ -10,3 +10,4 @@ Task 5: 5-supply_chain_assessment.md
 Task 6: 6-threat_actor_matrix.md
 Task 7: 7-attack_surface_map.md
 Task 8: 8-technical_vectors.md
+Task 9: 9-vector_asset_matrix.md
