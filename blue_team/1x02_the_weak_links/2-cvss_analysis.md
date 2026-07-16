@@ -67,19 +67,16 @@ Calculated Base Score: **4.8**
 Severity Rating: **Medium** (CVSS v3.1 band: 4.0–6.9)
 ## Exercise 3: Comparison
 
-The scan report's explicit CVSS Base scores are: 9.8, 7.8, 8.1, 9.8, 10.0, 7.5, 8.8, 7.5, 9.8, 9.8. None of these fall between 5.0 and 7.0 — there is a genuine gap in the report between 7.5 and 9.8. For this exercise the closest available finding below 9.0 is used instead, noted plainly as outside the requested 5.0–7.0 band.
+The report has no finding scored between 5.0–7.0 (its scores are 9.8, 7.8, 8.1, 9.8, 10.0, 7.5, 8.8, 7.5, 9.8, 9.8). Finding 006 (MySQL unrestricted network binding) has no CVE, so it was scored here using the same NIST Calculator method as Exercise 2.
 
-**Finding 001 — CVE-2021-44790 — 9.8 (Critical)**
-Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+**Finding 001 — 9.8 (Critical)**
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
 
-**Finding 002 — CVE-2019-0211 — 7.8 (High)**
-Vector: CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+**Finding 006 — 6.5 (Medium, self-scored)**
+CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
+(AV:A — internal network only; PR:N — binding flaw needs no auth to reach; C:H — financial data exposed; I:N/A:N — no modify/deny capability, read-only exposure)
 
-**Component differences:** Only two metrics differ between them — Attack Vector (N vs L) and Privileges Required (N vs L). Attack Complexity, User Interaction, Scope, and all three Impact metrics are identical in both.
+**Component differences:** Attack Vector (N vs A) and both Integrity/Availability impact (H/H vs N/N). Finding 001 allows remote code execution (full C/I/A); Finding 006 is a network-exposure misconfiguration limited to data disclosure only.
 
-**Isolating each change (starting from Finding 001's 9.8):**
-- Changing only Attack Vector (N → L), keeping Privileges Required at N: score drops to **8.4** (a 1.4-point drop)
-- Changing only Privileges Required (N → L), keeping Attack Vector at N: score drops to **8.8** (a 1.0-point drop)
-- Changing both together (as in Finding 002): score drops to **7.8** (a 2.0-point drop)
+**Biggest impact on score:** the Impact metrics. Dropping Integrity and Availability from High to None removes far more score than the Attack Vector change alone — full RCE vs. read-only exposure is the main driver of the 3.3-point gap, not just how remote the attacker needs to be.
 
-**Which component has the biggest impact:** Attack Vector. Moving from Network to Local access removes 1.4 points on its own, more than the 1.0-point drop from lowering Privileges Required alone. This makes sense conceptually too — restricting *who can reach the target at all* (Attack Vector) cuts the attacker pool more sharply than restricting *what access level they need once they can reach it* (Privileges Required).
