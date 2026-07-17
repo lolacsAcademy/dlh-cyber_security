@@ -16,3 +16,4 @@ Builds on 1x00 (Security Posture Assessment) and 1x01 (Know Your Enemy).
 - Task 8 — The Self-Audit: `8-lynis_audit.md`
 - Task 9 — The OSINT Hunt: `9-osint_hunt.md`
 - Task 10 — The Critical CVEs: `10-critical_cves.md`
+- Task 11 — The False Positives: `11-false_positives.md`
