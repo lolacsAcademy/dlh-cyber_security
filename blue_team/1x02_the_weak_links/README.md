@@ -12,3 +12,4 @@ Builds on 1x00 (Security Posture Assessment) and 1x01 (Know Your Enemy).
 - Task 4 — The Exploit Hunt: `4-exploit_hunt.md`
 - Task 5 — The Exploit Research Script: `5-exploit_check.sh`
 - Task 6 — The Misconfiguration Findings: `6-misconfiguration_analysis.md`
+- Task 7 — The Vulnerability Taxonomy: `7-vulnerability_taxonomy.md`
