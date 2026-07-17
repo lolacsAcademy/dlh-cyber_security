@@ -23,3 +23,4 @@ Builds on 1x00 (Security Posture Assessment) and 1x01 (Know Your Enemy).
 - Task 15 — The Medical IoT: `15-medical_iot.md`
 - Task 16 — The Noise Filter: `16-triage.md`
 - Task 17 — The CVSS Contextualizer: `17-cvss_contextualizer.md`
+- Task 18 — The Threat-Vulnerability Correlation: `18-threat_vuln_correlation.md`
