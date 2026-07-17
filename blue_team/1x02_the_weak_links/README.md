@@ -14,3 +14,4 @@ Builds on 1x00 (Security Posture Assessment) and 1x01 (Know Your Enemy).
 - Task 6 — The Misconfiguration Findings: `6-misconfiguration_analysis.md`
 - Task 7 — The Vulnerability Taxonomy: `7-vulnerability_taxonomy.md`
 - Task 8 — The Self-Audit: `8-lynis_audit.md`
+- Task 9 — The OSINT Hunt: `9-osint_hunt.md`
