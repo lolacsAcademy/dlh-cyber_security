@@ -20,3 +20,4 @@ Builds on 1x00 (Security Posture Assessment) and 1x01 (Know Your Enemy).
 - Task 12 — The Legacy Systems: `12-legacy_systems.md`
 - Task 13 — The Web Exposure: `13-web_exposure.md`
 - Task 14 — The Network Posture: `14-network_posture.md`
+- Task 15 — The Medical IoT: `15-medical_iot.md`
