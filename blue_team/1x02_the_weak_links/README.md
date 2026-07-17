@@ -25,3 +25,4 @@ Builds on 1x00 (Security Posture Assessment) and 1x01 (Know Your Enemy).
 - Task 17 — The CVSS Contextualizer: `17-cvss_contextualizer.md`
 - Task 18 — The Threat-Vulnerability Correlation: `18-threat_vuln_correlation.md`
 - Task 19 — The Remediation Map: `19-remediation_map.md`
+- Task 20 — The Priority Matrix: `20-priority_matrix.md`
