@@ -28,3 +28,4 @@ Builds on 1x00 (Security Posture Assessment) and 1x01 (Know Your Enemy).
 - Task 20 — The Priority Matrix: `20-priority_matrix.md`
 - Task 21 — Vulnerability Assessment Summary: `21-vulnerability_assessment.md`
 - Task 22 — The Patch Briefing: `22-patch_briefing.md`
+- Task 23 — The Validation Plan: `23-validation_plan.md`
