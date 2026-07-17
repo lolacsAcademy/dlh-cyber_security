@@ -2,7 +2,7 @@
 
 ## 1. FortiGate FortiOS
 
-Source: CISA alert, Jan 28 2026 (cisa.gov/news-events/alerts/2026/01/28), and Fortinet advisory FG-IR-26-060. Also checked on nvd.nist.gov.
+Source: CISA alert (https://www.cisa.gov/news-events/alerts/2026/01/28/fortinet-releases-guidance-address-ongoing-exploitation-authentication-bypass-vulnerability-cve-2026), Fortinet advisory FG-IR-26-060, and NVD (https://nvd.nist.gov/vuln/detail/CVE-2026-24858)
 CVE: CVE-2026-24858
 Affected Product: FortiGate 100F (A-17), our perimeter firewall and VPN
 Why the Scan Missed It: The scan never touched the firewall itself, only servers and endpoints. This CVE also came out in January 2026, so it wouldn't show up unless someone checked separately.
@@ -12,7 +12,7 @@ Recommendation: Check if FortiCloud SSO is turned on for our FortiGate, patch it
 
 ## 2. Microsoft 365 / Entra ID
 
-Source: The Hacker News, July 2026
+Source: "Hackers Use Fake Microsoft Entra Passkey Enrollment to Gain Microsoft 365 Access" - The Hacker News (https://thehackernews.com/2026/07/hackers-use-fake-microsoft-entra.html)
 CVE: None — this is a technique, not a numbered CVE
 Affected Product: Our O365 E3 tenant, org-wide
 Why the Scan Missed It: Cloud services were never in scope for this scan (stated in the methodology notes).
@@ -22,7 +22,7 @@ Recommendation: Warn staff about this specific scam (not just generic phishing),
 
 ## 3. Synology DSM 7
 
-Source: GBHackers article, also confirmed on nvd.nist.gov
+Source: "Critical Synology Vulnerability Allows Remote Attackers to Execute Arbitrary Code" - GBHackers (https://gbhackers.com/critical-synology-vulnerability/), confirmed on NVD (https://nvd.nist.gov/vuln/detail/CVE-2024-10441)
 CVE: CVE-2024-10441
 Affected Product: NAS-01 (A-10), our backup storage running DSM 7
 Why the Scan Missed It: The scan saw the DSM login page was open (that's Finding 015) but didn't check which exact version it's running, so it couldn't catch this.
