@@ -18,3 +18,4 @@ Builds on 1x00 (Security Posture Assessment) and 1x01 (Know Your Enemy).
 - Task 10 — The Critical CVEs: `10-critical_cves.md`
 - Task 11 — The False Positives: `11-false_positives.md`
 - Task 12 — The Legacy Systems: `12-legacy_systems.md`
+- Task 13 — The Web Exposure: `13-web_exposure.md`
