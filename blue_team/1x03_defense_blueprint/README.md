@@ -10,3 +10,4 @@ MedDefense Health Systems — Blue Team simulation project. Builds on findings f
 - Task 3: Gap-to-Framework Bridge (Traceability Chain)
 - Task 4: Governance Architecture (RACI, Data Roles, CISO Question)
 - Task 5: Risk Equation (SLE, ARO, ALE Quantitative Analysis)
+- Task 6: ALE Workshop (Top 5 Risks, Control Investment)
