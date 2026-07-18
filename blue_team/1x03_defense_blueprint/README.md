@@ -5,3 +5,4 @@ MedDefense Health Systems — Blue Team simulation project. Builds on findings f
 ## Tasks
 
 - Task 0: Framework Landscape (NIST CSF 2.0, CIS Controls v8, ISO 27001) 
+- Task 1: NIST CSF Mapping (Current Profile)
