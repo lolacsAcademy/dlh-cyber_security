@@ -12,3 +12,4 @@ MedDefense Health Systems — Blue Team simulation project. Builds on findings f
 - Task 5: Risk Equation (SLE, ARO, ALE Quantitative Analysis)
 - Task 6: ALE Workshop (Top 5 Risks, Control Investment)
 - Task 7: Cost-Benefit Analysis (8 Controls, ROI Verdicts)
+- Task 8: Budget Allocation (Final $120,000 Selection)
