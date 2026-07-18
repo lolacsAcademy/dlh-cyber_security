@@ -22,3 +22,4 @@ MedDefense Health Systems — Blue Team simulation project. Builds on findings f
 - Task 16: Risk Appetite Debate
 - Task 17: Security Strategy Document (Capstone)
 - Task 18: The Roadmap (6-Month Timeline)
+- Task 19: The Board Pitch (300 Words)
