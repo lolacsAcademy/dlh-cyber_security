@@ -24,7 +24,7 @@ MedDefense Health Systems — final $120,000 allocation across the 8 Task 7 cont
 
 - **24/7 Outsourced SOC — $150,000.** Not a timing problem, a math problem: negative Net Value (-$107,706, Task 7). Costs more than the entire budget by itself for a fraction of the risk reduction the cheaper controls already deliver. Reject, don't defer — nothing changes next year that makes this cost-justified at MedDefense's current scale.
 
-**Total spend vs. budget:** $87,500 spent of $120,000. **$32,500 remaining.** This is not unspent slack — it is reserved for the four remaining Critical gaps (GAP-002, GAP-004, GAP-005, GAP-008) identified in Task 3 but not quantified in Task 6/7's top-5 risk set (backup coverage for ad-dc-02 and PACS, the shared PACS login, and the network closet's physical security).
+**Total spend vs. budget:** $87,500 spent of $120,000. **$32,500 budget remaining.** This is not unspent slack — it is reserved for the four remaining Critical gaps (GAP-002, GAP-004, GAP-005, GAP-008) identified in Task 3 but not quantified in Task 6/7's top-5 risk set (backup coverage for ad-dc-02 and PACS, the shared PACS login, and the network closet's physical security).
 
 ## Part 2 — The Opportunity Cost
 
