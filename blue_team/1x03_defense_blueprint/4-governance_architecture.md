@@ -16,7 +16,7 @@
 **R** = Responsible (does the work) · **A** = Accountable (owns the outcome, signs off) · **C** = Consulted (input sought before action) · **I** = Informed (kept updated after the fact)
 
 Reasoning notes:
-- The CEO is Accountable for budget, policy, and risk acceptance because no CISO exists — these are the exact decisions James's own concern describes as currently contested; a single named Accountable owner ends the "whoever shouts loudest" problem.
+- The CEO is Accountable for budget, policy, and risk acceptance because the CISO position is vacant — these are the exact decisions James's own concern describes as currently contested; a single named Accountable owner ends the "whoever shouts loudest" problem.
 - Vulnerability remediation and incident response carry two Responsible parties (IT Director + Security Analyst) because technical execution genuinely splits between infrastructure changes (Sarah's team) and security-specific action (you) — this reflects reality rather than forcing an artificial single owner.
 - Dept Heads are Responsible for training completion in their own departments (not Consulted) because compliance depends on them enforcing it locally, not just being informed.
 
