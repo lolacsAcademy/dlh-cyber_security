@@ -17,3 +17,4 @@ MedDefense Health Systems — Blue Team simulation project. Builds on findings f
 - Task 10: Risk Register (Top 10 Risks, Governance)
 - Task 11: Control Selection (Per-Risk Controls, Dependency Map)
 - Task 12: Acceptable Use Policy (AUP)
+- Task 13: Quick Wins (5 Zero-Cost, 2-Week Fixes)
