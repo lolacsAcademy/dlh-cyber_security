@@ -14,3 +14,4 @@ MedDefense Health Systems — Blue Team simulation project. Builds on findings f
 - Task 7: Cost-Benefit Analysis (8 Controls, ROI Verdicts)
 - Task 8: Budget Allocation (Final $120,000 Selection)
 - Task 9: CFO Challenge (5 Objections Rebutted)
+- Task 10: Risk Register (Top 10 Risks, Governance)
