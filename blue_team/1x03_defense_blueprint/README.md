@@ -20,3 +20,4 @@ MedDefense Health Systems — Blue Team simulation project. Builds on findings f
 - Task 13: Quick Wins (5 Zero-Cost, 2-Week Fixes)
 - Task 15: Red Team Your Blueprint- Task 14: Segmentation Architecture
 - Task 16: Risk Appetite Debate
+- Task 17: Security Strategy Document (Capstone)
