@@ -1,5 +1,6 @@
-# 1x04 — The Cryptographic Foundation
+# 1x04_crypto_foundation
 
-## Task 0 — The Crypto Inventory
-## Task 1 — The Symmetric Engine
-## Task 2 — asymmetric_analysis.
+## 0-crypto_inventory.md
+## 1-symmetric_encrypt.sh
+## 2-asymmetric_analysis.md
+## 3-hash_verify.sh, 3-hash_analysis.md
