@@ -26,10 +26,10 @@ If MedDefense's AD uses RC4 for Kerberos tickets (Finding 018), and RC4-encrypte
 ## Part 3 — Rainbow Table Demonstration
 
 MD5("password123") = 482c811da5d5b4bc6d497ffa98491e38
-CrackStation result: FOUND — plaintext "password123" recovered instantly (unsalted, in precomputed rainbow table).
+crackstation.net lookup result: FOUND — plaintext "password123" recovered instantly (unsalted, in precomputed rainbow table).
 
 MD5("s4lt9xQ2:password123") = 6d537fa53f1db2c22b0451ef4ef9fbe8
-CrackStation result: NOT FOUND.
+crackstation.net lookup result: NOT FOUND.
 
 Salting defeats rainbow tables because the precomputed tables are built for known, common (unsalted) input strings — adding a unique random salt before hashing means the attacker's table would need a separate entry for every possible salt+password combination, which is computationally infeasible to precompute. Every user needs a unique salt because if all users shared one salt, an attacker could still precompute a single rainbow table for that salt and crack every account with it, defeating the purpose.
 
