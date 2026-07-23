@@ -4,3 +4,4 @@
 ## 1-symmetric_encrypt.sh
 ## 2-asymmetric_analysis.md
 ## 3-hash_verify.sh, 3-hash_analysis.md
+## 4-key_exchange.md
