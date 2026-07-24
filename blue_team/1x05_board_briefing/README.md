@@ -5,3 +5,4 @@
 4-crypto_emergency.md
 5-ale_update.md
 6-technical_proof.md
+7-risk_register_update.md
