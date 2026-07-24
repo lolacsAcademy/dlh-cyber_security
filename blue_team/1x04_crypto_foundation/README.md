@@ -8,3 +8,4 @@
 ## 5-sign_verify.sh
 ## 6-algorithm_landscape.md
 ## 7-obfuscation_toolkit.md
+## 8-certificate_anatomy.md
