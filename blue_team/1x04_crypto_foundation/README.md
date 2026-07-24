@@ -17,3 +17,4 @@
 ## 14-key_management.md
 ## 15-crypto_posture_audit.md
 ## 16-crypto_attack_surface.md
+## 17-certificate_lifecycle.md
