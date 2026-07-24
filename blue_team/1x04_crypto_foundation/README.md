@@ -20,4 +20,4 @@
 ## 17-certificate_lifecycle.md
 ## 18-data_classification.md
 ## 19-hipaa_checkpoint.md
-## 20-implementation_playbook.md
+## 22-implementation_playbook.md

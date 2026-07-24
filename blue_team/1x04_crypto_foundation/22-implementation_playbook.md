@@ -1,6 +1,6 @@
-# Task 20 — The Implementation Playbook
+# Task 22 — The Implementation Playbook
 
-MedDefense Health Systems — 1x04 Task 20
+MedDefense Health Systems — 1x04 Task 22
 
 The 5 highest-priority changes, all rated Immediate in the T15 Crypto Posture Audit.
 
