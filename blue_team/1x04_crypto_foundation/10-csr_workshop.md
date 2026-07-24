@@ -29,14 +29,14 @@ All fields verified correct — CN, organization details, and all 3 SAN entries 
 
 ## Part 4 — The Full Lifecycle
 
-1. CSR generated — done (portal_key.pem, portal.csr)
+1. CSR generated (done) — portal_key.pem, portal.csr
 2. Submission to CA: commercial OV CA (per Task 8 profile), not Let's Encrypt — healthcare portal needs Organization Validation
 3. Validation process: CA verifies domain control plus MedDefense's legal business identity for OV
 4. Certificate issuance: CA signs the CSR's public key, returns cert plus intermediate chain
-5. Installation: deploy new cert, private key, and chain to the portal server, replacing the expiring one
-6. Verification: openssl s_client against the live portal to confirm the new cert serves and chain validates
-7. Decommission: remove old cert/key once new one is confirmed live; revoke old cert if key no longer needed
-8. Monitoring: automated expiry alerts (30/14/7 days out), move to ACME automated renewal to prevent a repeat of Finding 013
+5. Installation on the web server: deploy new cert, private key, and chain to the portal server, replacing the expiring one
+6. Verification that the new certificate is serving correctly: openssl s_client against the live portal to confirm the new cert serves and chain validates
+7. Decommission of the old certificate: remove old cert/key once new one is confirmed live; revoke old cert if key no longer needed
+8. Monitoring for the next renewal: automated expiry alerts (30/14/7 days out), move to ACME automated renewal to prevent a repeat of Finding 013
 
 ## Script
 
