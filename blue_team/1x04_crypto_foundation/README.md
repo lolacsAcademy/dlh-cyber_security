@@ -19,3 +19,4 @@
 ## 16-crypto_attack_surface.md
 ## 17-certificate_lifecycle.md
 ## 18-data_classification.md
+## 19-hipaa_checkpoint.md
