@@ -13,3 +13,4 @@
 ## 10-generate_csr.sh, 10-csr_workshop.md
 ## 11-tls_audit.md
 ## 12-luks_manager.sh, 12-disk_encryption.md
+## 13-encryption_levels.md
