@@ -11,3 +11,4 @@
 ## 8-certificate_anatomy.md
 ## 9-chain_of_trust.md
 ## 10-generate_csr.sh, 10-csr_workshop.md
+## 11-tls_audit.md
