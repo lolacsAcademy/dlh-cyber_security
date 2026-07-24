@@ -4,3 +4,4 @@
 3-emergency_plan.md
 4-crypto_emergency.md
 5-ale_update.md
+6-technical_proof.md
