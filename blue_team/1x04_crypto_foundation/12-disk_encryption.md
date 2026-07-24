@@ -45,7 +45,7 @@ See 12-luks_manager.sh. Supports create, open, close modes. Tested full cycle (c
 
 ## Part 4 — MedDefense Backup Encryption Design
 
-**Encryption level:** Volume-level (LUKS on the NAS's storage volume), not full-disk or file-level. Full-disk isn't practical on a NAS appliance handling multiple shares; file-level would require per-file key management overhead across every backup job. Volume-level protects everything written to that backup volume transparently, matching this lab's exact model.
+**Encryption level (NAS-01):** Volume-level (LUKS on the NAS-01 storage volume), not full-disk or file-level. Full-disk isn't practical on a NAS appliance handling multiple shares; file-level would require per-file key management overhead across every backup job. Volume-level protects everything written to NAS-01's backup volume transparently, matching this lab's exact model.
 
 **Performance overhead:** Based on T1 measurements (AES-256-CBC handled the 100MB test file without issue), LUKS's AES-XTS overhead is typically single-digit percentage CPU cost on modern hardware — acceptable for scheduled backup windows, though the NAS's specific CPU should be benchmarked before production rollout.
 
