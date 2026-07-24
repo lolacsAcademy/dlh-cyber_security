@@ -16,3 +16,4 @@
 ## 13-encryption_levels.md
 ## 14-key_management.md
 ## 15-crypto_posture_audit.md
+## 16-crypto_attack_surface.md
