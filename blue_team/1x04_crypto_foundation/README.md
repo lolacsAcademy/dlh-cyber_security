@@ -15,3 +15,4 @@
 ## 12-luks_manager.sh, 12-disk_encryption.md
 ## 13-encryption_levels.md
 ## 14-key_management.md
+## 15-crypto_posture_audit.md
