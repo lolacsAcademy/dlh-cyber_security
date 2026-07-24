@@ -31,7 +31,7 @@ All fields verified correct — CN, organization details, and all 3 SAN entries 
 
 1. CSR generated — done (portal_key.pem, portal.csr)
 2. Submission to CA: commercial OV CA (per Task 8 profile), not Let's Encrypt — healthcare portal needs Organization Validation
-3. Validation: CA verifies domain control plus MedDefense's legal business identity for OV
+3. Validation process: CA verifies domain control plus MedDefense's legal business identity for OV
 4. Certificate issuance: CA signs the CSR's public key, returns cert plus intermediate chain
 5. Installation: deploy new cert, private key, and chain to the portal server, replacing the expiring one
 6. Verification: openssl s_client against the live portal to confirm the new cert serves and chain validates
