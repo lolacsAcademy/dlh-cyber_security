@@ -1,5 +1,5 @@
 #!/bin/bash
-set -uo pipefail
+set -euo pipefail
 
 # Task 4 - The SSH Lockdown
 # Addresses 1x02 Finding 009 (SSH password auth + no lockout) and
