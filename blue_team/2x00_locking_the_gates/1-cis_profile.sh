@@ -3,6 +3,7 @@ set -euo pipefail
 
 # Task 1 - MedDefense CIS Control Profile
 # Threat-driven CIS controls for billing-srv-01, web-srv-01, log-srv-01
+# Domains covered: SSH, PAM, kernel, service minimization, filesystem permissions, audit, firewall, log retention
 
 OUT="cis_profile.json"
 
