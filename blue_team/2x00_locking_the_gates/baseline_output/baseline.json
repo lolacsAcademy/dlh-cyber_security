@@ -2,7 +2,7 @@
   "hostname": "kali",
   "os": "Kali GNU/Linux Rolling",
   "kernel": "6.18.12+kali-amd64",
-  "uptime": "up 25 minutes",
+  "uptime": "up 51 minutes",
   "running_services": 19,
   "open_ports": 0,
   "suid_binaries": 34,

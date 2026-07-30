@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -uo pipefail
+set -euo pipefail
 # Task 0 - Baseline Snapshot
 # Captures pre-hardening security state for delta comparison in later tasks.
 
@@ -19,7 +19,7 @@ SERVICES_COUNT=$(wc -l < "$OUTDIR/services_running.txt")
 
 # 3. Open ports / listening sockets (TCP + UDP)
 sudo ss -tulnp > "$OUTDIR/open_ports.txt"
-PORTS_COUNT=$(grep -E "LISTEN|UNCONN" "$OUTDIR/open_ports.txt" | wc -l)
+PORTS_COUNT=$(grep -E "LISTEN|UNCONN" "$OUTDIR/open_ports.txt" | wc -l || true)
 
 # 4. SUID binaries
 find / -xdev -perm -4000 -type f 2>/dev/null > "$OUTDIR/suid_binaries.txt"
@@ -30,13 +30,13 @@ find / -xdev -perm -2000 -type f 2>/dev/null > "$OUTDIR/sgid_binaries.txt"
 SGID_COUNT=$(wc -l < "$OUTDIR/sgid_binaries.txt")
 
 # 6. World-writable files (excluding /proc, /sys, /dev)
-sudo find / -path /proc -prune -o -path /sys -prune -o -path /dev -prune -o -type f -perm -0002 -print 2>/dev/null > "$OUTDIR/world_writable.txt"
+sudo find / -path /proc -prune -o -path /sys -prune -o -path /dev -prune -o -type f -perm -0002 -print 2>/dev/null > "$OUTDIR/world_writable.txt" || true
 WW_COUNT=$(wc -l < "$OUTDIR/world_writable.txt")
 
 # 7. Sysctl security-relevant parameters
 sysctl -a 2>/dev/null | grep -E \
 "net.ipv4.ip_forward|net.ipv4.conf.all.accept_redirects|net.ipv4.conf.all.accept_source_route|net.ipv4.conf.all.send_redirects|net.ipv4.conf.all.rp_filter|net.ipv4.icmp_echo_ignore_broadcasts|net.ipv4.tcp_syncookies|kernel.randomize_va_space|fs.suid_dumpable|kernel.dmesg_restrict" \
-> "$OUTDIR/sysctl_security.txt"
+> "$OUTDIR/sysctl_security.txt" || true
 
 # 8. SSH configuration
 sudo grep -E -i "^PermitRootLogin|^PasswordAuthentication|^PermitEmptyPasswords|^X11Forwarding|^Protocol|^MaxAuthTries" /etc/ssh/sshd_config > "$OUTDIR/ssh_config.txt" 2>/dev/null
