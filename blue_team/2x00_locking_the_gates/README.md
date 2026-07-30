@@ -19,3 +19,6 @@ Usage: `sudo ./4-ssh_hardening.sh`
 ## Task 5
 `5-sysctl_hardening.sh` - applies 14 kernel/network sysctl hardening params, verifies each via /proc/sys.
 Usage: `sudo ./5-sysctl_hardening.sh`
+## Task 6
+`6-filesystem_hardening.sh` - audits SUID/SGID vs whitelist, fixes world-writable files, hardens /tmp /var/tmp /dev/shm mounts, restricts cron.
+Usage: `sudo ./6-filesystem_hardening.sh`
