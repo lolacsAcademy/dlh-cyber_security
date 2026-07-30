@@ -22,3 +22,6 @@ Usage: `sudo ./5-sysctl_hardening.sh`
 ## Task 6
 `6-filesystem_hardening.sh` - audits SUID/SGID vs whitelist, fixes world-writable files, hardens /tmp /var/tmp /dev/shm mounts, restricts cron.
 Usage: `sudo ./6-filesystem_hardening.sh`
+## Task 7
+`7-service_minimization.sh` - compares enabled services against MedDefense whitelist. Runs dry-run by default for safety; --apply enforces.
+Usage: `sudo ./7-service_minimization.sh`
