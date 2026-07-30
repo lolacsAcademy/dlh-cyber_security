@@ -31,3 +31,6 @@ Usage: `sudo ./8-pam_hardening.sh`
 ## Task 9
 `9-apparmor_config.sh` - checks AppArmor status, switches Apache/MySQL to enforce, creates custom billing-app profile, reports unconfined processes.
 Usage: `sudo ./9-apparmor_config.sh`
+## Task 10
+`10-auditd_config.sh` - enables auditd, deploys 14 MedDefense audit rules, verifies load, tests with a live event.
+Usage: `sudo ./10-auditd_config.sh`
