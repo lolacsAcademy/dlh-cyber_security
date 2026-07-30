@@ -1,0 +1,11 @@
+{
+  "hostname": "kali",
+  "os": "Kali GNU/Linux Rolling",
+  "kernel": "6.18.12+kali-amd64",
+  "uptime": "up 25 minutes",
+  "running_services": 19,
+  "open_ports": 0,
+  "suid_binaries": 34,
+  "sgid_binaries": 8,
+  "world_writable_files": 0
+}
