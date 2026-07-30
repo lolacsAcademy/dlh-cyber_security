@@ -13,3 +13,6 @@ Usage: `sudo ./2-lynis_parse.sh /var/log/lynis-report.dat | jq '.' > lynis_findi
 ## Task 3
 `3-remediation_queue.sh` - builds gap_analysis.json (15 controls status) and remediation_queue.json (12 items, priority sorted).
 Usage: `./3-remediation_queue.sh`
+## Task 4
+`4-ssh_hardening.sh` - hardens sshd_config (11 settings), creates banner, validates with sshd -t, restarts SSH.
+Usage: `sudo ./4-ssh_hardening.sh`
