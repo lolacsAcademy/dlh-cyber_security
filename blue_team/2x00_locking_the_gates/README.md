@@ -28,3 +28,6 @@ Usage: `sudo ./7-service_minimization.sh`
 ## Task 8
 `8-pam_hardening.sh` - configures pwquality (minlen 14), pam_faillock lockout (5/900s), password history (remember 12). Backs up PAM files first.
 Usage: `sudo ./8-pam_hardening.sh`
+## Task 9
+`9-apparmor_config.sh` - checks AppArmor status, switches Apache/MySQL to enforce, creates custom billing-app profile, reports unconfined processes.
+Usage: `sudo ./9-apparmor_config.sh`
