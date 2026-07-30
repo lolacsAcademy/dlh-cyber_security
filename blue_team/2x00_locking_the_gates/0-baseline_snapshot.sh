@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -uo pipefail
 # Task 0 - Baseline Snapshot
 # Captures pre-hardening security state for delta comparison in later tasks.
 
