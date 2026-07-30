@@ -79,7 +79,7 @@ if sshd -t 2>/tmp/sshd_test_err; then
 else
   echo "    sshd -t: FAILED"
   cat /tmp/sshd_test_err
-  echo "[*] Restoring backup..."
+  echo "[*] restore backup..."
   cp -p "$BACKUP" "$SSHD_CONFIG"
   exit 1
 fi
