@@ -1,5 +1,5 @@
 #!/bin/bash
-set -uo pipefail
+set -euo pipefail
 
 # Task 5 - The Kernel Shield
 # Addresses Crimson Tide Phase 3: prevents a compromised host from acting as
