@@ -1,0 +1,44 @@
+#!/bin/bash
+set -euo pipefail
+
+# Task 1 - MedDefense CIS Control Profile
+# Threat-driven CIS controls for billing-srv-01, web-srv-01, log-srv-01
+
+OUT="cis_profile.json"
+
+cat > "$OUT" << 'EOF'
+{
+  "controls": [
+    {"control_id":"CIS-SSH-01","title":"Disable SSH root login","cis_section":"5 - Access, Authentication and Authorization","severity":"critical","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"Crimson Tide Phase 3 - SSH lateral movement","implementation_task":"harden-ssh","verification_method":"grep '^PermitRootLogin no' /etc/ssh/sshd_config","justification":"Removes root as an SSH target for stolen credentials"},
+    {"control_id":"CIS-SSH-02","title":"Disable SSH password auth","cis_section":"5 - Access, Authentication and Authorization","severity":"critical","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"Crimson Tide Phase 3 - SSH brute force","implementation_task":"harden-ssh","verification_method":"grep '^PasswordAuthentication no' /etc/ssh/sshd_config","justification":"Key-based auth removes brute-force viability"},
+    {"control_id":"CIS-PAM-01","title":"Enforce password quality","cis_section":"5 - Access, Authentication and Authorization","severity":"high","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"1x01 - weak/reused credentials","implementation_task":"harden-pam","verification_method":"grep pam_pwquality /etc/pam.d/common-password","justification":"Weak passwords remain a fallback if keys are shared"},
+    {"control_id":"CIS-PAM-02","title":"Enforce account lockout","cis_section":"5 - Access, Authentication and Authorization","severity":"high","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"1x01 - brute force local accounts","implementation_task":"harden-pam","verification_method":"grep pam_faillock /etc/pam.d/common-auth","justification":"Stops automated credential attacks"},
+    {"control_id":"CIS-KRN-01","title":"Disable IP forwarding","cis_section":"1 - Initial Setup","severity":"medium","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"Crimson Tide Phase 3 - pivoted routing","implementation_task":"harden-kernel","verification_method":"sysctl net.ipv4.ip_forward","justification":"Servers are endpoints, not routers"},
+    {"control_id":"CIS-KRN-02","title":"Disable ICMP redirects","cis_section":"1 - Initial Setup","severity":"medium","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"MITM on internal segment","implementation_task":"harden-kernel","verification_method":"sysctl net.ipv4.conf.all.accept_redirects","justification":"Prevents routing manipulation by same-segment attacker"},
+    {"control_id":"CIS-SVC-01","title":"Disable unnecessary services","cis_section":"2 - Services","severity":"high","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"0x011 - crypto-miner via exposed service","implementation_task":"minimize-services","verification_method":"systemctl list-units --type=service --state=running","justification":"Unused services are unmonitored attack surface"},
+    {"control_id":"CIS-SVC-02","title":"Remove legacy clear-text services","cis_section":"2 - Services","severity":"high","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"1x01 - credential sniffing","implementation_task":"minimize-services","verification_method":"dpkg -l | grep -E 'telnetd|ftpd|rsh-server'","justification":"Clear-text protocols expose credentials on the wire"},
+    {"control_id":"CIS-FS-01","title":"Remediate world-writable files","cis_section":"1 - Initial Setup","severity":"medium","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"Persistence via file tampering","implementation_task":"fix-permissions","verification_method":"compare Task 0 baseline count vs post-hardening scan","justification":"Prevents silent tampering by any local user"},
+    {"control_id":"CIS-FS-02","title":"Audit SUID/SGID binaries","cis_section":"1 - Initial Setup","severity":"high","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"0x011 - SUID used for privilege escalation","implementation_task":"fix-permissions","verification_method":"compare Task 0 baseline count vs post-hardening scan","justification":"Unnecessary SUID/SGID is a direct escalation path"},
+    {"control_id":"CIS-SSH-03","title":"Limit SSH MaxAuthTries","cis_section":"5 - Access, Authentication and Authorization","severity":"high","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"1x01 - brute force against SSH","implementation_task":"limit-ssh-authtries","verification_method":"grep '^MaxAuthTries' /etc/ssh/sshd_config","justification":"Caps guesses per connection"},
+    {"control_id":"CIS-DB-01","title":"Bind database to localhost","cis_section":"3 - Network Configuration and Firewalls","severity":"critical","asset_scope":["billing-srv-01"],"threat_mapping":"0x011 - exposed MySQL pre-upgrade","implementation_task":"restrict-database-exposure","verification_method":"sudo ss -tulnp | grep 3306","justification":"Billing data must not be network-reachable"},
+    {"control_id":"CIS-AUD-01","title":"Enable auditd with escalation rules","cis_section":"4 - Logging and Auditing","severity":"critical","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"1x00 - no audit visibility in response","implementation_task":"enable-auditd","verification_method":"systemctl is-active auditd && auditctl -l","justification":"No audit logging means no evidence trail"},
+    {"control_id":"CIS-FW-01","title":"Restrict firewall to required ports","cis_section":"3 - Network Configuration and Firewalls","severity":"high","asset_scope":["billing-srv-01","web-srv-01","log-srv-01"],"threat_mapping":"0x011 - unrestricted inbound enabled C2","implementation_task":"configure-firewall","verification_method":"sudo ufw status verbose","justification":"Default-deny removes unmonitored entry points"},
+    {"control_id":"CIS-LOG-01","title":"Enforce log retention policy","cis_section":"4 - Logging and Auditing","severity":"critical","asset_scope":["log-srv-01"],"threat_mapping":"1x00 - evidence lost if log server compromised","implementation_task":"configure-log-retention","verification_method":"check logrotate config and retention window","justification":"log-srv-01 is the last line of evidentiary defense"}
+  ]
+}
+EOF
+
+CONTROLS=$(jq '.controls | length' "$OUT")
+CRITICAL=$(jq '[.controls[]|select(.severity=="critical")]|length' "$OUT")
+HIGH=$(jq '[.controls[]|select(.severity=="high")]|length' "$OUT")
+MEDIUM=$(jq '[.controls[]|select(.severity=="medium")]|length' "$OUT")
+SECTIONS=$(jq '[.controls[].cis_section]|unique|length' "$OUT")
+TASKS=$(jq '[.controls[].implementation_task]|unique|length' "$OUT")
+
+echo "Controls selected: $CONTROLS"
+echo "Critical: $CRITICAL"
+echo "High: $HIGH"
+echo "Medium: $MEDIUM"
+echo "CIS sections covered: $SECTIONS"
+echo "Mapped implementation tasks: $TASKS"
+echo "Report saved to: $OUT"
