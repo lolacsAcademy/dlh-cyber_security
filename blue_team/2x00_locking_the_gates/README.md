@@ -7,3 +7,6 @@ Usage: `sudo ./0-baseline_snapshot.sh`
 ## Task 1
 `1-cis_profile.sh` - generates `cis_profile.json`, 15 CIS controls.
 Usage: `./1-cis_profile.sh`
+## Task 2
+`2-lynis_parse.sh` - parses lynis-report.dat into JSON (hardening_index + findings).
+Usage: `sudo ./2-lynis_parse.sh /var/log/lynis-report.dat | jq '.' > lynis_findings.json`
