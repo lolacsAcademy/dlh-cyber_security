@@ -10,3 +10,6 @@ Usage: `./1-cis_profile.sh`
 ## Task 2
 `2-lynis_parse.sh` - parses lynis-report.dat into JSON (hardening_index + findings).
 Usage: `sudo ./2-lynis_parse.sh /var/log/lynis-report.dat | jq '.' > lynis_findings.json`
+## Task 3
+`3-remediation_queue.sh` - builds gap_analysis.json (15 controls status) and remediation_queue.json (12 items, priority sorted).
+Usage: `./3-remediation_queue.sh`
