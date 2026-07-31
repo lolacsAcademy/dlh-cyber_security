@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 # Task 17 - Machine-Readable Compliance Evidence Bundle
+# Calculates overall compliance percentage from verified vs unresolved controls.
 OUT="compliance_report.json"
 INPUTS=(cis_profile.json gap_analysis.json remediation_queue.json audit_validation.json validation_results.json hardening_improvement.json)
 
