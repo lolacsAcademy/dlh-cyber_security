@@ -10,7 +10,7 @@ cleanup() { rm -f "$TFILE"; auditctl -W "$TFILE" -k audit_test_file 2>/dev/null 
 trap cleanup EXIT
 
 chk() { sleep 1; ausearch -ts recent -k "$1" 2>/dev/null | grep -c "^type=SYSCALL" || true; }
-rec() { RESULTS+=("{\"test\":\"$2\",\"expected_key\":\"$3\",\"command\":\"$4\",\"timestamp\":\"$(date -Iseconds)\",\"status\":\"$5\",\"event_count\":$6}"); printf '[%d/%d] %-38s [%s]\n' "$1" "$TOTAL" "$2" "$5"; }
+rec() { RESULTS+=("{\"test\":\"$2\",\"audit_key\":\"$3\",\"command\":\"$4\",\"timestamp\":\"$(date -Iseconds)\",\"status\":\"$5\",\"event_count\":$6}"); printf '[%d/%d] %-38s [%s]\n' "$1" "$TOTAL" "$2" "$5"; }
 
 echo "[*] Running audit telemetry coverage tests..."
 

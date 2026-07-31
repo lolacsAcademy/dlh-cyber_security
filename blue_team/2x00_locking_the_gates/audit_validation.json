@@ -1,8 +1,8 @@
 {"tests":[
-  {"test":"sudo execution","expected_key":"priv_esc","command":"sudo whoami","timestamp":"2026-07-31T13:11:38+00:00","status":"MISSED","event_count":0},
-  {"test":"shadow access","expected_key":"identity","command":"cat /etc/shadow","timestamp":"2026-07-31T13:11:39+00:00","status":"MISSED","event_count":0},
-  {"test":"suspicious download tool","expected_key":"suspicious_download","command":"wget --version","timestamp":"2026-07-31T13:11:40+00:00","status":"MISSED","event_count":0},
-  {"test":"sshd config read","expected_key":"sshd_config","command":"cat sshd_config","timestamp":"2026-07-31T13:11:41+00:00","status":"MISSED","event_count":0},
-  {"test":"monitored test file write","expected_key":"audit_test_file","command":"echo > /tmp/meddefense_audit_test.txt","timestamp":"2026-07-31T13:11:42+00:00","status":"MISSED","event_count":0},
-  {"test":"cron configuration check","expected_key":"audit_test_cron","command":"cat /etc/crontab","timestamp":"2026-07-31T13:11:43+00:00","status":"MISSED","event_count":0}
+  {"test":"sudo execution","audit_key":"priv_esc","command":"sudo whoami","timestamp":"2026-07-31T13:22:26+00:00","status":"MISSED","event_count":0},
+  {"test":"shadow access","audit_key":"identity","command":"cat /etc/shadow","timestamp":"2026-07-31T13:22:27+00:00","status":"MISSED","event_count":0},
+  {"test":"suspicious download tool","audit_key":"suspicious_download","command":"wget --version","timestamp":"2026-07-31T13:22:28+00:00","status":"MISSED","event_count":0},
+  {"test":"sshd config read","audit_key":"sshd_config","command":"cat sshd_config","timestamp":"2026-07-31T13:22:29+00:00","status":"MISSED","event_count":0},
+  {"test":"monitored test file write","audit_key":"audit_test_file","command":"echo > /tmp/meddefense_audit_test.txt","timestamp":"2026-07-31T13:22:30+00:00","status":"MISSED","event_count":0},
+  {"test":"cron configuration check","audit_key":"audit_test_cron","command":"cat /etc/crontab","timestamp":"2026-07-31T13:22:31+00:00","status":"MISSED","event_count":0}
 ],"tests_executed":6,"captured":0,"missed":6}
