@@ -46,7 +46,9 @@ Usage: `sudo ./13-firewall_baseline.sh`
 ## Task 14
 `14-hardening_orchestrator.sh` - runs the full hardening workflow in order, stops safely on missing/failed steps, records timing + Lynis before/after delta.
 Usage: `sudo ./14-hardening_orchestrator.sh`
-
 ## Task 15
 `15-validation.sh` - read-only check of every hardening control from Tasks 4-13 against expected values. Exit 0 if all pass, 1 if any fail.
 Usage: `sudo ./15-validation.sh`
+## Task 16
+`16-lynis_diff.sh` - compares before/after Lynis scans, writes hardening_improvement.json (scores, delta, resolved/remaining/new findings, residual risk summary).
+Usage: `sudo ./16-lynis_diff.sh`
