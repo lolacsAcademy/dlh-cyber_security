@@ -34,4 +34,4 @@ check "UFW status" "$UFW_STATUS" "active"
 UFW_DEFAULT=$(ufw status verbose 2>/dev/null | grep "Default:" | awk '{print $2}'); UFW_DEFAULT="${UFW_DEFAULT:-unknown}"
 check "Default incoming" "$UFW_DEFAULT" "deny"
 
-exit $([[ $FAIL_COUNT -eq 0 ]] && echo 0 || echo 1)
+if [[ $FAIL_COUNT -eq 0 ]]; then exit 0; else exit 1; fi
