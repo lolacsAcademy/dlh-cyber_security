@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 # Task 11 - Audit Telemetry Coverage Test
+# Runs six controlled audit events and verifies capture
 REPORT="audit_validation.json"
 TFILE="/tmp/meddefense_audit_test.txt"
 RESULTS=(); CAPTURED=0; TOTAL=6
