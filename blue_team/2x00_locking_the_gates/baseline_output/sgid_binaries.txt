@@ -1,8 +1,4 @@
-/usr/sbin/unix_chkpwd
-/usr/bin/expiry
-/usr/bin/dotlockfile
 /usr/bin/chage
-/usr/bin/plocate
+/usr/bin/expiry
 /usr/bin/ssh-agent
-/usr/bin/crontab
-/usr/lib/xorg/Xorg.wrap
+/usr/sbin/unix_chkpwd

@@ -14,7 +14,7 @@ KERNEL=$(uname -r)
 UPTIME=$(uptime -p)
 
 # 2. Running services
-systemctl list-units --type=service --state=running --no-legend > "$OUTDIR/services_running.txt"
+(systemctl list-units --type=service --state=running --no-legend 2>/dev/null || echo "systemd unavailable") > "$OUTDIR/services_running.txt"
 SERVICES_COUNT=$(wc -l < "$OUTDIR/services_running.txt")
 
 # 3. Open ports / listening sockets (TCP + UDP)

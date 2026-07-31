@@ -1,1 +1,15 @@
-{"pre_checks":"FAIL","missing":"15-validation.sh"}
+{"steps_scheduled":13,"steps_completed":12,"steps_failed":1,"steps":[
+{"step":"0-baseline_snapshot.sh","status":"OK","exit_code":0,"duration_seconds":3},
+{"step":"2-lynis_parse.sh","status":"OK","exit_code":0,"duration_seconds":189},
+{"step":"4-ssh_hardening.sh","status":"OK","exit_code":0,"duration_seconds":1},
+{"step":"5-sysctl_hardening.sh","status":"OK","exit_code":0,"duration_seconds":0},
+{"step":"6-filesystem_hardening.sh","status":"OK","exit_code":0,"duration_seconds":3},
+{"step":"7-service_minimization.sh","status":"OK","exit_code":0,"duration_seconds":3},
+{"step":"8-pam_hardening.sh","status":"OK","exit_code":0,"duration_seconds":1},
+{"step":"9-apparmor_config.sh","status":"OK","exit_code":0,"duration_seconds":0},
+{"step":"10-auditd_config.sh","status":"OK","exit_code":0,"duration_seconds":1},
+{"step":"11-audit_coverage_test.sh","status":"OK","exit_code":0,"duration_seconds":6},
+{"step":"12-log_config.sh","status":"OK","exit_code":0,"duration_seconds":1},
+{"step":"13-firewall_baseline.sh","status":"OK","exit_code":0,"duration_seconds":3},
+{"step":"15-validation.sh","status":"FAILED","exit_code":1,"duration_seconds":1}
+]}

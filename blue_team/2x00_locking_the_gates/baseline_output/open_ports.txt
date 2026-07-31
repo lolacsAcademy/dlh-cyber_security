@@ -1,1 +1,5 @@
-Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+Netid State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess                          
+tcp   LISTEN 0      4096         0.0.0.0:3001      0.0.0.0:*    users:(("ttyd",pid=31,fd=11))   
+tcp   LISTEN 0      511          0.0.0.0:3000      0.0.0.0:*    users:(("node",pid=45,fd=18))   
+tcp   LISTEN 0      128          0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=445478,fd=3))
+tcp   LISTEN 0      128             [::]:22           [::]:*    users:(("sshd",pid=445478,fd=4))

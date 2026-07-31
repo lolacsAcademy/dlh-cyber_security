@@ -15,17 +15,27 @@ if [[ ${#MISSING[@]} -gt 0 ]]; then
 fi
 echo "Pre-checks: PASS"
 
-BEFORE=$(command -v lynis >/dev/null && lynis audit system --quick 2>&1 | grep -i "hardening index" | grep -oE '[0-9]+' | head -1); BEFORE="${BEFORE:-0}"
+BEFORE=$(command -v lynis >/dev/null && lynis audit system --quick 2>&1 | grep -i "hardening index" | grep -oE "[0-9]+" | head -1) || true
+BEFORE="${BEFORE:-0}"
 
 for s in "${STEPS[@]}"; do
   START=$(date +%s)
-  if bash "./$s" >"/tmp/${s}.out" 2>&1; then EC=0; ST=OK; COMPLETED=$((COMPLETED+1)); else EC=$?; ST=FAILED; FAILED=$((FAILED+1)); fi
+  if [[ "$s" == "2-lynis_parse.sh" ]]; then
+    lynis audit system --quick >/tmp/lynis_step.log 2>&1 || true
+    if bash "./$s" /var/log/lynis-report.dat >"/tmp/${s}.out" 2>&1; then EC=0; ST=OK; COMPLETED=$((COMPLETED+1)); else EC=$?; ST=FAILED; FAILED=$((FAILED+1)); fi
+  else
+    if bash "./$s" >"/tmp/${s}.out" 2>&1; then EC=0; ST=OK; COMPLETED=$((COMPLETED+1)); else EC=$?; ST=FAILED; FAILED=$((FAILED+1)); fi
+  fi
   DUR=$(($(date +%s)-START))
   RESULTS+=("{\"step\":\"$s\",\"status\":\"$ST\",\"exit_code\":$EC,\"duration_seconds\":$DUR}")
-  [[ "$ST" == FAILED ]] && { echo "Steps completed: $COMPLETED"; echo "Steps failed: $FAILED"; echo "Stopped at: $s"; break; }
+  if [[ "$ST" == "FAILED" ]]; then
+    echo "Steps completed: $COMPLETED"; echo "Steps failed: $FAILED"; echo "Stopped at: $s"
+    break
+  fi
 done
 
-AFTER=$(command -v lynis >/dev/null && lynis audit system --quick 2>&1 | grep -i "hardening index" | grep -oE '[0-9]+' | head -1); AFTER="${AFTER:-$BEFORE}"
+AFTER=$(command -v lynis >/dev/null && lynis audit system --quick 2>&1 | grep -i "hardening index" | grep -oE "[0-9]+" | head -1) || true
+AFTER="${AFTER:-$BEFORE}"
 DELTA=$((AFTER-BEFORE))
 
 { echo "{\"steps_scheduled\":${#STEPS[@]},\"steps_completed\":$COMPLETED,\"steps_failed\":$FAILED,\"steps\":["

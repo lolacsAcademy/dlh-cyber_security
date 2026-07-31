@@ -14,7 +14,8 @@ if ! command -v auditd > /dev/null 2>&1; then
 fi
 systemctl enable auditd > /dev/null 2>&1 || true
 systemctl start auditd > /dev/null 2>&1 || true
-STATUS=$(systemctl is-active auditd)
+service auditd start > /dev/null 2>&1 || true
+STATUS=$(systemctl is-active auditd 2>/dev/null || service auditd status 2>/dev/null | grep -qi running && echo active || echo inactive)
 echo "    auditd.service: $STATUS (running)"
 
 echo "[*] Deploying MedDefense audit rules..."

@@ -1,11 +1,11 @@
 {
-  "hostname": "kali",
-  "os": "Kali GNU/Linux Rolling",
-  "kernel": "6.18.12+kali-amd64",
-  "uptime": "up 51 minutes",
-  "running_services": 19,
-  "open_ports": 0,
-  "suid_binaries": 34,
-  "sgid_binaries": 8,
+  "hostname": "8dc7237b72a64f7f9b5894e8270bfcc7-2377118072",
+  "os": "Ubuntu 22.04.5 LTS",
+  "kernel": "6.1.176",
+  "uptime": "up 6 hours, 36 minutes",
+  "running_services": 1,
+  "open_ports": 4,
+  "suid_binaries": 11,
+  "sgid_binaries": 4,
   "world_writable_files": 0
 }

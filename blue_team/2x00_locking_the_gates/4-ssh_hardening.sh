@@ -73,8 +73,8 @@ echo "[*] Validating SSH configuration..."
 if sshd -t 2>/tmp/sshd_test_err; then
   echo "    sshd -t: OK"
   echo "[*] Restarting SSH service..."
-  systemctl restart ssh
-  STATUS=$(systemctl is-active ssh)
+  (systemctl restart ssh 2>/dev/null || service ssh restart 2>/dev/null || true)
+  STATUS=$(systemctl is-active ssh 2>/dev/null || echo "unavailable")
   echo "    ssh.service: $STATUS (running)"
 else
   echo "    sshd -t: FAILED"

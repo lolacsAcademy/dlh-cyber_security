@@ -1,1 +1,9 @@
-X11Forwarding yes
+PermitRootLogin no
+MaxAuthTries 3
+PasswordAuthentication no
+PermitEmptyPasswords no
+X11Forwarding no
+X11Forwarding no
+PasswordAuthentication no
+PermitRootLogin no
+Protocol 2
