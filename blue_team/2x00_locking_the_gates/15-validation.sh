@@ -2,9 +2,11 @@
 set -euo pipefail
 # Task 15 - The Post-Hardening Validator (read-only, no changes made)
 FAIL_COUNT=0
+RESULTS=()
 
 check() {
   local label="$1" actual="$2" expected="$3"
+  local st="PASS"; [[ "$actual" == "$expected" ]] || st="FAIL"; RESULTS+=("{\"control\":\"$label\",\"actual\":\"$actual\",\"expected\":\"$expected\",\"result\":\"$st\"}")
   if [[ "$actual" == "$expected" ]]; then
     echo "[PASS] $label = $actual"
   else
@@ -29,9 +31,10 @@ get_svc() { (systemctl is-active "$1" 2>/dev/null || service "$1" status 2>/dev/
 check "auditd.service" "$(get_svc auditd)" "active"
 check "apparmor.service" "$(get_svc apparmor)" "active"
 
-UFW_STATUS=$(ufw status 2>/dev/null | head -1 | awk '{print $2}'); UFW_STATUS="${UFW_STATUS:-inactive}"
+UFW_STATUS=$(ufw status 2>/dev/null | head -1 | awk '{print $2}') || true; UFW_STATUS="${UFW_STATUS:-inactive}"
 check "UFW status" "$UFW_STATUS" "active"
-UFW_DEFAULT=$(ufw status verbose 2>/dev/null | grep "Default:" | awk '{print $2}'); UFW_DEFAULT="${UFW_DEFAULT:-unknown}"
+UFW_DEFAULT=$(ufw status verbose 2>/dev/null | grep "Default:" | awk '{print $2}') || true; UFW_DEFAULT="${UFW_DEFAULT:-unknown}"
 check "Default incoming" "$UFW_DEFAULT" "deny"
 
+{ echo -n "{\"checks\":["; for i in "${!RESULTS[@]}"; do [[ $i -gt 0 ]] && echo -n ","; echo -n "${RESULTS[$i]}"; done; echo "],\"fail_count\":$FAIL_COUNT}"; } > validation_results.json
 if [[ $FAIL_COUNT -eq 0 ]]; then exit 0; else exit 1; fi
