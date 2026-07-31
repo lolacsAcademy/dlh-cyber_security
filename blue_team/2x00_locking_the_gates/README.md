@@ -40,3 +40,6 @@ Usage: `sudo ./11-audit_coverage_test.sh`
 ## Task 12
 `12-log_config.sh` - configures rsyslog auth/syslog routing, sets logrotate policies (90d/60d, compressed), secures permissions (640 root:adm).
 Usage: `sudo ./12-log_config.sh`
+## Task 13
+`13-firewall_baseline.sh` - UFW default-deny inbound, allows SSH (mgmt net), HTTP/HTTPS, MySQL (app net), logging enabled.
+Usage: `sudo ./13-firewall_baseline.sh`
