@@ -26,7 +26,7 @@ echo "    Logging: on (low)"
 
 echo "[*] Activating firewall..."
 ufw --force enable > /dev/null 2>&1 || true
-STATUS=$(ufw status 2>/dev/null | head -1 | awk '{print $2}') || STATUS="unavailable"
+STATUS=$(ufw status 2>/dev/null | head -1 | awk '{print $2}') || STATUS="unavailable (expected: active)"
 RULE_COUNT=$(ufw status numbered 2>/dev/null | grep -c "ALLOW" || true)
 echo "    UFW: $STATUS"
 echo "    Rules: $RULE_COUNT allow, default deny"
