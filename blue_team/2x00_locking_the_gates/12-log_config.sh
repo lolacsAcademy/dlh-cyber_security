@@ -38,6 +38,7 @@ echo "    /var/log/syslog: rotate 60, compress after 7d    [SET]"
 echo "[*] Verifying log activity..."
 touch /var/log/auth.log /var/log/syslog 2>/dev/null || true
 logger -p auth.info "MedDefense verification event" 2>/dev/null || true
+grep -q . /var/log/auth.log > /dev/null 2>&1 || true
 tail -n 1 /var/log/auth.log > /dev/null 2>&1 || true
 sleep 1
 for f in /var/log/auth.log /var/log/syslog; do
