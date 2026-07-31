@@ -1,5 +1,5 @@
 #!/bin/bash
-set -uo pipefail
+set -euo pipefail
 # Task 15 - The Post-Hardening Validator (read-only, no changes made)
 FAIL_COUNT=0
 
