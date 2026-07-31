@@ -52,3 +52,6 @@ Usage: `sudo ./15-validation.sh`
 ## Task 16
 `16-lynis_diff.sh` - compares before/after Lynis scans, writes hardening_improvement.json (scores, delta, resolved/remaining/new findings, residual risk summary).
 Usage: `sudo ./16-lynis_diff.sh`
+## Task 17
+`17-compliance_bundle.sh` - assembles compliance_report.json from 6 evidence files: selected/remediated/verified controls, deviations w/ compensating controls, residual findings, compliance %.
+Usage: `sudo ./17-compliance_bundle.sh`

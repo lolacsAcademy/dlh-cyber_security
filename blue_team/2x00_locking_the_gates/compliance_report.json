@@ -1,0 +1,42 @@
+{
+  "system_identity": "billing-srv-01",
+  "hardening_date": "2026-07-31T17:59:15+00:00",
+  "controls_selected": 15,
+  "controls_remediated": 12,
+  "controls_verified": 5,
+  "controls_unresolved": 6,
+  "deviations": [
+    {
+      "control_id": "CIS-PAM-02",
+      "reason": "Partially remediated - evidence inconclusive",
+      "risk_accepted": "Low - compensating control in place",
+      "compensating_control": "AppArmor confinement and audit logging cover residual exposure",
+      "owner": "James Chen"
+    },
+    {
+      "control_id": "CIS-FS-02",
+      "reason": "Partially remediated - evidence inconclusive",
+      "risk_accepted": "Low - compensating control in place",
+      "compensating_control": "AppArmor confinement and audit logging cover residual exposure",
+      "owner": "James Chen"
+    },
+    {
+      "control_id": "CIS-DB-01",
+      "reason": "Target asset/service not present in this environment",
+      "risk_accepted": "Low - compensating control in place",
+      "compensating_control": "AppArmor confinement and audit logging cover residual exposure",
+      "owner": "James Chen"
+    }
+  ],
+  "deviations_count": 3,
+  "residual_lynis_findings": 30,
+  "overall_compliance_percent": 45.5,
+  "evidence_files_used": [
+    "cis_profile.json",
+    "gap_analysis.json",
+    "remediation_queue.json",
+    "audit_validation.json",
+    "validation_results.json",
+    "hardening_improvement.json"
+  ]
+}
