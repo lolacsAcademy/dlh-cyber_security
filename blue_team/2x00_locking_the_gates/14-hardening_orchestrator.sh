@@ -10,6 +10,7 @@ for s in "${STEPS[@]}"; do [[ -f "$s" ]] || MISSING+=("$s"); done
 if [[ ${#MISSING[@]} -gt 0 ]]; then
   echo "Pre-checks: FAIL"; echo "Missing: ${MISSING[*]}"
   echo "{\"pre_checks\":\"FAIL\",\"missing\":\"${MISSING[*]}\"}" > "$RUN_LOG"
+  echo "{\"before_lynis_score\":0,\"after_lynis_score\":0,\"delta\":0}" > "$IMP_LOG"
   exit 1
 fi
 echo "Pre-checks: PASS"
