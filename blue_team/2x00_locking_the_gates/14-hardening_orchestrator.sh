@@ -1,6 +1,11 @@
 #!/bin/bash
 set -euo pipefail
 # Task 14 - Production Hardening Orchestrator
+# Verifies required scripts exist before running.
+# Runs the required hardening scripts in workflow order.
+# Stops and reports failure when a step fails.
+# Records timing and Lynis before/after values.
+# Writes hardening_run.json and hardening_improvement.json.
 STEPS=(0-baseline_snapshot.sh 2-lynis_parse.sh 4-ssh_hardening.sh 5-sysctl_hardening.sh 6-filesystem_hardening.sh 7-service_minimization.sh 8-pam_hardening.sh 9-apparmor_config.sh 10-auditd_config.sh 11-audit_coverage_test.sh 12-log_config.sh 13-firewall_baseline.sh 15-validation.sh)
 RUN_LOG="hardening_run.json"; IMP_LOG="hardening_improvement.json"
 RESULTS=(); COMPLETED=0; FAILED=0
