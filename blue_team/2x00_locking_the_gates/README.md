@@ -37,3 +37,6 @@ Usage: `sudo ./10-auditd_config.sh`
 ## Task 11
 `11-audit_coverage_test.sh` - runs 6 controlled events, verifies audit capture via ausearch, cleans up test artifacts, outputs audit_validation.json.
 Usage: `sudo ./11-audit_coverage_test.sh`
+## Task 12
+`12-log_config.sh` - configures rsyslog auth/syslog routing, sets logrotate policies (90d/60d, compressed), secures permissions (640 root:adm).
+Usage: `sudo ./12-log_config.sh`
