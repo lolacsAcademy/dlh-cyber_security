@@ -43,3 +43,7 @@ Usage: `sudo ./12-log_config.sh`
 ## Task 13
 `13-firewall_baseline.sh` - UFW default-deny inbound, allows SSH (mgmt net), HTTP/HTTPS, MySQL (app net), logging enabled.
 Usage: `sudo ./13-firewall_baseline.sh`
+## Task 14
+`14-hardening_orchestrator.sh` - runs the full hardening workflow in order, stops safely on missing/failed steps, records timing + Lynis before/after delta.
+Usage: `sudo ./14-hardening_orchestrator.sh`
+
