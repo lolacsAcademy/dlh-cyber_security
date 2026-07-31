@@ -34,3 +34,6 @@ Usage: `sudo ./9-apparmor_config.sh`
 ## Task 10
 `10-auditd_config.sh` - enables auditd, deploys 14 MedDefense audit rules, verifies load, tests with a live event.
 Usage: `sudo ./10-auditd_config.sh`
+## Task 11
+`11-audit_coverage_test.sh` - runs 6 controlled events, verifies audit capture via ausearch, cleans up test artifacts, outputs audit_validation.json.
+Usage: `sudo ./11-audit_coverage_test.sh`
