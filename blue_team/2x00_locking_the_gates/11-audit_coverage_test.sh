@@ -34,3 +34,4 @@ echo "Tests executed: $TOTAL"
 echo "Captured: $CAPTURED"
 echo "Missed: $((TOTAL-CAPTURED))"
 echo "Report saved to: $REPORT"
+# audit coverage evidence for MedDefense compliance
