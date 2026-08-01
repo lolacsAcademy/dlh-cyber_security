@@ -1,8 +1,8 @@
 {"tests":[
-  {"test":"sudo execution","audit_key":"priv_esc","command":"sudo whoami","timestamp":"2026-07-31T17:04:40+00:00","status":"MISSED","event_count":0},
-  {"test":"shadow access","audit_key":"identity","command":"cat /etc/shadow","timestamp":"2026-07-31T17:04:41+00:00","status":"MISSED","event_count":0},
-  {"test":"suspicious download tool","audit_key":"suspicious_download","command":"wget --version","timestamp":"2026-07-31T17:04:42+00:00","status":"MISSED","event_count":0},
-  {"test":"sshd config read","audit_key":"sshd_config","command":"cat sshd_config","timestamp":"2026-07-31T17:04:43+00:00","status":"MISSED","event_count":0},
-  {"test":"monitored test file write","audit_key":"audit_test_file","command":"echo > /tmp/meddefense_audit_test.txt","timestamp":"2026-07-31T17:04:44+00:00","status":"MISSED","event_count":0},
-  {"test":"cron configuration check","audit_key":"audit_test_cron","command":"cat /etc/crontab","timestamp":"2026-07-31T17:04:45+00:00","status":"MISSED","event_count":0}
-],"tests_executed":6,"captured":0,"missed":6}
+  {"test":"sudo execution","audit_key":"priv_esc","command":"sudo whoami","timestamp":"2026-08-01T09:42:35-04:00","status":"CAPTURED","event_count":8},
+  {"test":"shadow access","audit_key":"identity","command":"cat /etc/shadow","timestamp":"2026-08-01T09:42:36-04:00","status":"CAPTURED","event_count":9},
+  {"test":"suspicious download tool","audit_key":"suspicious_download","command":"wget --version","timestamp":"2026-08-01T09:42:37-04:00","status":"CAPTURED","event_count":7},
+  {"test":"sshd config read","audit_key":"sshd_config","command":"cat sshd_config","timestamp":"2026-08-01T09:42:38-04:00","status":"CAPTURED","event_count":3},
+  {"test":"monitored test file write","audit_key":"audit_test_file","command":"echo > /tmp/meddefense_audit_test.txt","timestamp":"2026-08-01T09:42:39-04:00","status":"CAPTURED","event_count":2},
+  {"test":"cron configuration check","audit_key":"audit_test_cron","command":"cat /etc/crontab","timestamp":"2026-08-01T09:42:40-04:00","status":"CAPTURED","event_count":2}
+],"tests_executed":6,"captured":6,"missed":0}
