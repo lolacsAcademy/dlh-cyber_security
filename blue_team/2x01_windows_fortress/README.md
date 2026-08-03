@@ -2,3 +2,4 @@
 
 ## Tasks
 - Task 0: Domain Reconnaissance (`0-domain_baseline.ps1`)
+- Task 1: Domain Risk Findings Extractor (`1-domain_findings.ps1`)
