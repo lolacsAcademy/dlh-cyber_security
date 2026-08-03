@@ -4,51 +4,47 @@ Purpose: Capture MedDefense domain security baseline
 Author: Chocolat
 Date: 2026-08-03
 #>
-
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
-
 Import-Module ActiveDirectory
 Import-Module GroupPolicy
 
 $domain = Get-ADDomain
 $forest = Get-ADForest
 $users = Get-ADUser -Filter * -Properties PasswordNeverExpires
-$groups = Get-ADGroup -Filter * -Properties Members
+$groups = Get-ADGroup -Filter *
 $svc = Get-ADUser -Filter 'Name -like "*svc*"' -Properties TrustedForDelegation
 $gpos = Get-GPO -All
-$pwPolicy = Get-ADDefaultDomainPasswordPolicy
-$domainAdmins = Get-ADGroupMember -Identity "Domain Admins" | Select-Object -ExpandProperty Name
-$enterpriseAdmins = Get-ADGroupMember -Identity "Enterprise Admins" | Select-Object -ExpandProperty Name
+$pw = Get-ADDefaultDomainPasswordPolicy
+$enc = (Get-ADComputer -Filter "Name -eq 'DC01'" -Properties 'msDS-SupportedEncryptionTypes').'msDS-SupportedEncryptionTypes'
+$da = Get-ADGroupMember "Domain Admins" | Select -Expand Name
+$ea = Get-ADGroupMember "Enterprise Admins" | Select -Expand Name
 
-$findings = @()
-if ($pwPolicy.MinPasswordLength -lt 14) { $findings += "Critical" }
-if (-not $pwPolicy.ComplexityEnabled) { $findings += "Critical" }
-if ($pwPolicy.LockoutThreshold -eq 0) { $findings += "Critical" }
-if (($users | Where-Object PasswordNeverExpires).Count -gt 0) { $findings += "High" }
-if (($svc | Where-Object TrustedForDelegation).Count -gt 0) { $findings += "High" }
-$findings += "High"
-if ($gpos.Count -le 2) { $findings += "High" }
-if ($pwPolicy.PasswordHistoryCount -lt 24) { $findings += "Medium" }
-if ($domainAdmins.Count -gt 1) { $findings += "Medium" }
-
-$c = ($findings | Where-Object {$_ -eq "Critical"}).Count
-$h = ($findings | Where-Object {$_ -eq "High"}).Count
-$m = ($findings | Where-Object {$_ -eq "Medium"}).Count
+$f = @()
+if ($pw.MinPasswordLength -lt 14) { $f += "Critical" }
+if (-not $pw.ComplexityEnabled) { $f += "Critical" }
+if ($pw.LockoutThreshold -eq 0) { $f += "Critical" }
+if (($users | ? PasswordNeverExpires).Count -gt 0) { $f += "High" }
+if (($svc | ? TrustedForDelegation).Count -gt 0) { $f += "High" }
+$f += "High"
+if ($gpos.Count -le 2) { $f += "High" }
+if ($pw.PasswordHistoryCount -lt 24) { $f += "Medium" }
+if ($da.Count -gt 1) { $f += "Medium" }
+$c=($f|?{$_-eq"Critical"}).Count; $h=($f|?{$_-eq"High"}).Count; $m=($f|?{$_-eq"Medium"}).Count
 
 Write-Host "Domain: $($domain.DNSRoot)"
 Write-Host "Forest Level: $($forest.ForestMode)"
 Write-Host "DC: $((Get-ADDomainController).HostName)"
 Write-Host "User Accounts: $($users.Count)"
-Write-Host "  Password Never Expires: $(($users | Where-Object PasswordNeverExpires).Count)"
+Write-Host "  Password Never Expires: $(($users | ? PasswordNeverExpires).Count)"
 Write-Host "Groups: $($groups.Count)"
 Write-Host "Service Accounts: $($svc.Count)"
-Write-Host "  Unconstrained delegation: $(($svc | Where-Object TrustedForDelegation).Count)"
+Write-Host "  Unconstrained delegation: $(($svc | ? TrustedForDelegation).Count)"
 Write-Host "GPOs: $($gpos.Count)"
-Write-Host "Password Minimum Length: $($pwPolicy.MinPasswordLength)"
-Write-Host "Complexity: $(if ($pwPolicy.ComplexityEnabled) {'Enabled'} else {'Disabled'})"
-Write-Host "Lockout Threshold: $($pwPolicy.LockoutThreshold)"
-Write-Host "Kerberos: DES, RC4, AES128, AES256"
-Write-Host "Domain Admins: $($domainAdmins -join ', ')"
-Write-Host "Enterprise Admins: $($enterpriseAdmins -join ', ')"
-Write-Host "Findings: $($findings.Count) (Critical: $c, High: $h, Medium: $m)""
+Write-Host "Password Minimum Length: $($pw.MinPasswordLength)"
+Write-Host "Complexity: $(if ($pw.ComplexityEnabled) {'Enabled'} else {'Disabled'})"
+Write-Host "Lockout Threshold: $($pw.LockoutThreshold)"
+Write-Host "Kerberos (msDS-SupportedEncryptionTypes): $enc"
+Write-Host "Domain Admins: $($da -join ', ')"
+Write-Host "Enterprise Admins: $($ea -join ', ')"
+Write-Host "Findings: $($f.Count) (Critical: $c, High: $h, Medium: $m)"
