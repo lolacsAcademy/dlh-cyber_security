@@ -43,7 +43,16 @@ if ($deleg.Count -gt 0) {
     Add "HIGH" "Service Accounts" "$($deleg.Count) accounts" "Unconstrained delegation" "Credential theft" "Use constrained deleg" "Task 7"
 }
 
-Add "HIGH" "Audit Policy" "Domain" "Advanced Audit not configured" "No visibility" "Configure audit, Sysmon" "Task 5"
+$audit = auditpol /get /category:* /r | ConvertFrom-Csv
+$subs = @("Process Creation","Special Logon","Account Management","Object Access")
+$missing = @()
+foreach ($s in $subs) {
+    $row = $audit | Where-Object { $_.Subcategory -eq $s }
+    if (-not $row -or $row.'Inclusion Setting' -notmatch "Success|Failure") { $missing += $s }
+}
+if ($missing.Count -gt 0) {
+    Add "HIGH" "Audit Policy" "Domain" "Missing: $($missing -join ', ')" "No visibility" "Configure audit, Sysmon" "Task 5"
+}
 
 $privGroups = @("Domain Admins","Enterprise Admins","G_IT_Admins")
 $disabledPriv = @()
