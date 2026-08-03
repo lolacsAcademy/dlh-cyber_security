@@ -12,11 +12,14 @@ Import-Module ActiveDirectory
 Import-Module GroupPolicy
 
 $domain = Get-ADDomain
+$forest = Get-ADForest
 $users = Get-ADUser -Filter * -Properties PasswordNeverExpires
+$groups = Get-ADGroup -Filter * -Properties Members
 $svc = Get-ADUser -Filter 'Name -like "*svc*"' -Properties TrustedForDelegation
 $gpos = Get-GPO -All
 $pwPolicy = Get-ADDefaultDomainPasswordPolicy
 $domainAdmins = Get-ADGroupMember -Identity "Domain Admins" | Select-Object -ExpandProperty Name
+$enterpriseAdmins = Get-ADGroupMember -Identity "Enterprise Admins" | Select-Object -ExpandProperty Name
 
 $findings = @()
 if ($pwPolicy.MinPasswordLength -lt 14) { $findings += "Critical" }
@@ -34,9 +37,11 @@ $h = ($findings | Where-Object {$_ -eq "High"}).Count
 $m = ($findings | Where-Object {$_ -eq "Medium"}).Count
 
 Write-Host "Domain: $($domain.DNSRoot)"
+Write-Host "Forest Level: $($forest.ForestMode)"
 Write-Host "DC: $((Get-ADDomainController).HostName)"
 Write-Host "User Accounts: $($users.Count)"
 Write-Host "  Password Never Expires: $(($users | Where-Object PasswordNeverExpires).Count)"
+Write-Host "Groups: $($groups.Count)"
 Write-Host "Service Accounts: $($svc.Count)"
 Write-Host "  Unconstrained delegation: $(($svc | Where-Object TrustedForDelegation).Count)"
 Write-Host "GPOs: $($gpos.Count)"
@@ -45,4 +50,5 @@ Write-Host "Complexity: $(if ($pwPolicy.ComplexityEnabled) {'Enabled'} else {'Di
 Write-Host "Lockout Threshold: $($pwPolicy.LockoutThreshold)"
 Write-Host "Kerberos: DES, RC4, AES128, AES256"
 Write-Host "Domain Admins: $($domainAdmins -join ', ')"
-Write-Host "Findings: $($findings.Count) (Critical: $c, High: $h, Medium: $m)"
+Write-Host "Enterprise Admins: $($enterpriseAdmins -join ', ')"
+Write-Host "Findings: $($findings.Count) (Critical: $c, High: $h, Medium: $m)""
