@@ -28,6 +28,9 @@ if ($pw.MinPasswordLength -lt 14) {
 if ($pw.LockoutThreshold -eq 0) {
     Add "CRITICAL" "Lockout Policy" "Domain" "Lockout not configured" "Unlimited attempts" "Set threshold to 5" "Task 4"
 }
+if ($pw.PasswordHistoryCount -lt 24) {
+    Add "MEDIUM" "Password Policy" "Domain" "History: $($pw.PasswordHistoryCount)" "Password reuse allowed" "Set history to 24" "Task 4"
+}
 Add "CRITICAL" "Kerberos" "Domain" "DES/RC4 enabled" "Weak encryption" "Enforce AES-only" "Task 7"
 
 $pne = @($users | Where-Object PasswordNeverExpires)
