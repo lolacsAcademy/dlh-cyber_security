@@ -18,7 +18,7 @@ function Add($sev,$cat,$asset,$ev,$risk,$rem,$task){
 
 $pw = Get-ADDefaultDomainPasswordPolicy
 $users = Get-ADUser -Filter * -Properties PasswordNeverExpires,Enabled,PasswordLastSet,MemberOf
-$svc = Get-ADUser -Filter 'Name -like "*svc*"' -Properties TrustedForDelegation
+$svc = Get-ADUser -Filter 'Name -like "*svc*"' -Properties TrustedForDelegation,UseDESKeyOnly
 $gpos = Get-GPO -All
 $stale = @(Get-ADComputer -Filter * -Properties LastLogonDate | Where-Object { -not $_.LastLogonDate -or $_.LastLogonDate -lt (Get-Date).AddDays(-90) })
 
