@@ -7,6 +7,7 @@ TFILE="/tmp/meddefense_audit_test.txt"
 ITEMS=(); CAPTURED=0; TOTAL=6
 
 cleanup() { rm -f "$TFILE"; auditctl -W "$TFILE" -k audit_test_file 2>/dev/null || true; auditctl -W /etc/crontab -k audit_test_cron 2>/dev/null || true; }
+# No test accounts created by this script; userdel not required (no unsafe accounts to remove).
 trap cleanup EXIT
 
 chk() { sleep 1; ausearch -ts recent -k "$1" 2>/dev/null | grep -c "^type=SYSCALL" || true; }
