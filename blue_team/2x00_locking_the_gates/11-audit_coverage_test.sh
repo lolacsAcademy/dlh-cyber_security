@@ -4,13 +4,13 @@ set -euo pipefail
 # Runs six controlled audit events and verifies capture
 REPORT="audit_validation.json"
 TFILE="/tmp/meddefense_audit_test.txt"
-RESULTS=(); CAPTURED=0; TOTAL=6
+ITEMS=(); CAPTURED=0; TOTAL=6
 
 cleanup() { rm -f "$TFILE"; auditctl -W "$TFILE" -k audit_test_file 2>/dev/null || true; auditctl -W /etc/crontab -k audit_test_cron 2>/dev/null || true; }
 trap cleanup EXIT
 
 chk() { sleep 1; ausearch -ts recent -k "$1" 2>/dev/null | grep -c "^type=SYSCALL" || true; }
-rec() { RESULTS+=("{\"test\":\"$2\",\"audit_key\":\"$3\",\"command\":\"$4\",\"timestamp\":\"$(date -Iseconds)\",\"status\":\"$5\",\"event_count\":$6}"); printf '[%d/%d] %-38s [%s]\n' "$1" "$TOTAL" "$2" "$5"; }
+rec() { ITEMS+=("{\"test\":\"$2\",\"audit_key\":\"$3\",\"command\":\"$4\",\"timestamp\":\"$(date -Iseconds)\",\"status\":\"$5\",\"event_count\":$6}"); printf '[%d/%d] %-38s [%s]\n' "$1" "$TOTAL" "$2" "$5"; }
 
 echo "[*] Running audit telemetry coverage tests..."
 
@@ -26,7 +26,7 @@ cleanup; trap - EXIT
 
 {
   echo "{\"tests\":["
-  for i in "${!RESULTS[@]}"; do sep=","; [[ $i -eq $((${#RESULTS[@]}-1)) ]] && sep=""; echo "  ${RESULTS[$i]}$sep"; done
+  for i in "${!ITEMS[@]}"; do sep=","; [[ $i -eq $((${#ITEMS[@]}-1)) ]] && sep=""; echo "  ${ITEMS[$i]}$sep"; done
   echo "],\"tests_executed\":$TOTAL,\"captured\":$CAPTURED,\"missed\":$((TOTAL-CAPTURED))}"
 } > "$REPORT"
 
