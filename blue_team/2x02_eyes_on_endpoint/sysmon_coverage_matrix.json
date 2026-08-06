@@ -1,0 +1,72 @@
+[
+    {
+        "technique_id":  "T1059",
+        "technique_name":  "Command and Scripting Interpreter",
+        "required_event_ids":  [1],
+        "enabled_event_ids":  [1],
+        "filter_conflicts":  [],
+        "coverage_status":  "covered",
+        "evidence_fields_expected":  "CommandLine, ParentImage",
+        "recommendation":  ""
+    },
+    {
+        "technique_id":  "T1053",
+        "technique_name":  "Scheduled Task/Job",
+        "required_event_ids":  [1],
+        "enabled_event_ids":  [1],
+        "filter_conflicts":  [],
+        "coverage_status":  "covered",
+        "evidence_fields_expected":  "CommandLine, ParentImage",
+        "recommendation":  ""
+    },
+    {
+        "technique_id":  "T1547",
+        "technique_name":  "Boot or Logon Autostart Execution",
+        "required_event_ids":  [13],
+        "enabled_event_ids":  [13],
+        "filter_conflicts":  [],
+        "coverage_status":  "covered",
+        "evidence_fields_expected":  "TargetObject, Details",
+        "recommendation":  ""
+    },
+    {
+        "technique_id":  "T1055",
+        "technique_name":  "Process Injection",
+        "required_event_ids":  [8, 10],
+        "enabled_event_ids":  [],
+        "filter_conflicts":  [],
+        "coverage_status":  "blind",
+        "evidence_fields_expected":  "SourceImage, TargetImage, GrantedAccess",
+        "recommendation":  "Enable Event ID 8,10 in sysmonconfig.xml"
+    },
+    {
+        "technique_id":  "T1071",
+        "technique_name":  "Application Layer Protocol",
+        "required_event_ids":  [3, 22],
+        "enabled_event_ids":  [3, 22],
+        "filter_conflicts":  [],
+        "coverage_status":  "covered",
+        "evidence_fields_expected":  "DestinationIp, DestinationPort, QueryName",
+        "recommendation":  ""
+    },
+    {
+        "technique_id":  "T1574.002",
+        "technique_name":  "DLL Side-Loading",
+        "required_event_ids":  [7],
+        "enabled_event_ids":  [],
+        "filter_conflicts":  [],
+        "coverage_status":  "blind",
+        "evidence_fields_expected":  "ImageLoaded, Signed, Signature",
+        "recommendation":  "Enable Event ID 7 in sysmonconfig.xml"
+    },
+    {
+        "technique_id":  "T1027",
+        "technique_name":  "Obfuscated or Compressed Files",
+        "required_event_ids":  [11, 15],
+        "enabled_event_ids":  [11],
+        "filter_conflicts":  [],
+        "coverage_status":  "partial",
+        "evidence_fields_expected":  "TargetFilename, Hash",
+        "recommendation":  "Enable Event ID 15 in sysmonconfig.xml"
+    }
+]
