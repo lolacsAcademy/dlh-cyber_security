@@ -1,5 +1,5 @@
 # Name: 1-sysmon_coverage_matrix.ps1
-# Purpose: Generate ATT&CK-aligned Sysmon coverage matrix from sysmonconfig.xml
+# purpose: Generate ATT&CK-aligned Sysmon coverage matrix from sysmonconfig.xml
 # Author: analyst
 Set-StrictMode -Version Latest
 Write-Host "[*] Parsing Sysmon config: sysmonconfig.xml"
