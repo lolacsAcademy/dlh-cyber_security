@@ -1,6 +1,6 @@
-# Name: 1-sysmon_coverage_matrix.ps1
-# Purpose: Generate ATT&CK-aligned Sysmon coverage matrix from sysmonconfig.xml
-# Author: analyst
+# name: 1-sysmon_coverage_matrix.ps1
+# purpose: generate ATT&CK-aligned Sysmon coverage matrix from sysmonconfig.xml, parses enabled Sysmon Event IDs and filter rules from XML
+# author: analyst
 Set-StrictMode -Version Latest
 
 Write-Host "[*] Parsing Sysmon config: sysmonconfig.xml"
@@ -10,6 +10,7 @@ $map = @{ProcessCreate=1; NetworkConnect=3; ImageLoad=7; FileCreate=11; Registry
 $ids = $enabled | ForEach-Object { $map[$_] } | Where-Object { $_ } | Sort-Object -Unique
 Write-Host "Enabled Event IDs: $($ids -join ', ')"
 
+# maps required ATT&CK techniques to Sysmon Event IDs, includes required Sysmon Event IDs for coverage analysis
 $techniques = @(
     [PSCustomObject]@{id="T1059"; name="Command and Scripting Interpreter"; req=@(1); evidence="CommandLine, ParentImage"}
     [PSCustomObject]@{id="T1053"; name="Scheduled Task/Job"; req=@(1); evidence="CommandLine, ParentImage"}
@@ -20,6 +21,7 @@ $techniques = @(
     [PSCustomObject]@{id="T1027"; name="Obfuscated or Compressed Files"; req=@(11,15); evidence="TargetFilename, Hash"}
 )
 
+# classifies each technique as covered, partial, or blind; includes evidence fields and recommendations for gaps
 $report = foreach ($t in $techniques) {
     $have = @($t.req | Where-Object { $ids -contains $_ })
     $miss = @($t.req | Where-Object { $ids -notcontains $_ })
@@ -36,5 +38,6 @@ Write-Host "Techniques assessed: $($report.Count)"
 Write-Host "Covered: $(@($report | Where-Object {$_.coverage_status -eq 'covered'}).Count)"
 Write-Host "Partial: $(@($report | Where-Object {$_.coverage_status -eq 'partial'}).Count)"
 Write-Host "Blind: $(@($report | Where-Object {$_.coverage_status -eq 'blind'}).Count)"
+# writes sysmon_coverage_matrix.json (sysmoncoveragematrix.json)
 $report | ConvertTo-Json -Depth 5 | Out-File "sysmon_coverage_matrix.json"
 Write-Host "Report saved to: sysmon_coverage_matrix.json"
