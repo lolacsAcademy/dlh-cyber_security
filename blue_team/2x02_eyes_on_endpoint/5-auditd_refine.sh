@@ -2,7 +2,7 @@
 # name: 5-auditd_refine.sh
 # purpose: Refine auditd rules with detection-focused telemetry and validate rule firing
 # author: analyst
-set -e
+set -eu
 RULE_FILE="/etc/audit/rules.d/99-detection-refine.rules"
 echo "[*] Current auditd rules: $(auditctl -l | wc -l)"
 echo "[*] Adding detection-focused rules..."
