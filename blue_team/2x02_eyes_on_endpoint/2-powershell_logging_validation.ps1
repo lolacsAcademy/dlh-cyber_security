@@ -14,14 +14,14 @@ $e1 = Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" |
 if ($e1) { Write-Host "          EID 4104: 'Get-Process' captured                     [PASS]" }
 else { Write-Host "          EID 4104: 'Get-Process' NOT captured                     [FAIL]" }
 
-Write-Host "    [2/5] EncodedCommand, decoded ScriptBlock content..."
+Write-Host "    [2/5] Encoded command (-enc), decoded ScriptBlock content..."
 $s2 = Get-Date
 $enc = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes('Write-Host "Test"'))
-powershell -EncodedCommand $enc | Out-Null
+powershell -enc $enc | Out-Null
 Start-Sleep -Seconds 2
 $e2 = Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" |
     Where-Object { $_.Id -eq 4104 -and $_.TimeCreated -ge $s2 -and $_.Message -match "Write-Host" } | Select-Object -First 1
-Write-Host "          Input: -EncodedCommand $enc"
+Write-Host "          Input: -enc $enc"
 if ($e2) { Write-Host "          EID 4104: decoded ScriptBlock content captured        [PASS]" }
 else { Write-Host "          EID 4104: decoded ScriptBlock content NOT captured        [FAIL]" }
 
