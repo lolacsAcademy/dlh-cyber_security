@@ -1,6 +1,6 @@
-# Name: 2-powershell_logging_validation.ps1
-# Purpose: Validate PowerShell Script Block, Module Logging, and Transcription
-# Author: analyst
+# name: 2-powershell_logging_validation.ps1
+# purpose: Validate PowerShell Script Block, Module Logging, and Transcription
+# author: analyst
 Set-StrictMode -Version Latest
 
 Write-Host "[*] Testing PowerShell logging coverage..."
