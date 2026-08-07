@@ -9,7 +9,7 @@ set -o pipefail
 echo "[*] Discovering log sources..."
 FOUND=0
 MISSING=0
-echo "Source | path | Format | Rotation | FileSize | events/hr | Relevance"
+echo "Source | path | Format | Rotation | FileSize | Events/hr | Relevance"
 echo "------ | ---- | ------ | -------- | -------- | --------- | ----------"
 check_log() {
     NAME="$1"
