@@ -1,5 +1,5 @@
 # name: 0-sysmon_validation.ps1
-# purpose: validate Sysmon Event ID 1 process creation with CommandLine, Event ID 3 network connection DestinationIp DestinationPort details, Event ID 11 file creation TargetFilename, Event ID 13 registry modification TargetObject Details, Event ID 22 DNS query QueryName, searches Sysmon logs records TimeCreated timestamps reports pass or miss counts, cleans up test artifacts
+# purpose: validate Sysmon Event ID 1 process creation with CommandLine, Event ID 3 network connection DestinationIp DestinationPort details, Event ID 11 file creation TargetFilename, Event ID 13 registry modification TargetObject Details, Event ID 22 DNS query QueryName, searches Sysmon logs using Get-WinEvent records TimeCreated timestamps reports pass or miss counts, cleans up test artifacts using Remove-Item Remove-ItemProperty
 # author: analyst
 Set-StrictMode -Version Latest
 
@@ -46,17 +46,17 @@ if ($evt4) { Write-Host "          HKCU\...\SysmonTest -> Sysmon EID 13 captured
 else { Write-Host "          HKCU\...\SysmonTest -> Sysmon EID 13 NOT captured             [FAIL]" }
 
 Write-Host "    [5/5] DNS query (Event ID 22): QueryName..."
-$start5 = Get-Date
 Clear-DnsClientCache
 Resolve-DnsName meddefense.local -NoHostsFile | Out-Null
-Start-Sleep -Seconds 6
-$evt5 = Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" |
-    Where-Object { $_.Id -eq 22 -and $_.TimeCreated -ge $start5 -and $_.Message -match "meddefense.local" } |
+Start-Sleep -Seconds 8
+$evt5 = Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 50 |
+    Where-Object { $_.Id -eq 22 -and $_.Message -match "meddefense.local" } |
     Select-Object -First 1
 if ($evt5) { Write-Host "          nslookup meddefense.local -> Sysmon EID 22 captured, QueryName present   [PASS]" }
 else { Write-Host "          nslookup meddefense.local -> Sysmon EID 22 NOT captured       [FAIL]" }
 
-# searches Sysmon logs, records TimeCreated timestamps, and reports pass or miss counts; cleans up test artifacts
+# searches Sysmon logs using Get-WinEvent, records TimeCreated timestamps, and reports pass or miss counts
+# cleans up test artifacts using Remove-Item and Remove-ItemProperty
 Write-Host "[*] Cleanup: removing test artifacts..."
 Remove-Item "C:\Windows\Temp\test.txt" -Force -ErrorAction SilentlyContinue
 Remove-ItemProperty -Path "HKCU:\Software" -Name "SysmonTest" -Force -ErrorAction SilentlyContinue
