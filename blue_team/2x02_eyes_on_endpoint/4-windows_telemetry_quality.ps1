@@ -66,6 +66,7 @@ Write-Host "Field Completeness for key event types"
 Write-Host "CommandLine"
 Write-Host "SourceIP"
 Write-Host "ScriptBlockText"
+Write-Host "null"
 
 $procEvents = $events | Where-Object { $_.event_id -in @(4688,1) }
 
