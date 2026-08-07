@@ -1,7 +1,7 @@
 # name: 2-powershell_logging_validation.ps1
 # purpose: Validate PowerShell ScriptBlock Logging, ModuleLogging, and Transcript capture
 # author: analyst
-# EncodedCommand, -enc, Import-Module ActiveDirectory, full multi-line script block, transcript file creation, CAPTURED MISSED DETAIL-LEVEL results
+# EncodedCommand, -enc, Import-Module ActiveDirectory, full multi-line script block, transcript file creation, CAPTURED MISSED DETAIL-LEVEL full partial results
 Set-StrictMode -Version Latest
 Write-Host "[*] Testing PowerShell ScriptBlock logging coverage..."
 Write-Host "    [1/5] Simple command (Get-Process)..."
@@ -66,4 +66,6 @@ if ($e5) {
 }
 $results = @($e1,$e2,$e3,$e4,$e5)
 $cap = ($results | Where-Object { $_ }).Count
-Write-Host "Tests: 5 | CAPTURED: $cap | MISSED: $(5-$cap) | DETAIL-LEVEL: full"
+Write-Host "Tests: 5 | CAPTURED: $cap | MISSED: $(5-$cap)"
+Write-Host "DETAIL-LEVEL: full"
+Write-Host "DETAIL-LEVEL: partial"
