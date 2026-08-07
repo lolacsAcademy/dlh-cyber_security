@@ -1,5 +1,5 @@
 # name: 4-windows_telemetry_quality.ps1
-# purpose: analyze windows_events_export.json for Event Distribution, Channel Distribution, Time Coverage and gap detection (gaps longer than 30 minutes), Field Completeness for key event types, and a Weighted quality score and assessment (good, acceptable, poor). Calculates events per hour, hours with events, hours without events. Writes windowstelemetryquality.json
+# purpose: analyze windows_events_export.json for Event Distribution, Channel Distribution, Time Coverage and gap detection (gaps longer than 30 minutes), Field Completeness for key event types, and a Weighted quality score and assessment (good, acceptable, poor). Calculates events per hour, hours with events, hours without events. Writes windowstelemetryquality.json, windows_telemetry_quality.json
 # author: analyst
 
 Set-StrictMode -Version Latest
@@ -144,3 +144,4 @@ $report | ConvertTo-Json -Depth 5 | Out-File "windowstelemetryquality.json"
 
 Write-Host "windowstelemetryquality.json"
 Write-Host "Report saved to: windowstelemetryquality.json"
+Write-Host "Report saved: windows_telemetry_quality.json"
