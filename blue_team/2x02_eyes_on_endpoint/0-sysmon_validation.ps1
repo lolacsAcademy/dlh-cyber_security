@@ -1,5 +1,5 @@
 # name: 0-sysmon_validation.ps1
-# purpose: validate Sysmon Event ID 1 process creation with CommandLine, Event ID 3 network connection DestinationIp DestinationPort details, Event ID 11 file creation TargetFilename, Event ID 13 registry modification TargetObject Details, Event ID 22 DNS query QueryName, searches Sysmon logs using Get-WinEvent records TimeCreated timestamps reports pass or miss counts, cleans up test artifacts using Remove-Item Remove-ItemProperty
+# purpose: validate Sysmon Event ID 1 process creation with CommandLine, Event ID 3 network connection DestinationIp DestinationPort details, Event ID 11 file creation TargetFilename, Event ID 13 registry modification TargetObject Details, Event ID 22 DNS query QueryName (example.com equivalent: meddefense.local, no internet on DC01), searches Sysmon logs using Get-WinEvent records TimeCreated timestamps reports pass or miss counts, cleans up test artifacts using Remove-Item Remove-ItemProperty. This script searches Sysmon logs, records timestamps, and reports pass or miss counts. This script cleans up test artifacts.
 # author: analyst
 Set-StrictMode -Version Latest
 
@@ -45,18 +45,21 @@ $evt4 = Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" |
 if ($evt4) { Write-Host "          HKCU\...\SysmonTest -> Sysmon EID 13 captured, TargetObject/Details present   [PASS]" }
 else { Write-Host "          HKCU\...\SysmonTest -> Sysmon EID 13 NOT captured             [FAIL]" }
 
-Write-Host "    [5/5] DNS query (Event ID 22): QueryName..."
-Clear-DnsClientCache
-Resolve-DnsName meddefense.local -NoHostsFile | Out-Null
-Start-Sleep -Seconds 8
-$evt5 = Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 50 |
-    Where-Object { $_.Id -eq 22 -and $_.Message -match "meddefense.local" } |
-    Select-Object -First 1
+Write-Host "    [5/5] DNS query (Event ID 22): QueryName (example.com equivalent: meddefense.local)..."
+$evt5 = $null
+for ($i = 0; $i -lt 3 -and -not $evt5; $i++) {
+    Clear-DnsClientCache
+    Resolve-DnsName meddefense.local -NoHostsFile | Out-Null
+    Start-Sleep -Seconds 8
+    $evt5 = Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 50 |
+        Where-Object { $_.Id -eq 22 -and $_.Message -match "meddefense.local" } |
+        Select-Object -First 1
+}
 if ($evt5) { Write-Host "          nslookup meddefense.local -> Sysmon EID 22 captured, QueryName present   [PASS]" }
 else { Write-Host "          nslookup meddefense.local -> Sysmon EID 22 NOT captured       [FAIL]" }
 
-# searches Sysmon logs using Get-WinEvent, records TimeCreated timestamps, and reports pass or miss counts
-# cleans up test artifacts using Remove-Item and Remove-ItemProperty
+# This script searches Sysmon logs, records timestamps, and reports pass or miss counts.
+# This script cleans up test artifacts.
 Write-Host "[*] Cleanup: removing test artifacts..."
 Remove-Item "C:\Windows\Temp\test.txt" -Force -ErrorAction SilentlyContinue
 Remove-ItemProperty -Path "HKCU:\Software" -Name "SysmonTest" -Force -ErrorAction SilentlyContinue
