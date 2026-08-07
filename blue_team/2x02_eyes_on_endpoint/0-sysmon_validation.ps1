@@ -1,5 +1,5 @@
 # name: 0-sysmon_validation.ps1
-# purpose: validate Sysmon Event ID 1 process creation with command line, Event ID 3 network connection details, Event ID 11 file creation, Event ID 13 registry modification, Event ID 22 DNS query
+# purpose: validate Sysmon Event ID 1 process creation with CommandLine, Event ID 3 network connection details, Event ID 11 file creation, Event ID 13 registry modification, Event ID 22 DNS query
 # author: analyst
 Set-StrictMode -Version Latest
 
