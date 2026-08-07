@@ -55,7 +55,7 @@ for SRC in "${EXPECTED[@]}"; do
     if [ ! -f "$SRC" ]; then
         echo "Missing source: $SRC"
     elif [ ! -s "$SRC" ]; then
-        echo "Inactive source: $SRC"
+        echo "Source not generating events: $SRC"
     fi
 done
 echo ""
