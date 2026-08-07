@@ -1,7 +1,7 @@
 #!/bin/bash
 # name: 6-log_source_map.sh
 # purpose: Inventory Linux log sources, formats, rotation policy, file size,
-# events per hour event rate and security relevance
+# events/hr event rate and security relevance
 # author: analyst
 set -e
 set -u
@@ -9,8 +9,8 @@ set -o pipefail
 echo "[*] Discovering log sources..."
 FOUND=0
 MISSING=0
-echo "Source | path | Format | Rotation | FileSize | events per hour | Relevance"
-echo "------ | ---- | ------ | -------- | -------- | ---------------- | ----------"
+echo "Source | path | Format | Rotation | FileSize | events/hr | Relevance"
+echo "------ | ---- | ------ | -------- | -------- | --------- | ----------"
 check_log() {
     NAME="$1"
     PATH_LOG="$2"
