@@ -38,7 +38,7 @@ $ipComplete = if ($logonEvents.Count -gt 0) { [math]::Round((($logonEvents | Whe
 $psEvents = $events | Where-Object { $_.event_id -eq 4104 }
 $sbComplete = if ($psEvents.Count -gt 0) { [math]::Round((($psEvents | Where-Object {$_.decoded_script_block}).Count/$psEvents.Count)*100,1) } else { 100 }
 
-Write-Host "weighted quality score and assessment: good, acceptable, poor, weighted score from 0-100"
+Write-Host "weighted quality score and assessment: good, acceptable, poor, weighted score from 0-100. writes windowstelemetryquality.json"
 $hourScore = ($hoursWithEvents/$totalHours)*100
 $score = [math]::Round((($cmdComplete*0.3)+($ipComplete*0.3)+($sbComplete*0.2)+($hourScore*0.2)),1)
 $assessment = if ($score -ge 90) {"good"} elseif ($score -ge 70) {"acceptable"} else {"poor"}
