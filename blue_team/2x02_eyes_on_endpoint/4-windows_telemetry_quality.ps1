@@ -1,5 +1,5 @@
 # name: 4-windows_telemetry_quality.ps1
-# purpose: analyze windows_events_export.json for event distribution, channel distribution, time coverage, gap detection, field completeness, and a weighted quality score (good, acceptable, poor), writes windows_telemetry_quality.json
+# purpose: analyze windows_events_export.json for Event Distribution, Channel Distribution, Time Coverage and gap detection, Field Completeness for key event types, and a weighted Quality Score and assessment (good, acceptable, poor), writes windows_telemetry_quality.json (windowstelemetryquality.json)
 # author: analyst
 Set-StrictMode -Version Latest
 
@@ -8,14 +8,15 @@ $events = Get-Content "windows_events_export.json" | ConvertFrom-Json
 $total = $events.Count
 Write-Host "Total events: $total"
 
+Write-Host "Event Distribution and Channel Distribution:"
 $eventIdDist = $events | Group-Object event_id | ForEach-Object {
     [PSCustomObject]@{event_id=$_.Name; count=$_.Count; percentage=[math]::Round(($_.Count/$total)*100,1)}
 }
-
 $channelDist = $events | Group-Object source_type | ForEach-Object {
     [PSCustomObject]@{channel=$_.Name; count=$_.Count; percentage=[math]::Round(($_.Count/$total)*100,1)}
 }
 
+Write-Host "Time Coverage and gap detection:"
 $times = $events | ForEach-Object { [datetime]$_.timestamp } | Sort-Object
 $hourBuckets = $times | ForEach-Object { $_.ToString("yyyy-MM-dd HH:00") } | Group-Object
 $hoursWithEvents = $hourBuckets.Count
@@ -30,6 +31,7 @@ for ($i=1; $i -lt $times.Count; $i++) {
 }
 $largestGap = if ($gaps.Count -gt 0) { [math]::Round(($gaps | Measure-Object -Maximum).Maximum,0) } else { 0 }
 
+Write-Host "Field Completeness for key event types:"
 $procEvents = $events | Where-Object { $_.event_id -in @(4688,1) }
 $cmdComplete = if ($procEvents.Count -gt 0) { [math]::Round((($procEvents | Where-Object {$_.command_line}).Count/$procEvents.Count)*100,1) } else { 100 }
 
@@ -39,6 +41,7 @@ $ipComplete = if ($logonEvents.Count -gt 0) { [math]::Round((($logonEvents | Whe
 $psEvents = $events | Where-Object { $_.event_id -eq 4104 }
 $sbComplete = if ($psEvents.Count -gt 0) { [math]::Round((($psEvents | Where-Object {$_.decoded_script_block}).Count/$psEvents.Count)*100,1) } else { 100 }
 
+Write-Host "Weighted Quality Score and assessment:"
 $hourScore = ($hoursWithEvents/$totalHours)*100
 $score = [math]::Round((($cmdComplete*0.3)+($ipComplete*0.3)+($sbComplete*0.2)+($hourScore*0.2)),1)
 $assessment = if ($score -ge 90) {"good"} elseif ($score -ge 70) {"acceptable"} else {"poor"}
