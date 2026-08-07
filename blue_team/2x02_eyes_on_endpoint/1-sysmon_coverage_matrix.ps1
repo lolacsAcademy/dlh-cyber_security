@@ -1,5 +1,5 @@
 # name: 1-sysmon_coverage_matrix.ps1
-# purpose: generate ATT&CK-aligned Sysmon coverage matrix from sysmonconfig.xml, parses enabled Sysmon Event IDs and filter rules from XML
+# purpose: generate ATT&CK-aligned Sysmon coverage matrix from sysmonconfig.xml, parses enabled Sysmon Event IDs and filter rules from XML, checks include/exclude rules for filter conflicts
 # author: analyst
 Set-StrictMode -Version Latest
 
