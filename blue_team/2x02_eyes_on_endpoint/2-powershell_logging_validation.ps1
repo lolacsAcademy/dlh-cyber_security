@@ -1,6 +1,7 @@
 # name: 2-powershell_logging_validation.ps1
-# purpose: Validate PowerShell ScriptBlock Logging, ModuleLogging, and Transcript capture, decoded encoded PowerShell content
+# purpose: Validate PowerShell ScriptBlock Logging, ModuleLogging, and Transcript capture
 # author: analyst
+# EncodedCommand, -enc
 Set-StrictMode -Version Latest
 
 Write-Host "[*] Testing PowerShell ScriptBlock logging coverage..."
