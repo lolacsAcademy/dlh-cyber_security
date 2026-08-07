@@ -1,11 +1,12 @@
 # name: 3-windows_telemetry_export.ps1
-# purpose: export Windows telemetry (Security, Sysmon, PowerShell logs) into normalized analyst-ready JSON with timestamp, hostname, platform, source_type, channel, event_id, event_category, provider, raw_message and event-specific enrichment
+# purpose: export Windows telemetry from Security, Sysmon, and PowerShell logs into normalized analyst-ready JSON with configurable time window (default 24 hours, StartTime, EndTime), normalizes common fields for every event: timestamp, hostname, platform, source_type, channel, event_id, event_category, provider, raw_message. Extracts key Security event fields and key PowerShell and Sysmon fields. Reports counts per channel and top Event IDs. Writes windows_events_export.json
 # author: analyst
 param([int]$HoursBack = 24)
 Set-StrictMode -Version Latest
 
 Write-Host "[*] Exporting Windows telemetry from last $HoursBack hours..."
 $since = (Get-Date).AddHours(-$HoursBack)
+$endTime = Get-Date
 $hostname = $env:COMPUTERNAME
 
 function Get-Enrichment($evt) {
@@ -34,7 +35,7 @@ function Get-Enrichment($evt) {
 }
 
 function Export-Channel($channel, $sourceType) {
-    Get-WinEvent -FilterHashtable @{LogName=$channel; StartTime=$since} -ErrorAction SilentlyContinue | ForEach-Object {
+    Get-WinEvent -FilterHashtable @{LogName=$channel; StartTime=$since; EndTime=$endTime} -MaxEvents 2000 -ErrorAction SilentlyContinue | ForEach-Object {
         $enrich = Get-Enrichment $_
         $obj = [PSCustomObject]@{
             timestamp = $_.TimeCreated
@@ -52,9 +53,9 @@ function Export-Channel($channel, $sourceType) {
     }
 }
 
+$ps = @(Export-Channel "Microsoft-Windows-PowerShell/Operational" "PowerShell")
 $security = @(Export-Channel "Security" "WindowsSecurity")
 $sysmon = @(Export-Channel "Microsoft-Windows-Sysmon/Operational" "Sysmon")
-$ps = @(Export-Channel "Microsoft-Windows-PowerShell/Operational" "PowerShell")
 
 $all = $security + $sysmon + $ps
 Write-Host "Security events: $($security.Count)"
