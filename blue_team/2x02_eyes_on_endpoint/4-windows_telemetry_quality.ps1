@@ -64,6 +64,7 @@ else {
 
 Write-Host "Field Completeness for key event types"
 Write-Host "CommandLine"
+Write-Host "SourceIP"
 
 $procEvents = $events | Where-Object { $_.event_id -in @(4688,1) }
 
@@ -116,7 +117,7 @@ Write-Host "Hours without events: $hoursWithoutEvents"
 Write-Host "Largest gap: $largestGap minutes"
 
 Write-Host "CommandLine completeness: $cmdComplete%"
-Write-Host "Source IP completeness: $ipComplete%"
+Write-Host "SourceIP completeness: $ipComplete%"
 Write-Host "Script block completeness: $sbComplete%"
 
 Write-Host "Weighted Quality Score: $score%"
