@@ -8,3 +8,4 @@
 - Task 4: 4-windows_telemetry_quality.ps1, windows_telemetry_quality.json
 - Task 5: 5-auditd_refine.sh
 - Task 6: 6-log_source_map.sh
+- Task 7: 7-linux_export.sh
