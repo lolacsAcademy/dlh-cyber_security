@@ -5,6 +5,7 @@
 # monitors /home/*/.ssh/ SSH keys, cron persistence, and sudoers.d
 set -e
 set -u
+set -o pipefail
 RULE_FILE="/etc/audit/rules.d/99-detection-refine.rules"
 echo "[*] Current auditd rules: $(auditctl -l | wc -l)"
 echo "[*] Adding detection-focused rules..."
