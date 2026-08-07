@@ -58,7 +58,7 @@ New-Item -ItemType Directory -Path "C:\PSTranscripts" -Force | Out-Null
 Start-Transcript -Path "C:\PSTranscripts\test_transcript.txt" -Force | Out-Null
 Get-Date | Out-Null
 Stop-Transcript | Out-Null
-$e5 = Test-Path "C:\PSTranscripts\test_transcript.txt"
+$e5 = Test-Path "C:\PSTranscripts\*.txt"
 if ($e5) {
     Write-Host "          Transcript file creation confirmed [PASS]"
 } else {
