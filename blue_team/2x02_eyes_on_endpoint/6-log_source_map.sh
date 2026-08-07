@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # name: 6-log_source_map.sh
-# purpose: Inventory Linux log sources, formats, rotation policy, event rate and security relevance
+# purpose: Inventory Linux log sources, formats, rotation policy, file size,
+# event rate and security relevance
 # author: analyst
 
 set -e
@@ -13,8 +14,8 @@ echo "[*] Discovering log sources..."
 FOUND=0
 MISSING=0
 
-echo "Source | Path | Format | Rotation | Events/hr | Relevance"
-echo "------ | ---- | ------ | -------- | --------- | ----------"
+echo "Source | path | Format | Rotation | FileSize | Events/hr | Relevance"
+echo "------ | ---- | ------ | -------- | -------- | --------- | ----------"
 
 check_log() {
     NAME="$1"
@@ -23,24 +24,36 @@ check_log() {
     RELEVANCE="$4"
 
     if [ -f "$PATH_LOG" ]; then
+
         SIZE=$(du -h "$PATH_LOG" | awk '{print $1}')
 
         ROTATION=$(grep -R "$PATH_LOG" /etc/logrotate.d /etc/logrotate.conf 2>/dev/null | head -1 || true)
+
         if [ -z "$ROTATION" ]; then
-            ROTATION="unknown"
+            ROTATION="not configured"
         else
             ROTATION="configured"
         fi
 
-        EVENTS=$(journalctl --since "1 hour ago" 2>/dev/null | wc -l || echo "<1")
+        EVENTS=$(awk -v d="$(date --date='1 hour ago' '+%b %e %H')" \
+        '$0 >= d {count++} END {print count+0}' "$PATH_LOG" 2>/dev/null || echo "0")
 
-        echo "$NAME | $PATH_LOG | $FORMAT | $ROTATION | $EVENTS | $RELEVANCE"
+        if [ ! -s "$PATH_LOG" ]; then
+            EVENTS="inactive"
+        fi
+
+        echo "$NAME | $PATH_LOG | $FORMAT | $ROTATION | $SIZE | $EVENTS | $RELEVANCE"
+
         FOUND=$((FOUND+1))
+
     else
+
         echo "$NAME | $PATH_LOG | MISSING"
         MISSING=$((MISSING+1))
+
     fi
 }
+
 
 check_log "auth.log" "/var/log/auth.log" "syslog" "critical"
 
@@ -56,20 +69,29 @@ check_log "apache2 error" "/var/log/apache2/error.log" "custom" "high"
 
 check_log "dpkg.log" "/var/log/dpkg.log" "custom" "medium"
 
+
 echo ""
-echo "[*] Checking missing security log sources..."
+echo "[*] Checking missing or inactive expected sources..."
 
 EXPECTED=(
 "/var/log/auth.log"
 "/var/log/audit/audit.log"
 "/var/log/syslog"
+"/var/log/kern.log"
 )
 
 for SRC in "${EXPECTED[@]}"; do
+
     if [ ! -f "$SRC" ]; then
-        echo "Missing: $SRC"
+        echo "Missing source: $SRC"
+
+    elif [ ! -s "$SRC" ]; then
+        echo "Inactive source: $SRC"
+
     fi
+
 done
+
 
 echo ""
 echo "Sources found: $FOUND | Missing: $MISSING"
