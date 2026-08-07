@@ -123,6 +123,7 @@ Write-Host "SourceIP completeness: $ipComplete%"
 Write-Host "ScriptBlockText completeness: $sbComplete%"
 
 Write-Host "Weighted Quality Score: $score%"
+Write-Host "Quality score: $score%"
 Write-Host "Assessment: $assessment"
 
 $report = [PSCustomObject]@{
