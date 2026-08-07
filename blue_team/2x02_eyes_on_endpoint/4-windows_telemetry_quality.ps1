@@ -1,5 +1,5 @@
 # name: 4-windows_telemetry_quality.ps1
-# purpose: analyze windows_events_export.json for Event Distribution, Channel Distribution, Time Coverage and gap detection, field completeness for key event types, and a weighted quality score and assessment (good, acceptable, poor), writes windows_telemetry_quality.json, windowstelemetryquality.json
+# purpose: analyze windows_events_export.json for Event Distribution, Channel Distribution, Time Coverage and gap detection, field completeness for key event types, and a weighted quality score and assessment (good, acceptable, poor). Calculates events per hour, hours with events, hours without events.
 # author: analyst
 Set-StrictMode -Version Latest
 
@@ -16,7 +16,7 @@ $channelDist = $events | Group-Object source_type | ForEach-Object {
     [PSCustomObject]@{channel=$_.Name; count=$_.Count; percentage=[math]::Round(($_.Count/$total)*100,1)}
 }
 
-Write-Host "Time Coverage and gap detection:"
+Write-Host "Time Coverage and gap detection: events per hour, hours with events, hours without events"
 $times = $events | ForEach-Object { [datetime]$_.timestamp } | Sort-Object
 $hourBuckets = $times | ForEach-Object { $_.ToString("yyyy-MM-dd HH:00") } | Group-Object
 $hoursWithEvents = $hourBuckets.Count
@@ -63,5 +63,5 @@ $report = [PSCustomObject]@{
     quality_score = $score
     assessment = $assessment
 }
-$report | ConvertTo-Json -Depth 5 | Out-File "windows_telemetry_quality.json"
-Write-Host "Report saved to: windows_telemetry_quality.json"
+$report | ConvertTo-Json -Depth 5 | Out-File "windowstelemetryquality.json"
+Write-Host "Report saved to: windowstelemetryquality.json"
