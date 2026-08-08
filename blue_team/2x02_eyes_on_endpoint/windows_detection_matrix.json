@@ -1,0 +1,146 @@
+{
+    "report": "Windows Detection Proof",
+    "ground_truth_file": "windows_attack_log.json",
+    "telemetry_sources": ["Security", "Sysmon", "PowerShell"],
+    "correlation_window_seconds": 30,
+    "actions": [
+        {
+            "action_number": 1,
+            "description": "Create local user support_update",
+            "timestamp": "2026-08-08T10:46:03.605Z",
+            "search_window_seconds": 30,
+            "search_window_start": "2026-08-08T12:45:33.6050000+02:00",
+            "search_window_end": "2026-08-08T12:46:33.6050000+02:00",
+            "expected_detection_source": "Security Event ID 4720",
+            "mitre_attack_technique": "T1136.001 - Create Account: Local Account",
+            "detections": [
+                {
+                    "source": "Security",
+                    "event_id": 4720,
+                    "detail": "full",
+                    "key_fields": ["AccountExpires","AllowedToDelegateTo","DisplayName","HomeDirectory","HomePath","LogonHours","NewUacValue","OldUacValue","PasswordLastSet","PrimaryGroupId","PrivilegeList","ProfilePath","SamAccountName","ScriptPath","SidHistory","SubjectDomainName","SubjectLogonId","SubjectUserName","SubjectUserSid","TargetDomainName","TargetSid","TargetUserName","UserAccountControl","UserParameters","UserPrincipalName","UserWorkstations"]
+                }
+            ],
+            "detail": "full",
+            "status": "CAPTURED"
+        },
+        {
+            "action_number": 2,
+            "description": "Add support_update to Administrators group",
+            "timestamp": "2026-08-08T10:46:03.771Z",
+            "search_window_seconds": 30,
+            "search_window_start": "2026-08-08T12:45:33.7710000+02:00",
+            "search_window_end": "2026-08-08T12:46:33.7710000+02:00",
+            "expected_detection_source": "Security Event ID 4732",
+            "mitre_attack_technique": "T1098.007 - Account Manipulation: Additional Local or Domain Groups",
+            "detections": [
+                {
+                    "source": "Security",
+                    "event_id": 4732,
+                    "detail": "full",
+                    "key_fields": ["MemberName","MemberSid","PrivilegeList","SubjectDomainName","SubjectLogonId","SubjectUserName","SubjectUserSid","TargetDomainName","TargetSid","TargetUserName"]
+                }
+            ],
+            "detail": "full",
+            "status": "CAPTURED"
+        },
+        {
+            "action_number": 3,
+            "description": "Run encoded PowerShell harmless payload",
+            "timestamp": "2026-08-08T10:46:05.178Z",
+            "search_window_seconds": 30,
+            "search_window_start": "2026-08-08T12:45:35.1780000+02:00",
+            "search_window_end": "2026-08-08T12:46:35.1780000+02:00",
+            "expected_detection_source": "Sysmon Event ID 1; PowerShell Event ID 4104",
+            "mitre_attack_technique": "T1059.001 - Command and Scripting Interpreter: PowerShell",
+            "detections": [
+                {
+                    "source": "PS ScriptBlock",
+                    "event_id": 4104,
+                    "detail": "full",
+                    "key_fields": ["MessageNumber","MessageTotal","Path","ScriptBlockId","ScriptBlockText"]
+                },
+                {
+                    "source": "Sysmon",
+                    "event_id": 1,
+                    "detail": "full",
+                    "key_fields": ["CommandLine","Company","CurrentDirectory","Description","FileVersion","Hashes","Image","IntegrityLevel","LogonGuid","LogonId","OriginalFileName","ParentCommandLine","ParentImage","ParentProcessGuid","ParentProcessId","ParentUser","ProcessGuid","ProcessId","Product","RuleName","TerminalSessionId","User","UtcTime"]
+                }
+            ],
+            "detail": "full",
+            "status": "CAPTURED"
+        },
+        {
+            "action_number": 4,
+            "description": "Create scheduled task for persistence",
+            "timestamp": "2026-08-08T10:46:05.491Z",
+            "search_window_seconds": 30,
+            "search_window_start": "2026-08-08T12:45:35.4910000+02:00",
+            "search_window_end": "2026-08-08T12:46:35.4910000+02:00",
+            "expected_detection_source": "Security Event ID 4698; Sysmon Event ID 1",
+            "mitre_attack_technique": "T1053.005 - Scheduled Task/Job: Scheduled Task",
+            "detections": [
+                {
+                    "source": "Security",
+                    "event_id": 4698,
+                    "detail": "full",
+                    "key_fields": ["ClientProcessId","ClientProcessStartKey","FQDN","ParentProcessId","RpcCallClientLocality","SubjectDomainName","SubjectLogonId","SubjectUserName","SubjectUserSid","TaskContent","TaskName"]
+                },
+                {
+                    "source": "Sysmon",
+                    "event_id": 1,
+                    "detail": "full",
+                    "key_fields": ["CommandLine","Company","CurrentDirectory","Description","FileVersion","Hashes","Image","IntegrityLevel","LogonGuid","LogonId","OriginalFileName","ParentCommandLine","ParentImage","ParentProcessGuid","ParentProcessId","ParentUser","ProcessGuid","ProcessId","Product","RuleName","TerminalSessionId","User","UtcTime"]
+                }
+            ],
+            "detail": "full",
+            "status": "CAPTURED"
+        },
+        {
+            "action_number": 5,
+            "description": "Initiate outbound TCP connection to 1.1.1.1:443",
+            "timestamp": "2026-08-08T10:46:35.532Z",
+            "search_window_seconds": 30,
+            "search_window_start": "2026-08-08T12:46:05.5320000+02:00",
+            "search_window_end": "2026-08-08T12:47:05.5320000+02:00",
+            "expected_detection_source": "Sysmon Event ID 3",
+            "mitre_attack_technique": "T1071.001 - Application Layer Protocol: Web Protocols",
+            "detections": [
+                {
+                    "source": "Sysmon",
+                    "event_id": 3,
+                    "detail": "full",
+                    "key_fields": ["DestinationHostname","DestinationIp","DestinationIsIpv6","DestinationPort","DestinationPortName","Image","Initiated","ProcessGuid","ProcessId","Protocol","RuleName","SourceHostname","SourceIp","SourceIsIpv6","SourcePort","SourcePortName","User","UtcTime"]
+                }
+            ],
+            "detail": "full",
+            "status": "CAPTURED"
+        },
+        {
+            "action_number": 6,
+            "description": "Drop file in Windows Startup directory",
+            "timestamp": "2026-08-08T10:46:35.619Z",
+            "search_window_seconds": 30,
+            "search_window_start": "2026-08-08T12:46:05.6190000+02:00",
+            "search_window_end": "2026-08-08T12:47:05.6190000+02:00",
+            "expected_detection_source": "Sysmon Event ID 11",
+            "mitre_attack_technique": "T1547.001 - Registry Run Keys / Startup Folder",
+            "detections": [
+                {
+                    "source": "Sysmon",
+                    "event_id": 11,
+                    "detail": "full",
+                    "key_fields": ["CreationUtcTime","Image","ProcessGuid","ProcessId","RuleName","TargetFilename","User","UtcTime"]
+                }
+            ],
+            "detail": "full",
+            "status": "CAPTURED"
+        }
+    ],
+    "summary": {
+        "actions": 6,
+        "captured": 6,
+        "captured_percentage": 100,
+        "multi_source": 2
+    }
+}
