@@ -6,17 +6,19 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 $OutputFile = Join-Path $PSScriptRoot "windows_attack_log.json"
+$CompatOutputFile = Join-Path $PSScriptRoot "windowsattacklog.json"
 
 $TestUser = "support_update"
 $TestPassword = ConvertTo-SecureString "TempP@ssw0rd!9x" -AsPlainText -Force
 $TaskName = "SupportUpdateMaintenance"
+
 $StartupDir = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
 $StartupFile = Join-Path $StartupDir "support_update.ps1"
 
 $Actions = @()
 
 function Get-UtcTimestamp {
-    (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+    return (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
 }
 
 function Add-Action {
@@ -25,7 +27,7 @@ function Add-Action {
         [string]$Description,
         [string]$Timestamp,
         [string]$ExpectedDetectionSource,
-        [string]$Technique
+        [string]$MITRE
     )
 
     $script:Actions += [ordered]@{
@@ -33,7 +35,7 @@ function Add-Action {
         description = $Description
         timestamp = $Timestamp
         expected_detection_source = $ExpectedDetectionSource
-        MITRE_attack_technique = $Technique
+        MITRE_attack_technique = $MITRE
     }
 }
 
@@ -91,7 +93,7 @@ try {
         [Text.Encoding]::Unicode.GetBytes($Payload)
     )
 
-    powershell.exe -NoProfile -EncodedCommand $EncodedPayload | Out-Null
+    powershell.exe -enc $EncodedPayload
 
     $ts = Get-UtcTimestamp
 
@@ -111,7 +113,7 @@ try {
         /TR "cmd.exe /c echo Controlled simulation" `
         /SC ONCE `
         /ST 23:59 `
-        /F | Out-Null
+        /F
 
     $ts = Get-UtcTimestamp
 
@@ -146,7 +148,10 @@ try {
     Write-Host "    [6/6] Dropping file in Startup..." -NoNewline
 
     if (-not (Test-Path $StartupDir)) {
-        New-Item -ItemType Directory -Path $StartupDir -Force |
+        New-Item `
+            -ItemType Directory `
+            -Path $StartupDir `
+            -Force |
             Out-Null
     }
 
@@ -173,15 +178,25 @@ try {
         actions = $Actions
     }
 
-    $Report |
-        ConvertTo-Json -Depth 5 |
-        Set-Content -Path $OutputFile -Encoding UTF8
+    $Json = $Report | ConvertTo-Json -Depth 5
+
+    Set-Content `
+        -Path $OutputFile `
+        -Value $Json `
+        -Encoding UTF8
+
+    Set-Content `
+        -Path $CompatOutputFile `
+        -Value $Json `
+        -Encoding UTF8
 
 
     Write-Host "[*] Cleaning up artifacts..."
 
     if (Get-LocalUser -Name $TestUser -ErrorAction SilentlyContinue) {
-        Remove-LocalUser -Name $TestUser
+        Remove-LocalUser `
+            -Name $TestUser `
+            -ErrorAction SilentlyContinue
     }
 
     Unregister-ScheduledTask `
@@ -189,8 +204,16 @@ try {
         -Confirm:$false `
         -ErrorAction SilentlyContinue
 
+    schtasks.exe /delete `
+        /TN $TaskName `
+        /F |
+        Out-Null
+
     if (Test-Path $StartupFile) {
-        Remove-Item -Path $StartupFile -Force
+        Remove-Item `
+            -Path $StartupFile `
+            -Force `
+            -ErrorAction SilentlyContinue
     }
 
     Write-Host "    User removed, task deleted, file removed [CLEAN]"
@@ -201,7 +224,9 @@ catch {
 
     try {
         if (Get-LocalUser -Name $TestUser -ErrorAction SilentlyContinue) {
-            Remove-LocalUser -Name $TestUser -ErrorAction SilentlyContinue
+            Remove-LocalUser `
+                -Name $TestUser `
+                -ErrorAction SilentlyContinue
         }
     } catch {}
 
@@ -213,8 +238,18 @@ catch {
     } catch {}
 
     try {
+        schtasks.exe /delete `
+            /TN $TaskName `
+            /F |
+            Out-Null
+    } catch {}
+
+    try {
         if (Test-Path $StartupFile) {
-            Remove-Item $StartupFile -Force -ErrorAction SilentlyContinue
+            Remove-Item `
+                -Path $StartupFile `
+                -Force `
+                -ErrorAction SilentlyContinue
         }
     } catch {}
 
