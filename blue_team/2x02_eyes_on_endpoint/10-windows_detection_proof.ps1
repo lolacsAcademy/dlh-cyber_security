@@ -1,5 +1,6 @@
 # name: 10-windows_detection_proof.ps1
 # purpose: Windows Detection Proof
+# author: analyst
 # MITRE ATT&CK detection correlation
 # Reads windows_attack_log.json and checks Security, Sysmon, and PowerShell logs.
 
