@@ -2,7 +2,9 @@
 # name: 11-linux_attack_sim.sh
 # purpose: Controlled Linux attacker simulation
 # author: analyst
-set -euo pipefail
+set -e
+set -u
+set -o pipefail
 OUTPUT_FILE="$(dirname "$0")/linuxattacklog.json"
 TEST_USER="testattacker"
 SUDOERS_FILE="/etc/sudoers.d/backdoor"
