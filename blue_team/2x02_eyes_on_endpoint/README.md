@@ -10,3 +10,4 @@
 - Task 6: 6-log_source_map.sh
 - Task 7: 7-linux_export.sh
 - Task 8: 8-linux_telemetry_quality.sh
+- Task 9: 9-windows_attack_sim.ps1
