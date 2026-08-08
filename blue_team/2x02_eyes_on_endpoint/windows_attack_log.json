@@ -36,4 +36,14 @@
             "description": "Initiate outbound TCP connection to 1.1.1.1:443",
             "timestamp": "2026-08-08T10:46:35.532Z",
             "expected_detection_source": "Sysmon Event ID 3",
-            "MITRE_attack_technique": "T1071.001 - Application Layer Protocol: Web
+            "MITRE_attack_technique": "T1071.001 - Application Layer Protocol: Web Protocols"
+        },
+        {
+            "action_number": 6,
+            "description": "Drop file in Windows Startup directory",
+            "timestamp": "2026-08-08T10:46:35.619Z",
+            "expected_detection_source": "Sysmon Event ID 11",
+            "MITRE_attack_technique": "T1547.001 - Registry Run Keys / Startup Folder"
+        }
+    ]
+}

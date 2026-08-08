@@ -1,0 +1,24 @@
+[
+    {
+        "timestamp": "2026-08-08T14:00:00Z",
+        "hostname": "DC01",
+        "platform": "Windows",
+        "source_type": "WindowsSecurity",
+        "channel": "Security",
+        "event_id": 4624,
+        "event_category": "Information",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_message": "An account was successfully logged on."
+    },
+    {
+        "timestamp": "2026-08-08T14:00:05Z",
+        "hostname": "DC01",
+        "platform": "Windows",
+        "source_type": "Sysmon",
+        "channel": "Microsoft-Windows-Sysmon/Operational",
+        "event_id": 1,
+        "event_category": "Information",
+        "provider": "Microsoft-Windows-Sysmon",
+        "raw_message": "Process Create: cmd.exe"
+    }
+]
