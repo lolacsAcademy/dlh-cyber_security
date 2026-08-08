@@ -9,7 +9,8 @@ $OutputFile = Join-Path $PSScriptRoot "windows_attack_log.json"
 $CompatOutputFile = Join-Path $PSScriptRoot "windowsattacklog.json"
 
 $TestUser = "support_update"
-$TestPassword = ConvertTo-SecureString "TempP@ssw0rd!9x" -AsPlainText -Force
+$TestPasswordPlain = "TempP@ssw0rd!9x"
+$TestPassword = ConvertTo-SecureString $TestPasswordPlain -AsPlainText -Force
 $TaskName = "SupportUpdateMaintenance"
 
 $StartupDir = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
@@ -43,25 +44,40 @@ Write-Host "[*] Running Windows attacker simulation..."
 
 try {
 
-    Write-Host "    [1/6] Creating local user '$TestUser'..." -NoNewline
+    Write-Host "    [1/6] Creating user '$TestUser'..." -NoNewline
 
-    if (-not (Get-LocalUser -Name $TestUser -ErrorAction SilentlyContinue)) {
-        New-LocalUser `
-            -Name $TestUser `
-            -Password $TestPassword `
-            -Description "Controlled attacker simulation account" `
-            -AccountNeverExpires:$true `
-            -PasswordNeverExpires:$true `
-            -UserMayNotChangePassword:$true |
-            Out-Null
+    $ExistingUser = Get-ADUser `
+        -Filter "SamAccountName -eq '$TestUser'" `
+        -ErrorAction SilentlyContinue
+
+    if ($ExistingUser) {
+        Remove-ADGroupMember `
+            -Identity "Administrators" `
+            -Members $TestUser `
+            -Confirm:$false `
+            -ErrorAction SilentlyContinue
+
+        Remove-ADUser `
+            -Identity $ExistingUser `
+            -Confirm:$false `
+            -ErrorAction SilentlyContinue
+
+        Start-Sleep -Seconds 1
     }
+
+    New-ADUser `
+        -Name $TestUser `
+        -SamAccountName $TestUser `
+        -AccountPassword $TestPassword `
+        -Enabled $true `
+        -Description "Controlled attacker simulation account"
 
     $ts = Get-UtcTimestamp
 
     Add-Action 1 `
         "Create local user support_update" `
         $ts `
-        "Security Event ID 4720; Sysmon Event ID 1" `
+        "Security Event ID 4720" `
         "T1136.001 - Create Account: Local Account"
 
     Write-Host " $ts"
@@ -69,10 +85,9 @@ try {
 
     Write-Host "    [2/6] Adding to Administrators group..." -NoNewline
 
-    Add-LocalGroupMember `
-        -Group "Administrators" `
-        -Member $TestUser `
-        -ErrorAction SilentlyContinue
+    Add-ADGroupMember `
+        -Identity "Administrators" `
+        -Members $TestUser
 
     $ts = Get-UtcTimestamp
 
@@ -93,7 +108,7 @@ try {
         [Text.Encoding]::Unicode.GetBytes($Payload)
     )
 
-    powershell.exe -enc $EncodedPayload
+    powershell.exe -NoProfile -enc $EncodedPayload | Out-Null
 
     $ts = Get-UtcTimestamp
 
@@ -113,7 +128,7 @@ try {
         /TR "cmd.exe /c echo Controlled simulation" `
         /SC ONCE `
         /ST 23:59 `
-        /F
+        /F | Out-Null
 
     $ts = Get-UtcTimestamp
 
@@ -131,8 +146,7 @@ try {
     Test-NetConnection `
         -ComputerName "1.1.1.1" `
         -Port 443 `
-        -InformationLevel Quiet |
-        Out-Null
+        -InformationLevel Quiet | Out-Null
 
     $ts = Get-UtcTimestamp
 
@@ -151,8 +165,7 @@ try {
         New-Item `
             -ItemType Directory `
             -Path $StartupDir `
-            -Force |
-            Out-Null
+            -Force | Out-Null
     }
 
     Set-Content `
@@ -178,36 +191,35 @@ try {
         actions = $Actions
     }
 
-    $Json = $Report | ConvertTo-Json -Depth 5
+    $Report |
+        ConvertTo-Json -Depth 5 |
+        Set-Content `
+            -Path $OutputFile `
+            -Encoding UTF8
 
-    Set-Content `
+    Copy-Item `
         -Path $OutputFile `
-        -Value $Json `
-        -Encoding UTF8
-
-    Set-Content `
-        -Path $CompatOutputFile `
-        -Value $Json `
-        -Encoding UTF8
+        -Destination $CompatOutputFile `
+        -Force
 
 
     Write-Host "[*] Cleaning up artifacts..."
 
-    if (Get-LocalUser -Name $TestUser -ErrorAction SilentlyContinue) {
-        Remove-LocalUser `
-            -Name $TestUser `
-            -ErrorAction SilentlyContinue
-    }
+    Remove-ADGroupMember `
+        -Identity "Administrators" `
+        -Members $TestUser `
+        -Confirm:$false `
+        -ErrorAction SilentlyContinue
+
+    Remove-ADUser `
+        -Identity $TestUser `
+        -Confirm:$false `
+        -ErrorAction SilentlyContinue
 
     Unregister-ScheduledTask `
         -TaskName $TaskName `
         -Confirm:$false `
         -ErrorAction SilentlyContinue
-
-    schtasks.exe /delete `
-        /TN $TaskName `
-        /F |
-        Out-Null
 
     if (Test-Path $StartupFile) {
         Remove-Item `
@@ -220,14 +232,25 @@ try {
     Write-Host "Actions executed: $($Actions.Count)"
     Write-Host "Ground truth saved to: $OutputFile"
 }
+
 catch {
 
+    Write-Host ""
+    Write-Host "[!] Simulation failed: $($_.Exception.Message)"
+
     try {
-        if (Get-LocalUser -Name $TestUser -ErrorAction SilentlyContinue) {
-            Remove-LocalUser `
-                -Name $TestUser `
-                -ErrorAction SilentlyContinue
-        }
+        Remove-ADGroupMember `
+            -Identity "Administrators" `
+            -Members $TestUser `
+            -Confirm:$false `
+            -ErrorAction SilentlyContinue
+    } catch {}
+
+    try {
+        Remove-ADUser `
+            -Identity $TestUser `
+            -Confirm:$false `
+            -ErrorAction SilentlyContinue
     } catch {}
 
     try {
@@ -235,13 +258,6 @@ catch {
             -TaskName $TaskName `
             -Confirm:$false `
             -ErrorAction SilentlyContinue
-    } catch {}
-
-    try {
-        schtasks.exe /delete `
-            /TN $TaskName `
-            /F |
-            Out-Null
     } catch {}
 
     try {
