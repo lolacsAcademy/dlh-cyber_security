@@ -12,6 +12,9 @@ COMPAT_OUTPUT="linuxeventsexport.json"
 TMP="/tmp/linux_events_export.jsonl"
 HOSTNAME="$(hostname)"
 
+# ISO 8601 timestamp normalization
+ISO_FORMAT="%Y-%m-%dT%H:%M:%SZ"
+
 rm -f "$TMP"
 touch "$TMP"
 
@@ -23,7 +26,7 @@ SU_COUNT=0
 PAM_COUNT=0
 
 if [ -r /var/log/auth.log ]; then
-    awk -v host="$HOSTNAME" '
+    awk -v host="$HOSTNAME" -v iso="$ISO_FORMAT" '
     function esc(s) {
         gsub(/\\/,"\\\\",s)
         gsub(/"/,"\\\"",s)
@@ -33,22 +36,22 @@ if [ -r /var/log/auth.log ]; then
 
     /sshd/ {
         printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"auth.log\",\"source_type\":\"auth.log\",\"eventcategory\":\"ssh\",\"event_category\":\"ssh\",\"message\":\"%s\"}\n",
-        strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
+        strftime(iso, systime(), 1), host, esc($0)
     }
 
     /sudo/ {
         printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"auth.log\",\"source_type\":\"auth.log\",\"eventcategory\":\"sudo\",\"event_category\":\"sudo\",\"message\":\"%s\"}\n",
-        strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
+        strftime(iso, systime(), 1), host, esc($0)
     }
 
     / su:/ {
         printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"auth.log\",\"source_type\":\"auth.log\",\"eventcategory\":\"su\",\"event_category\":\"su\",\"message\":\"%s\"}\n",
-        strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
+        strftime(iso, systime(), 1), host, esc($0)
     }
 
     /pam_|PAM|pam/ {
         printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"auth.log\",\"source_type\":\"auth.log\",\"eventcategory\":\"PAM\",\"event_category\":\"PAM\",\"message\":\"%s\"}\n",
-        strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
+        strftime(iso, systime(), 1), host, esc($0)
     }
     ' /var/log/auth.log >> "$TMP"
 
@@ -70,7 +73,7 @@ NET_COUNT=0
 if command -v ausearch >/dev/null 2>&1; then
 
     ausearch -ts today 2>/dev/null |
-    awk -v host="$HOSTNAME" '
+    awk -v host="$HOSTNAME" -v iso="$ISO_FORMAT" '
     function esc(s) {
         gsub(/\\/,"\\\\",s)
         gsub(/"/,"\\\"",s)
@@ -80,24 +83,24 @@ if command -v ausearch >/dev/null 2>&1; then
 
     /type=EXECVE/ {
         printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"execve\",\"event_category\":\"execve\",\"message\":\"%s\"}\n",
-        strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
+        strftime(iso, systime(), 1), host, esc($0)
     }
 
     /type=PATH/ {
         printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"file_access\",\"event_category\":\"file_access\",\"message\":\"%s\"}\n",
-        strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
+        strftime(iso, systime(), 1), host, esc($0)
     }
 
     /socket|connect/ {
         printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"network\",\"event_category\":\"network\",\"message\":\"%s\"}\n",
-        strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
+        strftime(iso, systime(), 1), host, esc($0)
     }
     ' >> "$TMP"
 
 else
 
     if [ -r /var/log/audit/audit.log ]; then
-        awk -v host="$HOSTNAME" '
+        awk -v host="$HOSTNAME" -v iso="$ISO_FORMAT" '
         function esc(s) {
             gsub(/\\/,"\\\\",s)
             gsub(/"/,"\\\"",s)
@@ -107,17 +110,17 @@ else
 
         /type=EXECVE/ {
             printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"execve\",\"event_category\":\"execve\",\"message\":\"%s\"}\n",
-            strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
+            strftime(iso, systime(), 1), host, esc($0)
         }
 
         /type=PATH/ {
             printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"file_access\",\"event_category\":\"file_access\",\"message\":\"%s\"}\n",
-            strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
+            strftime(iso, systime(), 1), host, esc($0)
         }
 
         /socket|connect/ {
             printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"network\",\"event_category\":\"network\",\"message\":\"%s\"}\n",
-            strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
+            strftime(iso, systime(), 1), host, esc($0)
         }
         ' /var/log/audit/audit.log >> "$TMP"
     fi
@@ -137,7 +140,7 @@ SERVICE_COUNT=0
 ERROR_COUNT=0
 
 if [ -r /var/log/syslog ]; then
-    awk -v host="$HOSTNAME" '
+    awk -v host="$HOSTNAME" -v iso="$ISO_FORMAT" '
     function esc(s) {
         gsub(/\\/,"\\\\",s)
         gsub(/"/,"\\\"",s)
@@ -147,12 +150,12 @@ if [ -r /var/log/syslog ]; then
 
     /started|stopped|Starting|Stopping|service/ {
         printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"syslog\",\"source_type\":\"syslog\",\"eventcategory\":\"service\",\"event_category\":\"service\",\"message\":\"%s\"}\n",
-        strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
+        strftime(iso, systime(), 1), host, esc($0)
     }
 
     /error|ERROR|failed|FAILED|failure/ {
         printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"syslog\",\"source_type\":\"syslog\",\"eventcategory\":\"error\",\"event_category\":\"error\",\"message\":\"%s\"}\n",
-        strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
+        strftime(iso, systime(), 1), host, esc($0)
     }
     ' /var/log/syslog >> "$TMP"
 
