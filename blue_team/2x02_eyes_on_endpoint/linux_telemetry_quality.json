@@ -1,0 +1,55 @@
+{
+  "input_file": "linux_events_export.json",
+  "total_events": 82434,
+  "event_distribution": {
+    "by_event_category": [
+      {
+        "event_category": "execve",
+        "count": 15192,
+        "percentage": 18.42
+      },
+      {
+        "event_category": "file_access",
+        "count": 49331,
+        "percentage": 59.84
+      },
+      {
+        "event_category": "network",
+        "count": 17911,
+        "percentage": 21.72
+      }
+    ],
+    "by_source_type": [
+      {
+        "source_type": "audit.log",
+        "count": 82434,
+        "percentage": 100
+      }
+    ]
+  },
+  "time_coverage": {
+    "events_per_hour": [
+      {
+        "hour": "2026-08-08T05:00:00Z",
+        "count": 82434
+      }
+    ],
+    "hours_with_events": 1,
+    "hours_without_events": 0
+  },
+  "gap_detection": {
+    "gaps_over_30_minutes": [],
+    "any_gap_over_30_minutes": false
+  },
+  "field_completeness": {
+    "timestamp": 100.0,
+    "hostname": 100.0,
+    "source_type": 100.0,
+    "event_category": 100.0,
+    "command_line_execve": 100.0,
+    "source_ip_user_ssh": 100.0,
+    "path_operation_key_auditd_file": 100.0
+  },
+  "quality_score": 100.0,
+  "assessment": "good"
+}

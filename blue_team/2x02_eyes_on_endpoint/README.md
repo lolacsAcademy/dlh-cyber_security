@@ -9,3 +9,4 @@
 - Task 5: 5-auditd_refine.sh
 - Task 6: 6-log_source_map.sh
 - Task 7: 7-linux_export.sh
+- Task 8: 8-linux_telemetry_quality.sh
