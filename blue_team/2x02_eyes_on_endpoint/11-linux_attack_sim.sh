@@ -5,7 +5,7 @@
 set -e
 set -u
 set -o pipefail
-OUTPUT_FILE="$(dirname "$0")/linuxattacklog.json"
+OUTPUT_FILE="$(dirname "$0")/linux_attack_log.json"
 TEST_USER="testattacker"
 SUDOERS_FILE="/etc/sudoers.d/backdoor"
 SUSPICIOUS_BIN="/tmp/suspicious_bin"
