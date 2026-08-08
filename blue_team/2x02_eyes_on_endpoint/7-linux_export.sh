@@ -12,8 +12,8 @@ COMPAT_OUTPUT="linuxeventsexport.json"
 TMP="/tmp/linux_events_export.jsonl"
 HOSTNAME="$(hostname)"
 
-# ISO 8601 timestamp normalization
-ISO_FORMAT="%Y-%m-%dT%H:%M:%SZ"
+# ISO 8601 UTC timestamp normalization
+ISO_FORMAT="%Y-%m-%dT%H:%M:%SZ"  # UTC
 
 rm -f "$TMP"
 touch "$TMP"
