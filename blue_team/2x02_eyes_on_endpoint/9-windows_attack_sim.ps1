@@ -5,17 +5,18 @@
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-$OutputFile = Join-Path $PSScriptRoot "windowsattacklog.json"
-$CompatOutputFile = Join-Path $PSScriptRoot "windows_attack_log.json"
+$OutputFile = Join-Path $PSScriptRoot "windows_attack_log.json"
+
 $TestUser = "support_update"
 $TestPassword = ConvertTo-SecureString "TempP@ssw0rd!9x" -AsPlainText -Force
 $TaskName = "SupportUpdateMaintenance"
 $StartupDir = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
 $StartupFile = Join-Path $StartupDir "support_update.ps1"
+
 $Actions = @()
 
 function Get-UtcTimestamp {
-    return (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+    (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
 }
 
 function Add-Action {
@@ -32,7 +33,7 @@ function Add-Action {
         description = $Description
         timestamp = $Timestamp
         expected_detection_source = $ExpectedDetectionSource
-        mitre_attack_technique = $Technique
+        MITRE_attack_technique = $Technique
     }
 }
 
@@ -49,7 +50,8 @@ try {
             -Description "Controlled attacker simulation account" `
             -AccountNeverExpires:$true `
             -PasswordNeverExpires:$true `
-            -UserMayNotChangePassword:$true | Out-Null
+            -UserMayNotChangePassword:$true |
+            Out-Null
     }
 
     $ts = Get-UtcTimestamp
@@ -84,11 +86,12 @@ try {
     Write-Host "    [3/6] Running encoded PowerShell..." -NoNewline
 
     $Payload = 'Write-Host "C2 beacon"'
+
     $EncodedPayload = [Convert]::ToBase64String(
         [Text.Encoding]::Unicode.GetBytes($Payload)
     )
 
-    powershell.exe -NoProfile -enc $EncodedPayload | Out-Null
+    powershell.exe -NoProfile -EncodedCommand $EncodedPayload | Out-Null
 
     $ts = Get-UtcTimestamp
 
@@ -126,7 +129,8 @@ try {
     Test-NetConnection `
         -ComputerName "1.1.1.1" `
         -Port 443 `
-        -InformationLevel Quiet | Out-Null
+        -InformationLevel Quiet |
+        Out-Null
 
     $ts = Get-UtcTimestamp
 
@@ -142,7 +146,8 @@ try {
     Write-Host "    [6/6] Dropping file in Startup..." -NoNewline
 
     if (-not (Test-Path $StartupDir)) {
-        New-Item -ItemType Directory -Path $StartupDir -Force | Out-Null
+        New-Item -ItemType Directory -Path $StartupDir -Force |
+            Out-Null
     }
 
     Set-Content `
@@ -172,8 +177,6 @@ try {
         ConvertTo-Json -Depth 5 |
         Set-Content -Path $OutputFile -Encoding UTF8
 
-    Copy-Item -Path $OutputFile -Destination $CompatOutputFile -Force
-
 
     Write-Host "[*] Cleaning up artifacts..."
 
@@ -181,7 +184,10 @@ try {
         Remove-LocalUser -Name $TestUser
     }
 
-    Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction SilentlyContinue
+    Unregister-ScheduledTask `
+        -TaskName $TaskName `
+        -Confirm:$false `
+        -ErrorAction SilentlyContinue
 
     if (Test-Path $StartupFile) {
         Remove-Item -Path $StartupFile -Force
@@ -192,6 +198,7 @@ try {
     Write-Host "Ground truth saved to: $OutputFile"
 }
 catch {
+
     try {
         if (Get-LocalUser -Name $TestUser -ErrorAction SilentlyContinue) {
             Remove-LocalUser -Name $TestUser -ErrorAction SilentlyContinue
@@ -199,7 +206,10 @@ catch {
     } catch {}
 
     try {
-        Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction SilentlyContinue
+        Unregister-ScheduledTask `
+            -TaskName $TaskName `
+            -Confirm:$false `
+            -ErrorAction SilentlyContinue
     } catch {}
 
     try {
