@@ -13,3 +13,4 @@
 - Task 9: 9-windows_attack_sim.ps1
 - Task 10: 10-windows_detection_proof.ps1
 - Task 11: 11-linux_attack_sim.sh
+- Task 12: 12-linux_detection_proof.sh

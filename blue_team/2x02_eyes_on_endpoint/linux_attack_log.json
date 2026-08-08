@@ -6,42 +6,42 @@
     {
       "action_number": 1,
       "description": "Create user testattacker",
-      "timestamp": "2026-08-08T11:35:06Z",
+      "timestamp": "2026-08-08T14:08:24Z",
       "expected_telemetry": "auditd; useradd; account management",
       "mitre_attack_technique": "T1136.001 - Create Account: Local Account"
     },
     {
       "action_number": 2,
       "description": "Modify sudoers",
-      "timestamp": "2026-08-08T11:35:06Z",
+      "timestamp": "2026-08-08T14:08:24Z",
       "expected_telemetry": "auditd; sudoers file modification",
       "mitre_attack_technique": "T1548.003 - Abuse Elevation Control Mechanism: Sudo and Sudo Caching"
     },
     {
       "action_number": 3,
       "description": "Execute binary from /tmp",
-      "timestamp": "2026-08-08T11:35:06Z",
+      "timestamp": "2026-08-08T14:08:24Z",
       "expected_telemetry": "auditd; execve; file access",
       "mitre_attack_technique": "T1059.004 - Command and Scripting Interpreter: Unix Shell"
     },
     {
       "action_number": 4,
       "description": "Attempt reverse shell to localhost",
-      "timestamp": "2026-08-08T11:35:07Z",
+      "timestamp": "2026-08-08T14:08:25Z",
       "expected_telemetry": "auditd; network connection",
       "mitre_attack_technique": "T1059.004 - Command and Scripting Interpreter: Unix Shell"
     },
     {
       "action_number": 5,
       "description": "Modify crontab",
-      "timestamp": "2026-08-08T11:35:07Z",
+      "timestamp": "2026-08-08T14:08:25Z",
       "expected_telemetry": "auditd; cron file modification",
       "mitre_attack_technique": "T1053.003 - Scheduled Task/Job: Cron"
     },
     {
       "action_number": 6,
       "description": "Access sensitive file /etc/shadow",
-      "timestamp": "2026-08-08T11:35:07Z",
+      "timestamp": "2026-08-08T14:08:25Z",
       "expected_telemetry": "auditd; /etc/shadow access",
       "mitre_attack_technique": "T1003.008 - OS Credential Dumping: /etc/passwd and /etc/shadow"
     }
