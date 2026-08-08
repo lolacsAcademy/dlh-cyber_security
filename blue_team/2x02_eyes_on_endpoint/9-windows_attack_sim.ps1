@@ -178,7 +178,7 @@ try {
         Remove-LocalUser -Name $TestUser
     }
 
-    schtasks.exe /delete /TN $TaskName /F 2>$null | Out-Null
+    Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction SilentlyContinue
 
     if (Test-Path $StartupFile) {
         Remove-Item -Path $StartupFile -Force
@@ -196,7 +196,7 @@ catch {
     } catch {}
 
     try {
-        schtasks.exe /delete /TN $TaskName /F 2>$null | Out-Null
+        Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction SilentlyContinue
     } catch {}
 
     try {
