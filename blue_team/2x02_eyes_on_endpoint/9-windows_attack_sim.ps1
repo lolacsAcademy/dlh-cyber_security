@@ -6,6 +6,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 $OutputFile = Join-Path $PSScriptRoot "windowsattacklog.json"
+$CompatOutputFile = Join-Path $PSScriptRoot "windows_attack_log.json"
 $TestUser = "support_update"
 $TestPassword = ConvertTo-SecureString "TempP@ssw0rd!9x" -AsPlainText -Force
 $TaskName = "SupportUpdateMaintenance"
@@ -170,6 +171,8 @@ try {
     $Report |
         ConvertTo-Json -Depth 5 |
         Set-Content -Path $OutputFile -Encoding UTF8
+
+    Copy-Item -Path $OutputFile -Destination $CompatOutputFile -Force
 
 
     Write-Host "[*] Cleaning up artifacts..."
