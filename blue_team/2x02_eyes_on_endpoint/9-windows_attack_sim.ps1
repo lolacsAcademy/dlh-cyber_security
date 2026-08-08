@@ -102,7 +102,7 @@ try {
 
     Write-Host "    [4/6] Creating scheduled task..." -NoNewline
 
-    schtasks.exe /Create `
+    schtasks.exe /create `
         /TN $TaskName `
         /TR "cmd.exe /c echo Controlled simulation" `
         /SC ONCE `
@@ -178,7 +178,7 @@ try {
         Remove-LocalUser -Name $TestUser
     }
 
-    schtasks.exe /Delete /TN $TaskName /F 2>$null | Out-Null
+    schtasks.exe /delete /TN $TaskName /F 2>$null | Out-Null
 
     if (Test-Path $StartupFile) {
         Remove-Item -Path $StartupFile -Force
@@ -196,7 +196,7 @@ catch {
     } catch {}
 
     try {
-        schtasks.exe /Delete /TN $TaskName /F 2>$null | Out-Null
+        schtasks.exe /delete /TN $TaskName /F 2>$null | Out-Null
     } catch {}
 
     try {
