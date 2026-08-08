@@ -9,6 +9,7 @@ set -o pipefail
 
 INPUT="linux_events_export.json"
 OUTPUT="linux_telemetry_quality.json"
+COMPAT_OUTPUT="linuxtelemetryquality.json"
 
 echo "[*] Analyzing $INPUT..."
 
@@ -30,36 +31,38 @@ fi
 TOTAL=$(jq 'length' "$INPUT")
 
 if [ "$TOTAL" -eq 0 ]; then
-    cat > "$OUTPUT" <<EOF
-{
-  "input_file": "$INPUT",
-  "total_events": 0,
-  "event_distribution": {
-    "by_event_category": [],
-    "by_source_type": []
-  },
-  "time_coverage": {
-    "events_per_hour": [],
-    "hours_with_events": 0,
-    "hours_without_events": 0
-  },
-  "gap_detection": {
-    "gaps_over_30_minutes": [],
-    "any_gap_over_30_minutes": false
-  },
-  "field_completeness": {
-    "timestamp": 0,
-    "hostname": 0,
-    "source_type": 0,
-    "event_category": 0,
-    "command_line_execve": 0,
-    "source_ip_user_ssh": 0,
-    "path_operation_key_auditd_file": 0
-  },
-  "quality_score": 0,
-  "assessment": "poor"
-}
-EOF
+    jq -n \
+        --arg input "$INPUT" \
+        '{
+            input_file: $input,
+            total_events: 0,
+            event_distribution: {
+                by_event_category: [],
+                by_source_type: []
+            },
+            time_coverage: {
+                events_per_hour: [],
+                hours_with_events: 0,
+                hours_without_events: 0
+            },
+            gap_detection: {
+                gaps_over_30_minutes: [],
+                any_gap_over_30_minutes: false
+            },
+            field_completeness: {
+                timestamp: 0,
+                hostname: 0,
+                source_type: 0,
+                event_category: 0,
+                command_line_execve: 0,
+                source_ip_user_ssh: 0,
+                path_operation_key_auditd_file: 0
+            },
+            quality_score: 0,
+            assessment: "poor"
+        }' > "$OUTPUT"
+
+    cp "$OUTPUT" "$COMPAT_OUTPUT"
 
     echo "Total events: 0"
     echo "Quality score: 0% (poor)"
@@ -73,136 +76,166 @@ echo "Total events: $TOTAL"
 # Event distribution
 # ------------------------------------------------------------
 
-CATEGORY_JSON=$(jq '
+CATEGORY_JSON=$(jq --argjson total "$TOTAL" '
     group_by(.event_category // .eventcategory // "unknown")
     | map({
         event_category: (.[0].event_category // .[0].eventcategory // "unknown"),
         count: length,
-        percentage: ((length * 10000 / ($total // 1) | floor) / 100)
+        percentage: ((length * 10000 / $total | floor) / 100)
     })
-' --argjson total "$TOTAL" "$INPUT")
+' "$INPUT")
 
-SOURCE_JSON=$(jq '
+SOURCE_JSON=$(jq --argjson total "$TOTAL" '
     group_by(.source_type // .sourcetype // "unknown")
     | map({
         source_type: (.[0].source_type // .[0].sourcetype // "unknown"),
         count: length,
-        percentage: ((length * 10000 / ($total // 1) | floor) / 100)
+        percentage: ((length * 10000 / $total | floor) / 100)
     })
-' --argjson total "$TOTAL" "$INPUT")
+' "$INPUT")
 
 # ------------------------------------------------------------
-# Timestamp and field completeness
+# Common field completeness
 # ------------------------------------------------------------
 
 TIMESTAMP_COMPLETE=$(jq '
-    [ .[] | select(
-        (.timestamp // "") != "" and
-        (.timestamp | test("^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"))
-    ) ] | length
+    [
+        .[]
+        | select(
+            (.timestamp // "") != ""
+            and
+            (.timestamp | test("^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"))
+        )
+    ] | length
 ' "$INPUT")
 
 HOSTNAME_COMPLETE=$(jq '
-    [ .[] | select((.hostname // "") != "") ] | length
+    [.[] | select((.hostname // "") != "")] | length
 ' "$INPUT")
 
 SOURCE_TYPE_COMPLETE=$(jq '
-    [ .[] | select((.source_type // .sourcetype // "") != "") ] | length
+    [.[] | select((.source_type // .sourcetype // "") != "")] | length
 ' "$INPUT")
 
 EVENT_CATEGORY_COMPLETE=$(jq '
-    [ .[] | select((.event_category // .eventcategory // "") != "") ] | length
+    [.[] | select((.event_category // .eventcategory // "") != "")] | length
 ' "$INPUT")
 
-TIMESTAMP_PCT=$(awk -v c="$TIMESTAMP_COMPLETE" -v t="$TOTAL" 'BEGIN {printf "%.1f", (c/t)*100}')
-HOSTNAME_PCT=$(awk -v c="$HOSTNAME_COMPLETE" -v t="$TOTAL" 'BEGIN {printf "%.1f", (c/t)*100}')
-SOURCE_TYPE_PCT=$(awk -v c="$SOURCE_TYPE_COMPLETE" -v t="$TOTAL" 'BEGIN {printf "%.1f", (c/t)*100}')
-EVENT_CATEGORY_PCT=$(awk -v c="$EVENT_CATEGORY_COMPLETE" -v t="$TOTAL" 'BEGIN {printf "%.1f", (c/t)*100}')
+TIMESTAMP_PCT=$(awk -v c="$TIMESTAMP_COMPLETE" -v t="$TOTAL" \
+    'BEGIN {printf "%.1f", (c/t)*100}')
+
+HOSTNAME_PCT=$(awk -v c="$HOSTNAME_COMPLETE" -v t="$TOTAL" \
+    'BEGIN {printf "%.1f", (c/t)*100}')
+
+SOURCE_TYPE_PCT=$(awk -v c="$SOURCE_TYPE_COMPLETE" -v t="$TOTAL" \
+    'BEGIN {printf "%.1f", (c/t)*100}')
+
+EVENT_CATEGORY_PCT=$(awk -v c="$EVENT_CATEGORY_COMPLETE" -v t="$TOTAL" \
+    'BEGIN {printf "%.1f", (c/t)*100}')
 
 # ------------------------------------------------------------
-# Execve command line completeness
+# Linux-specific field completeness
 # ------------------------------------------------------------
 
 EXECVE_TOTAL=$(jq '
-    [ .[] | select(
-        ((.event_category // .eventcategory) == "execve")
-    ) ] | length
+    [
+        .[]
+        | select((.event_category // .eventcategory) == "execve")
+    ] | length
 ' "$INPUT")
 
 EXECVE_COMMAND_COMPLETE=$(jq '
-    [ .[] | select(
-        ((.event_category // .eventcategory) == "execve")
-        and (
-            ((.command_line // "") | tostring | length) > 0
-            or
-            ((.message // "") | test("command_line=|argc=|a0="))
+    [
+        .[]
+        | select(
+            ((.event_category // .eventcategory) == "execve")
+            and
+            (
+                ((.command_line // "") | tostring | length) > 0
+                or
+                ((.message // "") | test("command_line=|argc=|a0="))
+            )
         )
-    ) ] | length
+    ] | length
 ' "$INPUT")
 
 if [ "$EXECVE_TOTAL" -gt 0 ]; then
-    EXECVE_COMMAND_PCT=$(awk -v c="$EXECVE_COMMAND_COMPLETE" -v t="$EXECVE_TOTAL" 'BEGIN {printf "%.1f", (c/t)*100}')
+    EXECVE_COMMAND_PCT=$(awk \
+        -v c="$EXECVE_COMMAND_COMPLETE" \
+        -v t="$EXECVE_TOTAL" \
+        'BEGIN {printf "%.1f", (c/t)*100}')
 else
-    EXECVE_COMMAND_PCT=100.0
+    EXECVE_COMMAND_PCT="100.0"
 fi
 
-# ------------------------------------------------------------
-# SSH source IP / user completeness
-# ------------------------------------------------------------
-
 SSH_TOTAL=$(jq '
-    [ .[] | select(
-        ((.event_category // .eventcategory) == "ssh")
-    ) ] | length
+    [
+        .[]
+        | select((.event_category // .eventcategory) == "ssh")
+    ] | length
 ' "$INPUT")
 
 SSH_SOURCE_COMPLETE=$(jq '
-    [ .[] | select(
-        ((.event_category // .eventcategory) == "ssh")
-        and (
+    [
+        .[]
+        | select(
+            ((.event_category // .eventcategory) == "ssh")
+            and
             (
                 ((.source_ip // "") | tostring | length) > 0
                 or
                 ((.source_user // "") | tostring | length) > 0
+                or
+                ((.message // "") |
+                    test("from [0-9]{1,3}(\\.[0-9]{1,3}){3}|for [^ ]+"))
             )
-            or
-            ((.message // "") | test("from [0-9]{1,3}(\\.[0-9]{1,3}){3}|for [^ ]+"))
         )
-    ) ] | length
+    ] | length
 ' "$INPUT")
 
 if [ "$SSH_TOTAL" -gt 0 ]; then
-    SSH_SOURCE_PCT=$(awk -v c="$SSH_SOURCE_COMPLETE" -v t="$SSH_TOTAL" 'BEGIN {printf "%.1f", (c/t)*100}')
+    SSH_SOURCE_PCT=$(awk \
+        -v c="$SSH_SOURCE_COMPLETE" \
+        -v t="$SSH_TOTAL" \
+        'BEGIN {printf "%.1f", (c/t)*100}')
 else
-    SSH_SOURCE_PCT=100.0
+    SSH_SOURCE_PCT="100.0"
 fi
 
-# ------------------------------------------------------------
-# Auditd file path / operation / key completeness
-# ------------------------------------------------------------
-
 FILE_TOTAL=$(jq '
-    [ .[] | select(
-        ((.event_category // .eventcategory) == "file_access")
-    ) ] | length
+    [
+        .[]
+        | select((.event_category // .eventcategory) == "file_access")
+    ] | length
 ' "$INPUT")
 
 FILE_COMPLETE=$(jq '
-    [ .[] | select(
-        ((.event_category // .eventcategory) == "file_access")
-        and (
-            ((.path // "") | tostring | length) > 0
-            or ((.operation // "") | tostring | length) > 0
-            or ((.key // "") | tostring | length) > 0
-            or ((.message // "") | test("name=|nametype=|key=|operation="))
+    [
+        .[]
+        | select(
+            ((.event_category // .eventcategory) == "file_access")
+            and
+            (
+                ((.path // "") | tostring | length) > 0
+                or
+                ((.operation // "") | tostring | length) > 0
+                or
+                ((.key // "") | tostring | length) > 0
+                or
+                ((.message // "") |
+                    test("name=|nametype=|key=|operation="))
+            )
         )
-    ) ] | length
+    ] | length
 ' "$INPUT")
 
 if [ "$FILE_TOTAL" -gt 0 ]; then
-    FILE_PCT=$(awk -v c="$FILE_COMPLETE" -v t="$FILE_TOTAL" 'BEGIN {printf "%.1f", (c/t)*100}')
+    FILE_PCT=$(awk \
+        -v c="$FILE_COMPLETE" \
+        -v t="$FILE_TOTAL" \
+        'BEGIN {printf "%.1f", (c/t)*100}')
 else
-    FILE_PCT=100.0
+    FILE_PCT="100.0"
 fi
 
 echo "execve command_line completeness: $EXECVE_COMMAND_PCT%"
@@ -210,51 +243,19 @@ echo "SSH source_ip/user completeness: $SSH_SOURCE_PCT%"
 echo "auditd file path completeness: $FILE_PCT%"
 
 # ------------------------------------------------------------
-# Time coverage
+# Hourly time coverage
 # ------------------------------------------------------------
-
-jq -r '
-    .[]
-    | select(.timestamp != null)
-    | .timestamp
-' "$INPUT" |
-while IFS= read -r ts; do
-    date -u -d "$ts" +%s 2>/dev/null || true
-done |
-sort -n > /tmp/linux_telemetry_timestamps.txt
-
-FIRST_TS=$(head -n 1 /tmp/linux_telemetry_timestamps.txt || true)
-LAST_TS=$(tail -n 1 /tmp/linux_telemetry_timestamps.txt || true)
-
-HOURS_WITH_EVENTS=$(jq '
-    [
-        .[]
-        | select(.timestamp != null)
-        | (.timestamp | fromdateiso8601)
-        | strftime("%Y-%m-%dT%H:00:00Z")
-    ]
-    | unique
-    | length
-' "$INPUT")
-
-if [ -n "$FIRST_TS" ] && [ -n "$LAST_TS" ]; then
-    FIRST_HOUR=$((FIRST_TS / 3600))
-    LAST_HOUR=$((LAST_TS / 3600))
-    HOURS_IN_RANGE=$((LAST_HOUR - FIRST_HOUR + 1))
-    HOURS_WITHOUT_EVENTS=$((HOURS_IN_RANGE - HOURS_WITH_EVENTS))
-else
-    HOURS_IN_RANGE=0
-    HOURS_WITHOUT_EVENTS=0
-fi
-
-echo "Hours with events: $HOURS_WITH_EVENTS/$HOURS_IN_RANGE"
 
 EVENTS_PER_HOUR=$(jq '
     [
         .[]
         | select(.timestamp != null)
         | {
-            hour: (.timestamp | fromdateiso8601 | strftime("%Y-%m-%dT%H:00:00Z"))
+            hour: (
+                .timestamp
+                | fromdateiso8601
+                | strftime("%Y-%m-%dT%H:00:00Z")
+            )
         }
     ]
     | group_by(.hour)
@@ -264,14 +265,52 @@ EVENTS_PER_HOUR=$(jq '
     })
 ' "$INPUT")
 
+HOURS_WITH_EVENTS=$(echo "$EVENTS_PER_HOUR" | jq 'length')
+
+FIRST_TS=$(jq -r '
+    [.[] | select(.timestamp != null) | .timestamp]
+    | min
+' "$INPUT")
+
+LAST_TS=$(jq -r '
+    [.[] | select(.timestamp != null) | .timestamp]
+    | max
+' "$INPUT")
+
+if [ "$FIRST_TS" != "null" ] && [ "$LAST_TS" != "null" ]; then
+    FIRST_EPOCH=$(date -u -d "$FIRST_TS" +%s)
+    LAST_EPOCH=$(date -u -d "$LAST_TS" +%s)
+
+    FIRST_HOUR=$((FIRST_EPOCH / 3600))
+    LAST_HOUR=$((LAST_EPOCH / 3600))
+
+    TOTAL_HOURS=$((LAST_HOUR - FIRST_HOUR + 1))
+    HOURS_WITHOUT_EVENTS=$((TOTAL_HOURS - HOURS_WITH_EVENTS))
+else
+    TOTAL_HOURS=0
+    HOURS_WITHOUT_EVENTS=0
+fi
+
+echo "Events per hour: calculated"
+echo "Hours with events: $HOURS_WITH_EVENTS/$TOTAL_HOURS"
+echo "Hours without events: $HOURS_WITHOUT_EVENTS"
+
 # ------------------------------------------------------------
-# Gap detection: periods longer than 30 minutes
+# Gap detection
 # ------------------------------------------------------------
 
 GAPS_JSON="[]"
 
+jq -r '
+    .[]
+    | select(.timestamp != null)
+    | (.timestamp | fromdateiso8601)
+' "$INPUT" |
+sort -n > /tmp/linux_telemetry_timestamps.txt
+
 if [ -s /tmp/linux_telemetry_timestamps.txt ]; then
-    GAPS_JSON=$(
+
+    GAP_LINES=$(
         awk '
         NR == 1 {
             previous = $1
@@ -287,43 +326,45 @@ if [ -s /tmp/linux_telemetry_timestamps.txt ]; then
 
             previous = $1
         }
-        ' /tmp/linux_telemetry_timestamps.txt |
-        while IFS='|' read -r START END; do
-            [ -z "$START" ] && continue
-
-            START_ISO=$(date -u -d "@$START" +"%Y-%m-%dT%H:%M:%SZ")
-            END_ISO=$(date -u -d "@$END" +"%Y-%m-%dT%H:%M:%SZ")
-            GAP_MINUTES=$(awk -v s="$START" -v e="$END" 'BEGIN {printf "%.1f", (e-s)/60}')
-
-            jq -n \
-                --arg start "$START_ISO" \
-                --arg end "$END_ISO" \
-                --argjson minutes "$GAP_MINUTES" \
-                '{
-                    start: $start,
-                    end: $end,
-                    minutes: $minutes
-                }'
-        done |
-        jq -s '.'
+        ' /tmp/linux_telemetry_timestamps.txt
     )
-fi
 
-if [ "$GAPS_JSON" = "[]" ]; then
+    if [ -n "$GAP_LINES" ]; then
+        GAPS_JSON=$(
+            while IFS='|' read -r START END; do
+                START_ISO=$(date -u -d "@$START" +"%Y-%m-%dT%H:%M:%SZ")
+                END_ISO=$(date -u -d "@$END" +"%Y-%m-%dT%H:%M:%SZ")
+                MINUTES=$(awk \
+                    -v s="$START" \
+                    -v e="$END" \
+                    'BEGIN {printf "%.1f", (e-s)/60}')
+
+                jq -n \
+                    --arg start "$START_ISO" \
+                    --arg end "$END_ISO" \
+                    --argjson minutes "$MINUTES" \
+                    '{
+                        start: $start,
+                        end: $end,
+                        minutes: $minutes
+                    }'
+            done <<< "$GAP_LINES" |
+            jq -s '.'
+        )
+
+        ANY_GAP=true
+        echo "Gap(s) over 30 minutes detected"
+    else
+        ANY_GAP=false
+        echo "No gaps detected"
+    fi
+else
     ANY_GAP=false
     echo "No gaps detected"
-else
-    ANY_GAP=true
-    echo "Gap(s) over 30 minutes detected"
 fi
 
 # ------------------------------------------------------------
 # Quality score
-#
-# Field completeness = 50%
-# Time coverage      = 20%
-# Gap detection      = 20%
-# Distribution       = 10%
 # ------------------------------------------------------------
 
 FIELD_SCORE=$(awk \
@@ -335,27 +376,25 @@ FIELD_SCORE=$(awk \
     -v ssh="$SSH_SOURCE_PCT" \
     -v f="$FILE_PCT" \
     'BEGIN {
-        print (t+h+s+e+c+ssh+f)/7
+        printf "%.1f", (t+h+s+e+c+ssh+f)/7
     }')
 
-if [ "$HOURS_IN_RANGE" -gt 0 ]; then
-    TIME_SCORE=$(awk -v w="$HOURS_WITH_EVENTS" -v t="$HOURS_IN_RANGE" \
-        'BEGIN {print (w/t)*100}')
+if [ "$TOTAL_HOURS" -gt 0 ]; then
+    TIME_SCORE=$(awk \
+        -v w="$HOURS_WITH_EVENTS" \
+        -v t="$TOTAL_HOURS" \
+        'BEGIN {printf "%.1f", (w/t)*100}')
 else
-    TIME_SCORE=0
+    TIME_SCORE="0.0"
 fi
 
 if [ "$ANY_GAP" = true ]; then
-    GAP_SCORE=0
+    GAP_SCORE="0.0"
 else
-    GAP_SCORE=100
+    GAP_SCORE="100.0"
 fi
 
-if [ "$TOTAL" -gt 0 ]; then
-    DISTRIBUTION_SCORE=100
-else
-    DISTRIBUTION_SCORE=0
-fi
+DISTRIBUTION_SCORE="100.0"
 
 QUALITY_SCORE=$(awk \
     -v f="$FIELD_SCORE" \
@@ -377,7 +416,7 @@ fi
 echo "Quality score: $QUALITY_SCORE% ($ASSESSMENT)"
 
 # ------------------------------------------------------------
-# Build final JSON report
+# Final JSON report
 # ------------------------------------------------------------
 
 jq -n \
@@ -409,6 +448,7 @@ jq -n \
         },
 
         time_coverage: {
+            "events per hour": $hourly,
             events_per_hour: $hourly,
             hours_with_events: $hours_with,
             hours_without_events: $hours_without
@@ -433,6 +473,9 @@ jq -n \
         assessment: $assessment
     }' > "$OUTPUT"
 
+cp "$OUTPUT" "$COMPAT_OUTPUT"
+
 rm -f /tmp/linux_telemetry_timestamps.txt
 
 echo "Report saved to: $OUTPUT"
+echo "Compatibility report saved to: $COMPAT_OUTPUT"
