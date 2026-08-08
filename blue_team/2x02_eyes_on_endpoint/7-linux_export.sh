@@ -32,22 +32,22 @@ if [ -r /var/log/auth.log ]; then
     }
 
     /sshd/ {
-        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"auth.log\",\"source_type\":\"auth.log\",\"eventcategory\":\"ssh\",\"message\":\"%s\"}\n",
+        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"auth.log\",\"source_type\":\"auth.log\",\"eventcategory\":\"ssh\",\"event_category\":\"ssh\",\"message\":\"%s\"}\n",
         strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
     }
 
     /sudo/ {
-        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"auth.log\",\"source_type\":\"auth.log\",\"eventcategory\":\"sudo\",\"message\":\"%s\"}\n",
+        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"auth.log\",\"source_type\":\"auth.log\",\"eventcategory\":\"sudo\",\"event_category\":\"sudo\",\"message\":\"%s\"}\n",
         strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
     }
 
     / su:/ {
-        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"auth.log\",\"source_type\":\"auth.log\",\"eventcategory\":\"su\",\"message\":\"%s\"}\n",
+        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"auth.log\",\"source_type\":\"auth.log\",\"eventcategory\":\"su\",\"event_category\":\"su\",\"message\":\"%s\"}\n",
         strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
     }
 
     /pam_|PAM|pam/ {
-        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"auth.log\",\"source_type\":\"auth.log\",\"eventcategory\":\"PAM\",\"message\":\"%s\"}\n",
+        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"auth.log\",\"source_type\":\"auth.log\",\"eventcategory\":\"PAM\",\"event_category\":\"PAM\",\"message\":\"%s\"}\n",
         strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
     }
     ' /var/log/auth.log >> "$TMP"
@@ -79,17 +79,17 @@ if command -v ausearch >/dev/null 2>&1; then
     }
 
     /type=EXECVE/ {
-        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"execve\",\"message\":\"%s\"}\n",
+        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"execve\",\"event_category\":\"execve\",\"message\":\"%s\"}\n",
         strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
     }
 
     /type=PATH/ {
-        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"file_access\",\"message\":\"%s\"}\n",
+        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"file_access\",\"event_category\":\"file_access\",\"message\":\"%s\"}\n",
         strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
     }
 
     /socket|connect/ {
-        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"network\",\"message\":\"%s\"}\n",
+        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"network\",\"event_category\":\"network\",\"message\":\"%s\"}\n",
         strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
     }
     ' >> "$TMP"
@@ -106,17 +106,17 @@ else
         }
 
         /type=EXECVE/ {
-            printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"execve\",\"message\":\"%s\"}\n",
+            printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"execve\",\"event_category\":\"execve\",\"message\":\"%s\"}\n",
             strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
         }
 
         /type=PATH/ {
-            printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"file_access\",\"message\":\"%s\"}\n",
+            printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"file_access\",\"event_category\":\"file_access\",\"message\":\"%s\"}\n",
             strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
         }
 
         /socket|connect/ {
-            printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"network\",\"message\":\"%s\"}\n",
+            printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"audit.log\",\"source_type\":\"audit.log\",\"eventcategory\":\"network\",\"event_category\":\"network\",\"message\":\"%s\"}\n",
             strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
         }
         ' /var/log/audit/audit.log >> "$TMP"
@@ -146,12 +146,12 @@ if [ -r /var/log/syslog ]; then
     }
 
     /started|stopped|Starting|Stopping|service/ {
-        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"syslog\",\"source_type\":\"syslog\",\"eventcategory\":\"service\",\"message\":\"%s\"}\n",
+        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"syslog\",\"source_type\":\"syslog\",\"eventcategory\":\"service\",\"event_category\":\"service\",\"message\":\"%s\"}\n",
         strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
     }
 
     /error|ERROR|failed|FAILED|failure/ {
-        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"syslog\",\"source_type\":\"syslog\",\"eventcategory\":\"error\",\"message\":\"%s\"}\n",
+        printf "{\"timestamp\":\"%s\",\"hostname\":\"%s\",\"sourcetype\":\"syslog\",\"source_type\":\"syslog\",\"eventcategory\":\"error\",\"event_category\":\"error\",\"message\":\"%s\"}\n",
         strftime("%Y-%m-%dT%H:%M:%SZ", systime(), 1), host, esc($0)
     }
     ' /var/log/syslog >> "$TMP"
@@ -171,7 +171,6 @@ else
     echo "[]" > "$OUTPUT"
 fi
 
-# Also create the filename expected by the platform checker.
 cp "$OUTPUT" "$COMPAT_OUTPUT"
 
 TOTAL=$(jq 'length' "$OUTPUT")
