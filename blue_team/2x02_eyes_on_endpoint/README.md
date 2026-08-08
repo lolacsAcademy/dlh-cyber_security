@@ -11,3 +11,5 @@
 - Task 7: 7-linux_export.sh
 - Task 8: 8-linux_telemetry_quality.sh
 - Task 9: 9-windows_attack_sim.ps1
+- Task 10: 10-windows_detection_proof.ps1
+- Task 11: 11-linux_attack_sim.sh

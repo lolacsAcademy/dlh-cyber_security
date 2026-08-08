@@ -1,0 +1,37 @@
+{
+  "simulation": "Linux Attacker Simulation",
+  "timestamp_format": "UTC ISO 8601",
+  "actions_executed": 6,
+  "actions": [
+    {
+      "action_number": 1,
+      "description": "Create user testattacker",
+      "timestamp": "2026-08-08T11:10:22Z"
+    },
+    {
+      "action_number": 2,
+      "description": "Modify sudoers",
+      "timestamp": "2026-08-08T11:10:22Z"
+    },
+    {
+      "action_number": 3,
+      "description": "Execute binary from /tmp",
+      "timestamp": "2026-08-08T11:10:22Z"
+    },
+    {
+      "action_number": 4,
+      "description": "Attempt reverse shell to localhost",
+      "timestamp": "2026-08-08T11:10:23Z"
+    },
+    {
+      "action_number": 5,
+      "description": "Modify crontab",
+      "timestamp": "2026-08-08T11:10:23Z"
+    },
+    {
+      "action_number": 6,
+      "description": "Access sensitive file /etc/shadow",
+      "timestamp": "2026-08-08T11:10:23Z"
+    }
+  ]
+}
