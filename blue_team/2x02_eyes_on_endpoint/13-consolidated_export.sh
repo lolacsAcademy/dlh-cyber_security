@@ -37,7 +37,7 @@ LINUX_COUNT=$(jq 'length' "$LINUX_FILE")
 echo "    Windows events: $WINDOWS_COUNT"
 echo "[*] Loading Linux events..."
 echo "    Linux events: $LINUX_COUNT"
-echo "[*] Normalizing timestamps to UTC..."
+echo "[*] Normalizing timestamps to UTC ISO 8601..."
 normalize_events() {
     local INPUT="$1"
     local OUTPUT="$2"
