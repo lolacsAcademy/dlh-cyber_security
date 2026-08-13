@@ -1,4 +1,5 @@
 #!/bin/bash
+# Groups transactions within 15 minutes (900 seconds) of each other into one change event
 set -uo pipefail
 
 OUT="patch_change_log.json"
