@@ -1,0 +1,11 @@
+{
+  "now": "2026-08-14 01:14",
+  "timezone": "Europe/Paris",
+  "active_window": "emergency",
+  "next_window": {
+    "name": "standard",
+    "at": "2026-08-15T02:00:00"
+  },
+  "seconds_until_next": 89122,
+  "decision": "defer (emergency window requires MEDDEFENSE_EMERGENCY=1)"
+}

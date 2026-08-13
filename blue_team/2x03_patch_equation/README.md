@@ -12,3 +12,4 @@ File: `7-apt_recovery.sh, apt_recovery.json`
 File: `8-unattended_config.sh, unattended_config.json`
 File: `9-rollback.sh`
 File: `10-version_hold.sh, hold_management.json`
+File: `11-maintenance_window.sh, maintenance_window.json`
