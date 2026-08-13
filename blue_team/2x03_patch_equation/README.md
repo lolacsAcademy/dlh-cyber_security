@@ -10,3 +10,4 @@ File: `5-post_patch_validate.sh, post_patch_validation.json`
 File: `6-config_drift.sh, config_drift.json`
 File: `7-apt_recovery.sh, apt_recovery.json`
 File: `8-unattended_config.sh, unattended_config.json`
+File: `9-rollback.sh`
