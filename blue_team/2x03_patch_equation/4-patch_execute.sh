@@ -1,4 +1,5 @@
 #!/bin/bash
+# Records pre and post service states for each patched package
 set -uo pipefail
 
 LOCK_FILE="/var/lock/meddefense-patch.lock"
