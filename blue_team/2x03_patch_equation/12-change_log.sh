@@ -19,11 +19,12 @@ for f in $LOG_FILES; do
         CONTENT_CMD="cat \"$f\""
     fi
 
-    while IFS=$'\x01' read -r sd cl rb up ins; do
+    while IFS=$'\x01' read -r sd cl rb up ins rem; do
         [ -z "$sd" ] && continue
         pkg_count=0
         [ -n "$up" ] && pkg_count=$((pkg_count + $(echo "$up" | tr ',' '\n' | grep -c .)))
         [ -n "$ins" ] && pkg_count=$((pkg_count + $(echo "$ins" | tr ',' '\n' | grep -c .)))
+        [ -n "$rem" ] && pkg_count=$((pkg_count + $(echo "$rem" | tr ',' '\n' | grep -c .)))
         user=$(echo "$rb" | awk '{print $1}')
         [ -z "$user" ] && user="unknown"
 
@@ -31,7 +32,7 @@ for f in $LOG_FILES; do
             '{start_date:$sd, commandline:$cl, user:$u, packages:$pc}')
         TRANSACTIONS=$(echo "$TRANSACTIONS" | jq --argjson e "$entry" '. + [$e]')
     done < <(eval "$CONTENT_CMD" | awk -v RS="" '{
-        sd=""; cl=""; rb=""; up=""; ins="";
+        sd=""; cl=""; rb=""; up=""; ins=""; rem="";
         n=split($0, arr, "\n");
         for(i=1;i<=n;i++){
             if(arr[i] ~ /^Start-Date: /) { sd=arr[i]; sub(/^Start-Date: /,"",sd); }
@@ -39,8 +40,9 @@ for f in $LOG_FILES; do
             else if(arr[i] ~ /^Requested-By: /) { rb=arr[i]; sub(/^Requested-By: /,"",rb); }
             else if(arr[i] ~ /^Upgrade: /) { up=arr[i]; sub(/^Upgrade: /,"",up); }
             else if(arr[i] ~ /^Install: /) { ins=arr[i]; sub(/^Install: /,"",ins); }
+            else if(arr[i] ~ /^Remove: /) { rem=arr[i]; sub(/^Remove: /,"",rem); }
         }
-        if (sd != "") print sd "\x01" cl "\x01" rb "\x01" up "\x01" ins;
+        if (sd != "") print sd "\x01" cl "\x01" rb "\x01" up "\x01" ins "\x01" rem;
     }')
 done
 
