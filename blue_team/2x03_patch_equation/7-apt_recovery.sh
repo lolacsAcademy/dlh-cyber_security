@@ -1,4 +1,5 @@
 #!/bin/bash
+# Detects packages in half-configured, half-installed, unpacked, or triggers-pending state
 set -uo pipefail
 
 OUT="apt_recovery.json"
