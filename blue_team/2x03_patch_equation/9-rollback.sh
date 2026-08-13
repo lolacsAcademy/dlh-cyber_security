@@ -1,4 +1,5 @@
 #!/bin/bash
+# Accepts a single positional argument $1: the package name
 set -uo pipefail
 
 PRE_FILE="pre_patch_state.json"
