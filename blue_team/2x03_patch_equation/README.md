@@ -11,3 +11,4 @@ File: `6-config_drift.sh, config_drift.json`
 File: `7-apt_recovery.sh, apt_recovery.json`
 File: `8-unattended_config.sh, unattended_config.json`
 File: `9-rollback.sh`
+File: `10-version_hold.sh, hold_management.json`
