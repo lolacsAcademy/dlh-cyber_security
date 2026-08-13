@@ -14,6 +14,7 @@ apt list --upgradable 2>/dev/null | tail -n +2 | while IFS= read -r line; do
     pkg=$(echo "$line" | cut -d'/' -f1)
     [ -z "$pkg" ] && continue
 
+    apt-cache policy "$pkg" > /dev/null 2>&1
     pocket=$(echo "$line" | cut -d'/' -f2 | cut -d' ' -f1)
     candidate=$(echo "$line" | awk '{print $2}')
     installed=$(dpkg-query -W -f='${Version}' "$pkg" 2>/dev/null || echo "unknown")
