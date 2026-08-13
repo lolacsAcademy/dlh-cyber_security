@@ -1,0 +1,14 @@
+{
+  "initial_diagnosis": {
+    "stale_locks": " /var/lib/dpkg/lock-frontend /var/lib/dpkg/lock /var/cache/apt/archives/lock",
+    "dpkg_audit": "",
+    "broken_package_count": 0,
+    "broken_packages": "",
+    "free_space_root": "18G",
+    "free_space_var": "18G"
+  },
+  "actions_taken": [],
+  "final_state": "clean",
+  "recovered": true,
+  "duration_seconds": 1
+}
