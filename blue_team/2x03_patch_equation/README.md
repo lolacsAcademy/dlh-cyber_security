@@ -13,3 +13,4 @@ File: `8-unattended_config.sh, unattended_config.json`
 File: `9-rollback.sh`
 File: `10-version_hold.sh, hold_management.json`
 File: `11-maintenance_window.sh, maintenance_window.json`
+File: `12-change_log.sh, patch_change_log.json`
