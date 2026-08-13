@@ -1,8 +1,10 @@
 #!/bin/bash
 # Groups transactions within 15 minutes (900 seconds) of each other into one change event
-# Note: 11-maintenance_window.sh only evaluates the current time, not arbitrary
-# past timestamps, so this script re-implements the same window logic inline
-# (reading maintenance_windows.json directly) to evaluate each event's own time.
+# Note: 11-maintenance_window.sh --report only evaluates the current time, not
+# arbitrary past timestamps, so this script re-implements the same window logic
+# inline (reading maintenance_windows.json directly) to evaluate each event's
+# own time. This script is idempotent: re-running it on the same logs produces
+# identical JSON output.
 set -uo pipefail
 
 OUT="patch_change_log.json"
