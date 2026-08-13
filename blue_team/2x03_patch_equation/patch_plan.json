@@ -1,0 +1,433 @@
+{
+  "generated_at": "2026-08-13T20:27:24Z",
+  "weights": {
+    "cvss_weight": 1,
+    "kev_weight": 2,
+    "criticality_weight": 1,
+    "exposure_weight": 1
+  },
+  "plan": [
+    {
+      "rank": 1,
+      "package": "ubuntu-advantage-tools",
+      "score": 10,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "33.2~22.04"
+    },
+    {
+      "rank": 2,
+      "package": "ubuntu-pro-client-l10n",
+      "score": 10,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "33.2~22.04"
+    },
+    {
+      "rank": 3,
+      "package": "ubuntu-pro-client",
+      "score": 10,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "33.2~22.04"
+    },
+    {
+      "rank": 4,
+      "package": "libapparmor1",
+      "score": 9.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "3.0.4-2ubuntu2.4"
+    },
+    {
+      "rank": 5,
+      "package": "libldap-common",
+      "score": 9.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2.5.18+dfsg-0ubuntu0.22.04.2"
+    },
+    {
+      "rank": 6,
+      "package": "libpcap0.8",
+      "score": 9.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "1.10.1-4build1"
+    },
+    {
+      "rank": 7,
+      "package": "libseccomp2",
+      "score": 9.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2.5.3-2ubuntu2"
+    },
+    {
+      "rank": 8,
+      "package": "systemd",
+      "score": 9.8,
+      "bucket": "emergency",
+      "affected_services": [
+        "(kernel-wide)"
+      ],
+      "requires_restart": true,
+      "requires_reboot": true,
+      "rollback_target_version": "249.11-0ubuntu3.19"
+    },
+    {
+      "rank": 9,
+      "package": "cloud-init",
+      "score": 8.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "25.1.4-0ubuntu0~22.04.1"
+    },
+    {
+      "rank": 10,
+      "package": "libnss-systemd",
+      "score": 8.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "249.11-0ubuntu3.19"
+    },
+    {
+      "rank": 11,
+      "package": "libpam-systemd",
+      "score": 8.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "249.11-0ubuntu3.19"
+    },
+    {
+      "rank": 12,
+      "package": "libsystemd0",
+      "score": 8.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "249.11-0ubuntu3.19"
+    },
+    {
+      "rank": 13,
+      "package": "libudev1",
+      "score": 8.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "249.11-0ubuntu3.19"
+    },
+    {
+      "rank": 14,
+      "package": "systemd-sysv",
+      "score": 8.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "249.11-0ubuntu3.19"
+    },
+    {
+      "rank": 15,
+      "package": "systemd-timesyncd",
+      "score": 8.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "249.11-0ubuntu3.19"
+    },
+    {
+      "rank": 16,
+      "package": "udev",
+      "score": 8.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "249.11-0ubuntu3.19"
+    },
+    {
+      "rank": 17,
+      "package": "gir1.2-packagekitglib-1.0",
+      "score": 8.2,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "1.2.5-2ubuntu2"
+    },
+    {
+      "rank": 18,
+      "package": "libopeniscsiusr",
+      "score": 8.2,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2.1.5-1ubuntu1"
+    },
+    {
+      "rank": 19,
+      "package": "libpackagekit-glib2-18",
+      "score": 8.2,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "1.2.5-2ubuntu2"
+    },
+    {
+      "rank": 20,
+      "package": "open-iscsi",
+      "score": 8.2,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2.1.5-1ubuntu1"
+    },
+    {
+      "rank": 21,
+      "package": "packagekit-tools",
+      "score": 8.2,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "1.2.5-2ubuntu2"
+    },
+    {
+      "rank": 22,
+      "package": "packagekit",
+      "score": 8.2,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "1.2.5-2ubuntu2"
+    },
+    {
+      "rank": 23,
+      "package": "apt-utils",
+      "score": 8.1,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2.4.13"
+    },
+    {
+      "rank": 24,
+      "package": "apt",
+      "score": 8.1,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2.4.13"
+    },
+    {
+      "rank": 25,
+      "package": "libapt-pkg6.0",
+      "score": 8.1,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2.4.13"
+    },
+    {
+      "rank": 26,
+      "package": "cryptsetup-bin",
+      "score": 7.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2:2.4.3-1ubuntu1.2"
+    },
+    {
+      "rank": 27,
+      "package": "cryptsetup-initramfs",
+      "score": 7.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2:2.4.3-1ubuntu1.2"
+    },
+    {
+      "rank": 28,
+      "package": "cryptsetup",
+      "score": 7.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2:2.4.3-1ubuntu1.2"
+    },
+    {
+      "rank": 29,
+      "package": "libcryptsetup12",
+      "score": 7.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2:2.4.3-1ubuntu1.2"
+    },
+    {
+      "rank": 30,
+      "package": "sosreport",
+      "score": 7.8,
+      "bucket": "emergency",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "4.5.6-0ubuntu1~22.04.2"
+    },
+    {
+      "rank": 31,
+      "package": "python3-update-manager",
+      "score": 6.4,
+      "bucket": "urgent",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "1:22.04.21"
+    },
+    {
+      "rank": 32,
+      "package": "update-manager-core",
+      "score": 6.4,
+      "bucket": "urgent",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "1:22.04.21"
+    },
+    {
+      "rank": 33,
+      "package": "libdevmapper1.02.1",
+      "score": 5.6,
+      "bucket": "urgent",
+      "affected_services": [
+        "multipathd.service"
+      ],
+      "requires_restart": true,
+      "requires_reboot": false,
+      "rollback_target_version": "2:1.02.175-2.1ubuntu4"
+    },
+    {
+      "rank": 34,
+      "package": "xfsprogs",
+      "score": 5,
+      "bucket": "urgent",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "5.13.0-1ubuntu2"
+    },
+    {
+      "rank": 35,
+      "package": "dmeventd",
+      "score": 4.6,
+      "bucket": "urgent",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2:1.02.175-2.1ubuntu4"
+    },
+    {
+      "rank": 36,
+      "package": "dmsetup",
+      "score": 4.6,
+      "bucket": "urgent",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2:1.02.175-2.1ubuntu4"
+    },
+    {
+      "rank": 37,
+      "package": "libdevmapper-event1.02.1",
+      "score": 4.6,
+      "bucket": "urgent",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2:1.02.175-2.1ubuntu4"
+    },
+    {
+      "rank": 38,
+      "package": "liblvm2cmd2.03",
+      "score": 4.6,
+      "bucket": "urgent",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2.03.11-2.1ubuntu4"
+    },
+    {
+      "rank": 39,
+      "package": "lvm2",
+      "score": 4.6,
+      "bucket": "urgent",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "2.03.11-2.1ubuntu4"
+    },
+    {
+      "rank": 40,
+      "package": "modemmanager",
+      "score": 4.6,
+      "bucket": "urgent",
+      "affected_services": [
+        "ModemManager.service"
+      ],
+      "requires_restart": true,
+      "requires_reboot": false,
+      "rollback_target_version": "1.20.0-1~ubuntu22.04.3"
+    },
+    {
+      "rank": 41,
+      "package": "libmm-glib0",
+      "score": 3.6,
+      "bucket": "scheduled",
+      "affected_services": [],
+      "requires_restart": false,
+      "requires_reboot": false,
+      "rollback_target_version": "1.20.0-1~ubuntu22.04.3"
+    }
+  ],
+  "summary": {
+    "emergency": 30,
+    "urgent": 10,
+    "scheduled": 1,
+    "reboot_required": "yes (kernel update present)"
+  }
+}
