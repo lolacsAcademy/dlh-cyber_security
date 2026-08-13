@@ -1,0 +1,213 @@
+{
+  "total_checks": 36,
+  "passed": 36,
+  "failed": 0,
+  "details": [
+    {
+      "check": "service_state",
+      "service": "apache2.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "auditd.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "cron.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "dbus.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "getty@tty1.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "ModemManager.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "multipathd.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "mysql.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "networkd-dispatcher.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "polkit.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "rsyslog.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "snapd.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "snmpd.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "ssh.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "systemd-journald.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "systemd-logind.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "systemd-networkd.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "systemd-resolved.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "systemd-timesyncd.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "systemd-udevd.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "udisks2.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "unattended-upgrades.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "upower.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "service_state",
+      "service": "user@1000.service",
+      "current_state": "active",
+      "status": "pass"
+    },
+    {
+      "check": "listening_socket",
+      "socket": "127.0.0.1:161",
+      "status": "pass"
+    },
+    {
+      "check": "listening_socket",
+      "socket": "127.0.0.53%lo:53",
+      "status": "pass"
+    },
+    {
+      "check": "listening_socket",
+      "socket": "10.0.2.15%enp0s3:68",
+      "status": "pass"
+    },
+    {
+      "check": "listening_socket",
+      "socket": "[::1]:161",
+      "status": "pass"
+    },
+    {
+      "check": "listening_socket",
+      "socket": "127.0.0.1:33060",
+      "status": "pass"
+    },
+    {
+      "check": "listening_socket",
+      "socket": "0.0.0.0:3306",
+      "status": "pass"
+    },
+    {
+      "check": "listening_socket",
+      "socket": "127.0.0.53%lo:53",
+      "status": "pass"
+    },
+    {
+      "check": "listening_socket",
+      "socket": "0.0.0.0:22",
+      "status": "pass"
+    },
+    {
+      "check": "listening_socket",
+      "socket": "[::]:22",
+      "status": "pass"
+    },
+    {
+      "check": "listening_socket",
+      "socket": "*:80",
+      "status": "pass"
+    },
+    {
+      "check": "liveness_probe",
+      "service": "apache2.service",
+      "probe_type": "curl",
+      "status": "pass"
+    },
+    {
+      "check": "liveness_probe",
+      "service": "mysql.service",
+      "probe_type": "mysqladmin_ping",
+      "status": "pass"
+    }
+  ]
+}
