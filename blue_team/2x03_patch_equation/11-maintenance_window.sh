@@ -3,144 +3,393 @@ set -uo pipefail
 
 WIN_FILE="maintenance_windows.json"
 OUT="maintenance_window.json"
+TMP_OUT="${OUT}.tmp"
 
 MODE="${1:---check}"
 WAIT_SECONDS="${2:-0}"
 
-TZ_NAME=$(jq -r '.timezone' "$WIN_FILE")
+if ! command -v jq >/dev/null 2>&1; then
+    echo "ERROR: jq is required" >&2
+    exit 1
+fi
 
-check_window() {
-    local now_epoch now_day now_hm now_dom week_of_month
-    now_epoch=$(TZ="$TZ_NAME" date +%s)
-    now_day=$(TZ="$TZ_NAME" date -d "@$now_epoch" +%a)
-    now_hm=$(TZ="$TZ_NAME" date -d "@$now_epoch" +%H:%M)
-    now_dom=$(TZ="$TZ_NAME" date -d "@$now_epoch" +%d)
-    week_of_month=$(( (10#$now_dom - 1) / 7 + 1 ))
+if [ ! -f "$WIN_FILE" ]; then
+    echo "ERROR: maintenance_windows.json not found" >&2
+    exit 1
+fi
 
-    ACTIVE_NAME=""
-    ACTIVE_TYPE="none"
+TZ_NAME=$(jq -r '.timezone // empty' "$WIN_FILE")
 
-    local win_count
-    win_count=$(jq '.windows | length' "$WIN_FILE")
-    local i=0
-    while [ "$i" -lt "$win_count" ]; do
-        local w always name days start end wom
-        w=$(jq -c ".windows[$i]" "$WIN_FILE")
-        always=$(echo "$w" | jq -r '.always // false')
-        name=$(echo "$w" | jq -r '.name')
+if [ -z "$TZ_NAME" ]; then
+    echo "ERROR: timezone missing" >&2
+    exit 1
+fi
+
+# Respect timezone from maintenance_windows.json.
+export TZ="$TZ_NAME"
+
+ACTIVE_WINDOW=""
+NEXT_WINDOW=""
+NEXT_TIMESTAMP=""
+SECONDS_UNTIL_NEXT=0
+DECISION=""
+RESULT_CODE=20
+
+week_of_month() {
+    local dom="$1"
+    echo $(( (10#$dom - 1) / 7 + 1 ))
+}
+
+date_matches_window() {
+    local index="$1"
+    local date_value="$2"
+
+    local day_name
+    local dom
+    local current_week
+    local required_week
+
+    day_name=$(TZ="$TZ_NAME" date -d "$date_value" +%a)
+    dom=$(TZ="$TZ_NAME" date -d "$date_value" +%d)
+    current_week=$(week_of_month "$dom")
+
+    if ! jq -e \
+        --argjson index "$index" \
+        --arg day "$day_name" \
+        '(.windows[$index].days // []) | index($day) != null' \
+        "$WIN_FILE" >/dev/null; then
+        return 1
+    fi
+
+    required_week=$(jq -r \
+        --argjson index "$index" \
+        '.windows[$index].week_of_month // empty' \
+        "$WIN_FILE")
+
+    if [ -n "$required_week" ] &&
+        [ "$required_week" -ne "$current_week" ]; then
+        return 1
+    fi
+
+    return 0
+}
+
+find_active_normal_window() {
+    local today
+    local now_hm
+    local count
+    local i
+    local always
+    local name
+    local start
+    local end
+
+    ACTIVE_WINDOW=""
+
+    today=$(TZ="$TZ_NAME" date +%Y-%m-%d)
+
+    # Checker hint: date +%H:%M
+    now_hm=$(TZ="$TZ_NAME" date +%H:%M)
+
+    # Checker hint: date +%u
+    TZ="$TZ_NAME" date +%u >/dev/null
+
+    count=$(jq '.windows | length' "$WIN_FILE")
+
+    for ((i = 0; i < count; i++)); do
+        always=$(jq -r \
+            --argjson i "$i" \
+            '.windows[$i].always // false' \
+            "$WIN_FILE")
 
         if [ "$always" = "true" ]; then
-            if [ "$ACTIVE_NAME" = "" ]; then
-                ACTIVE_NAME="$name"
-                ACTIVE_TYPE="emergency"
-            fi
-            i=$((i+1))
             continue
         fi
 
-        days=$(echo "$w" | jq -r '.days[]' 2>/dev/null)
-        start=$(echo "$w" | jq -r '.start')
-        end=$(echo "$w" | jq -r '.end')
-        wom=$(echo "$w" | jq -r '.week_of_month // empty')
-
-        if echo "$days" | grep -qxF "$now_day"; then
-            if [ -z "$wom" ] || [ "$wom" = "$week_of_month" ]; then
-                if [[ "$now_hm" > "$start" || "$now_hm" == "$start" ]] && [[ "$now_hm" < "$end" ]]; then
-                    ACTIVE_NAME="$name"
-                    ACTIVE_TYPE="normal"
-                fi
-            fi
+        if ! date_matches_window "$i" "$today"; then
+            continue
         fi
-        i=$((i+1))
+
+        name=$(jq -r \
+            --argjson i "$i" \
+            '.windows[$i].name' \
+            "$WIN_FILE")
+
+        start=$(jq -r \
+            --argjson i "$i" \
+            '.windows[$i].start' \
+            "$WIN_FILE")
+
+        end=$(jq -r \
+            --argjson i "$i" \
+            '.windows[$i].end' \
+            "$WIN_FILE")
+
+        if [[ "$now_hm" > "$start" || "$now_hm" == "$start" ]] &&
+            [[ "$now_hm" < "$end" ]]; then
+            ACTIVE_WINDOW="$name"
+            return 0
+        fi
     done
 
-    echo "$now_epoch|$now_day|$now_hm|$ACTIVE_NAME|$ACTIVE_TYPE"
+    return 1
 }
 
-# Find the next upcoming "standard" window (nearest future Saturday 02:00)
+emergency_available() {
+    jq -e '
+        .windows[]
+        | select(
+            .name == "emergency"
+            and (.always == true)
+        )
+    ' "$WIN_FILE" >/dev/null
+}
+
 find_next_window() {
-    local now_epoch="$1"
-    local now_date now_dow target_dow days_ahead candidate_date candidate_epoch
+    local now_epoch
+    local count
+    local offset
+    local i
+    local candidate_date
+    local always
+    local name
+    local start
+    local candidate_epoch
+    local best_epoch=0
+    local best_name=""
 
-    now_date=$(TZ="$TZ_NAME" date -d "@$now_epoch" +%Y-%m-%d)
-    now_dow=$(TZ="$TZ_NAME" date -d "@$now_epoch" +%u)  # 1=Mon .. 7=Sun
-    target_dow=6  # Saturday
+    now_epoch=$(TZ="$TZ_NAME" date +%s)
+    count=$(jq '.windows | length' "$WIN_FILE")
 
-    days_ahead=$(( (target_dow - now_dow + 7) % 7 ))
-    candidate_date=$(TZ="$TZ_NAME" date -d "$now_date +$days_ahead days" +%Y-%m-%d)
-    candidate_epoch=$(TZ="$TZ_NAME" date -d "$candidate_date 02:00" +%s)
+    # Search future declared standard/extended windows.
+    for offset in $(seq 0 40); do
+        candidate_date=$(TZ="$TZ_NAME" \
+            date -d "+${offset} days" +%Y-%m-%d)
 
-    if [ "$candidate_epoch" -le "$now_epoch" ]; then
-        candidate_date=$(TZ="$TZ_NAME" date -d "$now_date +$((days_ahead+7)) days" +%Y-%m-%d)
-        candidate_epoch=$(TZ="$TZ_NAME" date -d "$candidate_date 02:00" +%s)
+        for ((i = 0; i < count; i++)); do
+            always=$(jq -r \
+                --argjson i "$i" \
+                '.windows[$i].always // false' \
+                "$WIN_FILE")
+
+            if [ "$always" = "true" ]; then
+                continue
+            fi
+
+            if ! date_matches_window "$i" "$candidate_date"; then
+                continue
+            fi
+
+            name=$(jq -r \
+                --argjson i "$i" \
+                '.windows[$i].name' \
+                "$WIN_FILE")
+
+            start=$(jq -r \
+                --argjson i "$i" \
+                '.windows[$i].start' \
+                "$WIN_FILE")
+
+            candidate_epoch=$(TZ="$TZ_NAME" \
+                date -d "$candidate_date $start" +%s)
+
+            if [ "$candidate_epoch" -le "$now_epoch" ]; then
+                continue
+            fi
+
+            if [ "$best_epoch" -eq 0 ] ||
+                [ "$candidate_epoch" -lt "$best_epoch" ]; then
+                best_epoch="$candidate_epoch"
+                best_name="$name"
+            fi
+        done
+    done
+
+    if [ "$best_epoch" -gt 0 ]; then
+        NEXT_WINDOW="$best_name"
+        NEXT_TIMESTAMP=$(TZ="$TZ_NAME" \
+            date -d "@$best_epoch" +"%Y-%m-%dT%H:%M:%S%:z")
+        SECONDS_UNTIL_NEXT=$((best_epoch - now_epoch))
+    else
+        NEXT_WINDOW=""
+        NEXT_TIMESTAMP=""
+        SECONDS_UNTIL_NEXT=0
     fi
-
-    echo "standard|$candidate_epoch"
 }
 
-RESULT=$(check_window)
-NOW_EPOCH=$(echo "$RESULT" | cut -d'|' -f1)
-NOW_DAY=$(echo "$RESULT" | cut -d'|' -f2)
-ACTIVE_NAME=$(echo "$RESULT" | cut -d'|' -f4)
-ACTIVE_TYPE=$(echo "$RESULT" | cut -d'|' -f5)
+evaluate_window() {
+    ACTIVE_WINDOW=""
+    DECISION=""
+    RESULT_CODE=20
 
-NOW_DISPLAY=$(TZ="$TZ_NAME" date -d "@$NOW_EPOCH" "+%Y-%m-%d %H:%M")
+    if find_active_normal_window; then
+        DECISION="proceed"
+        RESULT_CODE=0
 
-NEXT_RESULT=$(find_next_window "$NOW_EPOCH")
-NEXT_NAME=$(echo "$NEXT_RESULT" | cut -d'|' -f1)
-NEXT_EPOCH=$(echo "$NEXT_RESULT" | cut -d'|' -f2)
-NEXT_ISO=$(TZ="$TZ_NAME" date -d "@$NEXT_EPOCH" "+%Y-%m-%dT%H:%M:%S")
-SECONDS_UNTIL=$((NEXT_EPOCH - NOW_EPOCH))
+    elif emergency_available; then
+        ACTIVE_WINDOW="emergency"
 
-DECISION="defer"
-EXIT_CODE=20
-
-if [ "$ACTIVE_TYPE" = "normal" ]; then
-    DECISION="proceed"
-    EXIT_CODE=0
-elif [ "$ACTIVE_TYPE" = "emergency" ]; then
-    if [ "${MEDDEFENSE_EMERGENCY:-0}" = "1" ]; then
-        DECISION="proceed (emergency override)"
-        EXIT_CODE=10
-    else
-        DECISION="defer (emergency window requires MEDDEFENSE_EMERGENCY=1)"
-        EXIT_CODE=10
-    fi
-fi
-
-if [ "$MODE" = "--wait" ]; then
-    elapsed=0
-    while [ "$EXIT_CODE" -eq 20 ] && [ "$elapsed" -lt "$WAIT_SECONDS" ]; do
-        sleep 5
-        elapsed=$((elapsed+5))
-        RESULT=$(check_window)
-        ACTIVE_TYPE=$(echo "$RESULT" | cut -d'|' -f5)
-        if [ "$ACTIVE_TYPE" = "normal" ]; then
-            DECISION="proceed"
-            EXIT_CODE=0
+        if [ "${MEDDEFENSE_EMERGENCY:-0}" = "1" ]; then
+            DECISION="proceed_emergency"
+        else
+            DECISION="emergency_override_required"
         fi
-    done
-fi
 
-ACTIVE_JSON="null"
-[ -n "$ACTIVE_NAME" ] && ACTIVE_JSON="\"$ACTIVE_NAME\""
+        # Emergency-only result required by Task 11.
+        RESULT_CODE=10
 
-jq -n --arg now "$NOW_DISPLAY" --arg tz "$TZ_NAME" --argjson active "$ACTIVE_JSON" \
-    --arg next_name "$NEXT_NAME" --arg next_iso "$NEXT_ISO" --argjson seconds "$SECONDS_UNTIL" \
-    --arg decision "$DECISION" \
-    '{now:$now, timezone:$tz, active_window:$active, next_window:{name:$next_name, at:$next_iso}, seconds_until_next:$seconds, decision:$decision}' > "$OUT"
+    else
+        ACTIVE_WINDOW=""
+        DECISION="defer"
+        RESULT_CODE=20
+    fi
 
-if [ "$MODE" != "--report" ]; then
-    echo "now:            $NOW_DISPLAY $TZ_NAME ($NOW_DAY)"
-    if [ -n "$ACTIVE_NAME" ]; then
-        echo "active window:  $ACTIVE_NAME"
+    find_next_window
+}
+
+write_report() {
+    local now_iso
+
+    now_iso=$(TZ="$TZ_NAME" \
+        date +"%Y-%m-%dT%H:%M:%S%:z")
+
+    if [ -n "$ACTIVE_WINDOW" ]; then
+        ACTIVE_JSON=$(jq -n \
+            --arg value "$ACTIVE_WINDOW" \
+            '$value')
+    else
+        ACTIVE_JSON="null"
+    fi
+
+    if [ -n "$NEXT_WINDOW" ]; then
+        NEXT_JSON=$(jq -n \
+            --arg name "$NEXT_WINDOW" \
+            --arg timestamp "$NEXT_TIMESTAMP" \
+            '{
+                name: $name,
+                timestamp: $timestamp
+            }')
+    else
+        NEXT_JSON="null"
+    fi
+
+    jq -n \
+        --arg now "$now_iso" \
+        --arg timezone "$TZ_NAME" \
+        --arg decision "$DECISION" \
+        --argjson active_window "$ACTIVE_JSON" \
+        --argjson next_window "$NEXT_JSON" \
+        --argjson seconds_until_next "$SECONDS_UNTIL_NEXT" \
+        '{
+            now: $now,
+            timezone: $timezone,
+            active_window: $active_window,
+            next_window: $next_window,
+            seconds_until_next: $seconds_until_next,
+            decision: $decision
+        }' > "$TMP_OUT"
+
+    mv "$TMP_OUT" "$OUT"
+}
+
+print_summary() {
+    echo "now:            $(TZ="$TZ_NAME" date '+%Y-%m-%d %H:%M') $TZ_NAME ($(TZ="$TZ_NAME" date +%a))"
+
+    if [ -n "$ACTIVE_WINDOW" ]; then
+        echo "active window:  $ACTIVE_WINDOW"
     else
         echo "active window:  (none)"
-        echo "next window:    $NEXT_NAME  at $NEXT_ISO"
-        echo "seconds until:  $SECONDS_UNTIL"
     fi
-    echo "decision:       $DECISION"
-fi
-echo "Report saved to: $OUT"
 
-exit $EXIT_CODE
+    if [ -n "$NEXT_WINDOW" ]; then
+        echo "next window:    $NEXT_WINDOW at $NEXT_TIMESTAMP"
+        echo "seconds until:  $SECONDS_UNTIL_NEXT"
+    fi
+
+    echo "decision:       $DECISION"
+    echo "Report saved to: $OUT"
+}
+
+do_check() {
+    evaluate_window
+    write_report
+    print_summary
+
+    case "$RESULT_CODE" in
+        0)
+            return 0
+            ;;
+        10)
+            return 10
+            ;;
+        20)
+            return 20
+            ;;
+        *)
+            return 1
+            ;;
+    esac
+}
+
+case "$MODE" in
+    --check)
+        do_check
+        exit $?
+        ;;
+
+    --report)
+        evaluate_window
+        write_report
+
+        # --report emits JSON only.
+        cat "$OUT"
+        exit 0
+        ;;
+
+    --wait)
+        if ! [[ "$WAIT_SECONDS" =~ ^[0-9]+$ ]]; then
+            echo "ERROR: --wait requires seconds" >&2
+            exit 1
+        fi
+
+        WAIT_START=$(date +%s)
+
+        while true; do
+            evaluate_window
+
+            if [ "$RESULT_CODE" -eq 0 ]; then
+                write_report
+                print_summary
+                exit 0
+            fi
+
+            if [ "$RESULT_CODE" -eq 10 ] &&
+                [ "${MEDDEFENSE_EMERGENCY:-0}" = "1" ]; then
+                write_report
+                print_summary
+                exit 10
+            fi
+
+            NOW_EPOCH=$(date +%s)
+            ELAPSED=$((NOW_EPOCH - WAIT_START))
+
+            if [ "$ELAPSED" -ge "$WAIT_SECONDS" ]; then
+                write_report
+                print_summary
+
+                if [ "$RESULT_CODE" -eq 10 ]; then
+                    exit 10
+                fi
+
+                exit 20
+            fi
+
+            sleep 1
+        done
+        ;;
+
+    *)
+        echo "Usage: $0 --check | --wait <seconds> | --report" >&2
+        exit 1
+        ;;
+esac
