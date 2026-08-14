@@ -38,4 +38,14 @@ foreach ($flow in $rules.flows) {
     }
 }
 
+Get-NetFirewallRule -DisplayName "MedDefense-*" | ForEach-Object {
+    $filter = $_ | Get-NetFirewallAddressFilter
+    [PSCustomObject]@{
+        DisplayName = $_.DisplayName
+        Direction = $_.Direction.ToString()
+        Action = $_.Action.ToString()
+        RemoteAddress = $filter.RemoteAddress
+    }
+} | ConvertTo-Json | Out-File "C:\meddefense\windows_firewall_rules.json"
+
 Write-Host "[*] Done."
