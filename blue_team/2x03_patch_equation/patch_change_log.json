@@ -1,6 +1,6 @@
 {
   "period_start": "2024-09-11T14:18:37+02:00",
-  "period_end": "2026-08-14T00:10:46+02:00",
+  "period_end": "2026-08-14T13:55:26+02:00",
   "events": [
     {
       "started": "2024-09-11T14:18:37+02:00",
@@ -49,12 +49,20 @@
       "packages": 580,
       "linked_execution_log": null,
       "cves_resolved": 0
+    },
+    {
+      "started": "2026-08-14T13:55:26+02:00",
+      "user": "analyst",
+      "within_window": "outside",
+      "packages": 160,
+      "linked_execution_log": null,
+      "cves_resolved": 0
     }
   ],
   "summary": {
-    "total_events": 6,
+    "total_events": 7,
     "inside_window": 0,
-    "outside_window": 6,
+    "outside_window": 7,
     "cves_resolved": 0
   }
 }

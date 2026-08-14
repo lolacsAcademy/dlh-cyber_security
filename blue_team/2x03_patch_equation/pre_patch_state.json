@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-13T19:33:13Z",
+  "timestamp": "2026-08-14T12:32:06Z",
   "hostname": "billing-srv-01",
   "kernel": "5.15.0-174-generic",
   "packages": [
@@ -17,19 +17,19 @@
     },
     {
       "package": "apache2",
-      "version": "2.4.52-1ubuntu4.19"
+      "version": "2.4.52-1ubuntu4.23"
     },
     {
       "package": "apache2-bin",
-      "version": "2.4.52-1ubuntu4.19"
+      "version": "2.4.52-1ubuntu4.23"
     },
     {
       "package": "apache2-data",
-      "version": "2.4.52-1ubuntu4.19"
+      "version": "2.4.52-1ubuntu4.23"
     },
     {
       "package": "apache2-utils",
-      "version": "2.4.52-1ubuntu4.19"
+      "version": "2.4.52-1ubuntu4.23"
     },
     {
       "package": "apparmor",
@@ -49,7 +49,7 @@
     },
     {
       "package": "apt",
-      "version": "2.4.13"
+      "version": "2.4.14"
     },
     {
       "package": "apt-transport-https",
@@ -57,7 +57,7 @@
     },
     {
       "package": "apt-utils",
-      "version": "2.4.13"
+      "version": "2.4.14"
     },
     {
       "package": "audispd-plugins",
@@ -93,15 +93,15 @@
     },
     {
       "package": "bind9-dnsutils",
-      "version": "1:9.18.39-0ubuntu0.22.04.3"
+      "version": "1:9.18.39-0ubuntu0.22.04.4"
     },
     {
       "package": "bind9-host",
-      "version": "1:9.18.39-0ubuntu0.22.04.3"
+      "version": "1:9.18.39-0ubuntu0.22.04.4"
     },
     {
       "package": "bind9-libs:amd64",
-      "version": "1:9.18.39-0ubuntu0.22.04.3"
+      "version": "1:9.18.39-0ubuntu0.22.04.4"
     },
     {
       "package": "binutils",
@@ -157,7 +157,7 @@
     },
     {
       "package": "cloud-init",
-      "version": "25.1.4-0ubuntu0~22.04.1"
+      "version": "26.1-0ubuntu1~22.04.1"
     },
     {
       "package": "cloud-initramfs-copymods",
@@ -205,19 +205,19 @@
     },
     {
       "package": "cryptsetup",
-      "version": "2:2.4.3-1ubuntu1.2"
+      "version": "2:2.4.3-1ubuntu1.3"
     },
     {
       "package": "cryptsetup-bin",
-      "version": "2:2.4.3-1ubuntu1.2"
+      "version": "2:2.4.3-1ubuntu1.3"
     },
     {
       "package": "cryptsetup-initramfs",
-      "version": "2:2.4.3-1ubuntu1.2"
+      "version": "2:2.4.3-1ubuntu1.3"
     },
     {
       "package": "curl",
-      "version": "7.81.0-1ubuntu1.23"
+      "version": "7.81.0-1ubuntu1.25"
     },
     {
       "package": "dash",
@@ -261,7 +261,7 @@
     },
     {
       "package": "dmeventd",
-      "version": "2:1.02.175-2.1ubuntu4"
+      "version": "2:1.02.175-2.1ubuntu5"
     },
     {
       "package": "dmidecode",
@@ -269,7 +269,7 @@
     },
     {
       "package": "dmsetup",
-      "version": "2:1.02.175-2.1ubuntu4"
+      "version": "2:1.02.175-2.1ubuntu5"
     },
     {
       "package": "dns-root-data",
@@ -277,15 +277,15 @@
     },
     {
       "package": "dnsmasq",
-      "version": "2.90-0ubuntu0.22.04.1"
+      "version": "2.90-0ubuntu0.22.04.4"
     },
     {
       "package": "dnsmasq-base",
-      "version": "2.90-0ubuntu0.22.04.1"
+      "version": "2.90-0ubuntu0.22.04.4"
     },
     {
       "package": "dnsutils",
-      "version": "1:9.18.39-0ubuntu0.22.04.3"
+      "version": "1:9.18.39-0ubuntu0.22.04.4"
     },
     {
       "package": "dosfstools",
@@ -369,7 +369,7 @@
     },
     {
       "package": "gawk",
-      "version": "1:5.1.0-1ubuntu0.1"
+      "version": "1:5.1.0-1ubuntu0.2"
     },
     {
       "package": "gcc",
@@ -401,7 +401,7 @@
     },
     {
       "package": "gir1.2-packagekitglib-1.0",
-      "version": "1.2.5-2ubuntu2"
+      "version": "1.2.5-2ubuntu3.1"
     },
     {
       "package": "git",
@@ -481,7 +481,7 @@
     },
     {
       "package": "gzip",
-      "version": "1.10-4ubuntu4.1"
+      "version": "1.10-4ubuntu4.2"
     },
     {
       "package": "hdparm",
@@ -569,7 +569,7 @@
     },
     {
       "package": "jq",
-      "version": "1.6-2.1ubuntu3.1"
+      "version": "1.6-2.1ubuntu3.2"
     },
     {
       "package": "kbd",
@@ -585,7 +585,7 @@
     },
     {
       "package": "kmod",
-      "version": "29-1ubuntu1"
+      "version": "29-1ubuntu1.1"
     },
     {
       "package": "kpartx",
@@ -617,11 +617,11 @@
     },
     {
       "package": "libapache2-mod-php8.1",
-      "version": "8.1.2-1ubuntu2.23"
+      "version": "8.1.2-1ubuntu2.25"
     },
     {
       "package": "libapparmor1:amd64",
-      "version": "3.0.4-2ubuntu2.4"
+      "version": "3.0.4-2ubuntu2.5"
     },
     {
       "package": "libappstream4:amd64",
@@ -645,11 +645,11 @@
     },
     {
       "package": "libapt-pkg6.0:amd64",
-      "version": "2.4.13"
+      "version": "2.4.14"
     },
     {
       "package": "libarchive13:amd64",
-      "version": "3.6.0-1ubuntu1.6"
+      "version": "3.6.0-1ubuntu1.8"
     },
     {
       "package": "libargon2-1:amd64",
@@ -761,23 +761,23 @@
     },
     {
       "package": "libc-bin",
-      "version": "2.35-0ubuntu3.13"
+      "version": "2.35-0ubuntu3.14"
     },
     {
       "package": "libc-dev-bin",
-      "version": "2.35-0ubuntu3.13"
+      "version": "2.35-0ubuntu3.14"
     },
     {
       "package": "libc-devtools",
-      "version": "2.35-0ubuntu3.13"
+      "version": "2.35-0ubuntu3.14"
     },
     {
       "package": "libc6:amd64",
-      "version": "2.35-0ubuntu3.13"
+      "version": "2.35-0ubuntu3.14"
     },
     {
       "package": "libc6-dev:amd64",
-      "version": "2.35-0ubuntu3.13"
+      "version": "2.35-0ubuntu3.14"
     },
     {
       "package": "libcap-ng0:amd64",
@@ -785,11 +785,11 @@
     },
     {
       "package": "libcap2:amd64",
-      "version": "1:2.44-1ubuntu0.22.04.2"
+      "version": "1:2.44-1ubuntu0.22.04.3"
     },
     {
       "package": "libcap2-bin",
-      "version": "1:2.44-1ubuntu0.22.04.2"
+      "version": "1:2.44-1ubuntu0.22.04.3"
     },
     {
       "package": "libcbor0.8:amd64",
@@ -829,7 +829,7 @@
     },
     {
       "package": "libcryptsetup12:amd64",
-      "version": "2:2.4.3-1ubuntu1.2"
+      "version": "2:2.4.3-1ubuntu1.3"
     },
     {
       "package": "libctf-nobfd0:amd64",
@@ -841,11 +841,11 @@
     },
     {
       "package": "libcurl3-gnutls:amd64",
-      "version": "7.81.0-1ubuntu1.23"
+      "version": "7.81.0-1ubuntu1.25"
     },
     {
       "package": "libcurl4:amd64",
-      "version": "7.81.0-1ubuntu1.23"
+      "version": "7.81.0-1ubuntu1.25"
     },
     {
       "package": "libdata-dump-perl",
@@ -873,11 +873,11 @@
     },
     {
       "package": "libdevmapper-event1.02.1:amd64",
-      "version": "2:1.02.175-2.1ubuntu4"
+      "version": "2:1.02.175-2.1ubuntu5"
     },
     {
       "package": "libdevmapper1.02.1:amd64",
-      "version": "2:1.02.175-2.1ubuntu4"
+      "version": "2:1.02.175-2.1ubuntu5"
     },
     {
       "package": "libdns-export1110",
@@ -1041,7 +1041,7 @@
     },
     {
       "package": "libgcrypt20:amd64",
-      "version": "1.9.4-3ubuntu3"
+      "version": "1.9.4-3ubuntu3.2"
     },
     {
       "package": "libgd3:amd64",
@@ -1077,7 +1077,7 @@
     },
     {
       "package": "libgnutls30:amd64",
-      "version": "3.7.3-4ubuntu1.8"
+      "version": "3.7.3-4ubuntu1.9"
     },
     {
       "package": "libgomp1:amd64",
@@ -1097,7 +1097,7 @@
     },
     {
       "package": "libgssapi-krb5-2:amd64",
-      "version": "1.19.2-2ubuntu0.7"
+      "version": "1.19.2-2ubuntu0.8"
     },
     {
       "package": "libgstreamer1.0-0:amd64",
@@ -1129,7 +1129,7 @@
     },
     {
       "package": "libhtml-parser-perl:amd64",
-      "version": "3.76-1build2"
+      "version": "3.76-1ubuntu0.1"
     },
     {
       "package": "libhtml-tagset-perl",
@@ -1153,11 +1153,11 @@
     },
     {
       "package": "libhttp-daemon-perl",
-      "version": "6.13-1ubuntu0.1"
+      "version": "6.13-1ubuntu0.2"
     },
     {
       "package": "libhttp-date-perl",
-      "version": "6.05-1"
+      "version": "6.05-1ubuntu0.1"
     },
     {
       "package": "libhttp-message-perl",
@@ -1237,7 +1237,7 @@
     },
     {
       "package": "libjcat1:amd64",
-      "version": "0.1.9-1"
+      "version": "0.2.3-1~ubuntu0.22.04.1"
     },
     {
       "package": "libjpeg-turbo8:amd64",
@@ -1249,7 +1249,7 @@
     },
     {
       "package": "libjq1:amd64",
-      "version": "1.6-2.1ubuntu3.1"
+      "version": "1.6-2.1ubuntu3.2"
     },
     {
       "package": "libjson-c5:amd64",
@@ -1265,7 +1265,7 @@
     },
     {
       "package": "libk5crypto3:amd64",
-      "version": "1.19.2-2ubuntu0.7"
+      "version": "1.19.2-2ubuntu0.8"
     },
     {
       "package": "libkeyutils1:amd64",
@@ -1277,15 +1277,15 @@
     },
     {
       "package": "libkmod2:amd64",
-      "version": "29-1ubuntu1"
+      "version": "29-1ubuntu1.1"
     },
     {
       "package": "libkrb5-3:amd64",
-      "version": "1.19.2-2ubuntu0.7"
+      "version": "1.19.2-2ubuntu0.8"
     },
     {
       "package": "libkrb5support0:amd64",
-      "version": "1.19.2-2ubuntu0.7"
+      "version": "1.19.2-2ubuntu0.8"
     },
     {
       "package": "libksba8:amd64",
@@ -1297,7 +1297,7 @@
     },
     {
       "package": "libldap-common",
-      "version": "2.5.18+dfsg-0ubuntu0.22.04.2"
+      "version": "2.5.20+dfsg-0ubuntu0.22.04.1"
     },
     {
       "package": "liblmdb0:amd64",
@@ -1321,15 +1321,15 @@
     },
     {
       "package": "libluajit-5.1-2:amd64",
-      "version": "2.1.0~beta3+dfsg-6"
+      "version": "2.1.0~beta3+dfsg-6ubuntu0.1"
     },
     {
       "package": "libluajit-5.1-common",
-      "version": "2.1.0~beta3+dfsg-6"
+      "version": "2.1.0~beta3+dfsg-6ubuntu0.1"
     },
     {
       "package": "liblvm2cmd2.03:amd64",
-      "version": "2.03.11-2.1ubuntu4"
+      "version": "2.03.11-2.1ubuntu5"
     },
     {
       "package": "liblwp-mediatypes-perl",
@@ -1345,7 +1345,7 @@
     },
     {
       "package": "liblzma5:amd64",
-      "version": "5.2.5-2ubuntu1"
+      "version": "5.2.5-2ubuntu1.1"
     },
     {
       "package": "liblzo2-2:amd64",
@@ -1385,7 +1385,7 @@
     },
     {
       "package": "libmm-glib0:amd64",
-      "version": "1.20.0-1~ubuntu22.04.3"
+      "version": "1.20.0-1~ubuntu22.04.4"
     },
     {
       "package": "libmnl0:amd64",
@@ -1421,11 +1421,11 @@
     },
     {
       "package": "libncurses6:amd64",
-      "version": "6.3-2ubuntu0.1"
+      "version": "6.3-2ubuntu0.2"
     },
     {
       "package": "libncursesw6:amd64",
-      "version": "6.3-2ubuntu0.1"
+      "version": "6.3-2ubuntu0.2"
     },
     {
       "package": "libnet-http-perl",
@@ -1457,7 +1457,7 @@
     },
     {
       "package": "libnetplan0:amd64",
-      "version": "0.106.1-7ubuntu0.22.04.4"
+      "version": "0.107.1-3ubuntu0.22.04.4"
     },
     {
       "package": "libnettle8:amd64",
@@ -1481,7 +1481,7 @@
     },
     {
       "package": "libnghttp2-14:amd64",
-      "version": "1.43.0-1ubuntu0.2"
+      "version": "1.43.0-1ubuntu0.4"
     },
     {
       "package": "libnl-3-200:amd64",
@@ -1509,15 +1509,15 @@
     },
     {
       "package": "libnss-systemd:amd64",
-      "version": "249.11-0ubuntu3.19"
+      "version": "249.11-0ubuntu3.22"
     },
     {
       "package": "libnss3:amd64",
-      "version": "2:3.98-0ubuntu0.22.04.3"
+      "version": "2:3.98-0ubuntu0.22.04.4"
     },
     {
       "package": "libntfs-3g89",
-      "version": "1:2021.8.22-3ubuntu1.2"
+      "version": "1:2021.8.22-3ubuntu1.4"
     },
     {
       "package": "libnuma1:amd64",
@@ -1529,7 +1529,7 @@
     },
     {
       "package": "libopeniscsiusr",
-      "version": "2.1.5-1ubuntu1"
+      "version": "2.1.5-1ubuntu1.1"
     },
     {
       "package": "libp11-kit0:amd64",
@@ -1537,19 +1537,19 @@
     },
     {
       "package": "libpackagekit-glib2-18:amd64",
-      "version": "1.2.5-2ubuntu2"
+      "version": "1.2.5-2ubuntu3.1"
     },
     {
       "package": "libpam-cap:amd64",
-      "version": "1:2.44-1ubuntu0.22.04.2"
+      "version": "1:2.44-1ubuntu0.22.04.3"
     },
     {
       "package": "libpam-modules:amd64",
-      "version": "1.4.0-11ubuntu2.6"
+      "version": "1.4.0-11ubuntu2.7"
     },
     {
       "package": "libpam-modules-bin",
-      "version": "1.4.0-11ubuntu2.6"
+      "version": "1.4.0-11ubuntu2.7"
     },
     {
       "package": "libpam-pwquality:amd64",
@@ -1557,15 +1557,15 @@
     },
     {
       "package": "libpam-runtime",
-      "version": "1.4.0-11ubuntu2.6"
+      "version": "1.4.0-11ubuntu2.7"
     },
     {
       "package": "libpam-systemd:amd64",
-      "version": "249.11-0ubuntu3.19"
+      "version": "249.11-0ubuntu3.22"
     },
     {
       "package": "libpam0g:amd64",
-      "version": "1.4.0-11ubuntu2.6"
+      "version": "1.4.0-11ubuntu2.7"
     },
     {
       "package": "libparted-fs-resize0:amd64",
@@ -1577,7 +1577,7 @@
     },
     {
       "package": "libpcap0.8:amd64",
-      "version": "1.10.1-4build1"
+      "version": "1.10.1-4ubuntu1.22.04.1"
     },
     {
       "package": "libpci3:amd64",
@@ -1593,7 +1593,7 @@
     },
     {
       "package": "libperl5.34:amd64",
-      "version": "5.34.0-3ubuntu1.5"
+      "version": "5.34.0-3ubuntu1.7"
     },
     {
       "package": "libpipeline1:amd64",
@@ -1609,7 +1609,7 @@
     },
     {
       "package": "libpng16-16:amd64",
-      "version": "1.6.37-3ubuntu0.4"
+      "version": "1.6.37-3ubuntu0.5"
     },
     {
       "package": "libpolkit-agent-1-0:amd64",
@@ -1653,15 +1653,15 @@
     },
     {
       "package": "libpython3.10:amd64",
-      "version": "3.10.12-1~22.04.15"
+      "version": "3.10.12-1~22.04.16"
     },
     {
       "package": "libpython3.10-minimal:amd64",
-      "version": "3.10.12-1~22.04.15"
+      "version": "3.10.12-1~22.04.16"
     },
     {
       "package": "libpython3.10-stdlib:amd64",
-      "version": "3.10.12-1~22.04.15"
+      "version": "3.10.12-1~22.04.16"
     },
     {
       "package": "libqmi-glib5:amd64",
@@ -1701,7 +1701,7 @@
     },
     {
       "package": "libseccomp2:amd64",
-      "version": "2.5.3-2ubuntu2"
+      "version": "2.5.3-2ubuntu3~22.04.1"
     },
     {
       "package": "libselinux1:amd64",
@@ -1781,7 +1781,7 @@
     },
     {
       "package": "libsqlite3-0:amd64",
-      "version": "3.37.2-2ubuntu0.5"
+      "version": "3.37.2-2ubuntu0.7"
     },
     {
       "package": "libss2:amd64",
@@ -1797,7 +1797,7 @@
     },
     {
       "package": "libssl3:amd64",
-      "version": "3.0.2-0ubuntu1.23"
+      "version": "3.0.2-0ubuntu1.26"
     },
     {
       "package": "libstdc++6:amd64",
@@ -1809,7 +1809,7 @@
     },
     {
       "package": "libsystemd0:amd64",
-      "version": "249.11-0ubuntu3.19"
+      "version": "249.11-0ubuntu3.22"
     },
     {
       "package": "libtasn1-6:amd64",
@@ -1845,7 +1845,7 @@
     },
     {
       "package": "libtinfo6:amd64",
-      "version": "6.3-2ubuntu0.1"
+      "version": "6.3-2ubuntu0.2"
     },
     {
       "package": "libtirpc-common",
@@ -1905,7 +1905,7 @@
     },
     {
       "package": "libudev1:amd64",
-      "version": "249.11-0ubuntu3.19"
+      "version": "249.11-0ubuntu3.22"
     },
     {
       "package": "libudisks2-0:amd64",
@@ -1981,7 +1981,7 @@
     },
     {
       "package": "libwww-perl",
-      "version": "6.61-1"
+      "version": "6.61-1ubuntu0.1"
     },
     {
       "package": "libwww-robotrules-perl",
@@ -2013,7 +2013,7 @@
     },
     {
       "package": "libxml2:amd64",
-      "version": "2.9.13+dfsg-1ubuntu0.11"
+      "version": "2.9.13+dfsg-1ubuntu0.12"
     },
     {
       "package": "libxmlb2:amd64",
@@ -2033,7 +2033,7 @@
     },
     {
       "package": "libxpm4:amd64",
-      "version": "1:3.5.12-1ubuntu0.22.04.2"
+      "version": "1:3.5.12-1ubuntu0.22.04.3"
     },
     {
       "package": "libxslt1.1:amd64",
@@ -2089,7 +2089,7 @@
     },
     {
       "package": "linux-libc-dev:amd64",
-      "version": "5.15.0-174.184"
+      "version": "5.15.0-187.197"
     },
     {
       "package": "linux-modules-5.15.0-174-generic",
@@ -2101,7 +2101,7 @@
     },
     {
       "package": "locales",
-      "version": "2.35-0ubuntu3.13"
+      "version": "2.35-0ubuntu3.14"
     },
     {
       "package": "login",
@@ -2133,7 +2133,7 @@
     },
     {
       "package": "lvm2",
-      "version": "2.03.11-2.1ubuntu4"
+      "version": "2.03.11-2.1ubuntu5"
     },
     {
       "package": "lxd-agent-loader",
@@ -2145,7 +2145,7 @@
     },
     {
       "package": "mailcap",
-      "version": "3.70+nmu1ubuntu1"
+      "version": "3.70+nmu1ubuntu1.22.04.1"
     },
     {
       "package": "make",
@@ -2197,7 +2197,7 @@
     },
     {
       "package": "modemmanager",
-      "version": "1.20.0-1~ubuntu22.04.3"
+      "version": "1.20.0-1~ubuntu22.04.4"
     },
     {
       "package": "motd-news-config",
@@ -2272,8 +2272,12 @@
       "version": "1.0.16"
     },
     {
+      "package": "netplan-generator",
+      "version": "0.107.1-3ubuntu0.22.04.4"
+    },
+    {
       "package": "netplan.io",
-      "version": "0.106.1-7ubuntu0.22.04.4"
+      "version": "0.107.1-3ubuntu0.22.04.4"
     },
     {
       "package": "networkd-dispatcher",
@@ -2285,7 +2289,7 @@
     },
     {
       "package": "ntfs-3g",
-      "version": "1:2021.8.22-3ubuntu1.2"
+      "version": "1:2021.8.22-3ubuntu1.4"
     },
     {
       "package": "oinkmaster",
@@ -2293,7 +2297,7 @@
     },
     {
       "package": "open-iscsi",
-      "version": "2.1.5-1ubuntu1"
+      "version": "2.1.5-1ubuntu1.1"
     },
     {
       "package": "open-vm-tools",
@@ -2325,11 +2329,11 @@
     },
     {
       "package": "packagekit",
-      "version": "1.2.5-2ubuntu2"
+      "version": "1.2.5-2ubuntu3.1"
     },
     {
       "package": "packagekit-tools",
-      "version": "1.2.5-2ubuntu2"
+      "version": "1.2.5-2ubuntu3.1"
     },
     {
       "package": "parted",
@@ -2357,15 +2361,15 @@
     },
     {
       "package": "perl",
-      "version": "5.34.0-3ubuntu1.5"
+      "version": "5.34.0-3ubuntu1.7"
     },
     {
       "package": "perl-base",
-      "version": "5.34.0-3ubuntu1.5"
+      "version": "5.34.0-3ubuntu1.7"
     },
     {
       "package": "perl-modules-5.34",
-      "version": "5.34.0-3ubuntu1.5"
+      "version": "5.34.0-3ubuntu1.7"
     },
     {
       "package": "perl-openssl-defaults:amd64",
@@ -2385,19 +2389,19 @@
     },
     {
       "package": "php8.1-cli",
-      "version": "8.1.2-1ubuntu2.23"
+      "version": "8.1.2-1ubuntu2.25"
     },
     {
       "package": "php8.1-common",
-      "version": "8.1.2-1ubuntu2.23"
+      "version": "8.1.2-1ubuntu2.25"
     },
     {
       "package": "php8.1-opcache",
-      "version": "8.1.2-1ubuntu2.23"
+      "version": "8.1.2-1ubuntu2.25"
     },
     {
       "package": "php8.1-readline",
-      "version": "8.1.2-1ubuntu2.23"
+      "version": "8.1.2-1ubuntu2.25"
     },
     {
       "package": "pinentry-curses",
@@ -2656,6 +2660,10 @@
       "version": "0.11.0-1build2"
     },
     {
+      "package": "python3-netplan",
+      "version": "0.107.1-3ubuntu0.22.04.4"
+    },
+    {
       "package": "python3-newt:amd64",
       "version": "0.52.21-5ubuntu2"
     },
@@ -2666,6 +2674,10 @@
     {
       "package": "python3-openssl",
       "version": "21.0.0-1ubuntu0.1"
+    },
+    {
+      "package": "python3-packaging",
+      "version": "21.3-1"
     },
     {
       "package": "python3-pexpect",
@@ -2753,7 +2765,7 @@
     },
     {
       "package": "python3-update-manager",
-      "version": "1:22.04.21"
+      "version": "1:22.04.22"
     },
     {
       "package": "python3-urllib3",
@@ -2785,15 +2797,15 @@
     },
     {
       "package": "python3.10",
-      "version": "3.10.12-1~22.04.15"
+      "version": "3.10.12-1~22.04.16"
     },
     {
       "package": "python3.10-minimal",
-      "version": "3.10.12-1~22.04.15"
+      "version": "3.10.12-1~22.04.16"
     },
     {
       "package": "python3.10-venv",
-      "version": "3.10.12-1~22.04.15"
+      "version": "3.10.12-1~22.04.16"
     },
     {
       "package": "readline-common",
@@ -2873,7 +2885,7 @@
     },
     {
       "package": "sosreport",
-      "version": "4.5.6-0ubuntu1~22.04.2"
+      "version": "4.10.2-0ubuntu0~22.04.1"
     },
     {
       "package": "squashfs-tools",
@@ -2905,7 +2917,7 @@
     },
     {
       "package": "systemd",
-      "version": "249.11-0ubuntu3.19"
+      "version": "249.11-0ubuntu3.22"
     },
     {
       "package": "systemd-hwe-hwdb",
@@ -2913,11 +2925,11 @@
     },
     {
       "package": "systemd-sysv",
-      "version": "249.11-0ubuntu3.19"
+      "version": "249.11-0ubuntu3.22"
     },
     {
       "package": "systemd-timesyncd",
-      "version": "249.11-0ubuntu3.19"
+      "version": "249.11-0ubuntu3.22"
     },
     {
       "package": "sysvinit-utils",
@@ -2977,7 +2989,7 @@
     },
     {
       "package": "ubuntu-advantage-tools",
-      "version": "33.2~22.04"
+      "version": "37.2ubuntu~22.04.1"
     },
     {
       "package": "ubuntu-drivers-common",
@@ -2993,11 +3005,11 @@
     },
     {
       "package": "ubuntu-pro-client",
-      "version": "33.2~22.04"
+      "version": "37.2ubuntu~22.04.1"
     },
     {
       "package": "ubuntu-pro-client-l10n",
-      "version": "33.2~22.04"
+      "version": "37.2ubuntu~22.04.1"
     },
     {
       "package": "ubuntu-release-upgrader-core",
@@ -3021,7 +3033,7 @@
     },
     {
       "package": "udev",
-      "version": "249.11-0ubuntu3.19"
+      "version": "249.11-0ubuntu3.22"
     },
     {
       "package": "udisks2",
@@ -3037,7 +3049,7 @@
     },
     {
       "package": "update-manager-core",
-      "version": "1:22.04.21"
+      "version": "1:22.04.22"
     },
     {
       "package": "update-notifier-common",
@@ -3125,7 +3137,7 @@
     },
     {
       "package": "xfsprogs",
-      "version": "5.13.0-1ubuntu2"
+      "version": "5.13.0-1ubuntu2.1"
     },
     {
       "package": "xkb-data",
@@ -3157,158 +3169,128 @@
       "service": "apache2.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "791"
+      "MainPID": "78732"
     },
     {
       "service": "auditd.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "594"
+      "MainPID": "57925"
     },
     {
       "service": "cron.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "688"
+      "MainPID": "59388"
     },
     {
       "service": "dbus.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "689"
+      "MainPID": "58997"
     },
     {
       "service": "getty@tty1.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "720"
-    },
-    {
-      "service": "ModemManager.service",
-      "ActiveState": "active",
-      "SubState": "running",
-      "MainPID": "774"
+      "MainPID": "59390"
     },
     {
       "service": "multipathd.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "424"
+      "MainPID": "59664"
     },
     {
       "service": "mysql.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "847"
+      "MainPID": "57994"
     },
     {
-      "service": "networkd-dispatcher.service",
+      "service": "packagekit.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "697"
+      "MainPID": "59199"
     },
     {
       "service": "polkit.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "699"
+      "MainPID": "59203"
     },
     {
       "service": "rsyslog.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "701"
+      "MainPID": "59020"
     },
     {
       "service": "snapd.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "704"
+      "MainPID": "58057"
     },
     {
       "service": "snmpd.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "705"
+      "MainPID": "58118"
     },
     {
       "service": "ssh.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "762"
+      "MainPID": "59393"
     },
     {
       "service": "systemd-journald.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "387"
+      "MainPID": "119467"
     },
     {
       "service": "systemd-logind.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "707"
+      "MainPID": "59403"
     },
     {
       "service": "systemd-networkd.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "674"
+      "MainPID": "119473"
     },
     {
       "service": "systemd-resolved.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "676"
+      "MainPID": "59417"
     },
     {
       "service": "systemd-timesyncd.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "581"
+      "MainPID": "119471"
     },
     {
       "service": "systemd-udevd.service",
       "ActiveState": "active",
       "SubState": "running",
-      "MainPID": "428"
-    },
-    {
-      "service": "udisks2.service",
-      "ActiveState": "active",
-      "SubState": "running",
-      "MainPID": "709"
-    },
-    {
-      "service": "unattended-upgrades.service",
-      "ActiveState": "active",
-      "SubState": "running",
-      "MainPID": "780"
-    },
-    {
-      "service": "upower.service",
-      "ActiveState": "active",
-      "SubState": "running",
-      "MainPID": "1198"
-    },
-    {
-      "service": "user@1000.service",
-      "ActiveState": "active",
-      "SubState": "running",
-      "MainPID": "1015"
+      "MainPID": "119468"
     }
   ],
   "listening": [
-    "udp   UNCONN 0      0             127.0.0.1:161        0.0.0.0:*    users:((\"snmpd\",pid=705,fd=6))           ",
-    "udp   UNCONN 0      0         127.0.0.53%lo:53         0.0.0.0:*    users:((\"systemd-resolve\",pid=676,fd=13))",
-    "udp   UNCONN 0      0      10.0.2.15%enp0s3:68         0.0.0.0:*    users:((\"systemd-network\",pid=674,fd=21))",
-    "udp   UNCONN 0      0                 [::1]:161           [::]:*    users:((\"snmpd\",pid=705,fd=7))           ",
-    "tcp   LISTEN 0      70            127.0.0.1:33060      0.0.0.0:*    users:((\"mysqld\",pid=847,fd=21))         ",
-    "tcp   LISTEN 0      151             0.0.0.0:3306       0.0.0.0:*    users:((\"mysqld\",pid=847,fd=23))         ",
-    "tcp   LISTEN 0      4096      127.0.0.53%lo:53         0.0.0.0:*    users:((\"systemd-resolve\",pid=676,fd=14))",
-    "tcp   LISTEN 0      128             0.0.0.0:22         0.0.0.0:*    users:((\"sshd\",pid=762,fd=3))            ",
-    "tcp   LISTEN 0      128                [::]:22            [::]:*    users:((\"sshd\",pid=762,fd=4))            ",
-    "tcp   LISTEN 0      511                   *:80               *:*    users:((\"apache2\",pid=806,fd=4),(\"apache2\",pid=805,fd=4),(\"apache2\",pid=804,fd=4),(\"apache2\",pid=803,fd=4),(\"apache2\",pid=802,fd=4),(\"apache2\",pid=791,fd=4))"
+    "udp   UNCONN 0      0         127.0.0.53%lo:53         0.0.0.0:*    users:((\"systemd-resolve\",pid=59417,fd=13))                                                                                                                              ",
+    "udp   UNCONN 0      0      10.0.2.15%enp0s3:68         0.0.0.0:*    users:((\"systemd-network\",pid=119473,fd=22))                                                                                                                             ",
+    "udp   UNCONN 0      0             127.0.0.1:161        0.0.0.0:*    users:((\"snmpd\",pid=58118,fd=6))                                                                                                                                         ",
+    "udp   UNCONN 0      0                 [::1]:161           [::]:*    users:((\"snmpd\",pid=58118,fd=7))                                                                                                                                         ",
+    "tcp   LISTEN 0      151             0.0.0.0:3306       0.0.0.0:*    users:((\"mysqld\",pid=57994,fd=23))                                                                                                                                       ",
+    "tcp   LISTEN 0      4096      127.0.0.53%lo:53         0.0.0.0:*    users:((\"systemd-resolve\",pid=59417,fd=14))                                                                                                                              ",
+    "tcp   LISTEN 0      70            127.0.0.1:33060      0.0.0.0:*    users:((\"mysqld\",pid=57994,fd=21))                                                                                                                                       ",
+    "tcp   LISTEN 0      128             0.0.0.0:22         0.0.0.0:*    users:((\"sshd\",pid=59393,fd=3))                                                                                                                                          ",
+    "tcp   LISTEN 0      511                   *:80               *:*    users:((\"apache2\",pid=78739,fd=4),(\"apache2\",pid=78738,fd=4),(\"apache2\",pid=78737,fd=4),(\"apache2\",pid=78736,fd=4),(\"apache2\",pid=78735,fd=4),(\"apache2\",pid=78732,fd=4))",
+    "tcp   LISTEN 0      128                [::]:22            [::]:*    users:((\"sshd\",pid=59393,fd=4))                                                                                                                                          "
   ],
   "conffile_hashes": {
     "/etc/alternatives/README": "a44afdb50eacfc09e45f6dac1e18ae231c179feec633c106e1060bae8ae11df1",
@@ -3632,7 +3614,7 @@
     "/etc/apt/apt.conf.d/01-vendor-ubuntu": "364d5eeac5475b7dddfd629899ea88b91ed8d8e8e319c29bb9dbd6772e87ed55",
     "/etc/apt/apt.conf.d/10periodic": "82d9ce0d3f5d2c66945d8a1267445e9955409d1ef3cb9934107adccb46bf5f6a",
     "/etc/apt/apt.conf.d/15update-stamp": "174cdb519fd06372847e23c20db869b2ff4b593252c0d2a6274d770eae2d92c9",
-    "/etc/apt/apt.conf.d/20apt-esm-hook.conf": "7d3c257643fc5331dee24ab986e69efec2e19999e9f18e6facb3b4949d8f12f1",
+    "/etc/apt/apt.conf.d/20apt-esm-hook.conf": "f7ab45bab1355711fcd031d78299cc3c7767654e7bf3f66a716ee3f2eae93733",
     "/etc/apt/apt.conf.d/20archive": "4a569793b6a530904ff0dfd160bbc069c8a5b247d72f5756d62e6aeb31eabfdc",
     "/etc/apt/apt.conf.d/20packagekit": "4d41820beb3b91ae4096114761d8321069362777b8c3dc196a8d20bbad755864",
     "/etc/apt/apt.conf.d/20snapd.conf": "4f1a710936d83d53caa575af269db4311d7b461bdb1bb94ced5b1d331b0886ac",
@@ -3669,7 +3651,7 @@
     "/etc/cloud/templates/chrony.conf.cos.tmpl": "744e2152a8bdebb4e299078376bb534a347e82bf389bc618d59b80b640c10673",
     "/etc/cloud/templates/chrony.conf.debian.tmpl": "3f9fd197d74d56e68859ccae7fea145cfae6ba9fe99a82d326064d8c28ed10f2",
     "/etc/cloud/templates/chrony.conf.fedora.tmpl": "42e64ee04a68fdd796ad7f21ec3924a0aa6966f8f4873a199e98812de111db62",
-    "/etc/cloud/templates/chrony.conf.freebsd.tmpl": "ee9602c7e9f920f2cb5a3139fc53a12748ace9f99aa09ea6fcbbdce2da48e26f",
+    "/etc/cloud/templates/chrony.conf.freebsd.tmpl": "614570394c3da3d53ad0bfeefae2f04ace652f6423d182376df92a4976262ae9",
     "/etc/cloud/templates/chrony.conf.opensuse-leap.tmpl": "b6b6994d865624c7c2ae0a244bab7d35a8c8005d44b06ac4f33268ea22cc232a",
     "/etc/cloud/templates/chrony.conf.opensuse-microos.tmpl": "b6b6994d865624c7c2ae0a244bab7d35a8c8005d44b06ac4f33268ea22cc232a",
     "/etc/cloud/templates/chrony.conf.opensuse.tmpl": "b6b6994d865624c7c2ae0a244bab7d35a8c8005d44b06ac4f33268ea22cc232a",
@@ -3689,6 +3671,7 @@
     "/etc/cloud/templates/hosts.freebsd.tmpl": "3310425931bafcd491046edb04861c02bfe57b9252236898751c96337fc78406",
     "/etc/cloud/templates/hosts.gentoo.tmpl": "ec24d4fad651b451c9dc6ac9c0f88ff314fb969da148eecc3e572644ec92fd50",
     "/etc/cloud/templates/hosts.mariner.tmpl": "eb7d4b49744e07623ab3702da6971745025f1d71880f56ce55170d1496cf159c",
+    "/etc/cloud/templates/hosts.openeuler.tmpl": "516465a5ba8e625ca7997417d668af0fc3914e7b71a7211d230df02356f5005c",
     "/etc/cloud/templates/hosts.photon.tmpl": "4be98341c7b0833a00b0aca41f863c126fe09c0f3a0101c18ffe101a53430bb7",
     "/etc/cloud/templates/hosts.redhat.tmpl": "fa59bc73c00027260e4a4a0c16333f692fa86a1a4b5b1f78604c4bdefc18637e",
     "/etc/cloud/templates/hosts.suse.tmpl": "f40c1f9575af4503a096759fe136cadaa0fda118090a8b1c00197fccaddfa2cb",
@@ -3706,7 +3689,7 @@
     "/etc/cloud/templates/ntp.conf.ubuntu.tmpl": "8a88ecf2035878a83edcb65594d984f6f48bbb9210493949c95a471db8f9e801",
     "/etc/cloud/templates/ntpd.conf.openbsd.tmpl": "cf516487772b66a2db46e04cc55654089d8dc3065c3cafed0d5daecf23df921c",
     "/etc/cloud/templates/resolv.conf.tmpl": "587d891a25d4e1fd999a1a9ed80cd8146950ba8ea38d8f264930a88cc81f7e6c",
-    "/etc/cloud/templates/sources.list.debian.deb822.tmpl": "c0edb45f16dafafbdc9fb3e6f5a702fa8c5ccbfa9dcbdeeca6ee140296a2769a",
+    "/etc/cloud/templates/sources.list.debian.deb822.tmpl": "9eb40ecd2fe6889cb4f102640c4b990334215b09f5b839d28f2f02dfdd289918",
     "/etc/cloud/templates/sources.list.debian.tmpl": "faf70277c0dffc3c04f515bf8ac3c31550f2a0819840ddd6ab05c862079bf3a3",
     "/etc/cloud/templates/sources.list.ubuntu.deb822.tmpl": "40794c688cd68bcd16a94b8d50ff5fa8c7ea5f50f40d96568a2fec728da18e8a",
     "/etc/cloud/templates/sources.list.ubuntu.tmpl": "6086244935090679cb2b3dab5300f490db537cd3d0f6df55380328cd260c6b9c",
@@ -4012,6 +3995,7 @@
     "/etc/modprobe.d/blacklist-firewire.conf": "37c8be8a4b292b28bf683edf18ca2ad77467d0384b6c5c030c11f8d1de4e822d",
     "/etc/modprobe.d/blacklist-framebuffer.conf": "383278f65de289767c8c0564fa31038a3980e76223160c4c3fb70ddc6fcf403a",
     "/etc/modprobe.d/blacklist-rare-network.conf": "d63190beb14c3ab0ad848d9ad17cf7eafecf3df9814fe390107ce68659d4d73c",
+    "/etc/modprobe.d/disable-algif_aead.conf": "3edb721c3498e104e490b3a96195fe49dc0d88846c50d48605907cbe0b7fbf7a",
     "/etc/modprobe.d/intel-microcode-blacklist.conf": "f17b12aa7a202bb4f0ed09cbb45561417986fded2cfcf861364f84c8f3d42fb8",
     "/etc/modprobe.d/iwlwifi.conf": "ff7191f16a3d71e46b980fccabae0b20cfefe9254119e84e4fd6b85ebf3e8170",
     "/etc/modprobe.d/mdadm.conf": "f1e2f3f7d12a9401012b9acb8324f949eb623a58f786536845fd5c70888107be",
@@ -4192,7 +4176,7 @@
     "/etc/snort/rules/web-misc.rules": "6e24e3fcc2b572f18a7280badd0d35c30a4873bbae44055c59c585c716b1b181",
     "/etc/snort/rules/web-php.rules": "1a54a2e29fa8bbc6b39679da19fb169082fb756f18ecb5e39e7b28d9c3165b63",
     "/etc/snort/rules/x11.rules": "6651cde7858c5cb995d1da0b2bef41a04072949f79fb71806f03de0f511dbde6",
-    "/etc/sos/sos.conf": "2b21e00e3740563516e138b1097d1e0a2499fab610bdbcfc9550bf9b0bfe494c",
+    "/etc/sos/sos.conf": "f912e429daed9e83c9244d1cd36257790445e199b8b3655383529d21f1f9cc36",
     "/etc/ssh/moduli": "0370ba24aad69a4deddcbfb03f32570472b983f83c5229ada0807cdecee65d0d",
     "/etc/ssh/ssh_config": "430210df52a502b2be267a69a3163e80d9fd0a5f3e2a0d3b520408964ff778fd",
     "/etc/ssh/ssh_import_id": "88861afb27d23fd9655eefc5458db1744371de8fdb07c914d106390f24683dda",
@@ -4303,5 +4287,5 @@
     "/etc/xdg/user-dirs.defaults": "49eb605821e8f5ebd7a1fa5966e56f55adf92ee0bac42b00610aa906d7fdf032",
     "/etc/zsh_command_not_found": "e9aaf92843334f55d54c223b150f3cddb9d39bb5001bdb37d060d484864eebb3"
   },
-  "reboot_required": false
+  "reboot_required": true
 }

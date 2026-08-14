@@ -62,31 +62,11 @@
 }
 {
   "service": "getty@tty1.service",
-  "exec_path": "/usr/bin/login",
+  "exec_path": "/usr/sbin/agetty",
   "owning_package": "unknown",
   "linked_packages": [
     "unknown",
-    "libpam0g",
-    "libaudit1",
-    "libc6",
-    "libcap-ng0"
-  ],
-  "criticality": "low",
-  "restart_required_on_patch": true
-}
-{
-  "service": "ModemManager.service",
-  "exec_path": "/usr/sbin/ModemManager",
-  "owning_package": "modemmanager",
-  "linked_packages": [
-    "modemmanager",
-    "libc6",
-    "libpcre3",
-    "zlib1g",
-    "libselinux1",
-    "liblzma5",
-    "libcap2",
-    "libgpg-error0"
+    "libc6"
   ],
   "criticality": "low",
   "restart_required_on_patch": true
@@ -123,14 +103,18 @@
   "restart_required_on_patch": true
 }
 {
-  "service": "networkd-dispatcher.service",
-  "exec_path": "/usr/bin/python3.10",
-  "owning_package": "python3.10-minimal",
+  "service": "packagekit.service",
+  "exec_path": "/usr/libexec/packagekitd",
+  "owning_package": "packagekit",
   "linked_packages": [
-    "python3.10-minimal",
+    "packagekit",
     "libc6",
-    "libexpat1",
-    "zlib1g"
+    "libpcre3",
+    "zlib1g",
+    "libselinux1",
+    "liblzma5",
+    "libcap2",
+    "libgpg-error0"
   ],
   "criticality": "low",
   "restart_required_on_patch": true
@@ -328,70 +312,6 @@
     "libselinux1",
     "libc6",
     "liblzma5"
-  ],
-  "criticality": "low",
-  "restart_required_on_patch": true
-}
-{
-  "service": "udisks2.service",
-  "exec_path": "/usr/libexec/udisks2/udisksd",
-  "owning_package": "udisks2",
-  "linked_packages": [
-    "udisks2",
-    "libc6",
-    "libselinux1",
-    "liblzma5",
-    "libcap2",
-    "zlib1g",
-    "libpcre3",
-    "libgpg-error0"
-  ],
-  "criticality": "low",
-  "restart_required_on_patch": true
-}
-{
-  "service": "unattended-upgrades.service",
-  "exec_path": "/usr/bin/python3.10",
-  "owning_package": "python3.10-minimal",
-  "linked_packages": [
-    "python3.10-minimal",
-    "libc6",
-    "libexpat1",
-    "zlib1g"
-  ],
-  "criticality": "low",
-  "restart_required_on_patch": true
-}
-{
-  "service": "upower.service",
-  "exec_path": "/usr/libexec/upowerd",
-  "owning_package": "upower",
-  "linked_packages": [
-    "upower",
-    "libc6",
-    "libpcre3",
-    "zlib1g",
-    "libselinux1"
-  ],
-  "criticality": "low",
-  "restart_required_on_patch": true
-}
-{
-  "service": "user@1000.service",
-  "exec_path": "/usr/lib/systemd/systemd",
-  "owning_package": "unknown",
-  "linked_packages": [
-    "unknown",
-    "systemd",
-    "libselinux1",
-    "libpam0g",
-    "libaudit1",
-    "libc6",
-    "libcap2",
-    "libcrypt1",
-    "liblzma5",
-    "libcap-ng0",
-    "libgpg-error0"
   ],
   "criticality": "low",
   "restart_required_on_patch": true
