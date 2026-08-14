@@ -1,6 +1,7 @@
 #!/bin/bash
 # resolver
 # No flows
+# Internet
 set -euo pipefail
 
 OUT="segmentation_rules.json"
