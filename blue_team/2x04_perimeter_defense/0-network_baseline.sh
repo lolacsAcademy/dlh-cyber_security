@@ -5,6 +5,7 @@ OUT="network_baseline.json"
 TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 HOST=$(hostname)
 
+# Extract interface name, MAC, link state, and addresses
 INTERFACES=$(ip -j addr show | jq '[.[] | {name: .ifname, mac: .address, link_state: .operstate, addresses: [.addr_info[] | {family: .family, address: .local, prefixlen: .prefixlen}]}]')
 ROUTES=$(ip -j route show)
 NEIGHBORS=$(ip -j neigh show)
