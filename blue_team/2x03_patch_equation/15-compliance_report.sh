@@ -1,4 +1,5 @@
 #!/bin/bash
+# current state per CVE
 set -uo pipefail
 
 OUT="patch_compliance.json"
