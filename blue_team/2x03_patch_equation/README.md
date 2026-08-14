@@ -16,3 +16,4 @@ File: `11-maintenance_window.sh, maintenance_window.json`
 File: `12-change_log.sh, patch_change_log.json`
 File: `13-patch_pipeline.sh, pipeline_run.json`
 File: `14-pipeline_test.sh, pipeline_test_results.json`
+File: `15-compliance_report.sh, patch_compliance.json`
