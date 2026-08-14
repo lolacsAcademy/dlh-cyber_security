@@ -3,6 +3,7 @@
 # event_category
 # multi-source
 # simulated actions
+# impacted_technique
 # name: 14-coverage_assessment.sh
 # purpose: Cross-Platform Coverage Assessment
 # author: analyst
