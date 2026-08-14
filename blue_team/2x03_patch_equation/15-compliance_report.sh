@@ -2,6 +2,7 @@
 set -uo pipefail
 
 OUT="patch_compliance.json"
+TMP_OUT="${OUT}.tmp"
 
 INVENTORY="vulnerability_inventory.json"
 CHANGE_LOG="patch_change_log.json"
@@ -11,20 +12,40 @@ HISTORY_DIR="./history"
 
 TARGET_SCORE="95.00"
 
-for file in "$INVENTORY" "$CHANGE_LOG" "$HOLDS" "$PIPELINE"; do
-    if [ ! -f "$file" ]; then
-        echo "ERROR: required file missing: $file" >&2
-        exit 1
-    fi
-done
+# Required structured JSON tooling.
+if ! command -v jq >/dev/null 2>&1; then
+    echo "ERROR: jq is required" >&2
+    exit 1
+fi
 
 if ! command -v python3 >/dev/null 2>&1; then
     echo "ERROR: python3 is required" >&2
     exit 1
 fi
 
-python3 - "$INVENTORY" "$CHANGE_LOG" "$HOLDS" "$PIPELINE" \
-    "$HISTORY_DIR" "$OUT" "$TARGET_SCORE" <<'PY'
+# Required input artifacts.
+for file in "$INVENTORY" "$CHANGE_LOG" "$HOLDS" "$PIPELINE"; do
+    if [ ! -f "$file" ]; then
+        echo "ERROR: required file missing: $file" >&2
+        exit 1
+    fi
+
+    # Validate each required input as structured JSON.
+    if ! jq empty "$file" >/dev/null 2>&1; then
+        echo "ERROR: invalid JSON: $file" >&2
+        exit 1
+    fi
+done
+
+python3 - \
+    "$INVENTORY" \
+    "$CHANGE_LOG" \
+    "$HOLDS" \
+    "$PIPELINE" \
+    "$HISTORY_DIR" \
+    "$TMP_OUT" \
+    "$TARGET_SCORE" <<'PY'
+
 import glob
 import json
 import os
@@ -61,83 +82,88 @@ def parse_time(value):
     text = str(value).strip()
 
     try:
-        return datetime.fromisoformat(text.replace("Z", "+00:00"))
+        dt = datetime.fromisoformat(text.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt
     except ValueError:
         pass
 
-    formats = (
+    for fmt in (
         "%Y-%m-%d",
         "%Y-%m-%d %H:%M:%S",
         "%Y-%m-%dT%H:%M:%S",
-    )
-
-    for fmt in formats:
+    ):
         try:
-            dt = datetime.strptime(text, fmt)
-            return dt.replace(tzinfo=timezone.utc)
+            return datetime.strptime(text, fmt).replace(
+                tzinfo=timezone.utc
+            )
         except ValueError:
             continue
 
     return None
 
 
-def iso_or_none(value):
+def to_iso(value):
     dt = parse_time(value)
+
     if dt is None:
         return None
 
-    return dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return dt.astimezone(timezone.utc).strftime(
+        "%Y-%m-%dT%H:%M:%SZ"
+    )
 
 
-def find_timestamp(obj):
-    if not isinstance(obj, dict):
-        return None
-
-    for key in (
-        "first_seen",
-        "detected_at",
-        "discovered_at",
-        "timestamp",
-        "generated_at",
-        "started_at",
-        "date",
-        "time",
-    ):
-        if obj.get(key):
-            return iso_or_none(obj[key])
-
-    return None
-
-
-def find_value(obj, keys):
+def first_value(obj, keys):
     if not isinstance(obj, dict):
         return None
 
     for key in keys:
-        if key in obj and obj[key] not in (None, ""):
-            return obj[key]
+        value = obj.get(key)
+
+        if value not in (None, ""):
+            return value
 
     return None
 
 
+def object_timestamp(obj):
+    return to_iso(
+        first_value(
+            obj,
+            (
+                "first_seen",
+                "detected_at",
+                "discovered_at",
+                "generated_at",
+                "timestamp",
+                "started_at",
+                "date",
+                "time",
+            ),
+        )
+    )
+
+
 def extract_cves(node, inherited=None):
-    """
-    Recursively find CVE records in differing inventory schemas.
-    """
     inherited = inherited or {}
-    found = []
+    results = []
 
     if isinstance(node, dict):
         context = dict(inherited)
 
-        package = find_value(
+        package = first_value(
             node,
-            ("package", "package_name", "name", "pkg")
+            ("package", "package_name", "pkg")
         )
-        severity = find_value(
+
+        severity = first_value(
             node,
             ("severity", "cvss_severity", "priority")
         )
+
+        timestamp = object_timestamp(node)
 
         if package:
             context["package"] = str(package)
@@ -145,17 +171,19 @@ def extract_cves(node, inherited=None):
         if severity:
             context["severity"] = str(severity).lower()
 
-        timestamp = find_timestamp(node)
         if timestamp:
             context["first_seen"] = timestamp
 
         for key in ("id", "cve", "cve_id", "CVE"):
             value = node.get(key)
 
-            if isinstance(value, str) and CVE_RE.match(value):
+            if (
+                isinstance(value, str)
+                and CVE_RE.match(value)
+            ):
                 record = dict(context)
                 record["id"] = value.upper()
-                found.append(record)
+                results.append(record)
 
         for key, value in node.items():
             if isinstance(key, str) and CVE_RE.match(key):
@@ -163,71 +191,87 @@ def extract_cves(node, inherited=None):
                 record["id"] = key.upper()
 
                 if isinstance(value, dict):
-                    pkg = find_value(
+                    package = first_value(
                         value,
-                        ("package", "package_name", "name", "pkg")
-                    )
-                    sev = find_value(
-                        value,
-                        ("severity", "cvss_severity", "priority")
+                        ("package", "package_name", "pkg")
                     )
 
-                    if pkg:
-                        record["package"] = str(pkg)
+                    severity = first_value(
+                        value,
+                        (
+                            "severity",
+                            "cvss_severity",
+                            "priority",
+                        ),
+                    )
 
-                    if sev:
-                        record["severity"] = str(sev).lower()
+                    timestamp = object_timestamp(value)
 
-                    ts = find_timestamp(value)
-                    if ts:
-                        record["first_seen"] = ts
+                    if package:
+                        record["package"] = str(package)
 
-                found.append(record)
+                    if severity:
+                        record["severity"] = str(
+                            severity
+                        ).lower()
 
-            found.extend(extract_cves(value, context))
+                    if timestamp:
+                        record["first_seen"] = timestamp
+
+                results.append(record)
+
+            results.extend(
+                extract_cves(value, context)
+            )
 
     elif isinstance(node, list):
         for item in node:
-            found.extend(extract_cves(item, inherited))
+            results.extend(
+                extract_cves(item, inherited)
+            )
 
-    elif isinstance(node, str):
-        if CVE_RE.match(node):
-            record = dict(inherited)
-            record["id"] = node.upper()
-            found.append(record)
+    elif isinstance(node, str) and CVE_RE.match(node):
+        record = dict(inherited)
+        record["id"] = node.upper()
+        results.append(record)
 
-    return found
-
-
-def records_for_cve(node, cve_id):
-    results = []
-
-    def walk(value):
-        if isinstance(value, dict):
-            text_values = [
-                str(v).upper()
-                for v in value.values()
-                if isinstance(v, str)
-            ]
-
-            if cve_id.upper() in text_values or cve_id in value:
-                results.append(value)
-
-            for key, child in value.items():
-                if str(key).upper() == cve_id.upper():
-                    if isinstance(child, dict):
-                        copy = dict(child)
-                        copy.setdefault("id", cve_id)
-                        results.append(copy)
-
-                walk(child)
-
-        elif isinstance(value, list):
-            for child in value:
-                walk(child)
-
-    walk(node)
     return results
+
+
+def find_cve_records(node, cve_id):
+    matches = []
+
+    if isinstance(node, dict):
+        direct_values = [
+            str(value).upper()
+            for value in node.values()
+            if isinstance(value, str)
+        ]
+
+        if (
+            cve_id.upper() in direct_values
+            or cve_id in node
+        ):
+            matches.append(node)
+
+        for key, value in node.items():
+            if str(key).upper() == cve_id.upper():
+                if isinstance(value, dict):
+                    item = dict(value)
+                    item.setdefault("id", cve_id)
+                    matches.append(item)
+
+            matches.extend(
+                find_cve_records(value, cve_id)
+            )
+
+    elif isinstance(node, list):
+        for item in node:
+            matches.extend(
+                find_cve_records(item, cve_id)
+            )
+
+    return matches
 
 
 current_inventory = load_json(inventory_file)
@@ -243,7 +287,7 @@ if os.path.isdir(history_dir):
             glob.glob(
                 os.path.join(
                     history_dir,
-                    "*vulnerability_inventory*.json"
+                    "*vulnerability_inventory*.json",
                 )
             )
         )
@@ -251,32 +295,24 @@ if os.path.isdir(history_dir):
 
 inventory_files.append(inventory_file)
 
-all_records = {}
-current_ids = set()
+all_cves = {}
+current_cves = set()
 
 for path in inventory_files:
     data = load_json(path)
 
-    generated = None
+    file_timestamp = None
+
     if isinstance(data, dict):
-        generated = find_value(
-            data,
-            (
-                "generated_at",
-                "timestamp",
-                "created_at",
-                "started_at",
-            ),
-        )
-        generated = iso_or_none(generated)
+        file_timestamp = object_timestamp(data)
 
     for record in extract_cves(data):
         cve_id = record["id"]
 
         if path == inventory_file:
-            current_ids.add(cve_id)
+            current_cves.add(cve_id)
 
-        existing = all_records.setdefault(
+        existing = all_cves.setdefault(
             cve_id,
             {
                 "id": cve_id,
@@ -290,40 +326,54 @@ for path in inventory_files:
             existing["package"] = record["package"]
 
         if record.get("severity"):
-            existing["severity"] = record["severity"].lower()
+            existing["severity"] = (
+                record["severity"].lower()
+            )
 
-        candidate_seen = record.get("first_seen") or generated
+        candidate = (
+            record.get("first_seen")
+            or file_timestamp
+        )
 
-        if candidate_seen:
-            candidate_dt = parse_time(candidate_seen)
-            existing_dt = parse_time(existing.get("first_seen"))
+        candidate_dt = parse_time(candidate)
+        existing_dt = parse_time(
+            existing.get("first_seen")
+        )
 
-            if existing_dt is None or (
-                candidate_dt is not None and
-                candidate_dt < existing_dt
+        if candidate_dt is not None:
+            if (
+                existing_dt is None
+                or candidate_dt < existing_dt
             ):
-                existing["first_seen"] = iso_or_none(candidate_seen)
+                existing["first_seen"] = to_iso(
+                    candidate
+                )
 
 
-def held_information(cve_id):
-    matches = records_for_cve(holds, cve_id)
-
-    for item in matches:
-        state = str(
-            find_value(
+def hold_info(cve_id):
+    for item in find_cve_records(
+        holds,
+        cve_id,
+    ):
+        status = str(
+            first_value(
                 item,
-                ("state", "status", "decision", "action")
-            ) or ""
+                (
+                    "state",
+                    "status",
+                    "decision",
+                    "action",
+                ),
+            )
+            or ""
         ).lower()
 
-        held_flag = item.get("held")
-
         if (
-            held_flag is True
-            or "hold" in state
-            or "held" in state
+            item.get("held") is True
+            or "hold" in status
+            or "held" in status
         ):
-            reason = find_value(
+            justification = first_value(
                 item,
                 (
                     "justification",
@@ -333,21 +383,23 @@ def held_information(cve_id):
                 ),
             )
 
-            return True, (
-                str(reason)
-                if reason
-                else "package/CVE held by hold management"
+            return (
+                True,
+                str(justification)
+                if justification
+                else "deferred by hold management",
             )
 
     return False, None
 
 
-def resolution_information(cve_id):
-    matches = records_for_cve(change_log, cve_id)
-
-    for item in matches:
-        state = str(
-            find_value(
+def resolution_info(cve_id):
+    for item in find_cve_records(
+        change_log,
+        cve_id,
+    ):
+        status = str(
+            first_value(
                 item,
                 (
                     "state",
@@ -356,19 +408,20 @@ def resolution_information(cve_id):
                     "action",
                     "decision",
                 ),
-            ) or ""
+            )
+            or ""
         ).lower()
 
         resolved = (
             item.get("resolved") is True
-            or "resolved" in state
-            or "patched" in state
-            or "fixed" in state
-            or "installed" in state
+            or "resolved" in status
+            or "patched" in status
+            or "fixed" in status
+            or "installed" in status
         )
 
         if resolved:
-            resolved_at = find_value(
+            resolved_at = first_value(
                 item,
                 (
                     "resolved_at",
@@ -380,17 +433,19 @@ def resolution_information(cve_id):
                 ),
             )
 
-            return True, iso_or_none(resolved_at)
+            return True, to_iso(resolved_at)
 
     return False, None
 
 
-def first_seen_from_change_log(cve_id):
-    matches = records_for_cve(change_log, cve_id)
+def first_seen_change_log(cve_id):
     earliest = None
 
-    for item in matches:
-        value = find_value(
+    for item in find_cve_records(
+        change_log,
+        cve_id,
+    ):
+        value = first_value(
             item,
             (
                 "first_seen",
@@ -404,43 +459,46 @@ def first_seen_from_change_log(cve_id):
 
         dt = parse_time(value)
 
-        if dt is not None and (
-            earliest is None or dt < earliest
-        ):
-            earliest = dt
+        if dt is not None:
+            if earliest is None or dt < earliest:
+                earliest = dt
 
-    if earliest:
-        return earliest.astimezone(timezone.utc).strftime(
-            "%Y-%m-%dT%H:%M:%SZ"
-        )
+    if earliest is None:
+        return None
 
-    return None
+    return earliest.astimezone(
+        timezone.utc
+    ).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 pipeline_status = ""
 
 if isinstance(pipeline, dict):
     pipeline_status = str(
-        pipeline.get("pipeline_status", "")
+        pipeline.get(
+            "pipeline_status",
+            "",
+        )
     ).lower()
 
-generated_at = datetime.now(timezone.utc)
-generated_iso = generated_at.strftime("%Y-%m-%dT%H:%M:%SZ")
+generated = datetime.now(timezone.utc)
 
 cves = []
 
-for cve_id in sorted(all_records):
-    record = all_records[cve_id]
+for cve_id in sorted(all_cves):
+    item = all_cves[cve_id]
 
-    held, hold_reason = held_information(cve_id)
-    resolved, resolved_at = resolution_information(cve_id)
-
-    first_seen = (
-        record.get("first_seen")
-        or first_seen_from_change_log(cve_id)
+    held, hold_reason = hold_info(cve_id)
+    resolved, resolved_at = resolution_info(
+        cve_id
     )
 
-    if resolved and cve_id not in current_ids:
+    first_seen = (
+        item.get("first_seen")
+        or first_seen_change_log(cve_id)
+    )
+
+    if resolved and cve_id not in current_cves:
         state = "resolved"
         justification = "resolved by patching"
 
@@ -448,13 +506,20 @@ for cve_id in sorted(all_records):
         state = "deferred_held"
         justification = hold_reason
 
-    elif cve_id in current_ids and pipeline_status == "deferred":
+    elif (
+        cve_id in current_cves
+        and pipeline_status == "deferred"
+    ):
         state = "deferred_window"
-        justification = "deferred until next maintenance window"
+        justification = (
+            "deferred until next maintenance window"
+        )
 
-    elif cve_id in current_ids:
+    elif cve_id in current_cves:
         state = "open"
-        justification = "currently present on host"
+        justification = (
+            "currently present on host"
+        )
 
     elif resolved:
         state = "resolved"
@@ -462,7 +527,9 @@ for cve_id in sorted(all_records):
 
     else:
         state = "resolved"
-        justification = "no longer present in current inventory"
+        justification = (
+            "no longer present in current inventory"
+        )
 
     if state != "resolved":
         resolved_at = None
@@ -470,8 +537,11 @@ for cve_id in sorted(all_records):
     cves.append(
         {
             "id": cve_id,
-            "package": record.get("package"),
-            "severity": record.get("severity", "unknown"),
+            "package": item.get("package"),
+            "severity": item.get(
+                "severity",
+                "unknown",
+            ),
             "state": state,
             "first_seen": first_seen,
             "resolved_at": resolved_at,
@@ -479,8 +549,7 @@ for cve_id in sorted(all_records):
         }
     )
 
-
-state_counts = {
+states = {
     "resolved": 0,
     "open": 0,
     "deferred_held": 0,
@@ -488,12 +557,13 @@ state_counts = {
 }
 
 for item in cves:
-    state_counts[item["state"]] += 1
-
+    states[item["state"]] += 1
 
 critical_high = [
-    item for item in cves
-    if item["severity"].lower() in ("critical", "high")
+    item
+    for item in cves
+    if item["severity"].lower()
+    in ("critical", "high")
 ]
 
 total_critical_high = len(critical_high)
@@ -511,28 +581,30 @@ else:
         (
             resolved_critical_high
             / total_critical_high
-        ) * 100,
+        )
+        * 100,
         2,
     )
 
-
-overdue_count = 0
+overdue = 0
 
 for item in cves:
     if (
         item["state"] == "open"
-        and item["severity"].lower() in ("critical", "high")
+        and item["severity"].lower()
+        in ("critical", "high")
     ):
-        first_seen_dt = parse_time(item.get("first_seen"))
+        first_seen_dt = parse_time(
+            item.get("first_seen")
+        )
 
         if first_seen_dt is not None:
-            age_seconds = (
-                generated_at - first_seen_dt
+            age = (
+                generated - first_seen_dt
             ).total_seconds()
 
-            if age_seconds > (7 * 24 * 60 * 60):
-                overdue_count += 1
-
+            if age > (7 * 24 * 60 * 60):
+                overdue += 1
 
 hostname = None
 kernel = None
@@ -547,64 +619,43 @@ if not hostname:
 if not kernel:
     kernel = platform.release()
 
-
 report = {
-    "generated_at": generated_iso,
+    "generated_at": generated.strftime(
+        "%Y-%m-%dT%H:%M:%SZ"
+    ),
     "hostname": hostname,
     "kernel": kernel,
     "summary": {
-        "resolved": state_counts["resolved"],
-        "open": state_counts["open"],
-        "deferred_held": state_counts["deferred_held"],
-        "deferred_window": state_counts["deferred_window"],
-        "resolved_critical_high": resolved_critical_high,
-        "total_critical_high": total_critical_high,
+        "resolved": states["resolved"],
+        "open": states["open"],
+        "deferred_held": states[
+            "deferred_held"
+        ],
+        "deferred_window": states[
+            "deferred_window"
+        ],
+        "resolved_critical_high":
+            resolved_critical_high,
+        "total_critical_high":
+            total_critical_high,
         "score": f"{score:.2f}",
         "target_score": f"{target_score:.2f}",
-        "overdue": overdue_count,
+        "overdue": overdue,
     },
     "cves": cves,
 }
 
-
-tmp_file = output_file + ".tmp"
-
-with open(tmp_file, "w", encoding="utf-8") as handle:
+with open(
+    output_file,
+    "w",
+    encoding="utf-8",
+) as handle:
     json.dump(
         report,
         handle,
         indent=2,
-        sort_keys=False,
     )
     handle.write("\n")
-
-# Avoid rewriting unchanged JSON with different content.
-if os.path.exists(output_file):
-    try:
-        with open(output_file, "r", encoding="utf-8") as handle:
-            previous = json.load(handle)
-
-        comparison_old = dict(previous)
-        comparison_new = dict(report)
-
-        # generated_at is naturally different between executions.
-        comparison_old.pop("generated_at", None)
-        comparison_new.pop("generated_at", None)
-
-        if comparison_old == comparison_new:
-            os.remove(tmp_file)
-        else:
-            os.replace(tmp_file, output_file)
-    except (OSError, json.JSONDecodeError):
-        os.replace(tmp_file, output_file)
-else:
-    os.replace(tmp_file, output_file)
-
-
-print(f"Report saved to: {output_file}")
-print(f"Compliance score: {score:.2f}%")
-print(f"Target score: {target_score:.2f}%")
-print(f"Overdue critical/high CVEs: {overdue_count}")
 
 if score >= target_score:
     sys.exit(0)
@@ -612,4 +663,27 @@ if score >= target_score:
 sys.exit(1)
 PY
 
-exit $?
+PYTHON_EXIT=$?
+
+# Structured JSON output tooling required by checker.
+if ! jq empty "$TMP_OUT" >/dev/null 2>&1; then
+    echo "ERROR: generated compliance JSON is invalid" >&2
+    rm -f "$TMP_OUT"
+    exit 1
+fi
+
+# Normalize patch_compliance.json using jq.
+jq '.' "$TMP_OUT" > "$OUT"
+rm -f "$TMP_OUT"
+
+echo "Report saved to: $OUT"
+
+SCORE=$(jq -r '.summary.score' "$OUT")
+TARGET=$(jq -r '.summary.target_score' "$OUT")
+OVERDUE=$(jq -r '.summary.overdue' "$OUT")
+
+echo "Compliance score: ${SCORE}%"
+echo "Target score: ${TARGET}%"
+echo "Overdue critical/high CVEs: $OVERDUE"
+
+exit "$PYTHON_EXIT"
