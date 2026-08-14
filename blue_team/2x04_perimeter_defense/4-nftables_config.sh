@@ -1,4 +1,5 @@
 #!/bin/bash
+# rule count
 set -euo pipefail
 
 RULES_JSON="../segmentation_rules.json"
