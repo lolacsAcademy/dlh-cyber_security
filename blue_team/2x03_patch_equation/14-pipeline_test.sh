@@ -1,4 +1,5 @@
 #!/bin/bash
+# restore
 set -uo pipefail
 
 OUT="pipeline_test_results.json"
