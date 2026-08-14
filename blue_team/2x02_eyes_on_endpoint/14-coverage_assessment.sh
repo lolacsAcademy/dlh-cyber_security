@@ -2,6 +2,7 @@
 # source_type
 # event_category
 # multi-source
+# simulated actions
 # name: 14-coverage_assessment.sh
 # purpose: Cross-Platform Coverage Assessment
 # author: analyst
