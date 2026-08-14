@@ -4,6 +4,7 @@
 # multi-source
 # simulated actions
 # impacted_technique
+# recommendation
 # name: 14-coverage_assessment.sh
 # purpose: Cross-Platform Coverage Assessment
 # author: analyst
