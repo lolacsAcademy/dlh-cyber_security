@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-14T04:37:41Z",
+  "timestamp": "2026-08-14T04:47:24Z",
   "hostname": "billing-srv-01",
   "interfaces": [
     {
@@ -135,7 +135,7 @@
       "dev": "enp0s3",
       "lladdr": "52:54:00:12:35:00",
       "state": [
-        "REACHABLE"
+        "DELAY"
       ]
     },
     {
