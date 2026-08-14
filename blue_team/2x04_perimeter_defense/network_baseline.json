@@ -1,139 +1,65 @@
 {
-  "timestamp": "2026-08-14T04:15:33Z",
+  "timestamp": "2026-08-14T04:23:47Z",
   "hostname": "billing-srv-01",
   "interfaces": [
     {
-      "ifindex": 1,
-      "ifname": "lo",
-      "flags": [
-        "LOOPBACK",
-        "UP",
-        "LOWER_UP"
-      ],
-      "mtu": 65536,
-      "qdisc": "noqueue",
-      "operstate": "UNKNOWN",
-      "group": "default",
-      "txqlen": 1000,
-      "link_type": "loopback",
-      "address": "00:00:00:00:00:00",
-      "broadcast": "00:00:00:00:00:00",
-      "addr_info": [
+      "name": "lo",
+      "mac": "00:00:00:00:00:00",
+      "link_state": "UNKNOWN",
+      "addresses": [
         {
           "family": "inet",
-          "local": "127.0.0.1",
-          "prefixlen": 8,
-          "scope": "host",
-          "label": "lo",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
+          "address": "127.0.0.1",
+          "prefixlen": 8
         },
         {
           "family": "inet6",
-          "local": "::1",
-          "prefixlen": 128,
-          "scope": "host",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
+          "address": "::1",
+          "prefixlen": 128
         }
       ]
     },
     {
-      "ifindex": 2,
-      "ifname": "enp0s3",
-      "flags": [
-        "BROADCAST",
-        "MULTICAST",
-        "UP",
-        "LOWER_UP"
-      ],
-      "mtu": 1500,
-      "qdisc": "fq_codel",
-      "operstate": "UP",
-      "group": "default",
-      "txqlen": 1000,
-      "link_type": "ether",
-      "address": "08:00:27:f2:02:af",
-      "broadcast": "ff:ff:ff:ff:ff:ff",
-      "addr_info": [
+      "name": "enp0s3",
+      "mac": "08:00:27:f2:02:af",
+      "link_state": "UP",
+      "addresses": [
         {
           "family": "inet",
-          "local": "10.0.2.15",
-          "prefixlen": 24,
-          "metric": 100,
-          "broadcast": "10.0.2.255",
-          "scope": "global",
-          "dynamic": true,
-          "label": "enp0s3",
-          "valid_life_time": 83794,
-          "preferred_life_time": 83794
+          "address": "10.0.2.15",
+          "prefixlen": 24
         },
         {
           "family": "inet6",
-          "local": "fd17:625c:f037:2:a00:27ff:fef2:2af",
-          "prefixlen": 64,
-          "scope": "global",
-          "dynamic": true,
-          "mngtmpaddr": true,
-          "noprefixroute": true,
-          "valid_life_time": 86305,
-          "preferred_life_time": 14305
+          "address": "fd17:625c:f037:2:a00:27ff:fef2:2af",
+          "prefixlen": 64
         },
         {
           "family": "inet6",
-          "local": "fe80::a00:27ff:fef2:2af",
-          "prefixlen": 64,
-          "scope": "link",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
+          "address": "fe80::a00:27ff:fef2:2af",
+          "prefixlen": 64
         }
       ]
     },
     {
-      "ifindex": 3,
-      "ifname": "enp0s8",
-      "flags": [
-        "BROADCAST",
-        "MULTICAST",
-        "UP",
-        "LOWER_UP"
-      ],
-      "mtu": 1500,
-      "qdisc": "fq_codel",
-      "operstate": "UP",
-      "group": "default",
-      "txqlen": 1000,
-      "link_type": "ether",
-      "address": "08:00:27:fc:35:5e",
-      "broadcast": "ff:ff:ff:ff:ff:ff",
-      "addr_info": [
+      "name": "enp0s8",
+      "mac": "08:00:27:fc:35:5e",
+      "link_state": "UP",
+      "addresses": [
         {
           "family": "inet",
-          "local": "10.10.1.10",
-          "prefixlen": 24,
-          "broadcast": "10.10.1.255",
-          "scope": "global",
-          "label": "enp0s8",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
+          "address": "10.10.1.10",
+          "prefixlen": 24
         },
         {
           "family": "inet",
-          "local": "10.10.3.1",
-          "prefixlen": 24,
-          "broadcast": "10.10.3.255",
-          "scope": "global",
-          "label": "enp0s8",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
+          "address": "10.10.3.1",
+          "prefixlen": 24
         },
         {
           "family": "inet6",
-          "local": "fe80::a00:27ff:fefc:355e",
-          "prefixlen": 64,
-          "scope": "link",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
+          "address": "fe80::a00:27ff:fefc:355e",
+          "prefixlen": 64
         }
       ]
     }
@@ -198,7 +124,7 @@
       "dev": "enp0s3",
       "lladdr": "52:54:00:12:35:00",
       "state": [
-        "DELAY"
+        "REACHABLE"
       ]
     },
     {
