@@ -1,5 +1,6 @@
 #!/bin/bash
 # resolver
+# No flows
 set -euo pipefail
 
 OUT="segmentation_rules.json"
