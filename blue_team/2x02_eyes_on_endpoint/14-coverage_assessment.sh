@@ -1,4 +1,5 @@
 #!/bin/bash
+# source_type
 # name: 14-coverage_assessment.sh
 # purpose: Cross-Platform Coverage Assessment
 # author: analyst
