@@ -91,7 +91,7 @@
       "dst_zone": "MGMT",
       "proto": "udp",
       "dport": 53,
-      "justification": "DNS resolution",
+      "justification": "DNS resolution (udp/53)",
       "exception_for": null
     },
     {
@@ -99,7 +99,7 @@
       "dst_zone": "MGMT",
       "proto": "tcp",
       "dport": 53,
-      "justification": "DNS resolution",
+      "justification": "DNS resolution (tcp/53)",
       "exception_for": null
     },
     {
