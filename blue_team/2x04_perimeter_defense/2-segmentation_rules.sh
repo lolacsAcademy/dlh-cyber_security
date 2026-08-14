@@ -1,4 +1,5 @@
 #!/bin/bash
+# resolver
 set -euo pipefail
 
 OUT="segmentation_rules.json"
