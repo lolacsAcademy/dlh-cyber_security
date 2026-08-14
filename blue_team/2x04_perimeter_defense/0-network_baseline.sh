@@ -5,9 +5,11 @@ OUT="network_baseline.json"
 TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 HOST=$(hostname)
 
-# Extract interface name, MAC, link state, and addresses
+# MAC
 INTERFACES=$(ip -j addr show | jq '[.[] | {name: .ifname, mac: .address, link_state: .operstate, addresses: [.addr_info[] | {family: .family, address: .local, prefixlen: .prefixlen}]}]')
+
 ROUTES=$(ip -j route show)
+DEFAULT_GW=$(ip -j route show default)
 NEIGHBORS=$(ip -j neigh show)
 
 if command -v ss >/dev/null 2>&1 && ss -j -tulnpH >/dev/null 2>&1; then
@@ -30,6 +32,7 @@ jq -n \
   --arg hostname "$HOST" \
   --argjson interfaces "$INTERFACES" \
   --argjson routes "$ROUTES" \
+  --argjson default_gateway "$DEFAULT_GW" \
   --argjson neighbors "$NEIGHBORS" \
   --argjson listening_sockets "$LISTENERS" \
   --argjson established_connections "$ESTABLISHED" \
@@ -40,6 +43,7 @@ jq -n \
     hostname: $hostname,
     interfaces: $interfaces,
     routes: $routes,
+    default_gateway: $default_gateway,
     neighbors: $neighbors,
     listening_sockets: $listening_sockets,
     established_connections: $established_connections,

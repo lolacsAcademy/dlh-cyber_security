@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-14T04:27:58Z",
+  "timestamp": "2026-08-14T04:37:41Z",
   "hostname": "billing-srv-01",
   "interfaces": [
     {
@@ -110,6 +110,17 @@
     },
     {
       "dst": "192.168.178.1",
+      "gateway": "10.0.2.2",
+      "dev": "enp0s3",
+      "protocol": "dhcp",
+      "prefsrc": "10.0.2.15",
+      "metric": 100,
+      "flags": []
+    }
+  ],
+  "default_gateway": [
+    {
+      "dst": "default",
       "gateway": "10.0.2.2",
       "dev": "enp0s3",
       "protocol": "dhcp",
