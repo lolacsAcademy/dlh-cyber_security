@@ -12,6 +12,7 @@ ROUTES=$(ip -j route show)
 DEFAULT_GW=$(ip -j route show default)
 NEIGHBORS=$(ip -j neigh show)
 
+# PID
 if command -v ss >/dev/null 2>&1 && ss -j -tulnpH >/dev/null 2>&1; then
   LISTENERS=$(ss -j -tulnpH)
   ESTABLISHED=$(ss -j -tnpH state established)
