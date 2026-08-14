@@ -1,0 +1,68 @@
+{
+  "period_start": "2024-09-11T14:18:37+02:00",
+  "period_end": "2026-08-14T13:55:26+02:00",
+  "events": [
+    {
+      "started": "2024-09-11T14:18:37+02:00",
+      "user": "unknown",
+      "within_window": "outside",
+      "packages": 753,
+      "linked_execution_log": null,
+      "cves_resolved": 0
+    },
+    {
+      "started": "2026-04-14T12:36:34+02:00",
+      "user": "unknown",
+      "within_window": "outside",
+      "packages": 361,
+      "linked_execution_log": null,
+      "cves_resolved": 0
+    },
+    {
+      "started": "2026-04-14T15:06:08+02:00",
+      "user": "analyst",
+      "within_window": "outside",
+      "packages": 337,
+      "linked_execution_log": null,
+      "cves_resolved": 0
+    },
+    {
+      "started": "2026-04-15T15:04:23+02:00",
+      "user": "analyst",
+      "within_window": "outside",
+      "packages": 3,
+      "linked_execution_log": null,
+      "cves_resolved": 0
+    },
+    {
+      "started": "2026-08-13T23:08:27+02:00",
+      "user": "analyst",
+      "within_window": "outside",
+      "packages": 84,
+      "linked_execution_log": null,
+      "cves_resolved": 0
+    },
+    {
+      "started": "2026-08-14T00:10:46+02:00",
+      "user": "analyst",
+      "within_window": "outside",
+      "packages": 580,
+      "linked_execution_log": null,
+      "cves_resolved": 0
+    },
+    {
+      "started": "2026-08-14T13:55:26+02:00",
+      "user": "analyst",
+      "within_window": "outside",
+      "packages": 160,
+      "linked_execution_log": null,
+      "cves_resolved": 0
+    }
+  ],
+  "summary": {
+    "total_events": 7,
+    "inside_window": 0,
+    "outside_window": 7,
+    "cves_resolved": 0
+  }
+}

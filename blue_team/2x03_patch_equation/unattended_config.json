@@ -1,0 +1,20 @@
+{
+  "installed": "already_installed",
+  "config_paths": [
+    "/etc/apt/apt.conf.d/50unattended-upgrades",
+    "/etc/apt/apt.conf.d/20auto-upgrades"
+  ],
+  "blacklist": [
+    "linux-image*",
+    "linux-headers*",
+    "mysql-server*",
+    "apache2*",
+    "libapache2-mod-php*"
+  ],
+  "timer_state": "active,active",
+  "dry_run_summary": {
+    "would_upgrade": 97,
+    "skipped_blacklisted": 2,
+    "skipped_held": 0
+  }
+}

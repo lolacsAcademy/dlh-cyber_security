@@ -1,0 +1,3992 @@
+{
+  "summary": {
+    "unchanged": 987,
+    "modified": 4,
+    "missing": 0,
+    "new": 1
+  },
+  "files": [
+    {
+      "path": "/etc/alternatives/README",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/apache2.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/conf-available/charset.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/conf-available/localized-error-pages.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/conf-available/other-vhosts-access-log.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/conf-available/security.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/conf-available/serve-cgi-bin.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/envvars",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/magic",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/access_compat.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/actions.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/actions.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/alias.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/alias.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/allowmethods.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/asis.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/auth_basic.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/auth_digest.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/auth_form.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authn_anon.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authn_core.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authn_dbd.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authn_dbm.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authn_file.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authn_socache.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authnz_fcgi.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authnz_ldap.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authz_core.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authz_dbd.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authz_dbm.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authz_groupfile.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authz_host.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authz_owner.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/authz_user.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/autoindex.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/autoindex.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/brotli.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/buffer.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/cache_disk.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/cache_disk.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/cache.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/cache_socache.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/cern_meta.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/cgid.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/cgid.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/cgi.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/charset_lite.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/data.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/dav_fs.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/dav_fs.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/dav.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/dav_lock.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/dbd.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/deflate.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/deflate.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/dialup.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/dir.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/dir.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/dump_io.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/echo.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/env.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/expires.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/ext_filter.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/file_cache.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/filter.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/headers.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/heartbeat.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/heartmonitor.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/http2.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/http2.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/ident.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/imagemap.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/include.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/info.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/info.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/lbmethod_bybusyness.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/lbmethod_byrequests.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/lbmethod_bytraffic.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/lbmethod_heartbeat.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/ldap.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/ldap.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/log_debug.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/log_forensic.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/lua.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/macro.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/md.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/mime.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/mime.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/mime_magic.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/mime_magic.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/mpm_event.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/mpm_event.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/mpm_prefork.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/mpm_prefork.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/mpm_worker.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/mpm_worker.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/negotiation.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/negotiation.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/php8.1.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/php8.1.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_ajp.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_balancer.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_balancer.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_connect.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_express.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_fcgi.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_fdpass.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_ftp.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_ftp.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_hcheck.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_html.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_html.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_http2.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_http.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_scgi.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_uwsgi.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/proxy_wstunnel.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/ratelimit.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/reflector.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/remoteip.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/reqtimeout.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/reqtimeout.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/request.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/rewrite.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/sed.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/session_cookie.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/session_crypto.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/session_dbd.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/session.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/setenvif.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/setenvif.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/slotmem_plain.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/slotmem_shm.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/socache_dbm.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/socache_memcache.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/socache_redis.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/socache_shmcb.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/speling.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/ssl.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/ssl.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/status.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/status.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/substitute.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/suexec.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/unique_id.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/userdir.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/userdir.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/usertrack.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/vhost_alias.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/mods-available/xml2enc.load",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/ports.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/sites-available/000-default.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apache2/sites-available/default-ssl.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abi/3.0",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abi/kernel-5.4-outoftree-network",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abi/kernel-5.4-vanilla",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/apache2-common",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/apparmor_api/change_profile",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/apparmor_api/examine",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/apparmor_api/find_mountpoint",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/apparmor_api/introspect",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/apparmor_api/is_enabled",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/aspell",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/audio",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/authentication",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/base",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/bash",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/consoles",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/crypto",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/cups-client",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/dbus",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/dbus-accessibility",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/dbus-accessibility-strict",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/dbus-network-manager-strict",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/dbus-session",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/dbus-session-strict",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/dbus-strict",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/dconf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/dovecot-common",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/dri-common",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/dri-enumerate",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/enchant",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/exo-open",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/fcitx",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/fcitx-strict",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/fonts",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/freedesktop.org",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/gio-open",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/gnome",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/gnupg",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/gtk",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/gvfs-open",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/hosts_access",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ibus",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/kde",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/kde-globals-write",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/kde-icon-cache-write",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/kde-language-write",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/kde-open5",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/kerberosclient",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ldapclient",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/libpam-systemd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/likewise",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/mdns",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/mesa",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/mir",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/mozc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/mysql",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/nameservice",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/nis",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/nss-systemd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/nvidia",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/opencl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/opencl-common",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/opencl-intel",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/opencl-mesa",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/opencl-nvidia",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/opencl-pocl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/openssl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/orbit2",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/p11-kit",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/perl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/php",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/php5",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/php-worker",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/postfix-common",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/private-files",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/private-files-strict",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/python",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/qt5",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/qt5-compose-cache-write",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/qt5-settings-write",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/recent-documents-write",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ruby",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/samba",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/smbpass",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/snap_browsers",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ssl_certs",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ssl_keys",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/svn-repositories",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-bittorrent-clients",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-browsers",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-browsers.d/chromium-browser",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-browsers.d/java",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-browsers.d/kde",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-browsers.d/mailto",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-browsers.d/multimedia",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-browsers.d/plugins-common",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-browsers.d/productivity",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-browsers.d/text-editors",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-browsers.d/ubuntu-integration",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-browsers.d/ubuntu-integration-xul",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-browsers.d/user-files",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-console-browsers",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-console-email",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-email",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-feed-readers",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-gnome-terminal",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-helpers",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-konsole",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-media-players",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-unity7-base",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-unity7-launcher",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-unity7-messaging",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/ubuntu-xterm",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/user-download",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/user-mail",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/user-manpages",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/user-tmp",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/user-write",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/video",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/vulkan",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/wayland",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/web-data",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/winbind",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/wutmp",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/X",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/xad",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/xdg-desktop",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/abstractions/xdg-open",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/local/README",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/lsb_release",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/nvidia_modprobe",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/sbin.dhclient",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/alias",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/apparmorfs",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/dovecot",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/etc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/global",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/home",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/home.d/site.local",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/kernelvars",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/multiarch",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/multiarch.d/site.local",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/proc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/run",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/securityfs",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/share",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/sys",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/system",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/tunables/xdg-user-dirs",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/ubuntu_pro_apt_news",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/ubuntu_pro_esm_cache",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/usr.bin.man",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/usr.bin.tcpdump",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/usr.lib.snapd.snap-confine.real",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/usr.sbin.mysqld",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor.d/usr.sbin.rsyslogd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor/easyprof.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor/logprof.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor/parser.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apparmor/severity.db",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apport/blacklist.d/apport",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apport/blacklist.d/README.blacklist",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apport/crashdb.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/01autoremove",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/01-vendor-ubuntu",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/10periodic",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/15update-stamp",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/20apt-esm-hook.conf",
+      "classification": "modified",
+      "owning_package": "ubuntu-pro-client",
+      "expected": true,
+      "diff": ""
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/20archive",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/20packagekit",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/20snapd.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/50command-not-found",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/70debconf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/99needrestart",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/99update-notifier",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/preferences.d/ubuntu-pro-esm-apps",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/apt/preferences.d/ubuntu-pro-esm-infra",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/audit/audisp-remote.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/audit/auditd.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/audit/audit-stop.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/audit/plugins.d/af_unix.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/audit/plugins.d/audispd-zos-remote.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/audit/plugins.d/au-remote.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/audit/plugins.d/syslog.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/audit/rules.d/audit.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/audit/zos-remote.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/bash.bashrc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/bash_completion",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/bash_completion.d/apport_completion",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/bash_completion.d/git-prompt",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/bindresvport.blacklist",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/byobu/backend",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/byobu/socketdir",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/cloud.cfg",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/cloud.cfg.d/05_logging.cfg",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/cloud.cfg.d/README",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chef_client.rb.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.almalinux.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.alpine.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.centos.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.cloudlinux.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.cos.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.debian.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.fedora.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.freebsd.tmpl",
+      "classification": "modified",
+      "owning_package": "cloud-init",
+      "expected": true,
+      "diff": ""
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.opensuse-leap.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.opensuse-microos.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.opensuse.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.opensuse-tumbleweed.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.photon.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.rhel.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.rocky.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.sle_hpc.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.sle-micro.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.sles.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/chrony.conf.ubuntu.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/hosts.alpine.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/hosts.aosc.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/hosts.arch.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/hosts.azurelinux.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/hosts.debian.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/hosts.freebsd.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/hosts.gentoo.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/hosts.mariner.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/hosts.photon.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/hosts.redhat.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/hosts.suse.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntp.conf.almalinux.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntp.conf.alpine.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntp.conf.cloudlinux.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntp.conf.debian.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntp.conf.fedora.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntp.conf.freebsd.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntp.conf.opensuse.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntp.conf.photon.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntp.conf.rhel.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntp.conf.rocky.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntp.conf.sles.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntp.conf.ubuntu.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/ntpd.conf.openbsd.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/resolv.conf.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/sources.list.debian.deb822.tmpl",
+      "classification": "modified",
+      "owning_package": "cloud-init",
+      "expected": true,
+      "diff": ""
+    },
+    {
+      "path": "/etc/cloud/templates/sources.list.debian.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/sources.list.ubuntu.deb822.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/sources.list.ubuntu.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/systemd.resolved.conf.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/timesyncd.conf.tmpl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ARMSCII-8.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.CP1251.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.CP1255.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.CP1256.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.GEORGIAN-ACADEMY.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.GEORGIAN-PS.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.IBM1133.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISIRI-3342.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-10.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-11.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-13.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-14.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-15.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-16.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-1.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-2.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-3.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-4.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-5.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-6.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-7.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-8.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.ISO-8859-9.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.KOI8-R.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.KOI8-U.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.TIS-620.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/compose.VISCII.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/remap.inc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/vtrgb",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/console-setup/vtrgb.vga",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cracklib/cracklib.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.daily/apache2",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.daily/apport",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.daily/apt-compat",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.daily/cracklib-runtime",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.daily/dpkg",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.daily/logrotate",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.daily/man-db",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.daily/.placeholder",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.d/e2scrub_all",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.d/php",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.d/.placeholder",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.hourly/.placeholder",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.monthly/.placeholder",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/crontab",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.weekly/man-db",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cron.weekly/.placeholder",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cryptsetup-initramfs/conf-hook",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dbus-1/system.d/com.ubuntu.SoftwareProperties.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dbus-1/system.d/dnsmasq.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dbus-1/system.d/org.freedesktop.ModemManager1.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dbus-1/system.d/org.freedesktop.PackageKit.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dbus-1/system.d/org.freedesktop.thermald.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/debconf.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/debian_version",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/amd64-microcode",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/apache-htcacheclean",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/apport",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/auditd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/cron",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/cryptdisks",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/dbus",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/dnsmasq",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/grub.d/init-select.cfg",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/intel-microcode",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/irqbalance",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/motd-news",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/netfilter-persistent",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/networkd-dispatcher",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/open-iscsi",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/pollinate",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/rsync",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/snmpd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/ssh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/suricata",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/ufw",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/default/useradd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/deluser.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/depmod.d/ubuntu.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dhcp/debug",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dhcp/dhclient.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dhcp/dhclient-enter-hooks.d/resolved-enter",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dhcp/dhclient-exit-hooks.d/resolved",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dhcp/dhclient-exit-hooks.d/rfc3442-classless-routes",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dhcp/dhclient-exit-hooks.d/timesyncd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dnsmasq.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dpkg/dpkg.cfg",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dpkg/dpkg.cfg.d/needrestart",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dpkg/dpkg.cfg.d/pkg-config-hook-config",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dpkg/origins/debian",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/dpkg/origins/ubuntu",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/e2scrub.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ethertypes",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-antialias.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-autohint.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-hinting-full.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-hinting-medium.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-hinting-none.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-hinting-slight.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-no-sub-pixel.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-scale-bitmap-fonts.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-sub-pixel-bgr.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-sub-pixel-rgb.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-sub-pixel-vbgr.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-sub-pixel-vrgb.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/10-unhinted.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/11-lcdfilter-default.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/11-lcdfilter-legacy.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/11-lcdfilter-light.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans-mono.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-serif.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/20-unhint-small-dejavu-sans.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/20-unhint-small-dejavu-sans-mono.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/20-unhint-small-dejavu-serif.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/20-unhint-small-vera.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/25-unhint-nonlatin.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/30-metric-aliases.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/40-nonlatin.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/45-generic.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/45-latin.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/49-sansserif.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/50-user.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/51-local.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/57-dejavu-sans.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/57-dejavu-sans-mono.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/57-dejavu-serif.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/58-dejavu-lgc-sans.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/58-dejavu-lgc-sans-mono.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/58-dejavu-lgc-serif.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/60-generic.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/60-latin.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/65-fonts-persian.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/65-khmer.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/65-nonlatin.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/69-unifont.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/70-force-bitmaps.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/70-no-bitmaps.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/70-yes-bitmaps.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/80-delicious.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.avail/90-synthetic.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/conf.d/README",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fonts/fonts.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fuse.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fwupd/daemon.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fwupd/msr.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fwupd/redfish.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fwupd/remotes.d/dell-esrt.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fwupd/remotes.d/lvfs.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fwupd/remotes.d/lvfs-testing.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fwupd/remotes.d/vendor.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fwupd/remotes.d/vendor-directory.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fwupd/thunderbolt.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/fwupd/uefi_capsule.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/gai.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/groff/man.local",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/groff/mdoc.local",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/grub.d/00_header",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/grub.d/05_debian_theme",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/grub.d/10_linux",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/grub.d/10_linux_zfs",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/grub.d/20_linux_xen",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/grub.d/30_os-prober",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/grub.d/30_uefi-firmware",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/grub.d/35_fwupd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/grub.d/40_custom",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/grub.d/41_custom",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/grub.d/README",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/hdparm.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/host.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/apache2",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/apache-htcacheclean",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/apparmor",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/apport",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/auditd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/console-setup.sh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/cron",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/cryptdisks",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/cryptdisks-early",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/dbus",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/dnsmasq",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/grub-common",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/hwclock.sh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/irqbalance",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/iscsid",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/keyboard-setup.sh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/kmod",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/lvm2",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/lvm2-lvmpolld",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/mysql",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/netfilter-persistent",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/open-iscsi",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/open-vm-tools",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/plymouth",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/plymouth-log",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/procps",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/rsync",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/screen-cleanup",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/snmpd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/ssh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/suricata",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/udev",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/ufw",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/unattended-upgrades",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init.d/uuidd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/init/mysql.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/initramfs-tools/initramfs.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/initramfs-tools/update-initramfs.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/insserv.conf.d/dnsmasq",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/iproute2/bpf_pinning",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/iproute2/ematch_map",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/iproute2/group",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/iproute2/nl_protos",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/iproute2/rt_dsfield",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/iproute2/rt_protos",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/iproute2/rt_protos.d/README",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/iproute2/rt_realms",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/iproute2/rt_scopes",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/iproute2/rt_tables",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/iproute2/rt_tables.d/README",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/iscsi/iscsid.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/issue",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/issue.net",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/kernel/postinst.d/initramfs-tools",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/kernel/postinst.d/unattended-upgrades",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/kernel/postinst.d/xx-update-initrd-links",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/kernel/postinst.d/zz-update-grub",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/kernel/postrm.d/initramfs-tools",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/kernel/postrm.d/zz-update-grub",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/kernel/preinst.d/intel-microcode",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ldap/ldap.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ld.so.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ld.so.conf.d/libc.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ld.so.conf.d/x86_64-linux-gnu.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/legal",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/libaudit.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/libblockdev/conf.d/00-default.cfg",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/libnl-3/classid",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/libnl-3/pktloc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/locale.alias",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logcheck/ignore.d.paranoid/cracklib-runtime",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logcheck/ignore.d.paranoid/mysql-server-8_0",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logcheck/ignore.d.server/gpg-agent",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logcheck/ignore.d.server/libsasl2-modules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logcheck/ignore.d.server/mdadm",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logcheck/ignore.d.server/mysql-server-8_0",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logcheck/ignore.d.server/netfilter-persistent/netfilter-persistent",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logcheck/ignore.d.server/rsyslog",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logcheck/ignore.d.workstation/mysql-server-8_0",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logcheck/violations.d/mdadm",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/login.defs",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/alternatives",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/apache2",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/apport",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/apt",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/bootlog",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/btmp",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/cloud-init",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/dpkg",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/mysql-server",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/rsyslog",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/suricata",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/ubuntu-pro-client",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/ufw",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/unattended-upgrades",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/logrotate.d/wtmp",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lsb-release",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lvm/lvm.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lvm/lvmlocal.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lvm/profile/cache-mq.profile",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lvm/profile/cache-smq.profile",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lvm/profile/command_profile_template.profile",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lvm/profile/lvmdbusd.profile",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lvm/profile/metadata_profile_template.profile",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lvm/profile/thin-generic.profile",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lvm/profile/thin-performance.profile",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lvm/profile/vdo-small.profile",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lynis/default.prf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lynis/plugins/custom_plugin.template",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lynis/plugins/plugin_debian_phase1",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/lynis/plugins/README",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/magic",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/magic.mime",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/mailcap.order",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/manpath.config",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/mecabrc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/menu-methods/lang.h",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/menu-methods/menu.config",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/menu-methods/menu.h",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/menu-methods/translate_menus",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/mime.types",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/mke2fs.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/modprobe.d/amd64-microcode-blacklist.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/modprobe.d/blacklist-ath_pci.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/modprobe.d/blacklist.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/modprobe.d/blacklist-firewire.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/modprobe.d/blacklist-framebuffer.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/modprobe.d/blacklist-rare-network.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/modprobe.d/intel-microcode-blacklist.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/modprobe.d/iwlwifi.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/modprobe.d/mdadm.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/multipath.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/mysql/conf.d/mysql.cnf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/mysql/conf.d/mysqldump.cnf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/mysql/debian-start",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/mysql/my.cnf.fallback",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/mysql/mysql.cnf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/mysql/mysql.conf.d/mysql.cnf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/mysql/mysql.conf.d/mysqld.cnf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/nanorc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/conf.d/README.needrestart",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/hook.d/10-dpkg",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/hook.d/20-rpm",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/hook.d/90-none",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/iucode.sh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/needrestart.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/notify.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/notify.d/200-write",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/notify.d/400-notify-send",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/notify.d/600-mail",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/notify.d/README.needrestart",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/restart.d/dbus.service",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/restart.d/README.needrestart",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/restart.d/systemd-manager",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/needrestart/restart.d/sysv-init",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/netconfig",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/network/if-pre-up.d/ethtool",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/network/if-up.d/ethtool",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/newt/palette.original",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/newt/palette.ubuntu",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/nftables.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/oinkmaster.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/overlayroot.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/PackageKit/PackageKit.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/PackageKit/Vendor.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/chfn",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/chpasswd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/chsh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/cron",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/login",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/newusers",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/other",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/passwd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/polkit-1",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/runuser",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/runuser-l",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/sshd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/su",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/sudo",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/sudo-i",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/su-l",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pam.d/vmtoolsd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/perl/Net/libnet.cfg",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pki/fwupd/GPG-KEY-Linux-Foundation-Firmware",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pki/fwupd/GPG-KEY-Linux-Vendor-Firmware-Service",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pki/fwupd/LVFS-CA.pem",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pki/fwupd-metadata/GPG-KEY-Linux-Foundation-Metadata",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pki/fwupd-metadata/GPG-KEY-Linux-Vendor-Firmware-Service",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pki/fwupd-metadata/LVFS-CA.pem",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pm/sleep.d/10_grub-common",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/pm/sleep.d/10_unattended-upgrades-hibernate",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/polkit-1/localauthority.conf.d/50-localauthority.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/polkit-1/localauthority.conf.d/51-ubuntu-admin.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/profile.d/01-locale-fix.sh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/profile.d/apps-bin-path.sh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/profile.d/bash_completion.sh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/profile.d/gawk.csh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/profile.d/gawk.sh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/profile.d/Z97-byobu.sh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/profile.d/Z99-cloudinit-warnings.sh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/profile.d/Z99-cloud-locale-test.sh",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/protocols",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/python3.10/sitecustomize.py",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/resolvconf/update.d/dnsmasq",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/rpc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/rsyslog.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/rsyslog.d/20-ufw.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/rsyslog.d/21-cloudinit.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/screenrc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/security/access.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/security/capability.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/security/faillock.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/security/group.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/security/limits.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/security/namespace.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/security/namespace.init",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/security/pam_env.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/security/pwquality.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/security/sepermit.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/security/time.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/selinux/semanage.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sensors3.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sensors.d/.placeholder",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/services",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/skel/.bash_logout",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/skel/.bashrc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/skel/.profile",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/smi.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snmp/snmp.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snmp/snmpd.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/classification.config",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/community-sid-msg.map",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/gen-msg.map",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/reference.config",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/attack-responses.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/backdoor.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/bad-traffic.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/chat.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-bot.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-deleted.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-dos.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-exploit.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-ftp.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-game.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-icmp.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-imap.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-inappropriate.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-mail-client.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-misc.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-nntp.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-oracle.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-policy.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-sip.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-smtp.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-sql-injection.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-virus.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-web-attacks.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-web-cgi.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-web-client.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-web-dos.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-web-iis.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-web-misc.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/community-web-php.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/ddos.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/deleted.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/dns.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/dos.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/experimental.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/exploit.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/finger.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/ftp.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/icmp-info.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/icmp.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/imap.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/info.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/local.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/misc.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/multimedia.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/mysql.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/netbios.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/nntp.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/oracle.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/other-ids.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/p2p.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/policy.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/pop2.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/pop3.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/porn.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/rpc.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/rservices.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/scan.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/shellcode.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/smtp.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/snmp.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/sql.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/telnet.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/tftp.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/virus.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/web-attacks.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/web-cgi.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/web-client.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/web-coldfusion.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/web-frontpage.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/web-iis.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/web-misc.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/web-php.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/snort/rules/x11.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sos/sos.conf",
+      "classification": "modified",
+      "owning_package": "sosreport",
+      "expected": true,
+      "diff": ""
+    },
+    {
+      "path": "/etc/ssh/moduli",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ssh/ssh_config",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ssh/ssh_import_id",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ssl/openssl.cnf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sudo.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sudoers",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sudoers.d/README",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sudo_logsrvd.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/classification.config",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/reference.config",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/app-layer-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/decoder-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/dhcp-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/dnp3-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/dns-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/files.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/http2-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/http-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/ipsec-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/kerberos-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/modbus-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/mqtt-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/nfs-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/ntp-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/smb-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/smtp-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/stream-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/rules/tls-events.rules",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/suricata.yaml",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/suricata/threshold.config",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/su-to-rootrc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sysctl.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sysctl.d/10-console-messages.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sysctl.d/10-ipv6-privacy.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sysctl.d/10-kernel-hardening.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sysctl.d/10-magic-sysrq.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sysctl.d/10-network-security.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sysctl.d/10-ptrace.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sysctl.d/10-zeropage.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/sysctl.d/README.sysctl",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/systemd/journald.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/systemd/logind.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/systemd/networkd.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/systemd/pstore.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/systemd/resolved.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/systemd/sleep.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/systemd/system.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/systemd/system/netfilter-persistent.service.d/iptables.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/systemd/system/sshd-keygen@.service.d/disable-sshd-keygen-if-cloud-init-active.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/systemd/timesyncd.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/systemd/user.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/terminfo/README",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/thermald/thermal-cpu-cdev-order.xml",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ubuntu-advantage/uaclient.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ucf.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/udev/udev.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/udisks2/mount_options.conf.example",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/udisks2/udisks2.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ufw/applications.d/apache2-utils.ufw.profile",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ufw/applications.d/openssh-server",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/ufw/sysctl.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-manager/meta-release",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-manager/release-upgrades",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-manager/release-upgrades.d/ubuntu-advantage-upgrades.cfg",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-motd.d/00-header",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-motd.d/10-help-text",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-motd.d/50-motd-news",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-motd.d/85-fwupd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-motd.d/90-updates-available",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-motd.d/91-contract-ua-esm-status",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-motd.d/91-release-upgrade",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-motd.d/92-unattended-upgrades",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-motd.d/95-hwe-eol",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-motd.d/97-overlayroot",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-motd.d/98-fsck-at-reboot",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/update-motd.d/98-reboot-required",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/UPower/UPower.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/usb_modeswitch.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vim/vimrc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vim/vimrc.tiny",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/poweroff-vm-default",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/poweron-vm-default",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/resume-vm-default",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/scripts/vmware/network",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/statechange.subr",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/suspend-vm-default",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/tools.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/tools.conf.example",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/vgauth.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/vgauth/schemas/catalog.xml",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/vgauth/schemas/datatypes.dtd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/vgauth/schemas/saml-schema-assertion-2.0.xsd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/vgauth/schemas/xenc-schema.xsd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/vgauth/schemas/xmldsig-core-schema.xsd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/vgauth/schemas/XMLSchema.dtd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/vgauth/schemas/XMLSchema-hasFacetAndProperty.xsd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/vgauth/schemas/XMLSchema-instance.xsd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/vgauth/schemas/XMLSchema.xsd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/vmware-tools/vgauth/schemas/xml.xsd",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/wgetrc",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/wireshark/init.lua",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/X11/Xsession.d/20dbus_xdg-runtime",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/X11/Xsession.d/90gpg-agent",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/xattr.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/xdg/autostart/snap-userd-autostart.desktop",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/xdg/autostart/xdg-user-dirs.desktop",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/xdg/user-dirs.conf",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/xdg/user-dirs.defaults",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/zsh_command_not_found",
+      "classification": "unchanged"
+    },
+    {
+      "path": "/etc/cloud/templates/hosts.openeuler.tmpl",
+      "classification": "new",
+      "owning_package": "cloud-init",
+      "expected": true
+    }
+  ]
+}

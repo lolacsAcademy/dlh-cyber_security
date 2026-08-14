@@ -10,16 +10,16 @@ echo '{"packages":[]}' > "$OUT"
 
 dpkg-query -W -f='${binary:Package} ${Version} ${Status}\n' > /dev/null
 
-apt list --upgradable 2>/dev/null | tail -n +2 | while IFS= read -r line; do
+timeout 30 apt list --upgradable 2>/dev/null | tail -n +2 | while IFS= read -r line; do
     pkg=$(echo "$line" | cut -d'/' -f1)
     [ -z "$pkg" ] && continue
 
-    apt-cache policy "$pkg" > /dev/null 2>&1
+    timeout 10 apt-cache policy "$pkg" > /dev/null 2>&1
     pocket=$(echo "$line" | cut -d'/' -f2 | cut -d' ' -f1)
     candidate=$(echo "$line" | awk '{print $2}')
     installed=$(dpkg-query -W -f='${Version}' "$pkg" 2>/dev/null || echo "unknown")
 
-    cves=$(apt-get changelog "$pkg" 2>/dev/null | grep -oP 'CVE-\d{4}-\d+' | sort -u || true)
+    cves=$(timeout 15 apt-get changelog "$pkg" 2>/dev/null | grep -oP 'CVE-\d{4}-\d+' | sort -u || true)
     if [ -z "$cves" ] && [ -d "$USN_DB" ]; then
         cves=$(grep -rhoP 'CVE-\d{4}-\d+' "$USN_DB" 2>/dev/null | sort -u || true)
     fi

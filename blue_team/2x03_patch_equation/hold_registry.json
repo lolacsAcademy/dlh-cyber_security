@@ -1,0 +1,18 @@
+{
+  "holds": [
+    {
+      "package": "mysql-server-core-8.0",
+      "reason": "billing database stability - avoid unplanned version changes",
+      "owner": "analyst",
+      "review_date": "2026-09-01",
+      "pin_version": "8.0.45-0ubuntu0.22.04.1"
+    },
+    {
+      "package": "openssh-server",
+      "reason": "remote access stability - avoid unplanned version changes",
+      "owner": "analyst",
+      "review_date": "2026-09-01",
+      "pin_version": "1:8.9p1-3ubuntu0.14"
+    }
+  ]
+}

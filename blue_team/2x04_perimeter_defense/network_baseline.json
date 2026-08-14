@@ -1,0 +1,157 @@
+{
+  "timestamp": "2026-08-14T04:52:46Z",
+  "hostname": "billing-srv-01",
+  "interfaces": [
+    {
+      "name": "lo",
+      "mac": "00:00:00:00:00:00",
+      "link_state": "UNKNOWN",
+      "addresses": [
+        {
+          "family": "inet",
+          "address": "127.0.0.1",
+          "prefixlen": 8
+        },
+        {
+          "family": "inet6",
+          "address": "::1",
+          "prefixlen": 128
+        }
+      ]
+    },
+    {
+      "name": "enp0s3",
+      "mac": "08:00:27:f2:02:af",
+      "link_state": "UP",
+      "addresses": [
+        {
+          "family": "inet",
+          "address": "10.0.2.15",
+          "prefixlen": 24
+        },
+        {
+          "family": "inet6",
+          "address": "fd17:625c:f037:2:a00:27ff:fef2:2af",
+          "prefixlen": 64
+        },
+        {
+          "family": "inet6",
+          "address": "fe80::a00:27ff:fef2:2af",
+          "prefixlen": 64
+        }
+      ]
+    },
+    {
+      "name": "enp0s8",
+      "mac": "08:00:27:fc:35:5e",
+      "link_state": "UP",
+      "addresses": [
+        {
+          "family": "inet",
+          "address": "10.10.1.10",
+          "prefixlen": 24
+        },
+        {
+          "family": "inet",
+          "address": "10.10.3.1",
+          "prefixlen": 24
+        },
+        {
+          "family": "inet6",
+          "address": "fe80::a00:27ff:fefc:355e",
+          "prefixlen": 64
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "dst": "default",
+      "gateway": "10.0.2.2",
+      "dev": "enp0s3",
+      "protocol": "dhcp",
+      "prefsrc": "10.0.2.15",
+      "metric": 100,
+      "flags": []
+    },
+    {
+      "dst": "10.0.2.0/24",
+      "dev": "enp0s3",
+      "protocol": "kernel",
+      "scope": "link",
+      "prefsrc": "10.0.2.15",
+      "metric": 100,
+      "flags": []
+    },
+    {
+      "dst": "10.0.2.2",
+      "dev": "enp0s3",
+      "protocol": "dhcp",
+      "scope": "link",
+      "prefsrc": "10.0.2.15",
+      "metric": 100,
+      "flags": []
+    },
+    {
+      "dst": "10.10.1.0/24",
+      "dev": "enp0s8",
+      "protocol": "kernel",
+      "scope": "link",
+      "prefsrc": "10.10.1.10",
+      "flags": []
+    },
+    {
+      "dst": "10.10.3.0/24",
+      "dev": "enp0s8",
+      "protocol": "kernel",
+      "scope": "link",
+      "prefsrc": "10.10.3.1",
+      "flags": []
+    },
+    {
+      "dst": "192.168.178.1",
+      "gateway": "10.0.2.2",
+      "dev": "enp0s3",
+      "protocol": "dhcp",
+      "prefsrc": "10.0.2.15",
+      "metric": 100,
+      "flags": []
+    }
+  ],
+  "default_gateway": [
+    {
+      "dst": "default",
+      "gateway": "10.0.2.2",
+      "dev": "enp0s3",
+      "protocol": "dhcp",
+      "prefsrc": "10.0.2.15",
+      "metric": 100,
+      "flags": []
+    }
+  ],
+  "neighbors": [
+    {
+      "dst": "10.0.2.2",
+      "dev": "enp0s3",
+      "lladdr": "52:54:00:12:35:00",
+      "state": [
+        "REACHABLE"
+      ]
+    },
+    {
+      "dst": "fe80::2",
+      "dev": "enp0s3",
+      "lladdr": "52:54:00:12:35:00",
+      "router": null,
+      "state": [
+        "STALE"
+      ]
+    }
+  ],
+  "listening_sockets": [],
+  "established_connections": [],
+  "dns_resolvers": {
+    "resolv_conf": "\"# This is /run/systemd/resolve/stub-resolv.conf managed by man:systemd-resolved(8).\\n# Do not edit.\\n#\\n# This file might be symlinked as /etc/resolv.conf. If you're looking at\\n# /etc/resolv.conf and seeing this text, you have followed the symlink.\\n#\\n# This is a dynamic resolv.conf file for connecting local clients to the\\n# internal DNS stub resolver of systemd-resolved. This file lists all\\n# configured search domains.\\n#\\n# Run \\\"resolvectl status\\\" to see details about the uplink DNS servers\\n# currently in use.\\n#\\n# Third party programs should typically not access this file directly, but only\\n# through the symlink at /etc/resolv.conf. To manage man:resolv.conf(5) in a\\n# different way, replace this symlink by a static file or a different symlink.\\n#\\n# See man:systemd-resolved.service(8) for details about the supported modes of\\n# operation for /etc/resolv.conf.\\n\\nnameserver 127.0.0.53\\noptions edns0 trust-ad\\nsearch fritz.box\\n\"",
+    "resolvectl_status": "\"Global\\n       Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported\\nresolv.conf mode: stub\\n\\nLink 2 (enp0s3)\\n    Current Scopes: DNS\\n         Protocols: +DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported\\nCurrent DNS Server: 192.168.178.1\\n       DNS Servers: 192.168.178.1 fd17:625c:f037:2::3\\n        DNS Domain: fritz.box\\n\\nLink 3 (enp0s8)\\nCurrent Scopes: none\\n     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported\\n\""
+  }
+}

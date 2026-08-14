@@ -1,0 +1,58 @@
+{
+  "started_at": "2026-08-14T12:31:40Z",
+  "finished_at": "2026-08-14T12:34:14Z",
+  "hostname": "billing-srv-01",
+  "pipeline_status": "deferred",
+  "stages": [
+    {
+      "stage": "0-vuln_inventory.sh",
+      "exit_code": 0,
+      "duration_seconds": 0,
+      "stdout_tail": "skipped: fresh artifact",
+      "stderr_tail": ""
+    },
+    {
+      "stage": "1-service_deps.sh",
+      "exit_code": 0,
+      "duration_seconds": 25.8,
+      "stdout_tail": "Done -> service_dependency_map.json",
+      "stderr_tail": ""
+    },
+    {
+      "stage": "2-pre_patch_snapshot.sh",
+      "exit_code": 0,
+      "duration_seconds": 37.5,
+      "stdout_tail": "Size: 180K\nKernel: 5.15.0-174-generic\nReboot required: true\nPackages: 790\nServices: 19",
+      "stderr_tail": ""
+    },
+    {
+      "stage": "3-patch_plan.sh",
+      "exit_code": 0,
+      "duration_seconds": 20.6,
+      "stdout_tail": "Emergency: 1   Urgent: 5   Scheduled: 61\nReboot required by plan: no\nReport saved to: patch_plan.json",
+      "stderr_tail": ""
+    },
+    {
+      "stage": "11-maintenance_window.sh",
+      "exit_code": 10,
+      "duration_seconds": 0.5,
+      "stdout_tail": "now:            2026-08-14 14:33 Europe/Paris (Fri)\nactive window:  emergency\ndecision:       defer (emergency window requires MEDDEFENSE_EMERGENCY=1)\nReport saved to: maintenance_window.json",
+      "stderr_tail": ""
+    },
+    {
+      "stage": "12-change_log.sh",
+      "exit_code": 0,
+      "duration_seconds": 68.8,
+      "stdout_tail": "Change log: 7 events (inside: 0, outside: 7)\nReport saved to: patch_change_log.json",
+      "stderr_tail": ""
+    }
+  ],
+  "artifacts": {
+    "0-vuln_inventory.sh": "vulnerability_inventory.json",
+    "1-service_deps.sh": "service_dependency_map.json",
+    "2-pre_patch_snapshot.sh": "pre_patch_state.json",
+    "3-patch_plan.sh": "patch_plan.json",
+    "11-maintenance_window.sh": "maintenance_window.json",
+    "12-change_log.sh": "patch_change_log.json"
+  }
+}

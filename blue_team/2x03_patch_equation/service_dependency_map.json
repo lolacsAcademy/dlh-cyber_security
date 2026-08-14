@@ -2,7 +2,13 @@
   "service": "apache2.service",
   "exec_path": "/usr/sbin/apache2",
   "owning_package": "apache2-bin",
-  "linked_packages": ["apache2-bin", "libpcre3", "libc6", "libcrypt1", "libexpat1"],
+  "linked_packages": [
+    "apache2-bin",
+    "libpcre3",
+    "libc6",
+    "libcrypt1",
+    "libexpat1"
+  ],
   "criticality": "critical",
   "restart_required_on_patch": true
 }
@@ -10,7 +16,13 @@
   "service": "auditd.service",
   "exec_path": "/usr/sbin/auditd",
   "owning_package": "unknown",
-  "linked_packages": ["unknown", "libaudit1", "libauparse0", "libc6", "libcap-ng0"],
+  "linked_packages": [
+    "unknown",
+    "libaudit1",
+    "libauparse0",
+    "libc6",
+    "libcap-ng0"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -18,7 +30,14 @@
   "service": "cron.service",
   "exec_path": "/usr/sbin/cron",
   "owning_package": "cron",
-  "linked_packages": ["cron", "libpam0g", "libselinux1", "libc6", "libaudit1", "libcap-ng0"],
+  "linked_packages": [
+    "cron",
+    "libpam0g",
+    "libselinux1",
+    "libc6",
+    "libaudit1",
+    "libcap-ng0"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -26,23 +45,29 @@
   "service": "dbus.service",
   "exec_path": "/usr/bin/dbus-daemon",
   "owning_package": "dbus",
-  "linked_packages": ["dbus", "libdbus-1-3", "libexpat1", "libselinux1", "libaudit1", "libcap-ng0", "libc6", "liblzma5", "libcap2", "libgpg-error0"],
+  "linked_packages": [
+    "dbus",
+    "libdbus-1-3",
+    "libexpat1",
+    "libselinux1",
+    "libaudit1",
+    "libcap-ng0",
+    "libc6",
+    "liblzma5",
+    "libcap2",
+    "libgpg-error0"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
 {
   "service": "getty@tty1.service",
-  "exec_path": "/usr/bin/login",
+  "exec_path": "/usr/sbin/agetty",
   "owning_package": "unknown",
-  "linked_packages": ["unknown", "libpam0g", "libaudit1", "libc6", "libcap-ng0"],
-  "criticality": "low",
-  "restart_required_on_patch": true
-}
-{
-  "service": "ModemManager.service",
-  "exec_path": "/usr/sbin/ModemManager",
-  "owning_package": "modemmanager",
-  "linked_packages": ["modemmanager", "libc6", "libpcre3", "zlib1g", "libselinux1", "liblzma5", "libcap2", "libgpg-error0"],
+  "linked_packages": [
+    "unknown",
+    "libc6"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -50,7 +75,18 @@
   "service": "multipathd.service",
   "exec_path": "/usr/sbin/multipathd",
   "owning_package": "unknown",
-  "linked_packages": ["unknown", "multipath-tools", "libdevmapper1.02.1", "libreadline8", "libc6", "libselinux1", "libtinfo6", "liblzma5", "libcap2", "libgpg-error0"],
+  "linked_packages": [
+    "unknown",
+    "multipath-tools",
+    "libdevmapper1.02.1",
+    "libreadline8",
+    "libc6",
+    "libselinux1",
+    "libtinfo6",
+    "liblzma5",
+    "libcap2",
+    "libgpg-error0"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -58,15 +94,28 @@
   "service": "mysql.service",
   "exec_path": "/usr/sbin/mysqld",
   "owning_package": "mysql-server-core-8.0",
-  "linked_packages": ["mysql-server-core-8.0", "libgcc-s1", "libc6"],
+  "linked_packages": [
+    "mysql-server-core-8.0",
+    "libgcc-s1",
+    "libc6"
+  ],
   "criticality": "critical",
   "restart_required_on_patch": true
 }
 {
-  "service": "networkd-dispatcher.service",
-  "exec_path": "/usr/bin/python3.10",
-  "owning_package": "python3.10-minimal",
-  "linked_packages": ["python3.10-minimal", "libc6", "libexpat1", "zlib1g"],
+  "service": "packagekit.service",
+  "exec_path": "/usr/libexec/packagekitd",
+  "owning_package": "packagekit",
+  "linked_packages": [
+    "packagekit",
+    "libc6",
+    "libpcre3",
+    "zlib1g",
+    "libselinux1",
+    "liblzma5",
+    "libcap2",
+    "libgpg-error0"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -74,7 +123,17 @@
   "service": "polkit.service",
   "exec_path": "/usr/libexec/polkitd",
   "owning_package": "polkitd",
-  "linked_packages": ["polkitd", "libexpat1", "libc6", "zlib1g", "libselinux1", "libpcre3", "liblzma5", "libcap2", "libgpg-error0"],
+  "linked_packages": [
+    "polkitd",
+    "libexpat1",
+    "libc6",
+    "zlib1g",
+    "libselinux1",
+    "libpcre3",
+    "liblzma5",
+    "libcap2",
+    "libgpg-error0"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -82,7 +141,14 @@
   "service": "rsyslog.service",
   "exec_path": "/usr/sbin/rsyslogd",
   "owning_package": "rsyslog",
-  "linked_packages": ["rsyslog", "zlib1g", "libc6", "liblzma5", "libcap2", "libgpg-error0"],
+  "linked_packages": [
+    "rsyslog",
+    "zlib1g",
+    "libc6",
+    "liblzma5",
+    "libcap2",
+    "libgpg-error0"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -90,7 +156,10 @@
   "service": "snapd.service",
   "exec_path": "/usr/lib/snapd/snapd",
   "owning_package": "snapd",
-  "linked_packages": ["snapd", "libc6"],
+  "linked_packages": [
+    "snapd",
+    "libc6"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -98,7 +167,15 @@
   "service": "snmpd.service",
   "exec_path": "/usr/sbin/snmpd",
   "owning_package": "snmpd",
-  "linked_packages": ["snmpd", "libc6", "libcrypt1", "zlib1g", "libtirpc3", "libcom-err2", "libkeyutils1"],
+  "linked_packages": [
+    "snmpd",
+    "libc6",
+    "libcrypt1",
+    "zlib1g",
+    "libtirpc3",
+    "libcom-err2",
+    "libkeyutils1"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -106,7 +183,22 @@
   "service": "ssh.service",
   "exec_path": "/usr/sbin/sshd",
   "owning_package": "openssh-server",
-  "linked_packages": ["openssh-server", "libaudit1", "libpam0g", "zlib1g", "libcrypt1", "libselinux1", "libcom-err2", "libc6", "libcap-ng0", "liblzma5", "libcap2", "libkeyutils1", "libtirpc3", "libgpg-error0"],
+  "linked_packages": [
+    "openssh-server",
+    "libaudit1",
+    "libpam0g",
+    "zlib1g",
+    "libcrypt1",
+    "libselinux1",
+    "libcom-err2",
+    "libc6",
+    "libcap-ng0",
+    "liblzma5",
+    "libcap2",
+    "libkeyutils1",
+    "libtirpc3",
+    "libgpg-error0"
+  ],
   "criticality": "high",
   "restart_required_on_patch": true
 }
@@ -114,7 +206,19 @@
   "service": "systemd-journald.service",
   "exec_path": "/usr/lib/systemd/systemd-journald",
   "owning_package": "unknown",
-  "linked_packages": ["unknown", "systemd", "libselinux1", "libc6", "libcap2", "libcrypt1", "libpam0g", "liblzma5", "libgpg-error0", "libaudit1", "libcap-ng0"],
+  "linked_packages": [
+    "unknown",
+    "systemd",
+    "libselinux1",
+    "libc6",
+    "libcap2",
+    "libcrypt1",
+    "libpam0g",
+    "liblzma5",
+    "libgpg-error0",
+    "libaudit1",
+    "libcap-ng0"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -122,7 +226,19 @@
   "service": "systemd-logind.service",
   "exec_path": "/usr/lib/systemd/systemd-logind",
   "owning_package": "unknown",
-  "linked_packages": ["unknown", "systemd", "libc6", "libcap2", "libcrypt1", "libpam0g", "libselinux1", "liblzma5", "libgpg-error0", "libaudit1", "libcap-ng0"],
+  "linked_packages": [
+    "unknown",
+    "systemd",
+    "libc6",
+    "libcap2",
+    "libcrypt1",
+    "libpam0g",
+    "libselinux1",
+    "liblzma5",
+    "libgpg-error0",
+    "libaudit1",
+    "libcap-ng0"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -130,7 +246,19 @@
   "service": "systemd-networkd.service",
   "exec_path": "/usr/lib/systemd/systemd-networkd",
   "owning_package": "unknown",
-  "linked_packages": ["unknown", "systemd", "libc6", "libcap2", "libcrypt1", "libpam0g", "libselinux1", "liblzma5", "libgpg-error0", "libaudit1", "libcap-ng0"],
+  "linked_packages": [
+    "unknown",
+    "systemd",
+    "libc6",
+    "libcap2",
+    "libcrypt1",
+    "libpam0g",
+    "libselinux1",
+    "liblzma5",
+    "libgpg-error0",
+    "libaudit1",
+    "libcap-ng0"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -138,7 +266,19 @@
   "service": "systemd-resolved.service",
   "exec_path": "/usr/lib/systemd/systemd-resolved",
   "owning_package": "unknown",
-  "linked_packages": ["unknown", "systemd", "libgpg-error0", "libc6", "libcap2", "libcrypt1", "libpam0g", "libselinux1", "liblzma5", "libaudit1", "libcap-ng0"],
+  "linked_packages": [
+    "unknown",
+    "systemd",
+    "libgpg-error0",
+    "libc6",
+    "libcap2",
+    "libcrypt1",
+    "libpam0g",
+    "libselinux1",
+    "liblzma5",
+    "libaudit1",
+    "libcap-ng0"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -146,7 +286,19 @@
   "service": "systemd-timesyncd.service",
   "exec_path": "/usr/lib/systemd/systemd-timesyncd",
   "owning_package": "unknown",
-  "linked_packages": ["unknown", "systemd", "libc6", "libcap2", "libcrypt1", "libpam0g", "libselinux1", "liblzma5", "libgpg-error0", "libaudit1", "libcap-ng0"],
+  "linked_packages": [
+    "unknown",
+    "systemd",
+    "libc6",
+    "libcap2",
+    "libcrypt1",
+    "libpam0g",
+    "libselinux1",
+    "liblzma5",
+    "libgpg-error0",
+    "libaudit1",
+    "libcap-ng0"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }
@@ -154,39 +306,13 @@
   "service": "systemd-udevd.service",
   "exec_path": "/usr/bin/udevadm",
   "owning_package": "unknown",
-  "linked_packages": ["unknown", "libcap2", "libselinux1", "libc6", "liblzma5"],
-  "criticality": "low",
-  "restart_required_on_patch": true
-}
-{
-  "service": "udisks2.service",
-  "exec_path": "/usr/libexec/udisks2/udisksd",
-  "owning_package": "udisks2",
-  "linked_packages": ["udisks2", "libc6", "libselinux1", "liblzma5", "libcap2", "zlib1g", "libpcre3", "libgpg-error0"],
-  "criticality": "low",
-  "restart_required_on_patch": true
-}
-{
-  "service": "unattended-upgrades.service",
-  "exec_path": "/usr/bin/python3.10",
-  "owning_package": "python3.10-minimal",
-  "linked_packages": ["python3.10-minimal", "libc6", "libexpat1", "zlib1g"],
-  "criticality": "low",
-  "restart_required_on_patch": true
-}
-{
-  "service": "upower.service",
-  "exec_path": "/usr/libexec/upowerd",
-  "owning_package": "upower",
-  "linked_packages": ["upower", "libc6", "libpcre3", "zlib1g", "libselinux1"],
-  "criticality": "low",
-  "restart_required_on_patch": true
-}
-{
-  "service": "user@1000.service",
-  "exec_path": "/usr/lib/systemd/systemd",
-  "owning_package": "unknown",
-  "linked_packages": ["unknown", "systemd", "libselinux1", "libpam0g", "libaudit1", "libc6", "libcap2", "libcrypt1", "liblzma5", "libcap-ng0", "libgpg-error0"],
+  "linked_packages": [
+    "unknown",
+    "libcap2",
+    "libselinux1",
+    "libc6",
+    "liblzma5"
+  ],
   "criticality": "low",
   "restart_required_on_patch": true
 }

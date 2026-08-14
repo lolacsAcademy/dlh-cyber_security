@@ -1,0 +1,14 @@
+{
+  "apache2.service": {
+    "type": "curl",
+    "target": "http://127.0.0.1/"
+  },
+  "mysql.service": {
+    "type": "mysqladmin_ping",
+    "target": "127.0.0.1"
+  },
+  "ssh.service": {
+    "type": "ssh_batchmode",
+    "target": "127.0.0.1"
+  }
+}
