@@ -1,0 +1,12 @@
+CIS-1 | PASS | Domain firewall enabled
+CIS-2 | FAIL | Private firewall disabled
+CIS-3 | FAIL | Public firewall disabled
+CIS-4 | PASS | Guest account disabled
+CIS-5 | FAIL | Minimum password length: 7
+CIS-6 | NOT_APPLICABLE | Lockout threshold not detected
+CIS-7 | PASS | Defender real-time protection enabled
+CIS-8 | PASS | Script Block Logging enabled
+CIS-9 | PASS | Module Logging enabled
+CIS-10 | FAIL | Process Creation auditing not enabled
+CIS-11 | PASS | Remote Registry not running
+CIS-12 | PASS | Sysmon service present
