@@ -15,3 +15,5 @@
 - Task 11: 11-linux_attack_sim.sh
 - Task 12: 12-linux_detection_proof.sh
 - Task 13: 13-consolidated_export.sh
+- Task 14: 14-coverage_assessment.sh
+- Task 15: 15-handoff_validation.sh

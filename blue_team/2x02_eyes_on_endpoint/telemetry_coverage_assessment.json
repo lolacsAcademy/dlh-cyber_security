@@ -1,0 +1,32 @@
+{
+  "total_events": {
+    "by_platform": {
+      "windows": 2,
+      "linux": 82434
+    }
+  },
+  "detection_matrix_summary": {
+    "total_simulated_actions": 12,
+    "captured_actions": 6,
+    "missed_actions": 6,
+    "multi_source_detections": 0
+  },
+  "attack_coverage": {
+    "covered_techniques": 4,
+    "partial_techniques": 1,
+    "blind_techniques": 2
+  },
+  "known_gaps": [
+    {
+      "description": "Windows quality score reflects incomplete command-line/source data",
+      "impacted_platform": "Windows",
+      "reason": "Field completeness below target threshold",
+      "recommended_improvement": "Enable additional Sysmon/Security logging fields"
+    }
+  ],
+  "quality_summary": {
+    "windows_score": 63.7,
+    "linux_score": 100.0,
+    "confidence": "acceptable"
+  }
+}

@@ -1,0 +1,17 @@
+{
+    "event_distribution": [
+        {"event_id": "4624", "count": 1834, "percentage": 30.6}
+    ],
+    "channel_distribution": [
+        {"channel": "WindowsSecurity", "count": 2000, "percentage": 33.3}
+    ],
+    "hours_with_events": 11,
+    "hours_without_events": 8,
+    "total_hours": 19,
+    "largest_gap_minutes": 577,
+    "command_line_completeness": 7.2,
+    "source_ip_completeness": 100,
+    "script_block_completeness": 100,
+    "quality_score": 63.7,
+    "assessment": "poor"
+}
