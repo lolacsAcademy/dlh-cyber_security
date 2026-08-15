@@ -2,6 +2,7 @@
 # 0 = success
 # 1 = controlled failure
 # 2 = environment error
+# Set-StrictMode
 
 param(
     [switch]$Apply
