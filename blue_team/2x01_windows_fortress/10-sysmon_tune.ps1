@@ -3,6 +3,7 @@ Script Name: 10-sysmon_tune.ps1
 Purpose: Add and validate MedDefense-specific Sysmon detection rules.
 Author: Student
 Date: 2026-08-15
+# -enc
 #>
 
 Set-StrictMode -Version Latest
