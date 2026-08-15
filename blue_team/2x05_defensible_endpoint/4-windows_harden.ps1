@@ -4,6 +4,7 @@
 # 2 = environment error
 # Set-StrictMode
 # account policy
+# audit policy
 
 param(
     [switch]$Apply
