@@ -1,4 +1,5 @@
 #!/bin/bash
+# Log path: capstone/exec/linux_harden.log
 set -uo pipefail
 
 TARGET_STATE="capstone/target_state.json"
