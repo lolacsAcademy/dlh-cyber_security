@@ -1,4 +1,5 @@
 #!/bin/bash
+# Sysmon
 set -uo pipefail
 
 OUT="environment_intake_linux.json"
