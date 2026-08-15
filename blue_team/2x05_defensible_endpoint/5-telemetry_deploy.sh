@@ -1,4 +1,5 @@
 #!/bin/bash
+# create a user
 set -uo pipefail
 
 MODE="${1:-}"
