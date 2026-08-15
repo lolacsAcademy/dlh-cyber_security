@@ -3,6 +3,7 @@ set -euo pipefail
 
 BASE_DIR="capstone/baseline"
 LOG_PATH="$BASE_DIR/lynis_baseline.log"
+# Log path: capstone/baseline/lynis_baseline.log
 OUT="$BASE_DIR/baseline_linux.json"
 TMP_OUT="${OUT}.tmp"
 
