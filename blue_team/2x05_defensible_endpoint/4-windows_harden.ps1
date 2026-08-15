@@ -5,6 +5,7 @@
 # Set-StrictMode
 # account policy
 # audit policy
+# service minimization
 
 param(
     [switch]$Apply
