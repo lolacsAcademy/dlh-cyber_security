@@ -4,6 +4,7 @@ Purpose: Configure the MedDefense domain password and account lockout policy.
 Author: Student
 Date: 2026-08-15
 # MinimumPasswordLength
+# VERIFY
 #>
 
 Set-StrictMode -Version Latest
