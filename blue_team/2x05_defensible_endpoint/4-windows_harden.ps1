@@ -3,6 +3,7 @@
 # 1 = controlled failure
 # 2 = environment error
 # Set-StrictMode
+# account policy
 
 param(
     [switch]$Apply
