@@ -6,3 +6,4 @@
 - Task 2: Windows Event Log Assessment (`2-eventlog_assessment.ps1`)
 - Task 3: Windows Telemetry Reference Builder (`3-telemetry_reference.ps1`)
 - Task 4: Password and Lockout Policy (`4-password_policy.ps1`)
+- Task 5: Advanced Audit Policy (`5-audit_policy.ps1`)
