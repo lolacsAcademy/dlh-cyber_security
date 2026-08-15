@@ -61,6 +61,7 @@ Write-Host "[*] Enabling command-line in process creation events..." -NoNewline
 Set-GPRegistryValue -Name $GPOName -Key "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" -ValueName "ProcessCreationIncludeCmdLine_Enabled" -Type DWord -Value 1
 Write-Host "   [SET]"
 
+# Restrict Clear Log permission to Domain Admins only
 Write-Host "[*] Restricting Security log clearing..." -NoNewline
 $SecurityLogSDDL = "O:BAG:SYD:(A;;0xf0007;;;SY)(A;;0x7;;;BA)"
 Set-GPRegistryValue -Name $GPOName -Key "HKLM\System\CurrentControlSet\Services\EventLog\Security" -ValueName "CustomSD" -Type String -Value $SecurityLogSDDL
