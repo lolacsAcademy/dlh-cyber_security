@@ -1,4 +1,5 @@
 #!/bin/bash
+# Hawthorne
 set -uo pipefail
 
 MODE="${1:-}"
