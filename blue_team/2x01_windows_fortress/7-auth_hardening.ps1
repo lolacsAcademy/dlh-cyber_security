@@ -3,6 +3,7 @@ Script Name: 7-auth_hardening.ps1
 Purpose: Harden Kerberos and Windows authentication for the MedDefense domain.
 Author: Student
 Date: 2026-08-15
+# NTLMv2
 #>
 
 Set-StrictMode -Version Latest
