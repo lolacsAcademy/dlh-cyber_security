@@ -2,6 +2,7 @@
 # 0 = success
 # 1 = controlled collection failure
 # 2 = environment error
+# net accounts
 
 $ErrorActionPreference = 'Stop'
 
