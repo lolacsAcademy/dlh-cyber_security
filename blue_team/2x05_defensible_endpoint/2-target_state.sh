@@ -1,4 +1,5 @@
 #!/bin/bash
+# apparmor
 set -euo pipefail
 
 OUT="capstone/target_state.json"
