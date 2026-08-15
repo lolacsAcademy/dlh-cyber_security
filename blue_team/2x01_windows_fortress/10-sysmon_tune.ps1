@@ -4,6 +4,7 @@ Purpose: Add and validate MedDefense-specific Sysmon detection rules.
 Author: Student
 Date: 2026-08-15
 # -enc
+# FileCreate
 #>
 
 Set-StrictMode -Version Latest
