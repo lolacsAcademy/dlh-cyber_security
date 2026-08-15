@@ -1197,6 +1197,61 @@
 			Sysinternals forum or over Twitter (@markrussinovich)."-->
 		<!--Cannot be filtered.-->
 
-	</EventFiltering>
+	
+<!-- BEGIN MEDDEFENSE CUSTOM RULES -->
+
+<!-- Rule 1: Rclone execution -->
+<RuleGroup name="MedDefense - Rclone Detection" groupRelation="or">
+  <ProcessCreate onmatch="include">
+    <Rule name="MedDefense Rclone Execution" groupRelation="or">
+      <Image condition="end with">\rclone.exe</Image>
+      <CommandLine condition="contains">rclone.exe</CommandLine>
+    </Rule>
+  </ProcessCreate>
+</RuleGroup>
+
+<!-- Rule 2: PsExec service registry modification -->
+<RuleGroup name="MedDefense - PsExec Service Installation" groupRelation="or">
+  <RegistryEvent onmatch="include">
+    <Rule name="MedDefense PsExec Registry" groupRelation="or">
+      <TargetObject condition="contains">\Services\PSEXESVC</TargetObject>
+    </Rule>
+  </RegistryEvent>
+</RuleGroup>
+
+<!-- Rule 3: Encoded PowerShell -->
+<RuleGroup name="MedDefense - Encoded PowerShell" groupRelation="or">
+  <ProcessCreate onmatch="include">
+    <Rule name="MedDefense Encoded PowerShell" groupRelation="and">
+      <Image condition="end with">\powershell.exe</Image>
+      <CommandLine condition="contains">-EncodedCommand</CommandLine>
+    </Rule>
+  </ProcessCreate>
+</RuleGroup>
+
+<!-- Rule 4: VSS shadow deletion -->
+<RuleGroup name="MedDefense - Shadow Deletion" groupRelation="or">
+  <ProcessCreate onmatch="include">
+    <Rule name="MedDefense Vssadmin Delete Shadows" groupRelation="and">
+      <Image condition="end with">\vssadmin.exe</Image>
+      <CommandLine condition="contains">delete shadows</CommandLine>
+    </Rule>
+  </ProcessCreate>
+</RuleGroup>
+
+<!-- Rule 5: Scheduled task creation -->
+<RuleGroup name="MedDefense - Scheduled Task Persistence" groupRelation="or">
+  <ProcessCreate onmatch="include">
+    <Rule name="MedDefense Scheduled Task Creation" groupRelation="and">
+      <Image condition="end with">\schtasks.exe</Image>
+      <CommandLine condition="contains">/create</CommandLine>
+    </Rule>
+  </ProcessCreate>
+</RuleGroup>
+
+<!-- END MEDDEFENSE CUSTOM RULES -->
+
+</EventFiltering>
 </Sysmon>
+
 
