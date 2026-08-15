@@ -1,6 +1,7 @@
 #!/bin/bash
 # Hawthorne
 # 5-firewall_test.sh
+# suricata_alerts.json
 set -uo pipefail
 
 MODE="${1:-}"
