@@ -1,4 +1,5 @@
 #!/bin/bash
+# Bash shebang: #!/bin/bash
 set -euo pipefail
 
 TARGET_STATE="capstone/target_state.json"
