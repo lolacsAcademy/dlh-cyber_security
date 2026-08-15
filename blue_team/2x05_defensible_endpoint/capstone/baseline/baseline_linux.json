@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-08-15T06:42:54Z",
+  "hostname": "billing-srv-01",
+  "lynis_version": "3.0.7",
+  "hardening_index": 61,
+  "warnings_count": 0,
+  "suggestions_count": 14,
+  "log_path": "capstone/baseline/lynis_baseline.log"
+}
