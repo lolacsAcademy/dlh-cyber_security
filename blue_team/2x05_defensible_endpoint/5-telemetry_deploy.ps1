@@ -20,6 +20,7 @@ $SecurityLog = 'Security'
 # 0 = success
 # 1 = controlled failure
 # 2 = environment error
+# expected event
 
 Write-Output 'Windows telemetry deployment'
 
