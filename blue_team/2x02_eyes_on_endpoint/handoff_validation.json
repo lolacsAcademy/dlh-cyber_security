@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-08-15T04:43:13Z",
+  "verdict": "FAIL",
+  "passed_checks": 12,
+  "failed_checks": 2,
+  "total_checks": 14,
+  "event_counts": {
+    "windows": 2,
+    "linux": 82434,
+    "ground_truth": 12
+  },
+  "checks": [
+    {
+      "check": "file_exists_windows_events.json",
+      "status": "PASS",
+      "detail": "windows_events.json exists (673 bytes)"
+    },
+    {
+      "check": "file_exists_linux_events.json",
+      "status": "PASS",
+      "detail": "linux_events.json exists (34.6 MB)"
+    },
+    {
+      "check": "file_exists_attack_ground_truth.json",
+      "status": "PASS",
+      "detail": "attack_ground_truth.json exists (3.5 KB)"
+    },
+    {
+      "check": "json_valid_windows_events.json",
+      "status": "PASS",
+      "detail": "windows_events.json: valid JSON, 2 objects"
+    },
+    {
+      "check": "json_valid_linux_events.json",
+      "status": "PASS",
+      "detail": "linux_events.json: valid JSON, 82434 objects"
+    },
+    {
+      "check": "json_valid_attack_ground_truth.json",
+      "status": "PASS",
+      "detail": "attack_ground_truth.json: valid JSON, 12 objects"
+    },
+    {
+      "check": "required_fields",
+      "status": "PASS",
+      "detail": "All events have timestamp, hostname, source_type, event_category"
+    },
+    {
+      "check": "minimum_windows_events",
+      "status": "FAIL",
+      "detail": "Windows: 2 < 1000"
+    },
+    {
+      "check": "minimum_linux_events",
+      "status": "PASS",
+      "detail": "Linux: 82434 >= 500"
+    },
+    {
+      "check": "minimum_ground_truth_actions",
+      "status": "PASS",
+      "detail": "Ground truth: 12 >= 10"
+    },
+    {
+      "check": "valid_iso8601_timestamps",
+      "status": "PASS",
+      "detail": "All timestamps valid ISO 8601; range: 2026-08-08T05:55:36Z to 2026-08-08T14:00:05Z"
+    },
+    {
+      "check": "no_future_timestamps",
+      "status": "PASS",
+      "detail": "No future timestamps"
+    },
+    {
+      "check": "cross_platform_alignment",
+      "status": "FAIL",
+      "detail": "Windows and Linux timestamp ranges do not overlap"
+    },
+    {
+      "check": "ground_truth_completeness",
+      "status": "PASS",
+      "detail": "12/12 actions have detection matrix entries"
+    }
+  ]
+}
