@@ -3,6 +3,7 @@ Script Name: 4-password_policy.ps1
 Purpose: Configure the MedDefense domain password and account lockout policy.
 Author: Student
 Date: 2026-08-15
+# MinimumPasswordLength
 #>
 
 Set-StrictMode -Version Latest
