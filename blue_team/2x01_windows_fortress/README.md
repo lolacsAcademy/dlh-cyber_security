@@ -7,3 +7,4 @@
 - Task 3: Windows Telemetry Reference Builder (`3-telemetry_reference.ps1`)
 - Task 4: Password and Lockout Policy (`4-password_policy.ps1`)
 - Task 5: Advanced Audit Policy (`5-audit_policy.ps1`)
+- Task 6: PowerShell Security (`6-powershell_security.ps1`)
