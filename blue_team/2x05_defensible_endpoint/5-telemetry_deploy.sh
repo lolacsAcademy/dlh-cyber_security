@@ -1,5 +1,6 @@
 #!/bin/bash
 # create a user
+# expected record
 set -uo pipefail
 
 MODE="${1:-}"
