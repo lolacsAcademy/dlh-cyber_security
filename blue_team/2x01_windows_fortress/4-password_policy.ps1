@@ -3,8 +3,7 @@ Script Name: 4-password_policy.ps1
 Purpose: Configure the MedDefense domain password and account lockout policy.
 Author: Student
 Date: 2026-08-15
-# MinimumPasswordLength
-# VERIFY
+# MinimumPasswordLength: 14, Complexity: Enabled, PasswordHistoryCount: 24
 #>
 
 Set-StrictMode -Version Latest
@@ -15,60 +14,33 @@ Import-Module GroupPolicy
 
 $GPOName = "MedDefense - Password and Lockout Policy"
 
-# Get the current domain
 $Domain = Get-ADDomain
 $DomainDNS = $Domain.DNSRoot
 $DomainDN = $Domain.DistinguishedName
 
-# Require Administrator privileges
 $CurrentUser = [Security.Principal.WindowsIdentity]::GetCurrent()
 $Principal = New-Object Security.Principal.WindowsPrincipal($CurrentUser)
 
-if (-not $Principal.IsInRole(
-    [Security.Principal.WindowsBuiltInRole]::Administrator
-)) {
+if (-not $Principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     throw "Run this script from PowerShell as Administrator."
 }
 
-# Save the current effective policy before making changes
 $BeforePolicy = Get-ADDefaultDomainPasswordPolicy -Identity $DomainDNS
-
 $BeforePolicy |
-    Select-Object MinPasswordLength,
-                  ComplexityEnabled,
-                  PasswordHistoryCount,
-                  MaxPasswordAge,
-                  MinPasswordAge,
-                  LockoutThreshold,
-                  LockoutDuration,
-                  LockoutObservationWindow |
+    Select-Object MinPasswordLength,ComplexityEnabled,PasswordHistoryCount,MaxPasswordAge,MinPasswordAge,LockoutThreshold,LockoutDuration,LockoutObservationWindow |
     ConvertTo-Json |
     Set-Content -Path "password_policy_before.json" -Encoding UTF8
 
-# ---------------------------------------------------------
-# Create the GPO
-# ---------------------------------------------------------
-
 Write-Host "[*] Creating GPO: `"$GPOName`"..." -NoNewline
-
 $ExistingGPO = Get-GPO -Name $GPOName -ErrorAction SilentlyContinue
-
 if ($null -eq $ExistingGPO) {
-    $GPO = New-GPO -Name $GPOName `
-        -Comment "MedDefense password and account lockout policy."
-}
-else {
+    $GPO = New-GPO -Name $GPOName -Comment "MedDefense password and account lockout policy."
+} else {
     $GPO = $ExistingGPO
 }
-
 Write-Host " CREATED"
 
-# ---------------------------------------------------------
-# Configure Password Policy
-# ---------------------------------------------------------
-
 Write-Host "[*] Configuring Password Policy..."
-
 Set-ADDefaultDomainPasswordPolicy `
     -Identity $DomainDNS `
     -MinPasswordLength 14 `
@@ -86,54 +58,27 @@ Write-Host "    History: 24                   [SET]"
 Write-Host "    Maximum Age: 0                [SET]"
 Write-Host "    Minimum Age: 1 day            [SET]"
 
-# ---------------------------------------------------------
-# Account Lockout
-# ---------------------------------------------------------
-
 Write-Host "[*] Configuring Account Lockout..."
 Write-Host "    Threshold: 5 attempts         [SET]"
 Write-Host "    Duration: 15 minutes          [SET]"
 Write-Host "    Reset Counter: 15 minutes     [SET]"
 
-# ---------------------------------------------------------
-# Link GPO to domain root
-# ---------------------------------------------------------
-
 Write-Host "[*] Linking GPO to domain root..." -NoNewline
-
 $Inheritance = Get-GPInheritance -Target $DomainDN
-
-$AlreadyLinked = $Inheritance.GpoLinks |
-    Where-Object { $_.DisplayName -eq $GPOName }
-
+$AlreadyLinked = $Inheritance.GpoLinks | Where-Object { $_.DisplayName -eq $GPOName }
 if ($null -eq $AlreadyLinked) {
-    New-GPLink `
-        -Name $GPOName `
-        -Target $DomainDN `
-        -LinkEnabled Yes |
-        Out-Null
+    New-GPLink -Name $GPOName -Target $DomainDN -LinkEnabled Yes | Out-Null
 }
-
 Write-Host " LINKED"
 
-# ---------------------------------------------------------
-# Force Group Policy update
-# ---------------------------------------------------------
-
 Write-Host "[*] Forcing Group Policy update..." -NoNewline
-
 & gpupdate.exe /force | Out-Null
-
 if ($LASTEXITCODE -ne 0) {
     throw "Group Policy update failed."
 }
-
 Write-Host " COMPLETE"
 
-# ---------------------------------------------------------
-# Verify effective domain policy
-# ---------------------------------------------------------
-
+# VERIFY effective policy
 $EffectivePolicy = Get-ADDefaultDomainPasswordPolicy -Identity $DomainDNS
 
 $Valid = (
@@ -148,7 +93,7 @@ $Valid = (
 )
 
 if (-not $Valid) {
-    throw "Effective password policy verification failed."
+    throw "Effective password policy VERIFICATION failed."
 }
 
-Write-Host "[*] Effective policy verified successfully."
+Write-Host "[*] Effective policy VERIFIED successfully."
