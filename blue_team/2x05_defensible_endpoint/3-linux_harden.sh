@@ -2,6 +2,7 @@
 # Log path: capstone/exec/linux_harden.log
 # stdout
 # target-state
+# control IDs
 set -uo pipefail
 
 TARGET_STATE="capstone/target_state.json"
