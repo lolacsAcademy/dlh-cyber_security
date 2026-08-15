@@ -1,0 +1,10 @@
+{
+    "timestamp": "2026-08-15T07:06:36Z",
+    "hostname": "DC01",
+    "controls_total": 12,
+    "pass_count": 7,
+    "fail_count": 4,
+    "na_count": 1,
+    "pass_rate_percent": 63.64,
+    "log_path": "capstone\\baseline\\windows_baseline.log"
+}

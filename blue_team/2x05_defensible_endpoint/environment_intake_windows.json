@@ -1,0 +1,752 @@
+{
+    "captured_at":  "2026-08-15T05:45:45Z",
+    "hostname":  "DC01",
+    "os":  {
+               "caption":  "Microsoft Windows Server 2022 Standard Evaluation",
+               "version":  "10.0.20348",
+               "build":  "20348",
+               "patch_level":  "KB5008882"
+           },
+    "installed_features":  {
+                               "source":  "Get-WindowsFeature",
+                               "count":  28
+                           },
+    "running_services":  [
+                             {
+                                 "Name":  "ADWS",
+                                 "DisplayName":  "Active Directory Web Services",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Appinfo",
+                                 "DisplayName":  "Application Information",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "AppXSvc",
+                                 "DisplayName":  "AppX Deployment Service (AppXSVC)",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "BFE",
+                                 "DisplayName":  "Base Filtering Engine",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "BrokerInfrastructure",
+                                 "DisplayName":  "Background Tasks Infrastructure Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Browser",
+                                 "DisplayName":  "Computer Browser",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "camsvc",
+                                 "DisplayName":  "Capability Access Manager Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "cbdhsvc_792ad",
+                                 "DisplayName":  "Clipboard User Service_792ad",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "CDPSvc",
+                                 "DisplayName":  "Connected Devices Platform Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "CDPUserSvc_792ad",
+                                 "DisplayName":  "Connected Devices Platform User Service_792ad",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "CertPropSvc",
+                                 "DisplayName":  "Certificate Propagation",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "ClipSVC",
+                                 "DisplayName":  "Client License Service (ClipSVC)",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "CoreMessagingRegistrar",
+                                 "DisplayName":  "CoreMessaging",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "CryptSvc",
+                                 "DisplayName":  "Cryptographic Services",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "DcomLaunch",
+                                 "DisplayName":  "DCOM Server Process Launcher",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Dfs",
+                                 "DisplayName":  "DFS Namespace",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "DFSR",
+                                 "DisplayName":  "DFS Replication",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Dhcp",
+                                 "DisplayName":  "DHCP Client",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "DiagTrack",
+                                 "DisplayName":  "Connected User Experiences and Telemetry",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "DispBrokerDesktopSvc",
+                                 "DisplayName":  "Display Policy Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "DNS",
+                                 "DisplayName":  "DNS Server",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Dnscache",
+                                 "DisplayName":  "DNS Client",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "DoSvc",
+                                 "DisplayName":  "Delivery Optimization",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "DPS",
+                                 "DisplayName":  "Diagnostic Policy Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "DsmSvc",
+                                 "DisplayName":  "Device Setup Manager",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "EventLog",
+                                 "DisplayName":  "Windows Event Log",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "EventSystem",
+                                 "DisplayName":  "COM+ Event System",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "FontCache",
+                                 "DisplayName":  "Windows Font Cache Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "gpsvc",
+                                 "DisplayName":  "Group Policy Client",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "IKEEXT",
+                                 "DisplayName":  "IKE and AuthIP IPsec Keying Modules",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "iphlpsvc",
+                                 "DisplayName":  "IP Helper",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "IsmServ",
+                                 "DisplayName":  "Intersite Messaging",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Kdc",
+                                 "DisplayName":  "Kerberos Key Distribution Center",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "KeyIso",
+                                 "DisplayName":  "CNG Key Isolation",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "LanmanServer",
+                                 "DisplayName":  "Server",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "LanmanWorkstation",
+                                 "DisplayName":  "Workstation",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "lmhosts",
+                                 "DisplayName":  "TCP/IP NetBIOS Helper",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "LSM",
+                                 "DisplayName":  "Local Session Manager",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "MDCoreSvc",
+                                 "DisplayName":  "Microsoft Defender Core Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "mpssvc",
+                                 "DisplayName":  "Windows Defender Firewall",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "MSDTC",
+                                 "DisplayName":  "Distributed Transaction Coordinator",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "NcbService",
+                                 "DisplayName":  "Network Connection Broker",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Netlogon",
+                                 "DisplayName":  "Netlogon",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "netprofm",
+                                 "DisplayName":  "Network List Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "NlaSvc",
+                                 "DisplayName":  "Network Location Awareness",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "nsi",
+                                 "DisplayName":  "Network Store Interface Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "NTDS",
+                                 "DisplayName":  "Active Directory Domain Services",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "PcaSvc",
+                                 "DisplayName":  "Program Compatibility Assistant Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "PlugPlay",
+                                 "DisplayName":  "Plug and Play",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "PolicyAgent",
+                                 "DisplayName":  "IPsec Policy Agent",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Power",
+                                 "DisplayName":  "Power",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "ProfSvc",
+                                 "DisplayName":  "User Profile Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "RemoteRegistry",
+                                 "DisplayName":  "Remote Registry",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "RpcEptMapper",
+                                 "DisplayName":  "RPC Endpoint Mapper",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "RpcSs",
+                                 "DisplayName":  "Remote Procedure Call (RPC)",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "SamSs",
+                                 "DisplayName":  "Security Accounts Manager",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Schedule",
+                                 "DisplayName":  "Task Scheduler",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "SENS",
+                                 "DisplayName":  "System Event Notification Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "SessionEnv",
+                                 "DisplayName":  "Remote Desktop Configuration",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "ShellHWDetection",
+                                 "DisplayName":  "Shell Hardware Detection",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Spooler",
+                                 "DisplayName":  "Print Spooler",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "StateRepository",
+                                 "DisplayName":  "State Repository Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "StorSvc",
+                                 "DisplayName":  "Storage Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "SysMain",
+                                 "DisplayName":  "SysMain",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Sysmon64",
+                                 "DisplayName":  "Sysmon64",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "SystemEventsBroker",
+                                 "DisplayName":  "System Events Broker",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "TabletInputService",
+                                 "DisplayName":  "Touch Keyboard and Handwriting Panel Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "TermService",
+                                 "DisplayName":  "Remote Desktop Services",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Themes",
+                                 "DisplayName":  "Themes",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "TimeBrokerSvc",
+                                 "DisplayName":  "Time Broker",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "TokenBroker",
+                                 "DisplayName":  "Web Account Manager",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "TrustedInstaller",
+                                 "DisplayName":  "Windows Modules Installer",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "UALSVC",
+                                 "DisplayName":  "User Access Logging Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "UmRdpService",
+                                 "DisplayName":  "Remote Desktop Services UserMode Port Redirector",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "UserManager",
+                                 "DisplayName":  "User Manager",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "UsoSvc",
+                                 "DisplayName":  "Update Orchestrator Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "VBoxService",
+                                 "DisplayName":  "VirtualBox Guest Additions Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "vds",
+                                 "DisplayName":  "Virtual Disk",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "W32Time",
+                                 "DisplayName":  "Windows Time",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "WaaSMedicSvc",
+                                 "DisplayName":  "Windows Update Medic Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Wcmsvc",
+                                 "DisplayName":  "Windows Connection Manager",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "WdNisSvc",
+                                 "DisplayName":  "Microsoft Defender Antivirus Network Inspection Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "WinDefend",
+                                 "DisplayName":  "Microsoft Defender Antivirus Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "WinHttpAutoProxySvc",
+                                 "DisplayName":  "WinHTTP Web Proxy Auto-Discovery Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "Winmgmt",
+                                 "DisplayName":  "Windows Management Instrumentation",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "WinRM",
+                                 "DisplayName":  "Windows Remote Management (WS-Management)",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "wlidsvc",
+                                 "DisplayName":  "Microsoft Account Sign-in Assistant",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "WLMS",
+                                 "DisplayName":  "Windows Licensing Monitoring Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "WpnService",
+                                 "DisplayName":  "Windows Push Notifications System Service",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "WpnUserService_792ad",
+                                 "DisplayName":  "Windows Push Notifications User Service_792ad",
+                                 "Status":  4
+                             },
+                             {
+                                 "Name":  "wuauserv",
+                                 "DisplayName":  "Windows Update",
+                                 "Status":  4
+                             }
+                         ],
+    "local_users":  [
+                        {
+                            "Name":  "Administrator",
+                            "Enabled":  true,
+                            "LastLogon":  "\/Date(1776346521761)\/"
+                        },
+                        {
+                            "Name":  "analyst",
+                            "Enabled":  true,
+                            "LastLogon":  "\/Date(1786772389009)\/"
+                        },
+                        {
+                            "Name":  "BILLING-SRV-01$",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "DC01$",
+                            "Enabled":  true,
+                            "LastLogon":  "\/Date(1786772314255)\/"
+                        },
+                        {
+                            "Name":  "dpatel",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "ebrown",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "Guest",
+                            "Enabled":  false,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "hchen",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "jchen",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "krbtgt",
+                            "Enabled":  false,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "lgarcia",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "LOG-SRV-01$",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "mtorres",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "pmorales",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "RAD-WS-OLD$",
+                            "Enabled":  false,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "rkim",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "spark",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "svc_backup",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "svc_ehr",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "svc_sql",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        },
+                        {
+                            "Name":  "WEB-SRV-01$",
+                            "Enabled":  true,
+                            "LastLogon":  null
+                        }
+                    ],
+    "windows_firewall":  [
+                             {
+                                 "Name":  "Domain",
+                                 "Enabled":  1,
+                                 "DefaultInboundAction":  4,
+                                 "DefaultOutboundAction":  2
+                             },
+                             {
+                                 "Name":  "Private",
+                                 "Enabled":  0,
+                                 "DefaultInboundAction":  4,
+                                 "DefaultOutboundAction":  2
+                             },
+                             {
+                                 "Name":  "Public",
+                                 "Enabled":  0,
+                                 "DefaultInboundAction":  4,
+                                 "DefaultOutboundAction":  2
+                             }
+                         ],
+    "audit_policy_summary":  [
+                                 "System audit policy",
+                                 "",
+                                 "Category/Subcategory                      Setting",
+                                 "System",
+                                 "  Security System Extension               No Auditing",
+                                 "",
+                                 "  System Integrity                        No Auditing",
+                                 "",
+                                 "  IPsec Driver                            No Auditing",
+                                 "",
+                                 "  Other System Events                     No Auditing",
+                                 "",
+                                 "  Security State Change                   No Auditing",
+                                 "",
+                                 "Logon/Logoff",
+                                 "  Logon                                   Success and Failure",
+                                 "",
+                                 "  Logoff                                  No Auditing",
+                                 "",
+                                 "  Account Lockout                         No Auditing",
+                                 "",
+                                 "  IPsec Main Mode                         No Auditing",
+                                 "",
+                                 "  IPsec Quick Mode                        No Auditing",
+                                 "",
+                                 "  IPsec Extended Mode                     No Auditing",
+                                 "",
+                                 "  Special Logon                           No Auditing",
+                                 "",
+                                 "  Other Logon/Logoff Events               No Auditing",
+                                 "",
+                                 "  Network Policy Server                   No Auditing",
+                                 "",
+                                 "  User / Device Claims                    No Auditing",
+                                 "",
+                                 "  Group Membership                        No Auditing",
+                                 "",
+                                 "Object Access",
+                                 "  File System                             No Auditing",
+                                 "",
+                                 "  Registry                                No Auditing",
+                                 "",
+                                 "  Kernel Object                           No Auditing",
+                                 "",
+                                 "  SAM                                     No Auditing",
+                                 "",
+                                 "  Certification Services                  No Auditing",
+                                 "",
+                                 "  Application Generated                   No Auditing",
+                                 "",
+                                 "  Handle Manipulation                     No Auditing",
+                                 "",
+                                 "  File Share                              No Auditing",
+                                 "",
+                                 "  Filtering Platform Packet Drop          No Auditing",
+                                 "",
+                                 "  Filtering Platform Connection           No Auditing",
+                                 "",
+                                 "  Other Object Access Events              Success and Failure",
+                                 "",
+                                 "  Detailed File Share                     No Auditing",
+                                 "",
+                                 "  Removable Storage                       No Auditing",
+                                 "",
+                                 "  Central Policy Staging                  No Auditing",
+                                 "",
+                                 "Privilege Use",
+                                 "  Non Sensitive Privilege Use             No Auditing",
+                                 "",
+                                 "  Other Privilege Use Events              No Auditing",
+                                 "",
+                                 "  Sensitive Privilege Use                 No Auditing",
+                                 "",
+                                 "Detailed Tracking",
+                                 "  Process Creation                        No Auditing",
+                                 "",
+                                 "  Process Termination                     No Auditing",
+                                 "",
+                                 "  DPAPI Activity                          No Auditing",
+                                 "",
+                                 "  RPC Events                              No Auditing",
+                                 "",
+                                 "  Plug and Play Events                    No Auditing",
+                                 "",
+                                 "  Token Right Adjusted Events             No Auditing",
+                                 "",
+                                 "Policy Change",
+                                 "  Audit Policy Change                     No Auditing",
+                                 "",
+                                 "  Authentication Policy Change            No Auditing",
+                                 "",
+                                 "  Authorization Policy Change             No Auditing",
+                                 "",
+                                 "  MPSSVC Rule-Level Policy Change         No Auditing",
+                                 "",
+                                 "  Filtering Platform Policy Change        No Auditing",
+                                 "",
+                                 "  Other Policy Change Events              No Auditing",
+                                 "",
+                                 "Account Management",
+                                 "  Computer Account Management             No Auditing",
+                                 "",
+                                 "  Security Group Management               Success and Failure",
+                                 "",
+                                 "  Distribution Group Management           No Auditing",
+                                 "",
+                                 "  Application Group Management            No Auditing",
+                                 "",
+                                 "  Other Account Management Events         No Auditing",
+                                 "",
+                                 "  User Account Management                 Success and Failure",
+                                 "",
+                                 "DS Access",
+                                 "  Directory Service Access                No Auditing",
+                                 "",
+                                 "  Directory Service Changes               No Auditing",
+                                 "",
+                                 "  Directory Service Replication           No Auditing",
+                                 "",
+                                 "  Detailed Directory Service Replication  No Auditing",
+                                 "",
+                                 "Account Logon",
+                                 "  Kerberos Service Ticket Operations      No Auditing",
+                                 "",
+                                 "  Other Account Logon Events              No Auditing",
+                                 "",
+                                 "  Kerberos Authentication Service         No Auditing",
+                                 "",
+                                 "  Credential Validation                   No Auditing",
+                                 ""
+                             ],
+    "sysmon":  {
+                   "present":  true,
+                   "version":  "15.21",
+                   "event_channel_size":  67112960
+               },
+    "powershell_logging":  {
+                               "script_block_logging_enabled":  true,
+                               "registry_path":  "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\PowerShell\\ScriptBlockLogging"
+                           },
+    "account_policy":  [
+                           "Force user logoff how long after time expires?:       Never",
+                           "Minimum password age (days):                          0",
+                           "Maximum password age (days):                          42",
+                           "Minimum password length:                              7",
+                           "Length of password history maintained:                None",
+                           "Lockout threshold:                                    Never",
+                           "Lockout duration (minutes):                           30",
+                           "Lockout observation window (minutes):                 30",
+                           "Computer role:                                        PRIMARY",
+                           "The command completed successfully.",
+                           ""
+                       ]
+}
