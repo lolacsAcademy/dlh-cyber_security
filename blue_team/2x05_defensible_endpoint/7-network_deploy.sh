@@ -1,5 +1,6 @@
 #!/bin/bash
 # Hawthorne
+# 5-firewall_test.sh
 set -uo pipefail
 
 MODE="${1:-}"
