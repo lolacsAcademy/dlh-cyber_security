@@ -4,6 +4,7 @@ Purpose: Configure MedDefense AppLocker policy in Audit Only mode.
 Author: Student
 Date: 2026-08-16
 # .bat
+# .cmd
 #>
 
 Set-StrictMode -Version Latest
