@@ -3,6 +3,7 @@ Script Name: 12-applocker_config.ps1
 Purpose: Configure MedDefense AppLocker policy in Audit Only mode.
 Author: Student
 Date: 2026-08-16
+# .bat
 #>
 
 Set-StrictMode -Version Latest
