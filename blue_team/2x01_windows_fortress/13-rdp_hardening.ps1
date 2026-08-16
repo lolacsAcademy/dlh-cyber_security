@@ -3,6 +3,7 @@ Script Name: 13-rdp_hardening.ps1
 Purpose: Harden RDP and remote access settings for MedDefense.
 Author: Student
 Date: 2026-08-16
+# Redirection
 #>
 
 Set-StrictMode -Version Latest
