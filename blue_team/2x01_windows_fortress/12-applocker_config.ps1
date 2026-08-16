@@ -5,6 +5,7 @@ Author: Student
 Date: 2026-08-16
 # .bat
 # .cmd
+# .vbs
 #>
 
 Set-StrictMode -Version Latest
