@@ -6,6 +6,7 @@ Author: Student
 # Script Block Logging
 # Get-AppLockerPolicy
 # NLA
+# DES
 #>
 
 Set-StrictMode -Version Latest
