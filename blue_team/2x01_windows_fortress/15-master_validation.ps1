@@ -6,7 +6,7 @@ Read-only: This script makes no system changes.
 #>
 
 Set-StrictMode -Version Latest
-$ErrorActionPreference = "SilentlyContinue"
+$ErrorActionPreference = "Stop"
 
 $CriticalFailures = 0
 
