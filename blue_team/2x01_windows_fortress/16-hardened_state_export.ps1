@@ -5,6 +5,7 @@ Author: Student
 # Required Security audit Event IDs: 4624, 4625, 4688, 1102
 # Script Block Logging
 # Get-AppLockerPolicy
+# NLA
 #>
 
 Set-StrictMode -Version Latest
