@@ -488,11 +488,11 @@ printf '%s\n' "$FAMILY_SUMMARY" |
     done
 
 echo
-echo "Total controls:  $TOTAL_CONTROLS"
+echo "total controls:  $TOTAL_CONTROLS"
 echo "Pass:            $PASS_COUNT"
 echo "Fail:            $FAIL_COUNT"
 echo "Error:           $ERROR_COUNT"
-echo "Pass percentage: ${PASS_PERCENTAGE}%"
+echo "pass percentage: ${PASS_PERCENTAGE}%"
 echo "Report saved to: $OUT"
 
 if [ "$VERDICT" = "pass" ]; then
