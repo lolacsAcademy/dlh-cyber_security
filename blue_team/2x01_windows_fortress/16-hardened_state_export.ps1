@@ -14,6 +14,7 @@ Author: Student
 # SMB signing
 # password age
 # privileged membership
+# interactive logon risk
 #>
 
 Set-StrictMode -Version Latest
