@@ -7,6 +7,7 @@ Author: Student
 # Get-AppLockerPolicy
 # NLA
 # DES
+# RC4
 #>
 
 Set-StrictMode -Version Latest
