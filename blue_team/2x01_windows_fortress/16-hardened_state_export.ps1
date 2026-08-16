@@ -10,6 +10,7 @@ Author: Student
 # RC4
 # AES
 # NTLMv1
+# SMBv1
 #>
 
 Set-StrictMode -Version Latest
