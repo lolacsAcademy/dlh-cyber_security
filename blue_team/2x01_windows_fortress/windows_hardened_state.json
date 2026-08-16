@@ -1,0 +1,285 @@
+﻿{
+    "domain_metadata":  {
+                            "domain_name":  "meddefense.local",
+                            "domain_controller":  [
+                                                      "DC01.meddefense.local"
+                                                  ],
+                            "timestamp":  "2026-08-16T10:24:37.1818487+02:00",
+                            "script_runner":  "MEDDEFENSE\\analyst"
+                        },
+    "gpo_inventory":  [
+                          {
+                              "name":  "MedDefense - SMB and Protocol Hardening",
+                              "id":  "3fae588f-577c-4464-9447-83b0bea7f8fe",
+                              "enabled_state":  "AllSettingsEnabled",
+                              "linked_scopes":  "meddefense.local",
+                              "key_settings_present":  true
+                          },
+                          {
+                              "name":  "MedDefense - AppLocker Policy",
+                              "id":  "6a8087a5-e8c0-4924-811f-498133b0e876",
+                              "enabled_state":  "AllSettingsEnabled",
+                              "linked_scopes":  "meddefense.local",
+                              "key_settings_present":  true
+                          },
+                          {
+                              "name":  "MedDefense - PowerShell Security",
+                              "id":  "8ed1dcbb-3d55-4f44-b2a5-4413649fcd7e",
+                              "enabled_state":  "AllSettingsEnabled",
+                              "linked_scopes":  "meddefense.local",
+                              "key_settings_present":  true
+                          },
+                          {
+                              "name":  "MedDefense - Password and Lockout Policy",
+                              "id":  "e7100ffa-2a88-4e98-a2fd-7c00eee5f7cb",
+                              "enabled_state":  "AllSettingsEnabled",
+                              "linked_scopes":  "meddefense.local",
+                              "key_settings_present":  true
+                          },
+                          {
+                              "name":  "MedDefense - Advanced Audit Policy",
+                              "id":  "f2e93903-873a-4d95-8c94-8ec86ff6662b",
+                              "enabled_state":  "AllSettingsEnabled",
+                              "linked_scopes":  "meddefense.local",
+                              "key_settings_present":  true
+                          }
+                      ],
+    "audit_policy":  {
+                         "raw_auditpol_output":  "System audit policy\n\nCategory/Subcategory                      Setting\nSystem\n  Security System Extension               No Auditing\n\n  System Integrity                        No Auditing\n\n  IPsec Driver                            No Auditing\n\n  Other System Events                     No Auditing\n\n  Security State Change                   No Auditing\n\nLogon/Logoff\n  Logon                                   Success and Failure\n\n  Logoff                                  Success\n\n  Account Lockout                         No Auditing\n\n  IPsec Main Mode                         No Auditing\n\n  IPsec Quick Mode                        No Auditing\n\n  IPsec Extended Mode                     No Auditing\n\n  Special Logon                           Success\n\n  Other Logon/Logoff Events               No Auditing\n\n  Network Policy Server                   No Auditing\n\n  User / Device Claims                    No Auditing\n\n  Group Membership                        No Auditing\n\nObject Access\n  File System                             Success and Failure\n\n  Registry                                Success and Failure\n\n  Kernel Object                           No Auditing\n\n  SAM                                     No Auditing\n\n  Certification Services                  No Auditing\n\n  Application Generated                   No Auditing\n\n  Handle Manipulation                     No Auditing\n\n  File Share                              No Auditing\n\n  Filtering Platform Packet Drop          No Auditing\n\n  Filtering Platform Connection           No Auditing\n\n  Other Object Access Events              Success and Failure\n\n  Detailed File Share                     No Auditing\n\n  Removable Storage                       No Auditing\n\n  Central Policy Staging                  No Auditing\n\nPrivilege Use\n  Non Sensitive Privilege Use             No Auditing\n\n  Other Privilege Use Events              No Auditing\n\n  Sensitive Privilege Use                 Success and Failure\n\nDetailed Tracking\n  Process Creation                        Success\n\n  Process Termination                     No Auditing\n\n  DPAPI Activity                          No Auditing\n\n  RPC Events                              No Auditing\n\n  Plug and Play Events                    No Auditing\n\n  Token Right Adjusted Events             No Auditing\n\nPolicy Change\n  Audit Policy Change                     No Auditing\n\n  Authentication Policy Change            No Auditing\n\n  Authorization Policy Change             No Auditing\n\n  MPSSVC Rule-Level Policy Change         No Auditing\n\n  Filtering Platform Policy Change        No Auditing\n\n  Other Policy Change Events              No Auditing\n\nAccount Management\n  Computer Account Management             No Auditing\n\n  Security Group Management               Success and Failure\n\n  Distribution Group Management           No Auditing\n\n  Application Group Management            No Auditing\n\n  Other Account Management Events         No Auditing\n\n  User Account Management                 Success and Failure\n\nDS Access\n  Directory Service Access                No Auditing\n\n  Directory Service Changes               No Auditing\n\n  Directory Service Replication           No Auditing\n\n  Detailed Directory Service Replication  No Auditing\n\nAccount Logon\n  Kerberos Service Ticket Operations      No Auditing\n\n  Other Account Logon Events              No Auditing\n\n  Kerberos Authentication Service         Success and Failure\n\n  Credential Validation                   Success and Failure\n",
+                         "required_subcategories":  [
+                                                        {
+                                                            "subcategory":  "Credential Validation",
+                                                            "status":  "Credential Validation                   Success and Failure"
+                                                        },
+                                                        {
+                                                            "subcategory":  "Kerberos Authentication Service",
+                                                            "status":  "Kerberos Authentication Service         Success and Failure"
+                                                        },
+                                                        {
+                                                            "subcategory":  "Logon",
+                                                            "status":  "Logon/Logoff"
+                                                        },
+                                                        {
+                                                            "subcategory":  "Logoff",
+                                                            "status":  "Logon/Logoff"
+                                                        },
+                                                        {
+                                                            "subcategory":  "Special Logon",
+                                                            "status":  "Special Logon                           Success"
+                                                        },
+                                                        {
+                                                            "subcategory":  "User Account Management",
+                                                            "status":  "User Account Management                 Success and Failure"
+                                                        },
+                                                        {
+                                                            "subcategory":  "Sensitive Privilege Use",
+                                                            "status":  "Non Sensitive Privilege Use             No Auditing"
+                                                        },
+                                                        {
+                                                            "subcategory":  "File System",
+                                                            "status":  "File System                             Success and Failure"
+                                                        },
+                                                        {
+                                                            "subcategory":  "Registry",
+                                                            "status":  "Registry                                Success and Failure"
+                                                        },
+                                                        {
+                                                            "subcategory":  "Process Creation",
+                                                            "status":  "Process Creation                        Success"
+                                                        }
+                                                    ]
+                     },
+    "powershell_logging":  {
+                               "script_block_logging":  1,
+                               "module_logging":  1,
+                               "transcription":  1,
+                               "event_ids":  [
+                                                 4103,
+                                                 4104
+                                             ]
+                           },
+    "sysmon_posture":  {
+                           "service_status":  "Running",
+                           "driver_status":  "Running",
+                           "config_path":  "C:\\dlh-cyber_security\\blue_team\\2x01_windows_fortress\\sysmonconfig.xml",
+                           "custom_rule_count":  5,
+                           "active_event_ids":  [
+                                                    1,
+                                                    3,
+                                                    7,
+                                                    8,
+                                                    10,
+                                                    11,
+                                                    12,
+                                                    13,
+                                                    14,
+                                                    17,
+                                                    18,
+                                                    22
+                                                ]
+                       },
+    "firewall_posture":  {
+                             "profiles":  [
+                                              {
+                                                  "name":  "Domain",
+                                                  "enabled":  1,
+                                                  "default_inbound":  "Block",
+                                                  "default_outbound":  "Allow",
+                                                  "dropped_packet_logging":  1
+                                              },
+                                              {
+                                                  "name":  "Private",
+                                                  "enabled":  1,
+                                                  "default_inbound":  "Block",
+                                                  "default_outbound":  "Allow",
+                                                  "dropped_packet_logging":  1
+                                              },
+                                              {
+                                                  "name":  "Public",
+                                                  "enabled":  1,
+                                                  "default_inbound":  "Block",
+                                                  "default_outbound":  "Allow",
+                                                  "dropped_packet_logging":  1
+                                              }
+                                          ],
+                             "meddefense_rules":  [
+                                                      {
+                                                          "name":  "MedDef-RDP-Mgmt",
+                                                          "enabled":  "True",
+                                                          "direction":  "Inbound",
+                                                          "action":  "Allow"
+                                                      },
+                                                      {
+                                                          "name":  "MedDef-DNS-TCP",
+                                                          "enabled":  "True",
+                                                          "direction":  "Inbound",
+                                                          "action":  "Allow"
+                                                      },
+                                                      {
+                                                          "name":  "MedDef-DNS-UDP",
+                                                          "enabled":  "True",
+                                                          "direction":  "Inbound",
+                                                          "action":  "Allow"
+                                                      },
+                                                      {
+                                                          "name":  "MedDef-LDAP",
+                                                          "enabled":  "True",
+                                                          "direction":  "Inbound",
+                                                          "action":  "Allow"
+                                                      },
+                                                      {
+                                                          "name":  "MedDef-Kerberos-TCP",
+                                                          "enabled":  "True",
+                                                          "direction":  "Inbound",
+                                                          "action":  "Allow"
+                                                      },
+                                                      {
+                                                          "name":  "MedDef-Kerberos-UDP",
+                                                          "enabled":  "True",
+                                                          "direction":  "Inbound",
+                                                          "action":  "Allow"
+                                                      },
+                                                      {
+                                                          "name":  "MedDef-SMB",
+                                                          "enabled":  "True",
+                                                          "direction":  "Inbound",
+                                                          "action":  "Allow"
+                                                      },
+                                                      {
+                                                          "name":  "MedDef-WinRM-HTTP",
+                                                          "enabled":  "True",
+                                                          "direction":  "Inbound",
+                                                          "action":  "Allow"
+                                                      },
+                                                      {
+                                                          "name":  "MedDef-WinRM-HTTPS",
+                                                          "enabled":  "True",
+                                                          "direction":  "Inbound",
+                                                          "action":  "Allow"
+                                                      }
+                                                  ],
+                             "dropped_packet_logging":  [
+                                                            {
+                                                                "profile":  "Domain",
+                                                                "enabled":  1
+                                                            },
+                                                            {
+                                                                "profile":  "Private",
+                                                                "enabled":  1
+                                                            },
+                                                            {
+                                                                "profile":  "Public",
+                                                                "enabled":  1
+                                                            }
+                                                        ]
+                         },
+    "applocker_posture":  {
+                              "enforcement_mode":  "AuditOnly",
+                              "executable_rules":  [
+                                                       "Allow Windows",
+                                                       "Allow Program Files",
+                                                       "Allow Program Files x86",
+                                                       "Allow DicomViewer.exe"
+                                                   ],
+                              "script_rules":  [
+                                                   "Allow Windows Scripts",
+                                                   "Allow MedDefense Admin Scripts"
+                                               ],
+                              "exported_policy_path":  "C:\\dlh-cyber_security\\blue_team\\2x01_windows_fortress\\applocker_policy.xml"
+                          },
+    "rdp_posture":  {
+                        "nla_required":  1,
+                        "allowed_group":  "G_IT_Admins",
+                        "clipboard_redirection_disabled":  1,
+                        "drive_redirection_disabled":  1,
+                        "idle_timeout_ms":  900000,
+                        "max_session_ms":  28800000
+                    },
+    "authentication_protocols":  {
+                                     "des_enabled":  false,
+                                     "rc4_enabled":  false,
+                                     "aes128_enabled":  true,
+                                     "aes256_enabled":  true,
+                                     "ntlmv1_enabled":  false,
+                                     "lm_compatibility_level":  5,
+                                     "smbv1_enabled":  false,
+                                     "smb_signing_required":  true
+                                 },
+    "service_account_posture":  [
+                                    {
+                                        "account":  "svc_backup",
+                                        "password_age_days":  121,
+                                        "trusted_for_delegation":  false,
+                                        "account_not_delegated":  true,
+                                        "privileged_membership":  [
+
+                                                                  ],
+                                        "interactive_logon_risk":  "restricted"
+                                    },
+                                    {
+                                        "account":  "svc_ehr",
+                                        "password_age_days":  121,
+                                        "trusted_for_delegation":  false,
+                                        "account_not_delegated":  true,
+                                        "privileged_membership":  [
+
+                                                                  ],
+                                        "interactive_logon_risk":  "restricted"
+                                    },
+                                    {
+                                        "account":  "svc_sql",
+                                        "password_age_days":  121,
+                                        "trusted_for_delegation":  false,
+                                        "account_not_delegated":  true,
+                                        "privileged_membership":  [
+
+                                                                  ],
+                                        "interactive_logon_risk":  "restricted"
+                                    }
+                                ],
+    "validation_summary":  {
+                               "status":  "available",
+                               "script_path":  "C:\\dlh-cyber_security\\blue_team\\2x01_windows_fortress\\15-master_validation.ps1",
+                               "last_validation":  "Task 15 script available for execution"
+                           }
+}
