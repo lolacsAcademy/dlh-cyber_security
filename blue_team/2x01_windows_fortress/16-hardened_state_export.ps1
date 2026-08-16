@@ -8,6 +8,7 @@ Author: Student
 # NLA
 # DES
 # RC4
+# AES
 #>
 
 Set-StrictMode -Version Latest
