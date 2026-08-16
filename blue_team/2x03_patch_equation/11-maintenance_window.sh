@@ -33,7 +33,7 @@ NEXT_WINDOW=""
 NEXT_TIMESTAMP=""
 SECONDS_UNTIL_NEXT=0
 DECISION=""
-RESULT_CODE=20
+DECISION_CODE=20
 
 week_of_month() {
     local dom="$1"
@@ -220,11 +220,11 @@ find_next_window() {
 evaluate_window() {
     ACTIVE_WINDOW=""
     DECISION=""
-    RESULT_CODE=20
+    DECISION_CODE=20
 
     if find_active_normal_window; then
         DECISION="proceed"
-        RESULT_CODE=0
+        DECISION_CODE=0
 
     elif emergency_available; then
         ACTIVE_WINDOW="emergency"
@@ -235,13 +235,13 @@ evaluate_window() {
             DECISION="emergency_override_required"
         fi
 
-        # Emergency-only result required by Task 11.
-        RESULT_CODE=10
+        # Emergency-only decision required by Task 11.
+        DECISION_CODE=10
 
     else
         ACTIVE_WINDOW=""
         DECISION="defer"
-        RESULT_CODE=20
+        DECISION_CODE=20
     fi
 
     find_next_window
@@ -315,7 +315,7 @@ do_check() {
     write_report
     print_summary
 
-    case "$RESULT_CODE" in
+    case "$DECISION_CODE" in
         0)
             return 0
             ;;
@@ -357,13 +357,13 @@ case "$MODE" in
         while true; do
             evaluate_window
 
-            if [ "$RESULT_CODE" -eq 0 ]; then
+            if [ "$DECISION_CODE" -eq 0 ]; then
                 write_report
                 print_summary
                 exit 0
             fi
 
-            if [ "$RESULT_CODE" -eq 10 ] &&
+            if [ "$DECISION_CODE" -eq 10 ] &&
                 [ "${MEDDEFENSE_EMERGENCY:-0}" = "1" ]; then
                 write_report
                 print_summary
@@ -377,7 +377,7 @@ case "$MODE" in
                 write_report
                 print_summary
 
-                if [ "$RESULT_CODE" -eq 10 ]; then
+                if [ "$DECISION_CODE" -eq 10 ]; then
                     exit 10
                 fi
 
