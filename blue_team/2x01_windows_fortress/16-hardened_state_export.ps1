@@ -11,6 +11,7 @@ Author: Student
 # AES
 # NTLMv1
 # SMBv1
+# SMB signing
 #>
 
 Set-StrictMode -Version Latest
