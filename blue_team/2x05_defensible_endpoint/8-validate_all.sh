@@ -38,7 +38,7 @@ fi
 
 mkdir -p "capstone"
 
-RESULTS='[]'
+CONTROL_DATA='[]'
 PASS_COUNT=0
 FAIL_COUNT=0
 ERROR_COUNT=0
@@ -93,8 +93,8 @@ record_result() {
             }'
     )
 
-    RESULTS=$(
-        printf '%s\n' "$RESULTS" |
+    CONTROL_DATA=$(
+        printf '%s\n' "$CONTROL_DATA" |
             jq --argjson entry "$entry" '. + [$entry]'
     )
 
@@ -377,7 +377,7 @@ else
 fi
 
 FAMILY_SUMMARY=$(
-    printf '%s\n' "$RESULTS" |
+    printf '%s\n' "$CONTROL_DATA" |
         jq '
             group_by(.family)
             | map({
@@ -430,7 +430,7 @@ jq -n \
     --argjson error_count "$ERROR_COUNT" \
     --argjson pass_percentage "$PASS_PERCENTAGE" \
     --argjson family_summary "$FAMILY_SUMMARY" \
-    --argjson controls "$RESULTS" \
+    --argjson controls "$CONTROL_DATA" \
     '{
         generated_at: $generated_at,
         hostname: $hostname,
@@ -505,7 +505,7 @@ echo "VERDICT: FAIL"
 echo
 echo "Failing controls:"
 
-printf '%s\n' "$RESULTS" |
+printf '%s\n' "$CONTROL_DATA" |
     jq -r '
         .[]
         | select(
