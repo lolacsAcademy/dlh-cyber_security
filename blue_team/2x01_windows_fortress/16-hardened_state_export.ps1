@@ -12,6 +12,7 @@ Author: Student
 # NTLMv1
 # SMBv1
 # SMB signing
+# password age
 #>
 
 Set-StrictMode -Version Latest
