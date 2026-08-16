@@ -13,6 +13,7 @@ Author: Student
 # SMBv1
 # SMB signing
 # password age
+# privileged membership
 #>
 
 Set-StrictMode -Version Latest
