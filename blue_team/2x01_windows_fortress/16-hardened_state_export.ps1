@@ -9,6 +9,7 @@ Author: Student
 # DES
 # RC4
 # AES
+# NTLMv1
 #>
 
 Set-StrictMode -Version Latest
