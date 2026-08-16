@@ -4,6 +4,7 @@ Purpose: Export the final MedDefense hardened Windows state to JSON.
 Author: Student
 # Required Security audit Event IDs: 4624, 4625, 4688, 1102
 # Script Block Logging
+# Get-AppLockerPolicy
 #>
 
 Set-StrictMode -Version Latest
