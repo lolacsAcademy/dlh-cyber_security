@@ -5,6 +5,7 @@ Purpose: Audit and harden MedDefense service accounts.
 # excessive
 # old
 # Suspicious svc_ehr last logon reference: 03:17 AM
+# suspicious
 #>
 
 Set-StrictMode -Version Latest
