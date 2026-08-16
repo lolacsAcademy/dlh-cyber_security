@@ -3,6 +3,7 @@ Script Name: 15-master_validation.ps1
 Purpose: Weekly MedDefense Windows hardening compliance validation.
 Author: Student
 Read-only: This script makes no system changes.
+# service accounts
 #>
 
 Set-StrictMode -Version Latest
