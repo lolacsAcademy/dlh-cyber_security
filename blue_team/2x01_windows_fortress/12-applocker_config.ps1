@@ -6,6 +6,7 @@ Date: 2026-08-16
 # .bat
 # .cmd
 # .vbs
+# Deny all other locations
 #>
 
 Set-StrictMode -Version Latest
