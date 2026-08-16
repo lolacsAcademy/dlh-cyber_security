@@ -408,6 +408,7 @@ FAMILY_SUMMARY=$(
         '
 )
 
+# fail_count == 0 and error_count == 0
 if [ "$FAIL_COUNT" -eq 0 ] &&
     [ "$ERROR_COUNT" -eq 0 ]; then
     VERDICT="pass"
