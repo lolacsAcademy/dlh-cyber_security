@@ -3,6 +3,7 @@ Script Name: 16-hardened_state_export.ps1
 Purpose: Export the final MedDefense hardened Windows state to JSON.
 Author: Student
 # Required Security audit Event IDs: 4624, 4625, 4688, 1102
+# Script Block Logging
 #>
 
 Set-StrictMode -Version Latest
