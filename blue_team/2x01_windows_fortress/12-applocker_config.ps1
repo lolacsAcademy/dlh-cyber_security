@@ -7,6 +7,7 @@ Date: 2026-08-16
 # .cmd
 # .vbs
 # Deny all other locations
+# Export-AppLockerPolicy
 #>
 
 Set-StrictMode -Version Latest
