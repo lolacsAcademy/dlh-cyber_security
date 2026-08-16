@@ -1,6 +1,7 @@
 <#
 Script Name: 14-service_accounts.ps1
 Purpose: Audit and harden MedDefense service accounts.
+# Author: Student
 #>
 
 Set-StrictMode -Version Latest
