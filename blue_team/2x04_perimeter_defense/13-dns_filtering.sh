@@ -1,5 +1,6 @@
 #!/bin/bash
 # jq
+# .json
 set -euo pipefail
 
 BLOCKLIST="/home/analyst/MedDefense_Lab/dns/blocklist.txt"
