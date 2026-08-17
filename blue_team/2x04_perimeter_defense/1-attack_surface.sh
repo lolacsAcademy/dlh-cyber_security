@@ -2,6 +2,7 @@
 # dpkg -S
 # systemctl show
 # web
+# ssh
 set -euo pipefail
 
 BASELINE="network_baseline.json"
