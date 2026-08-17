@@ -18,7 +18,7 @@ function Add($sev,$cat,$asset,$ev,$risk,$rem,$task){
 
 $pw = Get-ADDefaultDomainPasswordPolicy
 $users = Get-ADUser -Filter * -Properties PasswordNeverExpires,Enabled,PasswordLastSet,MemberOf
-$svc = Get-ADUser -Filter 'Name -like "*svc*"' -Properties TrustedForDelegation,UseDESKeyOnly,PasswordLastSet,LastLogonDate,MemberOf
+$svc = Get-ADUser -Filter 'Name -like "*svc*"' -Properties TrustedForDelegation,UseDESKeyOnly,PasswordLastSet,LastLogonDate,MemberOf,ServicePrincipalName
 $gpos = Get-GPO -All
 $stale = @(Get-ADComputer -Filter * -Properties LastLogonDate | Where-Object { -not $_.LastLogonDate -or $_.LastLogonDate -lt (Get-Date).AddDays(-90) })
 
@@ -38,6 +38,9 @@ $des = @($svc | Where-Object UseDESKeyOnly)
 if ($des.Count -gt 0) { Add "HIGH" "Service Accounts" "$($des.Count) accounts" "DES-only Kerberos" "Weak encryption" "Disable DES flag" "Task 7" }
 
 Add "HIGH" "Service Accounts" "Domain" "Service accounts allow interactive logon" "Increases attack surface" "Deny interactive logon via GPO" "Task 7"
+
+$spn = @($svc | Where-Object { $_.ServicePrincipalName.Count -gt 0 })
+if ($spn.Count -gt 0) { Add "HIGH" "Service Accounts" "$($spn.Count) accounts" "SPN configured, Kerberoastable" "Offline password cracking" "Use strong password, gMSA" "Task 7" }
 
 $stalePw = @($svc | Where-Object { $_.PasswordLastSet -lt (Get-Date).AddDays(-90) })
 if ($stalePw.Count -gt 0) { Add "MEDIUM" "Service Accounts" "$($stalePw.Count) accounts" "Password not rotated 90+ days" "Stale credential risk" "Rotate password" "Task 7" }

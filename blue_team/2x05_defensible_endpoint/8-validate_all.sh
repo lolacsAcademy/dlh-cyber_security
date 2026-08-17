@@ -38,7 +38,7 @@ fi
 
 mkdir -p "capstone"
 
-RESULTS='[]'
+CONTROL_DATA='[]'
 PASS_COUNT=0
 FAIL_COUNT=0
 ERROR_COUNT=0
@@ -93,8 +93,8 @@ record_result() {
             }'
     )
 
-    RESULTS=$(
-        printf '%s\n' "$RESULTS" |
+    CONTROL_DATA=$(
+        printf '%s\n' "$CONTROL_DATA" |
             jq --argjson entry "$entry" '. + [$entry]'
     )
 
@@ -377,7 +377,7 @@ else
 fi
 
 FAMILY_SUMMARY=$(
-    printf '%s\n' "$RESULTS" |
+    printf '%s\n' "$CONTROL_DATA" |
         jq '
             group_by(.family)
             | map({
@@ -408,6 +408,7 @@ FAMILY_SUMMARY=$(
         '
 )
 
+# fail_count == 0 and error_count == 0
 if [ "$FAIL_COUNT" -eq 0 ] &&
     [ "$ERROR_COUNT" -eq 0 ]; then
     VERDICT="pass"
@@ -430,7 +431,7 @@ jq -n \
     --argjson error_count "$ERROR_COUNT" \
     --argjson pass_percentage "$PASS_PERCENTAGE" \
     --argjson family_summary "$FAMILY_SUMMARY" \
-    --argjson controls "$RESULTS" \
+    --argjson controls "$CONTROL_DATA" \
     '{
         generated_at: $generated_at,
         hostname: $hostname,
@@ -457,6 +458,7 @@ mv "$TMP_OUT" "$OUT"
 
 # ------------------------------------------------------------
 # Clean family table
+# family totals table
 # ------------------------------------------------------------
 
 echo
@@ -488,11 +490,11 @@ printf '%s\n' "$FAMILY_SUMMARY" |
     done
 
 echo
-echo "Total controls:  $TOTAL_CONTROLS"
+echo "total controls:  $TOTAL_CONTROLS"
 echo "Pass:            $PASS_COUNT"
 echo "Fail:            $FAIL_COUNT"
 echo "Error:           $ERROR_COUNT"
-echo "Pass percentage: ${PASS_PERCENTAGE}%"
+echo "pass percentage: ${PASS_PERCENTAGE}%"
 echo "Report saved to: $OUT"
 
 if [ "$VERDICT" = "pass" ]; then
@@ -505,7 +507,7 @@ echo "VERDICT: FAIL"
 echo
 echo "Failing controls:"
 
-printf '%s\n' "$RESULTS" |
+printf '%s\n' "$CONTROL_DATA" |
     jq -r '
         .[]
         | select(
