@@ -3,6 +3,7 @@
 # systemctl show
 # web
 # ssh
+# high
 set -euo pipefail
 
 BASELINE="network_baseline.json"
