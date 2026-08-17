@@ -3,6 +3,7 @@
 # reconnaissance
 # exploit
 # lateral_movement
+# exfiltration
 set -euo pipefail
 
 PCAP="${1:-/home/analyst/MedDefense_Lab/PCAPs/mixed_traffic.pcap}"
