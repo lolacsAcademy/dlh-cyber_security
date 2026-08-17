@@ -1,4 +1,5 @@
 #!/bin/bash
+# fileinfo
 set -euo pipefail
 
 RULES_SRC="/home/analyst/MedDefense_Lab/suricata/rules"
