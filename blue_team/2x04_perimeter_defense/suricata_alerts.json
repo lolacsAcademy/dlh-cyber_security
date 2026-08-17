@@ -1,0 +1,271 @@
+{
+  "pcap": "/home/analyst/MedDefense_Lab/PCAPs/mixed_traffic.pcap",
+  "started_at": "2026-08-17T13:11:00Z",
+  "finished_at": "2026-08-17T13:13:02Z",
+  "total_alerts": 17,
+  "unique_signatures": 9,
+  "severity_distribution": {
+    "1": 10,
+    "2": 6,
+    "3": 1
+  },
+  "by_category": {
+    "exfiltration": 1,
+    "lateral_movement": 1,
+    "malware_c2": 9,
+    "other": 4,
+    "policy_violation": 1,
+    "reconnaissance": 1
+  },
+  "top_sources": [
+    {
+      "ip": "10.10.1.10",
+      "count": 10
+    },
+    {
+      "ip": "185.220.101.42",
+      "count": 4
+    },
+    {
+      "ip": "10.10.1.99",
+      "count": 3
+    }
+  ],
+  "top_destinations": [
+    {
+      "ip": "185.220.101.42",
+      "count": 9
+    },
+    {
+      "ip": "10.10.1.10",
+      "count": 7
+    },
+    {
+      "ip": "8.8.8.8",
+      "count": 1
+    }
+  ],
+  "alerts": [
+    {
+      "timestamp": "2025-08-13T17:46:50.360000+0200",
+      "src_ip": "10.10.1.99",
+      "src_port": 41900,
+      "dst_ip": "10.10.1.10",
+      "dst_port": 23,
+      "proto": "TCP",
+      "signature": "MEDDEFENSE LOCAL POLICY Cleartext Telnet Session Observed",
+      "signature_id": 9500005,
+      "category": "Potential Corporate Privacy Violation",
+      "severity": 1,
+      "mapped_category": "policy_violation"
+    },
+    {
+      "timestamp": "2025-08-13T17:46:51.680000+0200",
+      "src_ip": "10.10.1.99",
+      "src_port": 52998,
+      "dst_ip": "10.10.1.10",
+      "dst_port": 993,
+      "proto": "TCP",
+      "signature": "MEDDEFENSE LOCAL SCAN Multiple Distinct Destination Ports From Single Source",
+      "signature_id": 9500001,
+      "category": "Detection of a Network Scan",
+      "severity": 3,
+      "mapped_category": "reconnaissance"
+    },
+    {
+      "timestamp": "2025-08-13T17:46:53.350000+0200",
+      "src_ip": "10.10.1.99",
+      "src_port": 44521,
+      "dst_ip": "10.10.1.10",
+      "dst_port": 445,
+      "proto": "TCP",
+      "signature": "ET POLICY PsExec service created",
+      "signature_id": 2010781,
+      "category": "A suspicious filename was detected",
+      "severity": 2,
+      "mapped_category": "lateral_movement"
+    },
+    {
+      "timestamp": "2025-08-13T17:47:00.050000+0200",
+      "src_ip": "185.220.101.42",
+      "src_port": 8080,
+      "dst_ip": "10.10.1.10",
+      "dst_port": 55000,
+      "proto": "TCP",
+      "signature": "ET TOR Known Tor Exit Node Traffic group 43",
+      "signature_id": 2520042,
+      "category": "Misc Attack",
+      "severity": 2,
+      "mapped_category": "other"
+    },
+    {
+      "timestamp": "2025-08-13T17:47:00.050000+0200",
+      "src_ip": "185.220.101.42",
+      "src_port": 8080,
+      "dst_ip": "10.10.1.10",
+      "dst_port": 55000,
+      "proto": "TCP",
+      "signature": "ET TOR Known Tor Relay/Router (Not Exit) Node Traffic group 43",
+      "signature_id": 2522042,
+      "category": "Misc Attack",
+      "severity": 2,
+      "mapped_category": "other"
+    },
+    {
+      "timestamp": "2025-08-13T17:47:00.300000+0200",
+      "src_ip": "10.10.1.10",
+      "src_port": 55000,
+      "dst_ip": "185.220.101.42",
+      "dst_port": 8080,
+      "proto": "TCP",
+      "signature": "ET MALWARE Adaptix C2 X-Beacon-Id HTTP Header Observed",
+      "signature_id": 2063045,
+      "category": "A Network Trojan was detected",
+      "severity": 1,
+      "mapped_category": "malware_c2"
+    },
+    {
+      "timestamp": "2025-08-13T17:47:00.300000+0200",
+      "src_ip": "10.10.1.10",
+      "src_port": 55000,
+      "dst_ip": "185.220.101.42",
+      "dst_port": 8080,
+      "proto": "TCP",
+      "signature": "ET HUNTING Suspicious Fake Windows User-Agent in HTTP Header",
+      "signature_id": 2063592,
+      "category": "A Network Trojan was detected",
+      "severity": 1,
+      "mapped_category": "malware_c2"
+    },
+    {
+      "timestamp": "2025-08-13T17:47:00.300000+0200",
+      "src_ip": "10.10.1.10",
+      "src_port": 55000,
+      "dst_ip": "185.220.101.42",
+      "dst_port": 8080,
+      "proto": "TCP",
+      "signature": "MEDDEFENSE LOCAL TROJAN Cobalt Strike Style Beacon Check-in",
+      "signature_id": 9500003,
+      "category": "A Network Trojan was detected",
+      "severity": 1,
+      "mapped_category": "malware_c2"
+    },
+    {
+      "timestamp": "2025-08-13T17:47:30.300000+0200",
+      "src_ip": "10.10.1.10",
+      "src_port": 55001,
+      "dst_ip": "185.220.101.42",
+      "dst_port": 8080,
+      "proto": "TCP",
+      "signature": "ET MALWARE Adaptix C2 X-Beacon-Id HTTP Header Observed",
+      "signature_id": 2063045,
+      "category": "A Network Trojan was detected",
+      "severity": 1,
+      "mapped_category": "malware_c2"
+    },
+    {
+      "timestamp": "2025-08-13T17:47:30.300000+0200",
+      "src_ip": "10.10.1.10",
+      "src_port": 55001,
+      "dst_ip": "185.220.101.42",
+      "dst_port": 8080,
+      "proto": "TCP",
+      "signature": "ET HUNTING Suspicious Fake Windows User-Agent in HTTP Header",
+      "signature_id": 2063592,
+      "category": "A Network Trojan was detected",
+      "severity": 1,
+      "mapped_category": "malware_c2"
+    },
+    {
+      "timestamp": "2025-08-13T17:47:30.300000+0200",
+      "src_ip": "10.10.1.10",
+      "src_port": 55001,
+      "dst_ip": "185.220.101.42",
+      "dst_port": 8080,
+      "proto": "TCP",
+      "signature": "MEDDEFENSE LOCAL TROJAN Cobalt Strike Style Beacon Check-in",
+      "signature_id": 9500003,
+      "category": "A Network Trojan was detected",
+      "severity": 1,
+      "mapped_category": "malware_c2"
+    },
+    {
+      "timestamp": "2025-08-13T17:47:50.000000+0200",
+      "src_ip": "10.10.1.10",
+      "src_port": 57948,
+      "dst_ip": "8.8.8.8",
+      "dst_port": 53,
+      "proto": "UDP",
+      "signature": "MEDDEFENSE LOCAL DNS Long Label Possible Tunneling/Exfil",
+      "signature_id": 9500004,
+      "category": "Potentially Bad Traffic",
+      "severity": 2,
+      "mapped_category": "exfiltration"
+    },
+    {
+      "timestamp": "2025-08-13T17:48:00.050000+0200",
+      "src_ip": "185.220.101.42",
+      "src_port": 8080,
+      "dst_ip": "10.10.1.10",
+      "dst_port": 55002,
+      "proto": "TCP",
+      "signature": "ET TOR Known Tor Exit Node Traffic group 43",
+      "signature_id": 2520042,
+      "category": "Misc Attack",
+      "severity": 2,
+      "mapped_category": "other"
+    },
+    {
+      "timestamp": "2025-08-13T17:48:00.050000+0200",
+      "src_ip": "185.220.101.42",
+      "src_port": 8080,
+      "dst_ip": "10.10.1.10",
+      "dst_port": 55002,
+      "proto": "TCP",
+      "signature": "ET TOR Known Tor Relay/Router (Not Exit) Node Traffic group 43",
+      "signature_id": 2522042,
+      "category": "Misc Attack",
+      "severity": 2,
+      "mapped_category": "other"
+    },
+    {
+      "timestamp": "2025-08-13T17:48:00.300000+0200",
+      "src_ip": "10.10.1.10",
+      "src_port": 55002,
+      "dst_ip": "185.220.101.42",
+      "dst_port": 8080,
+      "proto": "TCP",
+      "signature": "ET MALWARE Adaptix C2 X-Beacon-Id HTTP Header Observed",
+      "signature_id": 2063045,
+      "category": "A Network Trojan was detected",
+      "severity": 1,
+      "mapped_category": "malware_c2"
+    },
+    {
+      "timestamp": "2025-08-13T17:48:00.300000+0200",
+      "src_ip": "10.10.1.10",
+      "src_port": 55002,
+      "dst_ip": "185.220.101.42",
+      "dst_port": 8080,
+      "proto": "TCP",
+      "signature": "ET HUNTING Suspicious Fake Windows User-Agent in HTTP Header",
+      "signature_id": 2063592,
+      "category": "A Network Trojan was detected",
+      "severity": 1,
+      "mapped_category": "malware_c2"
+    },
+    {
+      "timestamp": "2025-08-13T17:48:00.300000+0200",
+      "src_ip": "10.10.1.10",
+      "src_port": 55002,
+      "dst_ip": "185.220.101.42",
+      "dst_port": 8080,
+      "proto": "TCP",
+      "signature": "MEDDEFENSE LOCAL TROJAN Cobalt Strike Style Beacon Check-in",
+      "signature_id": 9500003,
+      "category": "A Network Trojan was detected",
+      "severity": 1,
+      "mapped_category": "malware_c2"
+    }
+  ]
+}
