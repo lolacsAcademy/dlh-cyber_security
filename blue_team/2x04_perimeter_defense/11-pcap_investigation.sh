@@ -1,6 +1,7 @@
 #!/bin/bash
 # top 10
 # protocol distribution
+# pcap_investigation.json
 set -euo pipefail
 
 PCAP="${1:-/home/analyst/MedDefense_Lab/PCAPs/suspicious_session.pcap}"
