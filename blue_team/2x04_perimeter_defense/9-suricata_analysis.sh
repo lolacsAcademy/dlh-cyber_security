@@ -1,5 +1,6 @@
 #!/bin/bash
 # $1
+# reconnaissance
 set -euo pipefail
 
 PCAP="${1:-/home/analyst/MedDefense_Lab/PCAPs/mixed_traffic.pcap}"
