@@ -4,6 +4,7 @@
 # web
 # ssh
 # high
+# medium
 set -euo pipefail
 
 BASELINE="network_baseline.json"
