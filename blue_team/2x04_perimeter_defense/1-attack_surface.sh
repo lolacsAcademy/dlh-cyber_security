@@ -1,4 +1,5 @@
 #!/bin/bash
+# dpkg -S
 set -euo pipefail
 
 BASELINE="network_baseline.json"
