@@ -1,0 +1,22 @@
+{
+  "dnsmasq_version": "2.90",
+  "blocklist_domain_count": 814,
+  "service_status": "active",
+  "validation": [
+    {
+      "domain": "ubuntu.com",
+      "result": "185.125.190.21",
+      "expected": "allow"
+    },
+    {
+      "domain": "c2.example",
+      "result": "0.0.0.0",
+      "expected": "sinkhole"
+    },
+    {
+      "domain": "ubuntu.com",
+      "result": "185.125.190.21",
+      "expected": "allow"
+    }
+  ]
+}

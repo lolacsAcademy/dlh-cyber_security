@@ -11,4 +11,4 @@ File 5: `8-suricata_setup.sh, suricata.yaml, setup_verification.json`
 File 6: `9-suricata_analysis.sh, suricata_alerts.json`
 File 7: `meddefense.rules, 10-rule_validation.sh`
 File 8: `11-pcap_investigation.sh, pcap_findings.json`
-File 9: `13-dns_filtering.sh`
+File 9: `13-dns_filtering.sh, dnsfilterreport.json`

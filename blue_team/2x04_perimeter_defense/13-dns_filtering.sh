@@ -2,6 +2,7 @@
 # jq
 # .json
 # idempotent
+# do not rewrite /etc/resolv.conf
 set -euo pipefail
 
 BLOCKLIST="/home/analyst/MedDefense_Lab/dns/blocklist.txt"
@@ -71,3 +72,23 @@ if [ -n "$NEUTRAL_RESULT" ] && [ "$NEUTRAL_RESULT" != "0.0.0.0" ]; then
 else
   echo "      -> $NEUTRAL_RESULT            expected allow      FAIL"
 fi
+
+jq -n \
+  --arg dnsmasq_version "$VERSION" \
+  --argjson domain_count "$DOMAIN_COUNT" \
+  --arg service_status "$STATUS" \
+  --arg allow_domain "$ALLOW_DOMAIN" --arg allow_result "$ALLOW_RESULT" \
+  --arg block_domain "$BLOCK_DOMAIN" --arg block_result "$BLOCK_RESULT" \
+  --arg neutral_domain "$NEUTRAL_DOMAIN" --arg neutral_result "$NEUTRAL_RESULT" \
+  '{
+    dnsmasq_version: $dnsmasq_version,
+    blocklist_domain_count: $domain_count,
+    service_status: $service_status,
+    validation: [
+      {domain: $allow_domain, result: $allow_result, expected: "allow"},
+      {domain: $block_domain, result: $block_result, expected: "sinkhole"},
+      {domain: $neutral_domain, result: $neutral_result, expected: "allow"}
+    ]
+  }' > dnsfilterreport.json
+
+echo "DNS filter report written to dnsfilterreport.json"
