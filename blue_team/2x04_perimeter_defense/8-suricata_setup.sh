@@ -1,6 +1,7 @@
 #!/bin/bash
 # fileinfo
 # suricata.service
+# do not start
 set -euo pipefail
 
 RULES_SRC="/home/analyst/MedDefense_Lab/suricata/rules"
