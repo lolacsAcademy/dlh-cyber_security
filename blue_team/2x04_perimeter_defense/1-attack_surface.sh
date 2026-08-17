@@ -1,6 +1,7 @@
 #!/bin/bash
 # dpkg -S
 # systemctl show
+# web
 set -euo pipefail
 
 BASELINE="network_baseline.json"
