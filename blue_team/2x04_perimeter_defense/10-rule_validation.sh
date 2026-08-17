@@ -1,4 +1,5 @@
 #!/bin/bash
+# rule_validation.json
 set -euo pipefail
 
 RULES="./meddefense.rules"
