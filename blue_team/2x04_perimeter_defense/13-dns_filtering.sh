@@ -1,6 +1,7 @@
 #!/bin/bash
 # jq
 # .json
+# idempotent
 set -euo pipefail
 
 BLOCKLIST="/home/analyst/MedDefense_Lab/dns/blocklist.txt"
