@@ -9,94 +9,121 @@ trap 'rm -f "$TMP"' EXIT
 
 echo '[]' > "$TMP"
 
-for category in windows linux network; do
-    while IFS= read -r file; do
-        path="${file#"$PACK_ROOT"/}"
-        size=$(stat -c '%s' "$file")
-        hash=$(sha256sum "$file" | awk '{print $1}')
-        first=""
-        last=""
+add_file() {
+    local file="$1"
+    local type="$2"
+    local count_key="$3"
+    local count="$4"
+    local first="$5"
+    local last="$6"
 
-        if [ "$category" = "windows" ]; then
-            type="windows_json"
-            count_key="record_count"
-            count=$(wc -l < "$file")
+    local path size hash item
+    path="${file#"$PACK_ROOT"/}"
+    size=$(stat -c '%s' "$file")
+    hash=$(sha256sum "$file" | awk '{print $1}')
 
-            first=$(jq -r '.timestamp_raw // empty' "$file" | sort | sed -n '1p')
-            last=$(jq -r '.timestamp_raw // empty' "$file" | sort | tail -n 1)
+    item=$(jq -n \
+        --arg path "$path" \
+        --arg type "$type" \
+        --argjson size "$size" \
+        --arg hash "$hash" \
+        --arg key "$count_key" \
+        --argjson count "$count" \
+        --arg first "$first" \
+        --arg last "$last" \
+        '{
+          path: $path,
+          source_type: $type,
+          size_bytes: $size,
+          sha256: $hash,
+          first_event_time: $first,
+          last_event_time: $last
+        } + {($key): $count}')
 
-        elif [ "$category" = "linux" ]; then
-            type="linux_text"
-            count_key="line_count"
-            count=$(wc -l < "$file")
+    jq --argjson item "$item" '. + [$item]' "$TMP" > "$TMP.new"
+    mv "$TMP.new" "$TMP"
+}
 
-            if [ "$(basename "$file")" = "audit.log" ]; then
-                first_raw=$(grep -o 'audit([0-9]*' "$file" | grep -o '[0-9]*' | sort -n | sed -n '1p')
-                last_raw=$(grep -o 'audit([0-9]*' "$file" | grep -o '[0-9]*' | sort -n | tail -n 1)
+for file in "$PACK_ROOT/windows"/*.json; do
+    [ -f "$file" ] || continue
 
-                first=$(date -u -d "@$first_raw" '+%Y-%m-%dT%H:%M:%SZ')
-                last=$(date -u -d "@$last_raw" '+%Y-%m-%dT%H:%M:%SZ')
-            else
-                first_raw=$(sed -n '1p' "$file" | grep -Eo '[A-Z][a-z]{2} +[0-9]{1,2} [0-9]{2}:[0-9]{2}:[0-9]{2}' || true)
-                last_raw=$(tail -n 1 "$file" | grep -Eo '[A-Z][a-z]{2} +[0-9]{1,2} [0-9]{2}:[0-9]{2}:[0-9]{2}' || true)
+    if jq -e -s 'length == 1 and (.[0] | type == "array")' "$file" >/dev/null 2>&1; then
+        count=$(jq 'length' "$file")
+        first=$(jq -r 'map(.timestamp_raw) | min' "$file")
+        last=$(jq -r 'map(.timestamp_raw) | max' "$file")
+    else
+        count=$(jq -s 'length' "$file")
+        first=$(jq -sr 'map(.timestamp_raw) | min' "$file")
+        last=$(jq -sr 'map(.timestamp_raw) | max' "$file")
+    fi
 
-                [ -n "$first_raw" ] && first=$(date -u -d "$first_raw 2026" '+%Y-%m-%dT%H:%M:%SZ')
-                [ -n "$last_raw" ] && last=$(date -u -d "$last_raw 2026" '+%Y-%m-%dT%H:%M:%SZ')
-            fi
+    add_file "$file" "windows_json" "record_count" "$count" "$first" "$last"
+done
 
-        elif [[ "$file" == *.csv ]]; then
-            type="network_csv"
-            count_key="record_count"
-            lines=$(wc -l < "$file")
-            count=$((lines > 0 ? lines - 1 : 0))
+for file in "$PACK_ROOT/linux"/*; do
+    [ -f "$file" ] || continue
 
-            first_raw=$(tail -n +2 "$file" | cut -d, -f1 | sort -n | sed -n '1p')
-            last_raw=$(tail -n +2 "$file" | cut -d, -f1 | sort -n | tail -n 1)
+    count=$(wc -l < "$file")
 
-            first=$(date -u -d "@$first_raw" '+%Y-%m-%dT%H:%M:%SZ')
-            last=$(date -u -d "@$last_raw" '+%Y-%m-%dT%H:%M:%SZ')
+    if [ "$(basename "$file")" = "audit.log" ]; then
+        first_epoch=$(sed -n 's/.*audit(\([0-9][0-9]*\)\.[0-9][0-9]*:.*/\1/p' "$file" | sort -n | sed -n '1p')
+        last_epoch=$(sed -n 's/.*audit(\([0-9][0-9]*\)\.[0-9][0-9]*:.*/\1/p' "$file" | sort -n | tail -n 1)
 
-        else
-            type="network_json"
-            count_key="record_count"
-            count=$(wc -l < "$file")
+        first=$(date -u -d "@$first_epoch" '+%Y-%m-%dT%H:%M:%SZ')
+        last=$(date -u -d "@$last_epoch" '+%Y-%m-%dT%H:%M:%SZ')
+    else
+        year=$(date -u -d "@$(stat -c '%Y' "$file")" '+%Y')
 
-            if [ "$(basename "$file")" = "pcap_summary.json" ]; then
-                first_raw=$(jq -r '.start_time // empty' "$file" | while read -r t; do date -u -d "$t" '+%Y-%m-%dT%H:%M:%SZ'; done | sort | sed -n '1p')
-                last_raw=$(jq -r '.end_time // empty' "$file" | while read -r t; do date -u -d "$t" '+%Y-%m-%dT%H:%M:%SZ'; done | sort | tail -n 1)
-                first="$first_raw"
-                last="$last_raw"
-            else
-                first_raw=$(jq -r '.timestamp // empty' "$file" | sort | sed -n '1p')
-                last_raw=$(jq -r '.timestamp // empty' "$file" | sort | tail -n 1)
+        first_raw=$(sed -n '1{s/^\([A-Z][a-z][a-z] *[0-9][0-9]* [0-9:]*\).*/\1/p}' "$file")
+        last_raw=$(sed -n '$s/^\([A-Z][a-z][a-z] *[0-9][0-9]* [0-9:]*\).*/\1/p' "$file")
 
-                [ -n "$first_raw" ] && first=$(date -u -d "$first_raw" '+%Y-%m-%dT%H:%M:%SZ')
-                [ -n "$last_raw" ] && last=$(date -u -d "$last_raw" '+%Y-%m-%dT%H:%M:%SZ')
-            fi
-        fi
+        first=$(date -u -d "$first_raw $year" '+%Y-%m-%dT%H:%M:%SZ')
+        last=$(date -u -d "$last_raw $year" '+%Y-%m-%dT%H:%M:%SZ')
+    fi
 
-        entry=$(jq -n \
-            --arg path "$path" \
-            --arg type "$type" \
-            --argjson size "$size" \
-            --arg hash "$hash" \
-            --arg key "$count_key" \
-            --argjson count "$count" \
-            --arg first "$first" \
-            --arg last "$last" \
-            '{
-                path: $path,
-                source_type: $type,
-                size_bytes: $size,
-                sha256: $hash,
-                first_event_time: (if $first == "" then null else $first end),
-                last_event_time: (if $last == "" then null else $last end)
-            } + {($key): $count}')
+    add_file "$file" "linux_text" "line_count" "$count" "$first" "$last"
+done
 
-        jq --argjson item "$entry" '. + [$item]' "$TMP" > "$TMP.new"
-        mv "$TMP.new" "$TMP"
+for file in "$PACK_ROOT/network"/*; do
+    [ -f "$file" ] || continue
 
-    done < <(find "$PACK_ROOT/$category" -maxdepth 1 -type f | sort)
+    if [[ "$file" == *.csv ]]; then
+        count=$(awk 'END {print (NR > 0 ? NR - 1 : 0)}' "$file")
+        first_epoch=$(awk -F, 'NR > 1 {print $1}' "$file" | sort -n | sed -n '1p')
+        last_epoch=$(awk -F, 'NR > 1 {print $1}' "$file" | sort -n | tail -n 1)
+
+        first=$(date -u -d "@$first_epoch" '+%Y-%m-%dT%H:%M:%SZ')
+        last=$(date -u -d "@$last_epoch" '+%Y-%m-%dT%H:%M:%SZ')
+
+        add_file "$file" "network_csv" "record_count" "$count" "$first" "$last"
+
+    elif [ "$(basename "$file")" = "pcap_summary.json" ]; then
+        count=$(jq -s 'length' "$file")
+
+        first_epoch=$(jq -r '.start_time' "$file" |
+            while IFS= read -r t; do date -u -d "$t" '+%s'; done |
+            sort -n | sed -n '1p')
+
+        last_epoch=$(jq -r '.end_time' "$file" |
+            while IFS= read -r t; do date -u -d "$t" '+%s'; done |
+            sort -n | tail -n 1)
+
+        first=$(date -u -d "@$first_epoch" '+%Y-%m-%dT%H:%M:%SZ')
+        last=$(date -u -d "@$last_epoch" '+%Y-%m-%dT%H:%M:%SZ')
+
+        add_file "$file" "network_json" "record_count" "$count" "$first" "$last"
+
+    else
+        count=$(jq -s 'length' "$file")
+
+        first=$(jq -sr 'map(.timestamp) | min' "$file" |
+            xargs -I{} date -u -d "{}" '+%Y-%m-%dT%H:%M:%SZ')
+
+        last=$(jq -sr 'map(.timestamp) | max' "$file" |
+            xargs -I{} date -u -d "{}" '+%Y-%m-%dT%H:%M:%SZ')
+
+        add_file "$file" "network_json" "record_count" "$count" "$first" "$last"
+    fi
 done
 
 jq '.' "$TMP" > "$OUT"
