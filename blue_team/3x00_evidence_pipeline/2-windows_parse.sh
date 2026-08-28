@@ -4,7 +4,7 @@ set -euo pipefail
 
 PACK="$HOME/evidence_pack_primary"
 OUT="windows_events.json"
-TMP=$(mktemp)
+TMP="${OUT}.tmp"
 
 trap 'rm -f "$TMP"' EXIT
 
@@ -17,13 +17,45 @@ from datetime import datetime, timezone
 pack = Path(sys.argv[1])
 out = Path(sys.argv[2])
 
-required = [
-    "timestamp_raw", "hostname", "event_id", "channel",
-    "provider", "raw_message", "event_data", "source_origin"
-]
+required = (
+    "timestamp_raw",
+    "hostname",
+    "event_id",
+    "channel",
+    "provider",
+    "raw_message",
+    "event_data",
+    "source_origin",
+)
 
 records = []
 counts = {}
+
+
+def parse_time(value):
+    if not value:
+        return None
+
+    text = str(value).strip()
+
+    if text.endswith("Z"):
+        text = text[:-1] + "+00:00"
+
+    if len(text) >= 5 and (
+        text[-5] in "+-" and text[-2:].isdigit()
+    ):
+        text = text[:-2] + ":" + text[-2:]
+
+    try:
+        dt = datetime.fromisoformat(text)
+
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+
+        return dt.astimezone(timezone.utc)
+    except ValueError:
+        return None
+
 
 def read_evidence(path):
     count = 0
@@ -35,23 +67,33 @@ def read_evidence(path):
 
             try:
                 record = json.loads(line)
-            except json.JSONDecodeError:
-                raise ValueError(f"{path.name}:{line_no}: invalid JSON")
+            except json.JSONDecodeError as e:
+                raise ValueError(
+                    f"{path.name}:{line_no}: invalid JSON"
+                ) from e
 
             if not isinstance(record, dict):
-                raise ValueError(f"{path.name}:{line_no}: not an object")
+                raise ValueError(
+                    f"{path.name}:{line_no}: record is not an object"
+                )
 
-            for field in required[:-1]:
+            for field in required:
                 if field not in record:
                     raise ValueError(
                         f"{path.name}:{line_no}: missing {field}"
                     )
 
-            record["source_origin"] = "evidence_pack"
+            if record["source_origin"] != "evidence_pack":
+                raise ValueError(
+                    f"{path.name}:{line_no}: "
+                    "source_origin must be evidence_pack"
+                )
+
             records.append(record)
             count += 1
 
     return count
+
 
 for name in ("security.json", "sysmon.json", "powershell.json"):
     path = pack / "windows" / name
@@ -60,6 +102,7 @@ for name in ("security.json", "sysmon.json", "powershell.json"):
         raise FileNotFoundError(f"missing {path}")
 
     counts[name] = read_evidence(path)
+
 
 student = pack / "student_telemetry" / "windows_events.json"
 
@@ -75,41 +118,53 @@ with student.open("r", encoding="utf-8") as f:
 
         try:
             original = json.loads(line)
-        except json.JSONDecodeError:
+        except json.JSONDecodeError as e:
             raise ValueError(
                 f"student telemetry:{line_no}: invalid JSON"
-            )
+            ) from e
 
         if not isinstance(original, dict):
             raise ValueError(
-                f"student telemetry:{line_no}: not an object"
+                f"student telemetry:{line_no}: record is not an object"
             )
 
         record = dict(original)
 
         record["timestamp_raw"] = record.get(
-            "timestamp_raw", record.get("timestamp")
+            "timestamp_raw",
+            record.get("timestamp")
         )
 
         record["provider"] = record.get(
-            "provider", record.get("source_type", "unknown")
+            "provider",
+            record.get("source_type", "unknown")
         )
 
         record["channel"] = record.get(
-            "channel", record.get("event_category", "unknown")
+            "channel",
+            record.get("event_category", "unknown")
         )
 
         record["raw_message"] = record.get(
-            "raw_message", record.get("command_line", "")
+            "raw_message",
+            record.get("command_line", "")
         )
 
         record["event_data"] = record.get(
             "event_data",
             {
-                k: v for k, v in original.items()
-                if k not in {
-                    "timestamp", "hostname", "source_type",
-                    "event_category", "event_id", "raw_message"
+                key: value
+                for key, value in original.items()
+                if key not in {
+                    "timestamp",
+                    "timestamp_raw",
+                    "hostname",
+                    "source_type",
+                    "event_category",
+                    "event_id",
+                    "raw_message",
+                    "command_line",
+                    "source_origin",
                 }
             }
         )
@@ -126,42 +181,60 @@ with student.open("r", encoding="utf-8") as f:
 
         record["source_origin"] = "student_telemetry"
 
+        for field in required:
+            if field not in record:
+                raise ValueError(
+                    f"student telemetry:{line_no}: "
+                    f"missing normalized field {field}"
+                )
+
         records.append(record)
         student_count += 1
 
+
 counts["student telemetry"] = student_count
 
-def sort_key(record):
-    value = record.get("timestamp_raw")
 
-    if not value:
-        return datetime.max.replace(tzinfo=timezone.utc)
+# Stable deterministic ordering.
+# Original order is preserved when timestamps are equal.
+records.sort(
+    key=lambda record: (
+        parse_time(record.get("timestamp_raw"))
+        is None,
+        parse_time(record.get("timestamp_raw"))
+        or datetime.max.replace(tzinfo=timezone.utc),
+    )
+)
 
-    try:
-        text = str(value).replace("Z", "+00:00")
-        dt = datetime.fromisoformat(text)
-
-        if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
-
-        return dt.astimezone(timezone.utc)
-
-    except ValueError:
-        return datetime.max.replace(tzinfo=timezone.utc)
-
-records.sort(key=sort_key)
 
 with out.open("w", encoding="utf-8") as f:
     for record in records:
-        f.write(json.dumps(record, separators=(",", ":")) + "\n")
+        f.write(
+            json.dumps(
+                record,
+                separators=(",", ":"),
+                ensure_ascii=False
+            )
+            + "\n"
+        )
+
 
 for name in ("security.json", "sysmon.json", "powershell.json"):
-    print(f"reading {name:<18} ... {counts[name]} records")
+    print(
+        f"reading {name:<18} ... "
+        f"{counts[name]} records"
+    )
 
 print(
     f"appending student telemetry ... "
     f"{counts['student telemetry']} records"
 )
 
-print(f"windows_events.json: {len(records)} records")
+print(
+    f"windows_events.json: "
+    f"{len(records)} records"
+)
 PY
+
+mv "$TMP" "$OUT"
+trap - EXIT
