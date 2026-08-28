@@ -8,68 +8,160 @@ TMP=$(mktemp)
 
 trap 'rm -f "$TMP"' EXIT
 
-: > "$TMP"
+python3 - "$PACK" "$TMP" <<'PY'
+import json
+import sys
+from pathlib import Path
+from datetime import datetime, timezone
 
-process_evidence() {
-    local file="$1"
+pack = Path(sys.argv[1])
+out = Path(sys.argv[2])
 
-    jq -c '
-        if type != "object" then
-            error("record is not a JSON object")
-        elif (
-            (has("timestamp_raw") | not) or
-            (has("hostname") | not) or
-            (has("event_id") | not) or
-            (has("channel") | not) or
-            (has("provider") | not) or
-            (has("raw_message") | not) or
-            (has("event_data") | not)
-        ) then
-            error("record is missing a required field")
-        else
-            .source_origin = "evidence_pack"
-        end
-    ' "$file" | tee -a "$TMP" | wc -l
-}
+required = [
+    "timestamp_raw", "hostname", "event_id", "channel",
+    "provider", "raw_message", "event_data", "source_origin"
+]
 
-process_student() {
-    local file="$1"
+records = []
+counts = {}
 
-    jq -c '
-        if type != "object" then
-            error("student telemetry record is not a JSON object")
-        elif (.source_origin? == null or .source_origin == "") then
-            .source_origin = "student_telemetry"
-        else
-            .
-        end
-    ' "$file" | tee -a "$TMP" | wc -l
-}
+def read_evidence(path):
+    count = 0
 
-for name in security.json sysmon.json powershell.json; do
-    file="$PACK/windows/$name"
+    with path.open("r", encoding="utf-8") as f:
+        for line_no, line in enumerate(f, 1):
+            if not line.strip():
+                continue
 
-    if [ ! -f "$file" ]; then
-        echo "Error: missing $file" >&2
-        exit 1
-    fi
+            try:
+                record = json.loads(line)
+            except json.JSONDecodeError:
+                raise ValueError(f"{path.name}:{line_no}: invalid JSON")
 
-    count=$(process_evidence "$file")
-    printf "reading %-18s ... %d records\n" "$name" "$count"
-done
+            if not isinstance(record, dict):
+                raise ValueError(f"{path.name}:{line_no}: not an object")
 
-STUDENT="$PACK/student_telemetry/windows_events.json"
+            for field in required[:-1]:
+                if field not in record:
+                    raise ValueError(
+                        f"{path.name}:{line_no}: missing {field}"
+                    )
 
-if [ ! -f "$STUDENT" ]; then
-    echo "Error: missing $STUDENT" >&2
-    exit 1
-fi
+            record["source_origin"] = "evidence_pack"
+            records.append(record)
+            count += 1
 
-count=$(process_student "$STUDENT")
-printf "appending student telemetry ... %d records\n" "$count"
+    return count
 
-mv "$TMP" "$OUT"
-trap - EXIT
+for name in ("security.json", "sysmon.json", "powershell.json"):
+    path = pack / "windows" / name
 
-total=$(wc -l < "$OUT")
-printf "%s: %d records\n" "$OUT" "$total"
+    if not path.is_file():
+        raise FileNotFoundError(f"missing {path}")
+
+    counts[name] = read_evidence(path)
+
+student = pack / "student_telemetry" / "windows_events.json"
+
+if not student.is_file():
+    raise FileNotFoundError(f"missing {student}")
+
+student_count = 0
+
+with student.open("r", encoding="utf-8") as f:
+    for line_no, line in enumerate(f, 1):
+        if not line.strip():
+            continue
+
+        try:
+            original = json.loads(line)
+        except json.JSONDecodeError:
+            raise ValueError(
+                f"student telemetry:{line_no}: invalid JSON"
+            )
+
+        if not isinstance(original, dict):
+            raise ValueError(
+                f"student telemetry:{line_no}: not an object"
+            )
+
+        record = dict(original)
+
+        record["timestamp_raw"] = record.get(
+            "timestamp_raw", record.get("timestamp")
+        )
+
+        record["provider"] = record.get(
+            "provider", record.get("source_type", "unknown")
+        )
+
+        record["channel"] = record.get(
+            "channel", record.get("event_category", "unknown")
+        )
+
+        record["raw_message"] = record.get(
+            "raw_message", record.get("command_line", "")
+        )
+
+        record["event_data"] = record.get(
+            "event_data",
+            {
+                k: v for k, v in original.items()
+                if k not in {
+                    "timestamp", "hostname", "source_type",
+                    "event_category", "event_id", "raw_message"
+                }
+            }
+        )
+
+        if not record.get("hostname"):
+            raise ValueError(
+                f"student telemetry:{line_no}: missing hostname"
+            )
+
+        if "event_id" not in record:
+            raise ValueError(
+                f"student telemetry:{line_no}: missing event_id"
+            )
+
+        record["source_origin"] = "student_telemetry"
+
+        records.append(record)
+        student_count += 1
+
+counts["student telemetry"] = student_count
+
+def sort_key(record):
+    value = record.get("timestamp_raw")
+
+    if not value:
+        return datetime.max.replace(tzinfo=timezone.utc)
+
+    try:
+        text = str(value).replace("Z", "+00:00")
+        dt = datetime.fromisoformat(text)
+
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+
+        return dt.astimezone(timezone.utc)
+
+    except ValueError:
+        return datetime.max.replace(tzinfo=timezone.utc)
+
+records.sort(key=sort_key)
+
+with out.open("w", encoding="utf-8") as f:
+    for record in records:
+        f.write(json.dumps(record, separators=(",", ":")) + "\n")
+
+for name in ("security.json", "sysmon.json", "powershell.json"):
+    print(f"reading {name:<18} ... {counts[name]} records")
+
+print(
+    f"appending student telemetry ... "
+    f"{counts['student telemetry']} records"
+)
+
+print(f"windows_events.json: {len(records)} records")
+PY
