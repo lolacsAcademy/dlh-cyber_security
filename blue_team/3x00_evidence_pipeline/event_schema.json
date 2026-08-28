@@ -6,12 +6,12 @@
       "name": "timestamp",
       "type": "timestamp",
       "required": true,
-      "description": "Normalized event time.",
-      "justification": "Provides one time field for correlation across all sources.",
+      "description": "Normalized time when the event occurred.",
+      "justification": "Provides one common time value for correlation across sources.",
       "source_mapping": {
         "windows_json": "timestamp_raw",
         "linux_text": "timestamp_raw",
-        "network": "timestamp"
+        "network": "timestamp or derived from source timestamp"
       }
     },
     {
@@ -19,19 +19,19 @@
       "type": "string",
       "required": true,
       "description": "Hostname associated with the event.",
-      "justification": "Identifies which host produced or is associated with the event.",
+      "justification": "Identifies the host involved in the event.",
       "source_mapping": {
         "windows_json": "hostname",
         "linux_text": "hostname",
-        "network": null
+        "network": "hostname when present; otherwise derived from network source"
       }
     },
     {
       "name": "source_type",
       "type": "string",
       "required": true,
-      "description": "Normalized type of telemetry source.",
-      "justification": "Allows downstream analysis to distinguish Windows, Linux, and network events.",
+      "description": "Normalized telemetry source category.",
+      "justification": "Allows downstream analysis to distinguish Windows, Linux, and network telemetry.",
       "source_mapping": {
         "windows_json": "derived constant: windows",
         "linux_text": "derived constant: linux",
@@ -42,8 +42,8 @@
       "name": "event_category",
       "type": "string",
       "required": true,
-      "description": "Normalized category describing the event.",
-      "justification": "Gives detection rules and analysts a consistent way to classify events.",
+      "description": "Normalized category assigned to the event.",
+      "justification": "Provides a consistent category for detection rules and triage.",
       "source_mapping": {
         "windows_json": "derived from channel and event_id",
         "linux_text": "derived from program or audit_type",
@@ -54,10 +54,10 @@
       "name": "severity",
       "type": "integer",
       "required": false,
-      "description": "Severity value when supplied or assigned by normalization.",
+      "description": "Normalized severity when the source provides one.",
       "justification": "Allows analysts to prioritize higher-risk events.",
       "source_mapping": {
-        "windows_json": null,
+        "windows_json": "derived from event_id when a severity mapping exists",
         "linux_text": null,
         "network": "alert.severity"
       }
@@ -67,9 +67,9 @@
       "type": "string",
       "required": false,
       "description": "User account explicitly associated with the event.",
-      "justification": "Supports investigation of account activity without inventing a user when none is present.",
+      "justification": "Supports investigation of account activity without inventing identity data.",
       "source_mapping": {
-        "windows_json": "event_data user field",
+        "windows_json": "event_data.SubjectUserName or event_data.TargetUserName",
         "linux_text": "user",
         "network": null
       }
@@ -78,10 +78,10 @@
       "name": "process_name",
       "type": "string",
       "required": false,
-      "description": "Process name associated with the event when available.",
-      "justification": "Supports process execution detection and investigation.",
+      "description": "Process name when supplied by the source.",
+      "justification": "Supports process-based detection and investigation.",
       "source_mapping": {
-        "windows_json": "event_data Image or process-name field",
+        "windows_json": "event_data.Image",
         "linux_text": "program",
         "network": null
       }
@@ -90,10 +90,10 @@
       "name": "process_id",
       "type": "integer",
       "required": false,
-      "description": "Process identifier when available.",
+      "description": "Process identifier when supplied by the source.",
       "justification": "Helps correlate activity from the same process.",
       "source_mapping": {
-        "windows_json": "event_data ProcessId",
+        "windows_json": "event_data.ProcessId",
         "linux_text": "pid",
         "network": null
       }
@@ -102,11 +102,11 @@
       "name": "src_ip",
       "type": "string",
       "required": false,
-      "description": "Source IP address when present.",
-      "justification": "Supports network-origin and lateral-movement analysis.",
+      "description": "Source IP address when supplied by the source.",
+      "justification": "Supports source attribution and network correlation.",
       "source_mapping": {
-        "windows_json": "event_data SourceIp",
-        "linux_text": "parsed_fields key_values src_ip",
+        "windows_json": "event_data.SourceIp",
+        "linux_text": "parsed_fields.key_values.src_ip",
         "network": "src_ip"
       }
     },
@@ -114,11 +114,11 @@
       "name": "src_port",
       "type": "integer",
       "required": false,
-      "description": "Source network port when present.",
-      "justification": "Supports network connection correlation and detection.",
+      "description": "Source network port when supplied by the source.",
+      "justification": "Supports network connection analysis.",
       "source_mapping": {
-        "windows_json": "event_data SourcePort",
-        "linux_text": "parsed_fields key_values src_port",
+        "windows_json": "event_data.SourcePort",
+        "linux_text": "parsed_fields.key_values.src_port",
         "network": "src_port"
       }
     },
@@ -126,11 +126,11 @@
       "name": "dst_ip",
       "type": "string",
       "required": false,
-      "description": "Destination IP address when present.",
-      "justification": "Supports investigation of outbound and lateral network connections.",
+      "description": "Destination IP address when supplied by the source.",
+      "justification": "Supports outbound and lateral connection analysis.",
       "source_mapping": {
-        "windows_json": "event_data DestinationIp",
-        "linux_text": "parsed_fields key_values dst_ip",
+        "windows_json": "event_data.DestinationIp",
+        "linux_text": "parsed_fields.key_values.dst_ip",
         "network": "dest_ip"
       }
     },
@@ -138,11 +138,11 @@
       "name": "dst_port",
       "type": "integer",
       "required": false,
-      "description": "Destination network port when present.",
+      "description": "Destination network port when supplied by the source.",
       "justification": "Supports detection of connections to specific services.",
       "source_mapping": {
-        "windows_json": "event_data DestinationPort",
-        "linux_text": "parsed_fields key_values dst_port",
+        "windows_json": "event_data.DestinationPort",
+        "linux_text": "parsed_fields.key_values.dst_port",
         "network": "dest_port"
       }
     },
@@ -150,68 +150,68 @@
       "name": "protocol",
       "type": "string",
       "required": false,
-      "description": "Network protocol when present.",
-      "justification": "Supports protocol-based event classification and detection.",
+      "description": "Network protocol when supplied by the source.",
+      "justification": "Supports protocol-based classification and detection.",
       "source_mapping": {
-        "windows_json": "event_data Protocol",
-        "linux_text": "parsed_fields key_values protocol",
+        "windows_json": "event_data.Protocol",
+        "linux_text": "parsed_fields.key_values.protocol",
         "network": "proto"
       }
     },
     {
       "name": "event_id",
-      "type": "integer",
+      "type": "string",
       "required": false,
-      "description": "Original numeric event identifier when available.",
-      "justification": "Preserves source event identity for precise detection and investigation.",
+      "description": "Source event identifier preserved as a string.",
+      "justification": "Preserves identifiers consistently even when different sources use different identifier formats.",
       "source_mapping": {
-        "windows_json": "event_id",
+        "windows_json": "event_id converted to string",
         "linux_text": null,
-        "network": "alert.signature_id"
+        "network": "alert.signature_id converted to string"
       }
     },
     {
       "name": "provider",
       "type": "string",
       "required": false,
-      "description": "Original event provider when available.",
-      "justification": "Preserves the component that generated the source event.",
+      "description": "Source component that generated the event when available.",
+      "justification": "Preserves generator context needed to interpret source events.",
       "source_mapping": {
         "windows_json": "provider",
-        "linux_text": "program or audit_type",
-        "network": null
+        "linux_text": "program",
+        "network": "alert.signature or source sensor"
       }
     },
     {
       "name": "raw_message",
       "type": "string",
       "required": true,
-      "description": "Original event message or record content.",
-      "justification": "Preserves source evidence for verification during investigation.",
+      "description": "Complete original event representation preserved as text.",
+      "justification": "Allows analysts to verify normalized data against the original evidence.",
       "source_mapping": {
         "windows_json": "raw_message",
         "linux_text": "raw_message",
-        "network": null
+        "network": "complete original network record serialized as text"
       }
     },
     {
       "name": "event_data",
       "type": "object",
       "required": false,
-      "description": "Additional structured source fields retained during normalization.",
-      "justification": "Keeps useful source-specific evidence that does not have a dedicated normalized field.",
+      "description": "Additional structured fields retained from the source event.",
+      "justification": "Preserves source-specific evidence that has no dedicated normalized field.",
       "source_mapping": {
         "windows_json": "event_data",
         "linux_text": "parsed_fields",
-        "network": null
+        "network": "remaining source-specific fields"
       }
     },
     {
       "name": "source_origin",
       "type": "string",
       "required": true,
-      "description": "Identifies the provenance of the event record.",
-      "justification": "Distinguishes evidence-pack data from student telemetry.",
+      "description": "Identifies the provenance class of the event.",
+      "justification": "Distinguishes evidence-pack records from student telemetry.",
       "source_mapping": {
         "windows_json": "source_origin",
         "linux_text": "source_origin",
