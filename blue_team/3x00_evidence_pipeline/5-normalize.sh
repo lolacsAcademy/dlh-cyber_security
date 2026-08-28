@@ -95,13 +95,13 @@ def process(filename, source):
                 if source == "windows_json":
                     category = r.get("channel") or "unknown"
                     user = r.get("user")
-                    process = r.get("process_name")
+                    process_name = r.get("process_name")
                     provider = r.get("provider")
 
                     user = user or event_data.get("SubjectUserName")
                     user = user or event_data.get("TargetUserName")
 
-                    process = process or event_data.get("Image")
+                    process_name = process_name or event_data.get("Image")
 
                     data = event_data
                 else:
@@ -115,7 +115,7 @@ def process(filename, source):
                     user = user or parsed.get("user")
                     user = user or parsed.get("acct")
 
-                    process = r.get("program")
+                    process_name = r.get("program")
                     provider = r.get("program") or r.get("audit_type")
 
                     data = parsed
@@ -129,7 +129,7 @@ def process(filename, source):
                     "event_category": category,
                     "severity": r.get("severity"),
                     "user": user,
-                    "process_name": process,
+                    "process_name": process_name,
                     "process_id": r.get("process_id", r.get("pid")),
                     "src_ip": r.get("src_ip"),
                     "src_port": r.get("src_port"),
