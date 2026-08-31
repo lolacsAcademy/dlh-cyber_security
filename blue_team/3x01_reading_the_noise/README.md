@@ -11,3 +11,5 @@
 ## Task 4: 9-baseline_summary.sh, baseline_summary.json
 
 ## Task 5: 10-anomalies_auth.sh, anomalies_auth.json
+
+## Task 6: 11-anomalies_process.sh, anomalies_process.json
