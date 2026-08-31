@@ -5,3 +5,5 @@
 ## Task 1: 3-event_taxonomy.sh, event_taxonomy.json, labeled_events.json
 
 ## Task 2: 4-baseline_auth.sh, baseline_auth.jsonn
+
+## Task 3: 5-baseline_process.sh, baseline_process.json

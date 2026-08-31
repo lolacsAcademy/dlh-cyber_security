@@ -1,0 +1,1965 @@
+{
+  "window": {
+    "start": "2026-03-18T00:00:03Z",
+    "end": "2026-03-25T00:00:03Z"
+  },
+  "per_host": {
+    "admin-ws-01": [
+      {
+        "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "execution_count": 155,
+        "first_seen": "2026-03-18T03:41:05Z",
+        "last_seen": "2026-03-24T23:41:57Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "execution_count": 180,
+        "first_seen": "2026-03-18T03:31:40Z",
+        "last_seen": "2026-03-24T22:04:28Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+        "execution_count": 173,
+        "first_seen": "2026-03-18T00:15:53Z",
+        "last_seen": "2026-03-24T21:02:29Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+        "execution_count": 170,
+        "first_seen": "2026-03-18T00:44:03Z",
+        "last_seen": "2026-03-24T23:20:11Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+        "execution_count": 159,
+        "first_seen": "2026-03-18T01:11:33Z",
+        "last_seen": "2026-03-24T23:34:04Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "execution_count": 164,
+        "first_seen": "2026-03-18T00:32:04Z",
+        "last_seen": "2026-03-24T23:23:18Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\conhost.exe",
+        "execution_count": 180,
+        "first_seen": "2026-03-18T02:06:10Z",
+        "last_seen": "2026-03-24T21:51:48Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\csrss.exe",
+        "execution_count": 154,
+        "first_seen": "2026-03-18T00:27:12Z",
+        "last_seen": "2026-03-24T23:38:19Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\dllhost.exe",
+        "execution_count": 162,
+        "first_seen": "2026-03-18T00:53:16Z",
+        "last_seen": "2026-03-24T23:34:09Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\lsass.exe",
+        "execution_count": 181,
+        "first_seen": "2026-03-18T00:08:12Z",
+        "last_seen": "2026-03-24T23:16:35Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+        "execution_count": 180,
+        "first_seen": "2026-03-18T00:38:23Z",
+        "last_seen": "2026-03-24T23:51:47Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\svchost.exe",
+        "execution_count": 182,
+        "first_seen": "2026-03-18T00:34:18Z",
+        "last_seen": "2026-03-24T22:36:46Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+        "execution_count": 175,
+        "first_seen": "2026-03-18T00:04:07Z",
+        "last_seen": "2026-03-24T23:41:20Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\explorer.exe",
+        "execution_count": 167,
+        "first_seen": "2026-03-18T00:32:44Z",
+        "last_seen": "2026-03-24T23:47:59Z",
+        "users": []
+      }
+    ],
+    "admin-ws-02": [
+      {
+        "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "execution_count": 172,
+        "first_seen": "2026-03-18T00:12:56Z",
+        "last_seen": "2026-03-24T22:36:27Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "execution_count": 178,
+        "first_seen": "2026-03-18T01:42:02Z",
+        "last_seen": "2026-03-24T17:14:10Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+        "execution_count": 175,
+        "first_seen": "2026-03-18T00:23:07Z",
+        "last_seen": "2026-03-24T23:12:23Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+        "execution_count": 151,
+        "first_seen": "2026-03-18T01:01:31Z",
+        "last_seen": "2026-03-24T22:35:28Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+        "execution_count": 174,
+        "first_seen": "2026-03-18T01:04:47Z",
+        "last_seen": "2026-03-24T21:51:03Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "execution_count": 141,
+        "first_seen": "2026-03-18T02:16:06Z",
+        "last_seen": "2026-03-24T23:13:57Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\conhost.exe",
+        "execution_count": 199,
+        "first_seen": "2026-03-18T00:08:33Z",
+        "last_seen": "2026-03-24T23:13:57Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\csrss.exe",
+        "execution_count": 177,
+        "first_seen": "2026-03-18T01:40:07Z",
+        "last_seen": "2026-03-24T23:36:33Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\dllhost.exe",
+        "execution_count": 178,
+        "first_seen": "2026-03-18T01:54:06Z",
+        "last_seen": "2026-03-24T23:09:34Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\lsass.exe",
+        "execution_count": 196,
+        "first_seen": "2026-03-18T00:11:46Z",
+        "last_seen": "2026-03-24T23:01:11Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+        "execution_count": 199,
+        "first_seen": "2026-03-18T00:45:47Z",
+        "last_seen": "2026-03-24T23:12:13Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\svchost.exe",
+        "execution_count": 183,
+        "first_seen": "2026-03-18T00:01:40Z",
+        "last_seen": "2026-03-24T23:07:27Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+        "execution_count": 152,
+        "first_seen": "2026-03-18T00:34:23Z",
+        "last_seen": "2026-03-24T21:12:20Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\explorer.exe",
+        "execution_count": 181,
+        "first_seen": "2026-03-18T00:19:15Z",
+        "last_seen": "2026-03-24T23:07:46Z",
+        "users": []
+      }
+    ],
+    "bill-ws-09": [
+      {
+        "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "execution_count": 176,
+        "first_seen": "2026-03-18T00:37:36Z",
+        "last_seen": "2026-03-24T23:42:50Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "execution_count": 178,
+        "first_seen": "2026-03-18T00:33:03Z",
+        "last_seen": "2026-03-24T23:54:04Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+        "execution_count": 167,
+        "first_seen": "2026-03-18T01:43:18Z",
+        "last_seen": "2026-03-24T21:56:00Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+        "execution_count": 175,
+        "first_seen": "2026-03-18T01:22:30Z",
+        "last_seen": "2026-03-24T23:46:36Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+        "execution_count": 152,
+        "first_seen": "2026-03-18T00:58:49Z",
+        "last_seen": "2026-03-24T23:54:43Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "execution_count": 160,
+        "first_seen": "2026-03-18T03:37:40Z",
+        "last_seen": "2026-03-24T23:14:06Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\conhost.exe",
+        "execution_count": 173,
+        "first_seen": "2026-03-18T01:53:09Z",
+        "last_seen": "2026-03-24T22:59:59Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\csrss.exe",
+        "execution_count": 172,
+        "first_seen": "2026-03-18T00:12:42Z",
+        "last_seen": "2026-03-24T23:03:17Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\dllhost.exe",
+        "execution_count": 154,
+        "first_seen": "2026-03-18T00:00:35Z",
+        "last_seen": "2026-03-24T22:30:26Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\lsass.exe",
+        "execution_count": 173,
+        "first_seen": "2026-03-18T00:35:56Z",
+        "last_seen": "2026-03-24T23:40:44Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+        "execution_count": 166,
+        "first_seen": "2026-03-18T00:29:30Z",
+        "last_seen": "2026-03-24T23:54:39Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\svchost.exe",
+        "execution_count": 191,
+        "first_seen": "2026-03-18T00:53:46Z",
+        "last_seen": "2026-03-24T23:15:23Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+        "execution_count": 157,
+        "first_seen": "2026-03-18T00:08:21Z",
+        "last_seen": "2026-03-24T23:46:25Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\explorer.exe",
+        "execution_count": 161,
+        "first_seen": "2026-03-18T01:59:59Z",
+        "last_seen": "2026-03-24T23:53:20Z",
+        "users": []
+      }
+    ],
+    "clin-ws-01": [
+      {
+        "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "execution_count": 142,
+        "first_seen": "2026-03-18T00:08:17Z",
+        "last_seen": "2026-03-24T23:07:46Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "execution_count": 147,
+        "first_seen": "2026-03-18T02:41:35Z",
+        "last_seen": "2026-03-24T22:23:18Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+        "execution_count": 161,
+        "first_seen": "2026-03-18T00:36:23Z",
+        "last_seen": "2026-03-24T21:15:04Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+        "execution_count": 167,
+        "first_seen": "2026-03-18T00:37:42Z",
+        "last_seen": "2026-03-24T23:52:51Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+        "execution_count": 196,
+        "first_seen": "2026-03-18T00:27:36Z",
+        "last_seen": "2026-03-24T23:45:41Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "execution_count": 157,
+        "first_seen": "2026-03-18T01:23:02Z",
+        "last_seen": "2026-03-24T23:58:04Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\conhost.exe",
+        "execution_count": 174,
+        "first_seen": "2026-03-18T00:06:30Z",
+        "last_seen": "2026-03-24T22:19:42Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\csrss.exe",
+        "execution_count": 158,
+        "first_seen": "2026-03-18T00:10:24Z",
+        "last_seen": "2026-03-24T22:40:56Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\dllhost.exe",
+        "execution_count": 163,
+        "first_seen": "2026-03-18T03:05:52Z",
+        "last_seen": "2026-03-24T23:25:29Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\lsass.exe",
+        "execution_count": 165,
+        "first_seen": "2026-03-18T00:18:18Z",
+        "last_seen": "2026-03-24T21:44:22Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+        "execution_count": 176,
+        "first_seen": "2026-03-18T00:46:35Z",
+        "last_seen": "2026-03-24T23:39:04Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\svchost.exe",
+        "execution_count": 179,
+        "first_seen": "2026-03-18T00:36:37Z",
+        "last_seen": "2026-03-24T23:41:58Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+        "execution_count": 150,
+        "first_seen": "2026-03-18T00:31:03Z",
+        "last_seen": "2026-03-24T22:19:04Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\explorer.exe",
+        "execution_count": 162,
+        "first_seen": "2026-03-18T00:05:35Z",
+        "last_seen": "2026-03-24T23:37:26Z",
+        "users": []
+      }
+    ],
+    "clin-ws-03": [
+      {
+        "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "execution_count": 185,
+        "first_seen": "2026-03-18T00:02:10Z",
+        "last_seen": "2026-03-24T23:53:20Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "execution_count": 178,
+        "first_seen": "2026-03-18T00:47:16Z",
+        "last_seen": "2026-03-24T23:23:52Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+        "execution_count": 167,
+        "first_seen": "2026-03-18T00:17:59Z",
+        "last_seen": "2026-03-24T23:55:43Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+        "execution_count": 177,
+        "first_seen": "2026-03-18T00:03:23Z",
+        "last_seen": "2026-03-24T23:37:28Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+        "execution_count": 173,
+        "first_seen": "2026-03-18T00:53:42Z",
+        "last_seen": "2026-03-24T23:28:04Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "execution_count": 165,
+        "first_seen": "2026-03-18T01:42:06Z",
+        "last_seen": "2026-03-24T22:17:51Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\conhost.exe",
+        "execution_count": 166,
+        "first_seen": "2026-03-18T00:05:00Z",
+        "last_seen": "2026-03-24T23:27:38Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\csrss.exe",
+        "execution_count": 180,
+        "first_seen": "2026-03-18T01:22:30Z",
+        "last_seen": "2026-03-24T23:47:36Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\dllhost.exe",
+        "execution_count": 191,
+        "first_seen": "2026-03-18T00:06:09Z",
+        "last_seen": "2026-03-24T23:11:07Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\lsass.exe",
+        "execution_count": 173,
+        "first_seen": "2026-03-18T01:07:43Z",
+        "last_seen": "2026-03-24T23:54:04Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+        "execution_count": 158,
+        "first_seen": "2026-03-18T01:21:17Z",
+        "last_seen": "2026-03-24T22:49:55Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\svchost.exe",
+        "execution_count": 188,
+        "first_seen": "2026-03-18T00:41:04Z",
+        "last_seen": "2026-03-24T23:54:57Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+        "execution_count": 180,
+        "first_seen": "2026-03-18T03:00:48Z",
+        "last_seen": "2026-03-24T23:50:23Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\explorer.exe",
+        "execution_count": 165,
+        "first_seen": "2026-03-18T01:11:01Z",
+        "last_seen": "2026-03-24T23:12:10Z",
+        "users": []
+      }
+    ],
+    "clin-ws-05": [
+      {
+        "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "execution_count": 162,
+        "first_seen": "2026-03-18T00:50:53Z",
+        "last_seen": "2026-03-24T22:33:37Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "execution_count": 162,
+        "first_seen": "2026-03-18T02:01:14Z",
+        "last_seen": "2026-03-24T23:26:33Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+        "execution_count": 153,
+        "first_seen": "2026-03-18T02:01:43Z",
+        "last_seen": "2026-03-24T22:53:06Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+        "execution_count": 174,
+        "first_seen": "2026-03-18T00:01:35Z",
+        "last_seen": "2026-03-24T23:55:53Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+        "execution_count": 200,
+        "first_seen": "2026-03-18T01:07:54Z",
+        "last_seen": "2026-03-24T23:12:09Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "execution_count": 177,
+        "first_seen": "2026-03-18T01:45:19Z",
+        "last_seen": "2026-03-24T23:35:16Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\conhost.exe",
+        "execution_count": 178,
+        "first_seen": "2026-03-18T00:06:27Z",
+        "last_seen": "2026-03-24T23:32:11Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\csrss.exe",
+        "execution_count": 173,
+        "first_seen": "2026-03-18T00:35:04Z",
+        "last_seen": "2026-03-24T23:36:07Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\dllhost.exe",
+        "execution_count": 147,
+        "first_seen": "2026-03-18T02:48:15Z",
+        "last_seen": "2026-03-24T23:16:40Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\lsass.exe",
+        "execution_count": 178,
+        "first_seen": "2026-03-18T02:32:25Z",
+        "last_seen": "2026-03-24T22:29:29Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+        "execution_count": 156,
+        "first_seen": "2026-03-18T00:28:14Z",
+        "last_seen": "2026-03-24T23:25:33Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\svchost.exe",
+        "execution_count": 184,
+        "first_seen": "2026-03-18T00:20:41Z",
+        "last_seen": "2026-03-24T23:42:37Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+        "execution_count": 149,
+        "first_seen": "2026-03-18T00:25:42Z",
+        "last_seen": "2026-03-24T23:33:10Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\explorer.exe",
+        "execution_count": 179,
+        "first_seen": "2026-03-18T01:48:18Z",
+        "last_seen": "2026-03-24T22:19:57Z",
+        "users": []
+      }
+    ],
+    "clin-ws-07": [
+      {
+        "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "execution_count": 167,
+        "first_seen": "2026-03-18T04:49:11Z",
+        "last_seen": "2026-03-24T19:03:58Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "execution_count": 170,
+        "first_seen": "2026-03-18T00:46:38Z",
+        "last_seen": "2026-03-24T23:35:11Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+        "execution_count": 166,
+        "first_seen": "2026-03-18T00:34:32Z",
+        "last_seen": "2026-03-24T19:46:12Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+        "execution_count": 152,
+        "first_seen": "2026-03-18T00:24:27Z",
+        "last_seen": "2026-03-24T23:27:19Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+        "execution_count": 183,
+        "first_seen": "2026-03-18T02:03:49Z",
+        "last_seen": "2026-03-24T22:52:50Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "execution_count": 157,
+        "first_seen": "2026-03-18T05:39:53Z",
+        "last_seen": "2026-03-24T22:52:07Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\conhost.exe",
+        "execution_count": 180,
+        "first_seen": "2026-03-18T01:00:18Z",
+        "last_seen": "2026-03-24T23:07:49Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\csrss.exe",
+        "execution_count": 167,
+        "first_seen": "2026-03-18T00:05:23Z",
+        "last_seen": "2026-03-24T20:55:52Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\dllhost.exe",
+        "execution_count": 184,
+        "first_seen": "2026-03-18T00:18:17Z",
+        "last_seen": "2026-03-24T22:53:30Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\lsass.exe",
+        "execution_count": 159,
+        "first_seen": "2026-03-18T00:09:51Z",
+        "last_seen": "2026-03-24T23:54:05Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+        "execution_count": 139,
+        "first_seen": "2026-03-18T02:04:38Z",
+        "last_seen": "2026-03-24T23:48:49Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\svchost.exe",
+        "execution_count": 179,
+        "first_seen": "2026-03-18T00:17:54Z",
+        "last_seen": "2026-03-24T23:42:06Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+        "execution_count": 174,
+        "first_seen": "2026-03-18T00:54:31Z",
+        "last_seen": "2026-03-24T23:53:01Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\explorer.exe",
+        "execution_count": 157,
+        "first_seen": "2026-03-18T01:53:46Z",
+        "last_seen": "2026-03-24T22:07:29Z",
+        "users": []
+      }
+    ],
+    "clin-ws-12": [
+      {
+        "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "execution_count": 174,
+        "first_seen": "2026-03-18T00:33:31Z",
+        "last_seen": "2026-03-24T23:31:17Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "execution_count": 163,
+        "first_seen": "2026-03-18T01:44:02Z",
+        "last_seen": "2026-03-24T23:58:20Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+        "execution_count": 184,
+        "first_seen": "2026-03-18T01:03:14Z",
+        "last_seen": "2026-03-24T23:20:28Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+        "execution_count": 159,
+        "first_seen": "2026-03-18T00:07:22Z",
+        "last_seen": "2026-03-24T23:39:25Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+        "execution_count": 193,
+        "first_seen": "2026-03-18T00:01:09Z",
+        "last_seen": "2026-03-24T22:42:35Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "execution_count": 163,
+        "first_seen": "2026-03-18T00:21:49Z",
+        "last_seen": "2026-03-24T23:10:25Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\conhost.exe",
+        "execution_count": 179,
+        "first_seen": "2026-03-18T01:18:25Z",
+        "last_seen": "2026-03-24T23:20:54Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\csrss.exe",
+        "execution_count": 188,
+        "first_seen": "2026-03-18T00:22:23Z",
+        "last_seen": "2026-03-24T23:31:49Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\dllhost.exe",
+        "execution_count": 161,
+        "first_seen": "2026-03-18T01:18:24Z",
+        "last_seen": "2026-03-24T23:32:21Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\lsass.exe",
+        "execution_count": 167,
+        "first_seen": "2026-03-18T01:11:23Z",
+        "last_seen": "2026-03-24T23:56:59Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+        "execution_count": 185,
+        "first_seen": "2026-03-18T00:03:54Z",
+        "last_seen": "2026-03-24T22:55:27Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\svchost.exe",
+        "execution_count": 180,
+        "first_seen": "2026-03-18T00:00:37Z",
+        "last_seen": "2026-03-24T22:48:49Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+        "execution_count": 175,
+        "first_seen": "2026-03-18T01:09:23Z",
+        "last_seen": "2026-03-24T19:08:53Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\explorer.exe",
+        "execution_count": 171,
+        "first_seen": "2026-03-18T00:42:03Z",
+        "last_seen": "2026-03-24T23:52:54Z",
+        "users": []
+      }
+    ],
+    "pharm-app-01": [
+      {
+        "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "execution_count": 169,
+        "first_seen": "2026-03-18T00:12:03Z",
+        "last_seen": "2026-03-24T21:31:35Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "execution_count": 174,
+        "first_seen": "2026-03-18T00:44:13Z",
+        "last_seen": "2026-03-24T21:59:46Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+        "execution_count": 162,
+        "first_seen": "2026-03-18T01:35:35Z",
+        "last_seen": "2026-03-24T23:49:34Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+        "execution_count": 189,
+        "first_seen": "2026-03-18T00:40:05Z",
+        "last_seen": "2026-03-24T21:32:20Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+        "execution_count": 159,
+        "first_seen": "2026-03-18T00:07:10Z",
+        "last_seen": "2026-03-24T23:09:49Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "execution_count": 196,
+        "first_seen": "2026-03-18T00:47:50Z",
+        "last_seen": "2026-03-24T23:31:19Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\conhost.exe",
+        "execution_count": 168,
+        "first_seen": "2026-03-18T00:00:50Z",
+        "last_seen": "2026-03-24T23:39:38Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\csrss.exe",
+        "execution_count": 162,
+        "first_seen": "2026-03-18T02:02:24Z",
+        "last_seen": "2026-03-24T22:45:44Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\dllhost.exe",
+        "execution_count": 182,
+        "first_seen": "2026-03-18T00:57:24Z",
+        "last_seen": "2026-03-24T23:53:58Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\lsass.exe",
+        "execution_count": 176,
+        "first_seen": "2026-03-18T01:17:15Z",
+        "last_seen": "2026-03-24T23:55:47Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+        "execution_count": 177,
+        "first_seen": "2026-03-18T00:20:01Z",
+        "last_seen": "2026-03-24T23:54:45Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\svchost.exe",
+        "execution_count": 170,
+        "first_seen": "2026-03-18T00:34:33Z",
+        "last_seen": "2026-03-24T21:02:12Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+        "execution_count": 183,
+        "first_seen": "2026-03-18T00:18:52Z",
+        "last_seen": "2026-03-24T21:38:42Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\explorer.exe",
+        "execution_count": 183,
+        "first_seen": "2026-03-18T00:21:15Z",
+        "last_seen": "2026-03-24T23:26:00Z",
+        "users": []
+      }
+    ],
+    "srv-dc-01": [
+      {
+        "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "execution_count": 183,
+        "first_seen": "2026-03-18T01:36:52Z",
+        "last_seen": "2026-03-24T22:36:23Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "execution_count": 167,
+        "first_seen": "2026-03-18T00:25:42Z",
+        "last_seen": "2026-03-24T23:20:52Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+        "execution_count": 161,
+        "first_seen": "2026-03-18T00:49:28Z",
+        "last_seen": "2026-03-24T21:59:41Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+        "execution_count": 173,
+        "first_seen": "2026-03-18T00:00:53Z",
+        "last_seen": "2026-03-24T22:31:23Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+        "execution_count": 166,
+        "first_seen": "2026-03-18T01:34:27Z",
+        "last_seen": "2026-03-24T22:26:04Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "execution_count": 183,
+        "first_seen": "2026-03-18T00:10:16Z",
+        "last_seen": "2026-03-24T23:45:04Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\conhost.exe",
+        "execution_count": 166,
+        "first_seen": "2026-03-18T00:44:42Z",
+        "last_seen": "2026-03-24T23:13:06Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\csrss.exe",
+        "execution_count": 163,
+        "first_seen": "2026-03-18T00:00:05Z",
+        "last_seen": "2026-03-24T23:14:16Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\dllhost.exe",
+        "execution_count": 141,
+        "first_seen": "2026-03-18T02:02:42Z",
+        "last_seen": "2026-03-24T23:16:02Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\lsass.exe",
+        "execution_count": 158,
+        "first_seen": "2026-03-18T05:01:22Z",
+        "last_seen": "2026-03-24T23:51:49Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+        "execution_count": 164,
+        "first_seen": "2026-03-18T03:17:40Z",
+        "last_seen": "2026-03-24T23:24:35Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\svchost.exe",
+        "execution_count": 157,
+        "first_seen": "2026-03-18T01:35:24Z",
+        "last_seen": "2026-03-24T23:06:09Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+        "execution_count": 169,
+        "first_seen": "2026-03-18T00:49:31Z",
+        "last_seen": "2026-03-24T22:54:23Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\explorer.exe",
+        "execution_count": 177,
+        "first_seen": "2026-03-18T01:09:57Z",
+        "last_seen": "2026-03-24T23:00:39Z",
+        "users": []
+      }
+    ],
+    "srv-dc-02": [
+      {
+        "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "execution_count": 164,
+        "first_seen": "2026-03-18T01:02:35Z",
+        "last_seen": "2026-03-24T22:45:15Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "execution_count": 166,
+        "first_seen": "2026-03-18T00:26:50Z",
+        "last_seen": "2026-03-24T23:22:58Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+        "execution_count": 188,
+        "first_seen": "2026-03-18T00:40:14Z",
+        "last_seen": "2026-03-24T23:41:37Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+        "execution_count": 189,
+        "first_seen": "2026-03-18T00:25:08Z",
+        "last_seen": "2026-03-24T23:17:17Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+        "execution_count": 152,
+        "first_seen": "2026-03-18T02:28:04Z",
+        "last_seen": "2026-03-24T21:22:25Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "execution_count": 188,
+        "first_seen": "2026-03-18T00:04:08Z",
+        "last_seen": "2026-03-24T23:40:50Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\conhost.exe",
+        "execution_count": 163,
+        "first_seen": "2026-03-18T00:50:08Z",
+        "last_seen": "2026-03-24T23:11:27Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\csrss.exe",
+        "execution_count": 182,
+        "first_seen": "2026-03-18T00:08:50Z",
+        "last_seen": "2026-03-24T20:46:01Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\dllhost.exe",
+        "execution_count": 157,
+        "first_seen": "2026-03-18T00:44:54Z",
+        "last_seen": "2026-03-24T23:23:16Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\lsass.exe",
+        "execution_count": 180,
+        "first_seen": "2026-03-18T00:12:40Z",
+        "last_seen": "2026-03-24T23:54:19Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+        "execution_count": 153,
+        "first_seen": "2026-03-18T00:47:27Z",
+        "last_seen": "2026-03-24T23:20:09Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\svchost.exe",
+        "execution_count": 161,
+        "first_seen": "2026-03-18T01:40:16Z",
+        "last_seen": "2026-03-24T23:23:11Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+        "execution_count": 190,
+        "first_seen": "2026-03-18T00:58:40Z",
+        "last_seen": "2026-03-24T23:53:09Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\explorer.exe",
+        "execution_count": 150,
+        "first_seen": "2026-03-18T00:42:09Z",
+        "last_seen": "2026-03-24T22:33:07Z",
+        "users": []
+      }
+    ],
+    "srv-ehr-01": [
+      {
+        "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "execution_count": 165,
+        "first_seen": "2026-03-18T00:21:25Z",
+        "last_seen": "2026-03-24T23:55:30Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "execution_count": 165,
+        "first_seen": "2026-03-18T01:38:16Z",
+        "last_seen": "2026-03-24T23:15:28Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+        "execution_count": 155,
+        "first_seen": "2026-03-18T00:02:37Z",
+        "last_seen": "2026-03-24T22:26:47Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+        "execution_count": 158,
+        "first_seen": "2026-03-18T01:01:55Z",
+        "last_seen": "2026-03-24T21:29:10Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+        "execution_count": 169,
+        "first_seen": "2026-03-18T01:15:55Z",
+        "last_seen": "2026-03-24T23:19:40Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "execution_count": 181,
+        "first_seen": "2026-03-18T01:33:21Z",
+        "last_seen": "2026-03-24T23:58:45Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\conhost.exe",
+        "execution_count": 159,
+        "first_seen": "2026-03-18T01:29:43Z",
+        "last_seen": "2026-03-24T23:57:22Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\csrss.exe",
+        "execution_count": 166,
+        "first_seen": "2026-03-18T00:51:49Z",
+        "last_seen": "2026-03-24T23:08:20Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\dllhost.exe",
+        "execution_count": 170,
+        "first_seen": "2026-03-18T01:07:26Z",
+        "last_seen": "2026-03-24T23:35:34Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\lsass.exe",
+        "execution_count": 177,
+        "first_seen": "2026-03-18T00:19:50Z",
+        "last_seen": "2026-03-24T23:30:38Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+        "execution_count": 193,
+        "first_seen": "2026-03-18T00:14:21Z",
+        "last_seen": "2026-03-24T23:48:07Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\svchost.exe",
+        "execution_count": 178,
+        "first_seen": "2026-03-18T02:09:28Z",
+        "last_seen": "2026-03-24T23:12:03Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+        "execution_count": 165,
+        "first_seen": "2026-03-18T00:07:11Z",
+        "last_seen": "2026-03-24T22:59:13Z",
+        "users": []
+      },
+      {
+        "process_name": "C:\\Windows\\explorer.exe",
+        "execution_count": 194,
+        "first_seen": "2026-03-18T00:48:45Z",
+        "last_seen": "2026-03-24T22:57:07Z",
+        "users": []
+      }
+    ]
+  },
+  "global_top": [
+    {
+      "process_name": "C:\\Windows\\System32\\svchost.exe",
+      "execution_count": 2132
+    },
+    {
+      "process_name": "C:\\Windows\\System32\\conhost.exe",
+      "execution_count": 2085
+    },
+    {
+      "process_name": "C:\\Windows\\System32\\lsass.exe",
+      "execution_count": 2083
+    },
+    {
+      "process_name": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe",
+      "execution_count": 2076
+    },
+    {
+      "process_name": "C:\\Windows\\explorer.exe",
+      "execution_count": 2047
+    },
+    {
+      "process_name": "C:\\Windows\\System32\\spoolsv.exe",
+      "execution_count": 2046
+    },
+    {
+      "process_name": "C:\\Windows\\System32\\csrss.exe",
+      "execution_count": 2042
+    },
+    {
+      "process_name": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe",
+      "execution_count": 2034
+    },
+    {
+      "process_name": "C:\\Windows\\System32\\RuntimeBroker.exe",
+      "execution_count": 2032
+    },
+    {
+      "process_name": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "execution_count": 2028
+    },
+    {
+      "process_name": "C:\\Windows\\System32\\taskhostw.exe",
+      "execution_count": 2019
+    },
+    {
+      "process_name": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+      "execution_count": 2014
+    },
+    {
+      "process_name": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe",
+      "execution_count": 2012
+    },
+    {
+      "process_name": "C:\\Windows\\System32\\dllhost.exe",
+      "execution_count": 1990
+    }
+  ],
+  "rare_processes": [],
+  "parent_child_pairs": {
+    "admin-ws-01": [
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\RuntimeBroker.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\conhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\dllhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\spoolsv.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\taskhostw.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\services.exe",
+        "child": "C:\\Windows\\System32\\svchost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\smss.exe",
+        "child": "C:\\Windows\\System32\\csrss.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\userinit.exe",
+        "child": "C:\\Windows\\explorer.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\wininit.exe",
+        "child": "C:\\Windows\\System32\\lsass.exe"
+      }
+    ],
+    "admin-ws-02": [
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\RuntimeBroker.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\conhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\dllhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\spoolsv.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\taskhostw.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\services.exe",
+        "child": "C:\\Windows\\System32\\svchost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\smss.exe",
+        "child": "C:\\Windows\\System32\\csrss.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\userinit.exe",
+        "child": "C:\\Windows\\explorer.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\wininit.exe",
+        "child": "C:\\Windows\\System32\\lsass.exe"
+      }
+    ],
+    "bill-ws-09": [
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\RuntimeBroker.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\conhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\dllhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\spoolsv.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\taskhostw.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\services.exe",
+        "child": "C:\\Windows\\System32\\svchost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\smss.exe",
+        "child": "C:\\Windows\\System32\\csrss.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\userinit.exe",
+        "child": "C:\\Windows\\explorer.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\wininit.exe",
+        "child": "C:\\Windows\\System32\\lsass.exe"
+      }
+    ],
+    "clin-ws-01": [
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\RuntimeBroker.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\conhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\dllhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\spoolsv.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\taskhostw.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\services.exe",
+        "child": "C:\\Windows\\System32\\svchost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\smss.exe",
+        "child": "C:\\Windows\\System32\\csrss.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\userinit.exe",
+        "child": "C:\\Windows\\explorer.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\wininit.exe",
+        "child": "C:\\Windows\\System32\\lsass.exe"
+      }
+    ],
+    "clin-ws-03": [
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\RuntimeBroker.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\conhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\dllhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\spoolsv.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\taskhostw.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\services.exe",
+        "child": "C:\\Windows\\System32\\svchost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\smss.exe",
+        "child": "C:\\Windows\\System32\\csrss.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\userinit.exe",
+        "child": "C:\\Windows\\explorer.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\wininit.exe",
+        "child": "C:\\Windows\\System32\\lsass.exe"
+      }
+    ],
+    "clin-ws-05": [
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\RuntimeBroker.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\conhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\dllhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\spoolsv.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\taskhostw.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\services.exe",
+        "child": "C:\\Windows\\System32\\svchost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\smss.exe",
+        "child": "C:\\Windows\\System32\\csrss.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\userinit.exe",
+        "child": "C:\\Windows\\explorer.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\wininit.exe",
+        "child": "C:\\Windows\\System32\\lsass.exe"
+      }
+    ],
+    "clin-ws-07": [
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\RuntimeBroker.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\conhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\dllhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\spoolsv.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\taskhostw.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\services.exe",
+        "child": "C:\\Windows\\System32\\svchost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\smss.exe",
+        "child": "C:\\Windows\\System32\\csrss.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\userinit.exe",
+        "child": "C:\\Windows\\explorer.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\wininit.exe",
+        "child": "C:\\Windows\\System32\\lsass.exe"
+      }
+    ],
+    "clin-ws-12": [
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\RuntimeBroker.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\conhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\dllhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\spoolsv.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\taskhostw.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\services.exe",
+        "child": "C:\\Windows\\System32\\svchost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\smss.exe",
+        "child": "C:\\Windows\\System32\\csrss.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\userinit.exe",
+        "child": "C:\\Windows\\explorer.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\wininit.exe",
+        "child": "C:\\Windows\\System32\\lsass.exe"
+      }
+    ],
+    "pharm-app-01": [
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\RuntimeBroker.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\conhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\dllhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\spoolsv.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\taskhostw.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\services.exe",
+        "child": "C:\\Windows\\System32\\svchost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\smss.exe",
+        "child": "C:\\Windows\\System32\\csrss.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\userinit.exe",
+        "child": "C:\\Windows\\explorer.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\wininit.exe",
+        "child": "C:\\Windows\\System32\\lsass.exe"
+      }
+    ],
+    "srv-dc-01": [
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\RuntimeBroker.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\conhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\dllhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\spoolsv.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\taskhostw.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\services.exe",
+        "child": "C:\\Windows\\System32\\svchost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\smss.exe",
+        "child": "C:\\Windows\\System32\\csrss.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\userinit.exe",
+        "child": "C:\\Windows\\explorer.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\wininit.exe",
+        "child": "C:\\Windows\\System32\\lsass.exe"
+      }
+    ],
+    "srv-dc-02": [
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\RuntimeBroker.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\conhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\dllhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\spoolsv.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\taskhostw.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\services.exe",
+        "child": "C:\\Windows\\System32\\svchost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\smss.exe",
+        "child": "C:\\Windows\\System32\\csrss.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\userinit.exe",
+        "child": "C:\\Windows\\explorer.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\wininit.exe",
+        "child": "C:\\Windows\\System32\\lsass.exe"
+      }
+    ],
+    "srv-ehr-01": [
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\EHR\\EHRClient.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Program Files\\MedDefense\\Pharmacy\\PharmApp.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\ProgramData\\Microsoft\\Windows Defender\\MsMpEng.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\RuntimeBroker.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\conhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\dllhost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\spoolsv.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\explorer.exe",
+        "child": "C:\\Windows\\System32\\taskhostw.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\services.exe",
+        "child": "C:\\Windows\\System32\\svchost.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\smss.exe",
+        "child": "C:\\Windows\\System32\\csrss.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\userinit.exe",
+        "child": "C:\\Windows\\explorer.exe"
+      },
+      {
+        "parent": "C:\\Windows\\System32\\wininit.exe",
+        "child": "C:\\Windows\\System32\\lsass.exe"
+      }
+    ]
+  }
+}
