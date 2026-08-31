@@ -1,0 +1,285 @@
+{
+  "window": {
+    "start": "2026-03-18T00:00:03Z",
+    "end": "2026-03-25T00:00:03Z"
+  },
+  "per_host": {
+    "srv-dc-01": {
+      "login_success": 925,
+      "login_failure": 1354,
+      "logout": 704,
+      "account_lockout": 166,
+      "privilege_escalation": 262
+    },
+    "srv-ehr-01": {
+      "login_success": 1003,
+      "login_failure": 0,
+      "logout": 706,
+      "account_lockout": 0,
+      "privilege_escalation": 281
+    },
+    "clin-ws-07": {
+      "login_success": 936,
+      "login_failure": 0,
+      "logout": 697,
+      "account_lockout": 0,
+      "privilege_escalation": 259
+    },
+    "admin-ws-02": {
+      "login_success": 1026,
+      "login_failure": 0,
+      "logout": 722,
+      "account_lockout": 0,
+      "privilege_escalation": 289
+    },
+    "srv-dc-02": {
+      "login_success": 1023,
+      "login_failure": 1333,
+      "logout": 705,
+      "account_lockout": 0,
+      "privilege_escalation": 248
+    },
+    "pharm-app-01": {
+      "login_success": 996,
+      "login_failure": 0,
+      "logout": 673,
+      "account_lockout": 0,
+      "privilege_escalation": 265
+    },
+    "clin-ws-12": {
+      "login_success": 978,
+      "login_failure": 0,
+      "logout": 726,
+      "account_lockout": 0,
+      "privilege_escalation": 301
+    },
+    "clin-ws-05": {
+      "login_success": 964,
+      "login_failure": 0,
+      "logout": 729,
+      "account_lockout": 0,
+      "privilege_escalation": 293
+    },
+    "clin-ws-01": {
+      "login_success": 970,
+      "login_failure": 0,
+      "logout": 738,
+      "account_lockout": 0,
+      "privilege_escalation": 277
+    },
+    "clin-ws-03": {
+      "login_success": 1001,
+      "login_failure": 0,
+      "logout": 651,
+      "account_lockout": 0,
+      "privilege_escalation": 301
+    },
+    "admin-ws-01": {
+      "login_success": 998,
+      "login_failure": 0,
+      "logout": 696,
+      "account_lockout": 0,
+      "privilege_escalation": 269
+    },
+    "bill-ws-09": {
+      "login_success": 962,
+      "login_failure": 0,
+      "logout": 695,
+      "account_lockout": 0,
+      "privilege_escalation": 295
+    }
+  },
+  "per_user": [
+    {
+      "user": "a.thompson",
+      "login_success": 468,
+      "login_failure": 113
+    },
+    {
+      "user": "admin",
+      "login_success": 0,
+      "login_failure": 118
+    },
+    {
+      "user": "administrator",
+      "login_success": 0,
+      "login_failure": 129
+    },
+    {
+      "user": "b.martin",
+      "login_success": 478,
+      "login_failure": 132
+    },
+    {
+      "user": "c.taylor",
+      "login_success": 467,
+      "login_failure": 103
+    },
+    {
+      "user": "d.wilson",
+      "login_success": 458,
+      "login_failure": 110
+    },
+    {
+      "user": "e.thomas",
+      "login_success": 492,
+      "login_failure": 129
+    },
+    {
+      "user": "f.lee",
+      "login_success": 485,
+      "login_failure": 119
+    },
+    {
+      "user": "g.clark",
+      "login_success": 416,
+      "login_failure": 109
+    },
+    {
+      "user": "h.jackson",
+      "login_success": 477,
+      "login_failure": 116
+    },
+    {
+      "user": "j.martinez",
+      "login_success": 466,
+      "login_failure": 107
+    },
+    {
+      "user": "james.chen",
+      "login_success": 477,
+      "login_failure": 0
+    },
+    {
+      "user": "k.brown",
+      "login_success": 470,
+      "login_failure": 121
+    },
+    {
+      "user": "l.nguyen",
+      "login_success": 495,
+      "login_failure": 138
+    },
+    {
+      "user": "m.johnson",
+      "login_success": 475,
+      "login_failure": 100
+    },
+    {
+      "user": "mike.torres",
+      "login_success": 450,
+      "login_failure": 0
+    },
+    {
+      "user": "n.white",
+      "login_success": 495,
+      "login_failure": 141
+    },
+    {
+      "user": "p.harris",
+      "login_success": 458,
+      "login_failure": 99
+    },
+    {
+      "user": "p.morales",
+      "login_success": 440,
+      "login_failure": 0
+    },
+    {
+      "user": "r.garcia",
+      "login_success": 448,
+      "login_failure": 120
+    },
+    {
+      "user": "robert.kim",
+      "login_success": 465,
+      "login_failure": 0
+    },
+    {
+      "user": "s.patel",
+      "login_success": 481,
+      "login_failure": 120
+    },
+    {
+      "user": "sarah.park",
+      "login_success": 491,
+      "login_failure": 0
+    },
+    {
+      "user": "svc_backup",
+      "login_success": 0,
+      "login_failure": 0
+    },
+    {
+      "user": "svc_ehr",
+      "login_success": 0,
+      "login_failure": 0
+    },
+    {
+      "user": "t.anderson",
+      "login_success": 484,
+      "login_failure": 87
+    },
+    {
+      "user": "test",
+      "login_success": 0,
+      "login_failure": 111
+    },
+    {
+      "user": "v.lewis",
+      "login_success": 483,
+      "login_failure": 114
+    },
+    {
+      "user": "w.robinson",
+      "login_success": 519,
+      "login_failure": 125
+    },
+    {
+      "user": "y.walker",
+      "login_success": 444,
+      "login_failure": 126
+    }
+  ],
+  "known_accounts": [
+    "a.thompson",
+    "admin",
+    "administrator",
+    "b.martin",
+    "c.taylor",
+    "d.wilson",
+    "e.thomas",
+    "f.lee",
+    "g.clark",
+    "h.jackson",
+    "j.martinez",
+    "james.chen",
+    "k.brown",
+    "l.nguyen",
+    "m.johnson",
+    "mike.torres",
+    "n.white",
+    "p.harris",
+    "p.morales",
+    "r.garcia",
+    "robert.kim",
+    "s.patel",
+    "sarah.park",
+    "svc_backup",
+    "svc_ehr",
+    "t.anderson",
+    "test",
+    "v.lewis",
+    "w.robinson",
+    "y.walker"
+  ],
+  "business_hours_avg": {
+    "success": 70.3452380952381,
+    "failure": 15.476190476190476
+  },
+  "offhours_avg": {
+    "success": 69.91666666666667,
+    "failure": 16.511904761904763
+  },
+  "max_failures_1h_window": 0
+}
