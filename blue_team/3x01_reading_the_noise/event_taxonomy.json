@@ -1,0 +1,17 @@
+[
+{"source_type":"windows_json","match":{"event_id":"4624"},"label":"login_success"},
+{"source_type":"windows_json","match":{"event_id":"4625"},"label":"login_failure"},
+{"source_type":"windows_json","match":{"event_id":"4634"},"label":"logout"},
+{"source_type":"windows_json","match":{"event_id":"4740"},"label":"account_lockout"},
+{"source_type":"windows_json","match":{"event_id":"4672"},"label":"privilege_escalation"},
+{"source_type":"windows_json","match":{"event_id":"1"},"label":"process_start"},
+{"source_type":"windows_json","match":{"event_id":"23"},"label":"process_stop"},
+{"source_type":"linux_text","match":{"event_category":"SYSCALL"},"label":"child_process_spawn"},
+{"source_type":"linux_text","match":{"event_category":"PATH"},"label":"file_read_sensitive"},
+{"source_type":"windows_json","match":{"event_id":"11"},"label":"file_write_sensitive"},
+{"source_type":"windows_json","match":{"event_id":"4670"},"label":"file_permission_change"},
+{"source_type":"windows_json","match":{"event_id":"3"},"label":"network_connection_outbound"},
+{"source_type":"windows_json","match":{"event_id":"5156"},"label":"network_connection_inbound"},
+{"source_type":"linux_text","match":{"event_category":"suricata"},"label":"network_alert"},
+{"source_type":"windows_json","match":{"event_id":"5157"},"label":"network_blocked"}
+]
