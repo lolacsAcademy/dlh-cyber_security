@@ -13,3 +13,5 @@
 ## Task 5: 10-anomalies_auth.sh, anomalies_auth.json
 
 ## Task 6: 11-anomalies_process.sh, anomalies_process.json
+
+## Task 7: 13-correlate_anomalies.sh, correlated_anomalies.json
