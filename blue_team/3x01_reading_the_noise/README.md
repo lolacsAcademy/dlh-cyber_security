@@ -15,3 +15,5 @@
 ## Task 6: 11-anomalies_process.sh, anomalies_process.json
 
 ## Task 7: 13-correlate_anomalies.sh, correlated_anomalies.json
+
+## Task 8: 15-baseline_validation.sh, baseline_validation.json

@@ -1,0 +1,17 @@
+[
+  {
+    "anomaly_type": "unknown_process_for_host"
+  },
+  {
+    "anomaly_type": "unknown_parent_child"
+  },
+  {
+    "anomaly_type": "high_risk_process"
+  },
+  {
+    "anomaly_type": "unknown_process_for_host"
+  },
+  {
+    "anomaly_type": "unknown_parent_child"
+  }
+]
