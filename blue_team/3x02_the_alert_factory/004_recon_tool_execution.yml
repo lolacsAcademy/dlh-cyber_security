@@ -1,0 +1,30 @@
+title: Reconnaissance Tool Execution Outside Baseline
+id: 2d7e8a41-6c35-4b92-a174-8f3c51d62049
+status: experimental
+description: Detects reconnaissance tools not previously seen in the host process baseline, based on the 3x01 anomaly report.
+logsource:
+  category: process_creation
+detection:
+  windows:
+    product: windows
+    process_name:
+      - whoami.exe
+      - net.exe
+      - systeminfo.exe
+      - tasklist.exe
+      - netstat.exe
+    baseline_seen: false
+  linux:
+    product: linux
+    process_name:
+      - nmap
+    baseline_seen: false
+  condition: windows or linux
+falsepositives:
+  - MedDefense administrators performing approved troubleshooting
+  - Authorized network or system inventory activity
+level: medium
+tags:
+  - attack.discovery
+  - attack.t1087
+  - attack.t1082
