@@ -1,0 +1,20 @@
+title: SSH Repeated Authentication Failures from Single Source
+id: 6f4b5f9c-71d8-4b31-9f44-9fd2f46f5421
+status: experimental
+description: Detects SSH brute force activity in Linux authentication logs; SOC analysts should investigate the source IP and affected host.
+logsource:
+  product: linux
+  service: auth
+detection:
+  selection:
+    canonical_label: login_failure
+    event_category: authentication
+  condition: selection | count() by src_ip > 5
+timeframe: 120s
+falsepositives:
+  - MedDefense administrator repeatedly entering an incorrect SSH password
+  - Automated MedDefense service using expired SSH credentials
+level: high
+tags:
+  - attack.credential_access
+  - attack.t1110.001
