@@ -6,3 +6,4 @@
 ## Task  3-3-sigma_runner.sh
 ## Task  4-rules/sigma/003_interpreter_abuse.yml, rules/sigma/004_recon_tool_execution.yml
 ## Task  5-10-fp_baseline.sh, fp_baseline.json
+## Task  6-13-rule_quality.sh, rule_quality.json

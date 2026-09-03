@@ -7,14 +7,14 @@ logsource:
   product: windows
 detection:
   selection:
-    process_name:
+    process_name|endswith:
       - powershell.exe
       - cmd.exe
       - wscript.exe
       - cscript.exe
       - mshta.exe
   standard_parent:
-    parent_process:
+    parent_process_name|endswith:
       - explorer.exe
       - cmd.exe
       - powershell.exe

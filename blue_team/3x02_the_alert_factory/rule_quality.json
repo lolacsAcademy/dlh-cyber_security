@@ -1,0 +1,46 @@
+[
+  {
+    "rule_id": "6f4b5f9c-71d8-4b31-9f44-9fd2f46f5421",
+    "rule_title": "SSH Repeated Authentication Failures from Single Source",
+    "level": "high",
+    "tp_count": 0,
+    "fp_count": 0,
+    "fn_count": 2,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  {
+    "rule_id": "84d29f31-3e6c-4c75-9d21-67bcb2d7a105",
+    "rule_title": "Windows Off-Hours Privileged Logon",
+    "level": "medium",
+    "tp_count": 0,
+    "fp_count": 413,
+    "fn_count": 2,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  {
+    "rule_id": "9b3c42a7-5e18-4f62-8d91-3a6e27c1f405",
+    "rule_title": "Windows Interpreter Abuse",
+    "level": "high",
+    "tp_count": 0,
+    "fp_count": 2,
+    "fn_count": 2,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  {
+    "rule_id": "2d7e8a41-6c35-4b92-a174-8f3c51d62049",
+    "rule_title": "Reconnaissance Tool Execution Outside Baseline",
+    "level": "medium",
+    "tp_count": 0,
+    "fp_count": 0,
+    "fn_count": 2,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  }
+]
