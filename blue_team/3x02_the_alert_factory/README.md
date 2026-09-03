@@ -8,3 +8,4 @@
 ## Task  5-10-fp_baseline.sh, fp_baseline.json
 ## Task  6-13-rule_quality.sh, rule_quality.json
 ## Task  7-14-rule_prioritization.sh, rule_prioritization.json
+## Task  8-15-generate_alerts.sh, alert_queue.json, alert_queue_schema.json
