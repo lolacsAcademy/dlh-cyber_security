@@ -1,0 +1,37 @@
+title: Windows Off-Hours Privileged Logon
+id: 84d29f31-3e6c-4c75-9d21-67bcb2d7a105
+status: experimental
+description: Detects privileged Windows logons during off-hours in a healthcare environment, where unusual administrative access may affect sensitive systems. The runner computes the custom hour_of_day field from each event timestamp.
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    event_id:
+      - 4624
+      - 4672
+    LogonType:
+      - '3'
+      - '10'
+  off_hours:
+    hour_of_day:
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+  condition: selection and off_hours
+falsepositives:
+  - After-hours support shifts
+  - Scheduled administrative jobs
+level: medium
+tags:
+  - attack.initial_access
+  - attack.t1078
