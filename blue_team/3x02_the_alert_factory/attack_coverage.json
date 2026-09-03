@@ -1,0 +1,48 @@
+{
+  "rule_to_technique_map": {
+    "001_ssh_brute_force": [
+      "T1110.001"
+    ],
+    "002_windows_offhours_privileged_logon": [
+      "T1078.002"
+    ],
+    "003_interpreter_abuse": [
+      "T1059.001",
+      "T1059.003"
+    ],
+    "004_recon_tool_execution": [
+      "T1046",
+      "T1595.001"
+    ],
+    "005_scheduled_task_persistence": [
+      "T1053.005"
+    ],
+    "006_registry_run_key_persistence": [
+      "T1547.001"
+    ],
+    "007_unknown_outbound_destination": [
+      "T1071.001",
+      "T1041"
+    ],
+    "008_lateral_movement_zone_flow": [
+      "T1021.002",
+      "T1550.002"
+    ],
+    "009_credential_theft_chain": [
+      "T1003.001",
+      "T1550.002"
+    ],
+    "010_sensitive_file_access_phi": [
+      "T1005",
+      "T1530"
+    ],
+    "011_medical_iot_egress": [
+      "T1071.001",
+      "T1041"
+    ],
+    "012_suricata_alert_correlation": [
+      "T1046",
+      "T1071.001"
+    ]
+  }
+}

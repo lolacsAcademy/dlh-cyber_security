@@ -7,3 +7,4 @@
 ## Task  4-rules/sigma/003_interpreter_abuse.yml, rules/sigma/004_recon_tool_execution.yml
 ## Task  5-10-fp_baseline.sh, fp_baseline.json
 ## Task  6-13-rule_quality.sh, rule_quality.json
+## Task  7-14-rule_prioritization.sh, rule_prioritization.json
