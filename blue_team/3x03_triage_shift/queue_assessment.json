@@ -1,0 +1,18 @@
+{
+  "queue_size": 0,
+  "validation_errors": [],
+  "by_priority_band": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "by_rule": {},
+  "by_hostname": {},
+  "by_attack_tactic": {},
+  "time_span": {
+    "first": null,
+    "last": null
+  },
+  "top_targets": []
+}
