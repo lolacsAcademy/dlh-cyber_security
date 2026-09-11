@@ -11,3 +11,4 @@ Task 7 7-export_scenario_a.sh, findings/scenario_a_export.json
 Task 8 8-export_scenario_b.sh, findings/scenario_b_export.json
 Task 9 9-export_scenario_c.sh, findings/scenario_c_export.json
 Task 10 12-tradeoff_analysis.sh, comparison/tradeoff_table.json, comparison/tradeoff_table.md
+Task 11 13-workflow_comparison.sh, comparison/workflow_comparison.json

@@ -1,0 +1,111 @@
+{
+  "per_interface": {
+    "cli": {
+      "finding_count": 4,
+      "time_to_first_answer_seconds": {
+        "total": 63,
+        "average": 15.75,
+        "median": 21
+      },
+      "action_count": {
+        "total": 19,
+        "average": 4.75
+      },
+      "fields_touched_count": {
+        "total": 25,
+        "average": 6.25
+      },
+      "event_refs_count": {
+        "total": 53,
+        "average": 13.25
+      }
+    },
+    "wazuh_export": {
+      "finding_count": 4,
+      "time_to_first_answer_seconds": {
+        "total": 3,
+        "average": 0.75,
+        "median": 1
+      },
+      "action_count": {
+        "total": 29,
+        "average": 7.25
+      },
+      "fields_touched_count": {
+        "total": 22,
+        "average": 5.5
+      },
+      "event_refs_count": {
+        "total": 69,
+        "average": 17.25
+      }
+    }
+  },
+  "per_scenario": [
+    {
+      "scenario_id": "anchor",
+      "cli_time_seconds": 21,
+      "wazuh_export_time_seconds": 1,
+      "time_delta_wazuh_export_minus_cli": -20,
+      "cli_action_count": 5,
+      "wazuh_export_action_count": 7,
+      "action_delta_wazuh_export_minus_cli": 2,
+      "cli_fields_touched_count": 4,
+      "wazuh_export_fields_touched_count": 6,
+      "cli_event_refs_count": 47,
+      "wazuh_export_event_refs_count": 47
+    },
+    {
+      "scenario_id": "scenario_a",
+      "cli_time_seconds": 21,
+      "wazuh_export_time_seconds": 0,
+      "time_delta_wazuh_export_minus_cli": -21,
+      "cli_action_count": 4,
+      "wazuh_export_action_count": 7,
+      "action_delta_wazuh_export_minus_cli": 3,
+      "cli_fields_touched_count": 6,
+      "wazuh_export_fields_touched_count": 5,
+      "cli_event_refs_count": 0,
+      "wazuh_export_event_refs_count": 5
+    },
+    {
+      "scenario_id": "scenario_b",
+      "cli_time_seconds": 21,
+      "wazuh_export_time_seconds": 1,
+      "time_delta_wazuh_export_minus_cli": -20,
+      "cli_action_count": 5,
+      "wazuh_export_action_count": 8,
+      "action_delta_wazuh_export_minus_cli": 3,
+      "cli_fields_touched_count": 10,
+      "wazuh_export_fields_touched_count": 5,
+      "cli_event_refs_count": 0,
+      "wazuh_export_event_refs_count": 11
+    },
+    {
+      "scenario_id": "scenario_c",
+      "cli_time_seconds": 0,
+      "wazuh_export_time_seconds": 1,
+      "time_delta_wazuh_export_minus_cli": 1,
+      "cli_action_count": 5,
+      "wazuh_export_action_count": 7,
+      "action_delta_wazuh_export_minus_cli": 2,
+      "cli_fields_touched_count": 5,
+      "wazuh_export_fields_touched_count": 6,
+      "cli_event_refs_count": 6,
+      "wazuh_export_event_refs_count": 6
+    }
+  ],
+  "confidence_distribution": {
+    "cli": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    },
+    "wazuh_export": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "generated_at": "2026-09-11T06:41:11Z"
+}
