@@ -6,3 +6,4 @@ Task 2 2-cli_anchor.sh, findings/anchor_cli.json
 Task 3 3-export_anchor.sh, findings/anchor_export.json
 Task 4 4-cli_scenario_a.sh, findings/scenario_a_cli.json
 Task 5 5-cli_scenario_b.sh, findings/scenario_b_cli.json
+Task 6 6-cli_scenario_c.sh, findings/scenario_c_cli.json
