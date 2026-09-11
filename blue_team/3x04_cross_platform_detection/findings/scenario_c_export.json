@@ -1,0 +1,45 @@
+{
+  "finding_id": "scenario_c_wazuh_export",
+  "scenario_id": "scenario_c",
+  "interface": "wazuh_export",
+  "investigation_start": "2026-09-11T06:26:31Z",
+  "investigation_end": "2026-09-11T06:26:32Z",
+  "time_to_first_answer_seconds": 1,
+  "actions": [
+    "Navigate to Discover → index meddefense-evidence-2026-03",
+    "Set time range: 2026-03-25T11:00:00Z to 2026-03-25T13:00:00Z",
+    "Type KQL: source.ip:\"10.2.3.2\" AND destination.ip:\"198.51.100.73\"",
+    "Sort by @timestamp ascending",
+    "Note 5 matching flows — consistent 12-minute beacon interval",
+    "Check source.zone field — MEDICAL_IOT (should have no direct internet access)",
+    "Note bytes_out increasing per flow: 8KB, 14KB, 28KB, 42KB, 48KB — data staging pattern"
+  ],
+  "fields_touched": [
+    "@timestamp",
+    "source.ip",
+    "destination.ip",
+    "destination.port",
+    "source.zone",
+    "full_log"
+  ],
+  "event_refs": [
+    "5161e1a6-6faf-47be-b647-9a6be7f1f34f",
+    "057fb629-deda-4b97-be19-87ed1c8329fa",
+    "e0f33d27-a580-4f7d-9799-d10370ec76f4",
+    "c0973003-dd64-4968-ba70-c5d8c114e8f1",
+    "f425f331-5e21-4533-86b8-423292a59186",
+    "47d9731e-da35-4e02-87c9-14a1d70abd16"
+  ],
+  "attack_techniques": [
+    "T1071.001",
+    "T1041"
+  ],
+  "source_ip": "10.2.3.2",
+  "destination_ip": "198.51.100.73",
+  "source_zone": "MEDICAL_IOT",
+  "zone_immediately_available": true,
+  "hypothesis": "Regular outbound connections from the MEDICAL_IOT segment to the same external destination indicate a beaconing pattern and possible data egress.",
+  "confidence": "high",
+  "comparison_to_cli": "1 seconds slower via export",
+  "created_at": "2026-09-11T06:26:32Z"
+}
