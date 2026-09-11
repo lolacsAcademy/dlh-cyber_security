@@ -1,0 +1,51 @@
+{
+  "finding_id": "scenario_a_wazuh_export",
+  "scenario_id": "scenario_a",
+  "interface": "wazuh_export",
+  "investigation_start": "2026-09-11T06:06:44Z",
+  "investigation_end": "2026-09-11T06:06:44Z",
+  "time_to_first_answer_seconds": 0,
+  "actions": [
+    "Navigate to Discover → index meddefense-evidence-2026-03",
+    "Set time range: 2026-03-25T14:20:00Z to 2026-03-25T14:30:00Z",
+    "Type KQL: agent.name:\"clin-ws-12\" AND winlog.event_id:(10 OR 1 OR 11 OR 3)",
+    "Sort by @timestamp ascending",
+    "Expand EID 10 event — note process.name and parent lsass.exe",
+    "Pivot to EID 11 event — note file path C:\\Temp\\debug.dmp",
+    "Pivot to EID 3 event — note destination.ip 10.1.1.10 port 445 (SMB lateral move)"
+  ],
+  "fields_touched": [
+    "@timestamp",
+    "agent.name",
+    "winlog.event_id",
+    "process.name",
+    "full_log"
+  ],
+  "event_refs": [
+    "62006cb0-e838-436b-935a-b19b142a4aed",
+    "7cc07004-bb81-4f99-b1cd-02e2b0230b12",
+    "c3229de4-9708-4736-9da6-7a6c5e140b23",
+    "8763bf3a-f620-4eb8-a82b-6082ca02b3a1",
+    "17b75b1b-651e-4b37-a36c-d9af45ba4430"
+  ],
+  "attack_techniques": [
+    "T1003.001",
+    "T1550.002",
+    "T1021.002"
+  ],
+  "hypothesis": "The Wazuh export confirms an LSASS access event followed by credential dump file creation and SMB lateral movement from clin-ws-12 to 10.1.1.10.",
+  "confidence": "high",
+  "export_hits_total": 10,
+  "kql_query": "agent.name:\"clin-ws-12\" AND winlog.event_id:(10 OR 1 OR 11 OR 3)",
+  "field_name_translation": {
+    "hostname": "agent.name",
+    "event_id": "winlog.event_id",
+    "process_name": "process.name",
+    "src_ip": "source.ip",
+    "dst_ip": "destination.ip",
+    "timestamp": "@timestamp"
+  },
+  "dashboard_estimated_time_seconds": 225,
+  "comparison_to_cli": "21 seconds faster via export",
+  "created_at": "2026-09-11T06:06:44Z"
+}

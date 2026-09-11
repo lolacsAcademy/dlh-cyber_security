@@ -1,0 +1,51 @@
+{
+  "scenarios_analyzed": 4,
+  "export_advantages": 3,
+  "cli_advantages": 1,
+  "scenarios": [
+    {
+      "scenario_id": "anchor",
+      "cli_time_seconds": 21,
+      "wazuh_export_time_seconds": 1,
+      "time_delta_export_minus_cli": -20,
+      "cli_action_count": 5,
+      "wazuh_export_action_count": 7,
+      "action_delta_export_minus_cli": 2,
+      "faster_interface": "wazuh_export",
+      "advantage_cause": "native_field_surface"
+    },
+    {
+      "scenario_id": "scenario_a",
+      "cli_time_seconds": 21,
+      "wazuh_export_time_seconds": 0,
+      "time_delta_export_minus_cli": -21,
+      "cli_action_count": 4,
+      "wazuh_export_action_count": 7,
+      "action_delta_export_minus_cli": 3,
+      "faster_interface": "wazuh_export",
+      "advantage_cause": "timeline_visualization"
+    },
+    {
+      "scenario_id": "scenario_b",
+      "cli_time_seconds": 21,
+      "wazuh_export_time_seconds": 1,
+      "time_delta_export_minus_cli": -20,
+      "cli_action_count": 5,
+      "wazuh_export_action_count": 8,
+      "action_delta_export_minus_cli": 3,
+      "faster_interface": "wazuh_export",
+      "advantage_cause": "filter_bar_efficiency"
+    },
+    {
+      "scenario_id": "scenario_c",
+      "cli_time_seconds": 0,
+      "wazuh_export_time_seconds": 1,
+      "time_delta_export_minus_cli": 1,
+      "cli_action_count": 5,
+      "wazuh_export_action_count": 7,
+      "action_delta_export_minus_cli": 2,
+      "faster_interface": "cli",
+      "advantage_cause": "pipeline_expressiveness"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "finding_id": "scenario_a_cli",
+  "scenario_id": "scenario_a",
+  "interface": "cli",
+  "investigation_start": "2026-09-11T05:18:35Z",
+  "investigation_end": "2026-09-11T05:18:56Z",
+  "time_to_first_answer_seconds": 21,
+  "actions": [
+    "Read scenario A manifest",
+    "Scoped enriched events to clin-ws-12 and scenario window",
+    "Filtered Sysmon Event IDs 10, 11, and 3",
+    "Reconstructed the ordered credential theft and lateral movement chain"
+  ],
+  "fields_touched": [
+    "hostname",
+    "timestamp",
+    "event_id",
+    "process_name",
+    "raw_message",
+    "event_ref"
+  ],
+  "event_refs": [],
+  "attack_techniques": [
+    "T1003.001",
+    "T1550.002",
+    "T1021.002"
+  ],
+  "hypothesis": "LSASS was accessed by rundll32.exe and a dump file was created, followed by SMB lateral movement to srv-dc-01. The ordered events form a credential theft chain consistent with malicious activity.",
+  "confidence": "high",
+  "created_at": "2026-09-11T05:18:56Z"
+}
