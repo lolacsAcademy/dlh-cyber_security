@@ -1,0 +1,38 @@
+{
+  "finding_id": "scenario_b_cli",
+  "scenario_id": "scenario_b",
+  "interface": "cli",
+  "investigation_start": "2026-09-11T05:36:23Z",
+  "investigation_end": "2026-09-11T05:36:44Z",
+  "time_to_first_answer_seconds": 21,
+  "actions": [
+    "Read scenario B manifest",
+    "Scoped enriched events to clin-ws-07 and scenario window",
+    "Read asset criticality and data classification",
+    "Filtered Windows events 4624, 4672, and Sysmon EID 1",
+    "Documented the authorization and off-hours ambiguity"
+  ],
+  "fields_touched": [
+    "hostname",
+    "timestamp",
+    "event_id",
+    "user",
+    "process_name",
+    "event_data.CommandLine",
+    "raw_message",
+    "asset.criticality",
+    "asset.data_classification",
+    "event_ref"
+  ],
+  "event_refs": [],
+  "attack_techniques": [
+    "T1078.002",
+    "T1059.001"
+  ],
+  "asset_criticality": "MEDIUM",
+  "data_classification": "PHI",
+  "ambiguity_note": "p.morales is the CISO and IS authorized for EHR access, but the off-hours timing + ExecutionPolicy Bypass warrants escalation. This is the classic FP/TP grey zone — document your reasoning.",
+  "hypothesis": "An off-hours privileged remote logon by an authorized CISO account was followed by PowerShell execution with ExecutionPolicy Bypass on a PHI workstation. The authorization reduces certainty, but the timing and execution behavior warrant escalation.",
+  "confidence": "high",
+  "created_at": "2026-09-11T05:36:44Z"
+}
