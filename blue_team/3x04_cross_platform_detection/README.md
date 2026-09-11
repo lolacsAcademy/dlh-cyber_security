@@ -8,3 +8,4 @@ Task 4 4-cli_scenario_a.sh, findings/scenario_a_cli.json
 Task 5 5-cli_scenario_b.sh, findings/scenario_b_cli.json
 Task 6 6-cli_scenario_c.sh, findings/scenario_c_cli.json
 Task 7 7-export_scenario_a.sh, findings/scenario_a_export.json
+Task 8 8-export_scenario_b.sh, findings/scenario_b_export.json
