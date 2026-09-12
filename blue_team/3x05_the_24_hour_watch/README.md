@@ -11,3 +11,4 @@
 ## Task 8: 8-investigate_B.sh, investigations/incident_B.json
 ## Task 9: 10-campaign_correlation.sh, campaign/campaign_assessment.json
 ## Task 10: 11-incident_reports.sh, reports/incident_A.md, reports/incident_B.md, reports/incident_C.md
+## Task 11: 13-containment_package.sh, response/containment.json, response/ioc_package.json
