@@ -9,3 +9,4 @@
 ## Task 6: 6-correlate_alerts.sh, alerts/incidents.json
 ## Task 7: 7-investigate_A.sh, investigations/incident_A.json
 ## Task 8: 8-investigate_B.sh, investigations/incident_B.json
+## Task 9: 10-campaign_correlation.sh, campaign/campaign_assessment.json
