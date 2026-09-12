@@ -2,3 +2,4 @@
 
 ## Task 0: 0-shift_intake.sh
 ## Task 1: 1-run_pipeline.sh
+## Task 2: 2-run_baselines.sh , runtime/baseline_run.json
