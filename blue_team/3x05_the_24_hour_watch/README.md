@@ -4,3 +4,4 @@
 ## Task 1: 1-run_pipeline.sh
 ## Task 2: 2-run_baselines.sh , runtime/baseline_run.json
 ## Task 3: 3-run_detections.sh, alerts/alert_queue.json
+## Task 4: 4-shift_briefing.sh, alerts/shift_briefing.json
