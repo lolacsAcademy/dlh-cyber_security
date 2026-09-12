@@ -1,0 +1,10 @@
+{
+  "baseline_version": "1.0",
+  "hosts_total": 10,
+  "hosts_with_deviations": 0,
+  "deviation_markers": [],
+  "hot_hosts": [],
+  "started_at": "2026-09-12T13:23:49Z",
+  "ended_at": "2026-09-12T13:26:31Z",
+  "exit_status": 0
+}

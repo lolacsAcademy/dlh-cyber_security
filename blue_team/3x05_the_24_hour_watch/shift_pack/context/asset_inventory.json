@@ -1,0 +1,89 @@
+{
+  "export_type": "capstone_asset_inventory",
+  "generated_at": "2026-06-04T00:00:00Z",
+  "note": "Asset inventory for the 3x05 capstone shift. Uses the secondary evidence pack host set (WEST/CENTRAL/SOUTH zones). Import this as $ASSETS_DIR in the capstone environment.",
+  "organization": "MedDefense Health Systems",
+  "version": "capstone-3x05",
+  "assets": [
+    {
+      "hostname": "rad-srv-01",
+      "ip": "10.2.1.10",
+      "zone": "RADIOLOGY",
+      "site": "NORTH",
+      "criticality": "HIGH",
+      "os": "Ubuntu 22.04 LTS",
+      "owner": "robert.kim",
+      "role": "PACS Server"
+    },
+    {
+      "hostname": "rad-srv-02",
+      "ip": "10.2.1.11",
+      "zone": "RADIOLOGY",
+      "site": "NORTH",
+      "criticality": "HIGH",
+      "os": "Ubuntu 22.04 LTS",
+      "owner": "robert.kim",
+      "role": "PACS Server"
+    },
+    {
+      "hostname": "db-patient-01",
+      "ip": "10.1.2.10",
+      "zone": "DATA",
+      "site": "MAIN",
+      "criticality": "CRITICAL",
+      "os": "Ubuntu 22.04 LTS",
+      "owner": "robert.kim",
+      "role": "Patient Database Primary"
+    },
+    {
+      "hostname": "db-patient-02",
+      "ip": "10.1.2.11",
+      "zone": "DATA",
+      "site": "MAIN",
+      "criticality": "CRITICAL",
+      "os": "Ubuntu 22.04 LTS",
+      "owner": "robert.kim",
+      "role": "Patient Database Standby"
+    },
+    {
+      "hostname": "bill-db-01",
+      "ip": "10.1.2.20",
+      "zone": "DATA",
+      "site": "MAIN",
+      "criticality": "HIGH",
+      "os": "Ubuntu 22.04 LTS",
+      "owner": "sarah.park",
+      "role": "Billing Database"
+    },
+    {
+      "hostname": "srv-dc-01",
+      "ip": "10.1.1.10",
+      "zone": "SERVERS",
+      "site": "MAIN",
+      "criticality": "CRITICAL",
+      "os": "Windows Server 2022",
+      "owner": "robert.kim",
+      "role": "Primary Domain Controller"
+    },
+    {
+      "hostname": "clin-ws-07",
+      "ip": "10.1.10.7",
+      "zone": "CLINICAL",
+      "site": "MAIN",
+      "criticality": "MEDIUM",
+      "os": "Windows 11",
+      "owner": "james.chen",
+      "role": "Clinical Workstation"
+    },
+    {
+      "hostname": "bill-ws-09",
+      "ip": "10.1.11.9",
+      "zone": "BILLING",
+      "site": "MAIN",
+      "criticality": "MEDIUM",
+      "os": "Windows 11",
+      "owner": "sarah.park",
+      "role": "Billing Workstation"
+    }
+  ]
+}

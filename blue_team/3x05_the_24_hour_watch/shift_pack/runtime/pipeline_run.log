@@ -1,0 +1,49 @@
+windows : 3 files  |    60.6 MB
+linux   : 3 files  |    14.9 MB
+network : 3 files  |    11.4 MB
+total   : 9 files  |    86.9 MB
+manifest written to source_inventory.json
+[pipeline] stage 0 source_inventory ... ok
+[pipeline] stage 1 telemetry_import ... ok
+reading security.json      ... 38496 records
+reading sysmon.json        ... 72832 records
+reading powershell.json    ... 9408 records
+appending student telemetry ... 1787 records
+windows_events.json: 122523 records
+[pipeline] stage 2 windows_parse ... ok
+parsing auth.log     ... 24832 lines -> 24832 records
+parsing audit.log    ... 67368 lines -> 67368 records
+parsing syslog       ... 41736 lines -> 41736 records
+appending student telemetry ... 1400 records
+linux_events.json: written
+[pipeline] stage 3 linux_parse ... ok
+windows_json     : normalized 122523 quarantined 0
+linux_text       : normalized 135336 quarantined 0
+total            : normalized 257859 quarantined 0
+normalized_events.json written
+quarantine.json  written
+[pipeline] stage 5 normalize ... ok
+firewall.csv        : 67547 records normalized
+suricata_eve.json   : 9977 records normalized
+pcap_summary.json   : 4096 records normalized
+appended to normalized_events.json
+network_events.json written
+[pipeline] stage 6 network_normalize ... ok
+[pipeline] stage 7 schema_validate ... ok
+malformed timestamps   : detected 0 repaired 0 dropped 0
+duplicates             : detected 139 removed
+hostname case          : normalized 0
+encoding errors        : detected 0 repaired 0
+suspected wrong tz     : flagged 0
+cleaned_events.json    written
+cleaning_log.json      written
+[pipeline] stage 8 data_quality ... ok
+events processed    : 339340
+asset context added : 1400 (0.41%)
+src_zone resolved   : 81493 (24.02%)
+dst_zone resolved   : 81493 (24.02%)
+unknown hosts       : 337940
+enriched_events.json written
+[pipeline] stage 9 enrich ... ok
+[pipeline] stage 10 timeline ... ok
+[pipeline] stage 11 source_stats ... ok

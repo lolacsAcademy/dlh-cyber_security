@@ -1,0 +1,21 @@
+{
+  "pipeline_version": "3x00",
+  "started_at": "2026-09-12T12:43:12Z",
+  "ended_at": "2026-09-12T12:47:18Z",
+  "duration_seconds": 246,
+  "input_pack": "/home/student/evidence_pack_secondary",
+  "events_in": 339479,
+  "events_out": 339340,
+  "events_dropped": 139,
+  "source_counts": {
+    "windows_json": 122511,
+    "linux_text": 135336,
+    "firewall": 67420,
+    "suricata_alert": 9977,
+    "pcap_flow": 4096
+  },
+  "dirty_data_detected": [
+    "duplicate"
+  ],
+  "exit_status": 0
+}

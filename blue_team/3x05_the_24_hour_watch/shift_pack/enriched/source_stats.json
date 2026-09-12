@@ -1,0 +1,14 @@
+{
+  "events_in": 339340,
+  "events_out": 339340,
+  "events_dropped": 0,
+  "total_events": 339340,
+  "source_counts": {
+    "windows_json": 122511,
+    "linux_text": 135336,
+    "firewall": 67420,
+    "suricata_alert": 9977,
+    "pcap_flow": 4096
+  },
+  "dirty_data_detected": []
+}

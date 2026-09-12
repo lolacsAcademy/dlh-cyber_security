@@ -28,6 +28,7 @@ trap 'rm -rf "$TMP"' EXIT
 mkdir -p "$TMP/data" "$TMP/context"
 
 jq -c '
+  .src_ip = (.src_ip // .event_data.IpAddress // .event_data.SourceIp) |
   .canonical_label =
     if .event_id=="4624" then "login_success"
     elif .event_id=="4625" then "login_failure"
@@ -60,7 +61,7 @@ echo "[detect] invoking detection runner"
 (
   cd "$PROJECT"
   HANDOFF_DIR="$TMP" \
-  BASELINE_PKG="$HOME/bt/3x01/baseline/work" \
+  BASELINE_PKG="$TMP" \
   bash ./15-generate_alerts.sh
 )
 

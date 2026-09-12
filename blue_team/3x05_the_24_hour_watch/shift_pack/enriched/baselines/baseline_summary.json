@@ -1,0 +1,37 @@
+{
+  "baseline_version": "1.0",
+  "hosts": [
+    {
+      "host": "ctr-admin-01"
+    },
+    {
+      "host": "ctr-admin-02"
+    },
+    {
+      "host": "ctr-ehr-01"
+    },
+    {
+      "host": "ctr-pharm-01"
+    },
+    {
+      "host": "sth-ws-01"
+    },
+    {
+      "host": "sth-ws-03"
+    },
+    {
+      "host": "sth-ws-05"
+    },
+    {
+      "host": "wst-bill-01"
+    },
+    {
+      "host": "wst-dc-01"
+    },
+    {
+      "host": "wst-dc-02"
+    }
+  ],
+  "deviation_markers": [],
+  "hot_hosts": []
+}
