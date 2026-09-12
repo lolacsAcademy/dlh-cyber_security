@@ -8,3 +8,4 @@
 ## Task 5: 5-triage_queue.sh, alerts/triage_log.jsonl
 ## Task 6: 6-correlate_alerts.sh, alerts/incidents.json
 ## Task 7: 7-investigate_A.sh, investigations/incident_A.json
+## Task 8: 8-investigate_B.sh, investigations/incident_B.json
