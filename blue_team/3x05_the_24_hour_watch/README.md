@@ -5,3 +5,4 @@
 ## Task 2: 2-run_baselines.sh , runtime/baseline_run.json
 ## Task 3: 3-run_detections.sh, alerts/alert_queue.json
 ## Task 4: 4-shift_briefing.sh, alerts/shift_briefing.json
+## Task 5: 5-triage_queue.sh, alerts/triage_log.jsonl
