@@ -9,3 +9,4 @@
 ## Task 6 - 8-verdict_matrix.md
 ## Task 7 - 9-campaign_thread.md
 ## Task 8 - 11-ioc_extraction.md
+## Task 9 - 13-phishing_investigation_report.md
