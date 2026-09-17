@@ -6,4 +6,4 @@
 ## Task 3 - 3-social_engineering.md
 ## Task 4 - 4-url_attachment_autopsy.md
 ## Task 5 - 7-click_investigation.md
-
+## Task 6 - 8-verdict_matrix.md
