@@ -11,8 +11,8 @@
 - SPF: fail — 91.234.99.107 is not authorized for meddefense-portal.com.
 - DKIM: none — the message has no DKIM signature.
 - DMARC: fail, action=none — authentication does not validate the visible From domain.
-- Authentication verdict: Contradicts apparent legitimacy.
-- Investigation meaning: Failed authentication supports the phishing indicators. Verdict: SUSPICIOUS.
+- Authentication verdict: Failed authentication reduces trust in the sender and supports suspicion.
+- Investigation meaning: SPF and DMARC failures plus missing DKIM directly support the SUSPICIOUS classification. Verdict: SUSPICIOUS.
 
 ## Email 3 — outlook-protection.com
 
@@ -35,24 +35,24 @@
 - SPF: softfail — 185.176.43.22 is not clearly authorized for medequip-supplies.net.
 - DKIM: none — the message has no DKIM signature.
 - DMARC: fail, action=none — authentication does not validate the visible From domain.
-- Authentication verdict: Contradicts apparent legitimacy.
-- Investigation meaning: Weak and failed authentication supports suspicion of the invoice email. Verdict: SUSPICIOUS.
+- Authentication verdict: Weak and failed authentication reduces trust and supports suspicion.
+- Investigation meaning: SPF softfail, DMARC failure and missing DKIM directly support the SUSPICIOUS classification. Verdict: SUSPICIOUS.
 
 ## Email 6 — canadian-pharma-discount.org
 
 - SPF: softfail — the sender is not clearly authorized for canadian-pharma-discount.org.
 - DKIM: none — the message has no DKIM signature.
 - DMARC: fail, action=quarantine — DMARC failed and the header indicates quarantine.
-- Authentication verdict: Contradicts apparent legitimacy.
-- Investigation meaning: Authentication failures support the identification of this unsolicited bulk message as spam. Verdict: SPAM.
+- Authentication verdict: Weak and failed authentication reduces trust and supports spam classification.
+- Investigation meaning: SPF softfail, DMARC failure and missing DKIM directly support the SPAM classification. Verdict: SPAM.
 
 ## Email 7 — meddefense-benefits.org
 
 - SPF: fail — 164.90.218.73 is not authorized for meddefense-benefits.org.
 - DKIM: none — the message has no DKIM signature.
 - DMARC: fail, action=none — authentication does not validate the visible From domain.
-- Authentication verdict: Contradicts apparent legitimacy.
-- Investigation meaning: Failed authentication supports the lookalike-domain phishing indicators. Verdict: SUSPICIOUS.
+- Authentication verdict: Failed authentication reduces trust in the sender and supports suspicion.
+- Investigation meaning: SPF and DMARC failures plus missing DKIM directly support the SUSPICIOUS classification. Verdict: SUSPICIOUS.
 
 ## Email 8 — hhs.gov
 
