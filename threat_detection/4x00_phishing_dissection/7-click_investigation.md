@@ -6,11 +6,8 @@
 - Workstation: WS-NURSE-04
 - Workstation IP: 10.10.2.15
 - Email: E2
-- Phishing domain: meddefense-portal.com
-- URL: hxxps://meddefense-portal[.]com/verify/staff?id=dmarsh&token=a8f3e2d1
+- Domain: meddefense-portal.com
 - Click timestamp: 2026-04-14 15:02:33 CDT
-- Related sending IP: 91.234.99.107
-- E2 uses a credential-verification pretext and failed SPF and DMARC.
 
 ### Key Unknowns
 
@@ -22,46 +19,46 @@
 
 ### Risk Assessment
 
-The reported click is high risk because E2 directs the user to a suspicious credential-verification portal. A click alone does not confirm compromise, but credential exposure or further activity may have occurred.
+E2 contains a portal verification link designed to request account verification. A reported click creates a risk of credential exposure, but the available evidence does not confirm that credentials were entered or that compromise occurred.
 
 ### Endpoint Checks To Perform
 
-If endpoint logs are available, check:
+If endpoint logs become available, check:
 
 - Browser history around the click timestamp.
 - Downloaded files.
-- New file creation.
-- Process execution after the click.
+- File creation.
+- Process execution.
 - PowerShell or cmd activity.
 
 ### Account Checks To Perform
 
-If identity logs are available, check:
+If identity logs become available, check:
 
 - Failed and successful logons.
-- Logons from unusual IP addresses or locations.
+- Logons from unusual sources.
 - Unexpected MFA prompts or approvals.
 - Password changes.
 - New or modified inbox rules.
-- Group membership or privilege changes.
+- Group membership changes.
 
 ### Decision Matrix
 
 | Outcome | Evidence |
 |---|---|
-| No compromise found | Click confirmed, but no credential entry or suspicious endpoint/account activity found. |
-| Possible credential exposure | Credential entry is possible or suspicious authentication activity exists, but compromise is not confirmed. |
-| Confirmed compromise | Evidence shows credential use, unauthorized login, malicious execution or unauthorized account changes. |
+| No compromise found | No credential exposure or suspicious endpoint/account activity identified. |
+| Possible credential exposure | Evidence suggests credentials may have been entered, but unauthorized use is not confirmed. |
+| Confirmed compromise | Unauthorized login, credential use, malicious execution or unauthorized account changes are confirmed. |
 
 ### Recommended Containment
 
-- Interview the user about what happened after the click.
+- Interview the user about actions taken after the click.
 - Reset the user's password.
 - Revoke active sessions and authentication tokens.
-- Re-register or verify MFA if credential exposure is suspected.
-- Monitor the account for suspicious logins and changes.
+- Verify or re-register MFA if credential exposure is suspected.
+- Monitor for suspicious authentication activity.
 - Review the workstation if endpoint evidence becomes available.
 
 ### Conclusion
 
-The click on E2 is confirmed, but compromise is not confirmed by the available evidence. Treat the event as high risk and perform endpoint and identity follow-up checks before determining the final outcome.
+The click on E2 is confirmed. The available evidence does not establish whether credential exposure or account compromise occurred. Endpoint and identity evidence are required for a final determination.
