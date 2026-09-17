@@ -8,3 +8,4 @@
 ## Task 5 - 7-click_investigation.md
 ## Task 6 - 8-verdict_matrix.md
 ## Task 7 - 9-campaign_thread.md
+## Task 8 - 11-ioc_extraction.md
