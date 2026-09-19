@@ -8,3 +8,4 @@ Task 4 - 5-vpn_pivot.sh
 Task 5 - 6-kill_chain.sh
 Task 6 - 7-detection_rules.sh
 Task 7 - 8-evidence_crosscheck.sh
+Task 8 - 11-network_forensics_report.sh
