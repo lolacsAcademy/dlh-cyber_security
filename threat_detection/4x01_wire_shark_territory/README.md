@@ -7,3 +7,4 @@ Task 3 - 4-lateral_movement.sh
 Task 4 - 5-vpn_pivot.sh
 Task 5 - 6-kill_chain.sh
 Task 6 - 7-detection_rules.sh
+Task 7 - 8-evidence_crosscheck.sh
