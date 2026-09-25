@@ -8,3 +8,4 @@
 ## Task 5 8-detection_gaps.md
 ## Task 6 9-yara_phishing_pdf.yar
 ## Task 7 11-yara_testing.sh
+## Task 8 13-intelligence_brief.md
