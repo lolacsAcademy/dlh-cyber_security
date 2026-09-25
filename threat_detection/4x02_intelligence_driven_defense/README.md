@@ -5,3 +5,4 @@
 ## Task 2 2-source_assessment.md
 ## Task 3 6-kill_chain.md
 ## Task 4 7-attack_navigator.md and healthbane_layer.json
+## Task 5 8-detection_gaps.md
