@@ -6,3 +6,4 @@
 ## Task 3 6-kill_chain.md
 ## Task 4 7-attack_navigator.md and healthbane_layer.json
 ## Task 5 8-detection_gaps.md
+## Task 6 9-yara_phishing_pdf.yar
