@@ -1,0 +1,171 @@
+{
+  "name": "HEALTHBANE Campaign",
+  "versions": {
+    "attack": "15",
+    "navigator": "4.9.1",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "HEALTHBANE ATT&CK mapping. OBSERVED techniques score 100; INFERRED techniques score 50.",
+  "filters": {
+    "platforms": [
+      "Windows"
+    ]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1589.002",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Victim email identities gathered for healthcare phishing targets."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Lookalike campaign domains were acquired before phishing."
+    },
+    {
+      "techniqueID": "T1585.002",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Email accounts were established for campaign activity."
+    },
+    {
+      "techniqueID": "T1587.001",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Stage 2 malware capability was used in victim environments."
+    },
+    {
+      "techniqueID": "T1608.005",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Phishing infrastructure staged malicious link targets."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Stage 1 spearphishing links led to credential-harvesting pages."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Stage 2 follow-up emails contained a malicious DOCM attachment."
+    },
+    {
+      "techniqueID": "T1078",
+      "score": 50,
+      "color": "#ffbf00",
+      "comment": "INFERRED: HC3 assesses Valid Accounts as likely; confirmation is pending."
+    },
+    {
+      "techniqueID": "T1204.001",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: A victim executed a malicious phishing link."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Stage 2 involved execution of a malicious file."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Stage 2 DOCM used VBA."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: PowerShell was used during Stage 2."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Malware created the HealthSync Update Service scheduled task."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Stage 2 persistence used a Registry Run key."
+    },
+    {
+      "techniqueID": "T1056.003",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Web forms captured usernames and passwords."
+    },
+    {
+      "techniqueID": "T1021",
+      "score": 50,
+      "color": "#ffbf00",
+      "comment": "INFERRED: HC3 assesses Remote Services as likely; confirmation is pending."
+    },
+    {
+      "techniqueID": "T1071.004",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Stage 3 used DNS TXT records for communication."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Web protocols were used by campaign infrastructure."
+    },
+    {
+      "techniqueID": "T1048.003",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Healthcare data was exfiltrated through DNS queries."
+    },
+    {
+      "techniqueID": "T1041",
+      "score": 100,
+      "color": "#ff6666",
+      "comment": "OBSERVED: Data exfiltration used campaign C2 infrastructure."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffbf00",
+      "#ff6666"
+    ],
+    "minValue": 50,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "OBSERVED - score 100",
+      "color": "#ff6666"
+    },
+    {
+      "label": "INFERRED - score 50",
+      "color": "#ffbf00"
+    }
+  ],
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}
