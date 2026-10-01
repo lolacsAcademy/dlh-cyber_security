@@ -7,3 +7,4 @@ Task 3: 4-hunt_psexec.sh
 Task 4: 6-hunt_credentials.sh
 Task 5: 9-hunt_svcaccount.sh
 Task 6: 10-evidence_correlation.sh
+Task 7: 12-gap_analysis.sh
