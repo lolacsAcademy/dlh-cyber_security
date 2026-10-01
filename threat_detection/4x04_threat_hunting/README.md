@@ -6,3 +6,4 @@ Task 2: 3-data_recon.sh
 Task 3: 4-hunt_psexec.sh
 Task 4: 6-hunt_credentials.sh
 Task 5: 9-hunt_svcaccount.sh
+Task 6: 10-evidence_correlation.sh
