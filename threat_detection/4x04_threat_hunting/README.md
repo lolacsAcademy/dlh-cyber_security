@@ -9,4 +9,4 @@ Task 5: 9-hunt_svcaccount.sh
 Task 6: 10-evidence_correlation.sh
 Task 7: 12-gap_analysis.sh
 Task 8: 13-detection_rules.sh
-
+Task 9: 14-hunting_report.md
