@@ -10,3 +10,4 @@ Task 6: 7-stage_4.sh
 Task 7: 8-unified_timeline.sh
 Task 8: 9-attack_techniques.sh
 Task 9: 12-data_exposure.sh
+Task 10: 15-reconstruction_report.md
