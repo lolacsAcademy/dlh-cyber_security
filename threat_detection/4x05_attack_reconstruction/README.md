@@ -6,5 +6,6 @@ Task 2: 2-disk_analysis.sh
 Task 3: 3-firewall_analysis.sh
 Task 4: 4-correlation_matrix.sh
 Task 5: 5-stages_1_2.sh
-Task 6: 6-stage_3.sh
-Task 7: 7-stage_4.sh
+Task 6: 7-stage_4.sh
+Task 7: 8-unified_timeline.sh
+
