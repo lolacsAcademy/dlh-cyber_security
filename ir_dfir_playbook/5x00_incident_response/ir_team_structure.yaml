@@ -1,0 +1,100 @@
+roles:
+  IR_Commander:
+    primary: James Chen, SOC Lead
+    backup: Robert Kim, Infrastructure Lead
+    responsibilities:
+      - Owns incident coordination through closure
+      - Runs the incident bridge and maintains the timeline
+      - Authorizes containment within assigned authority
+    authority_ceiling: SEV2
+
+  Technical_Lead:
+    primary: Robert Kim, Infrastructure Lead
+    backup: Mike Torres, Network Engineer
+    responsibilities:
+      - Leads technical investigation and evidence collection
+      - Coordinates containment and system recovery
+      - Reports technical findings to the IR Commander
+    authority_ceiling: SEV2
+
+  Communications_Lead:
+    primary: Marcus Webb, Communications Director
+    backup: James Chen, SOC Lead
+    responsibilities:
+      - Coordinates internal and external communications
+      - Prepares incident status updates
+      - Ensures messaging is approved before release
+    authority_ceiling: SEV2
+
+  Legal_Liaison:
+    primary: Helena Reyes, General Counsel
+    backup: Patricia Morales, CISO
+    responsibilities:
+      - Assesses HIPAA breach notification obligations
+      - Coordinates regulatory and legal requirements
+      - Preserves legal holds and evidence requirements
+    authority_ceiling: SEV1
+
+  Executive_Sponsor:
+    primary: Patricia Morales, CISO
+    backup: Sarah Park, IT Director
+    responsibilities:
+      - Owns executive-level incident decisions
+      - Approves critical containment trade-offs
+      - Coordinates executive and board reporting
+    authority_ceiling: SEV1
+
+  Scribe:
+    primary: Mike Torres, Network Engineer
+    backup: Sarah Park, IT Director
+    responsibilities:
+      - Records incident actions and timestamps
+      - Maintains the incident decision log
+      - Documents evidence and handoffs
+    authority_ceiling: SEV3
+
+escalation:
+  SEV1:
+    on_detection:
+      - IR_Commander
+      - Technical_Lead
+      - Executive_Sponsor
+    on_confirmation:
+      - Legal_Liaison
+      - Communications_Lead
+    on_scope_expansion:
+      - Executive_Sponsor
+      - Legal_Liaison
+      - Communications_Lead
+    time_threshold_minutes_to_escalate: 15
+
+  SEV2:
+    on_detection:
+      - IR_Commander
+      - Technical_Lead
+    on_confirmation:
+      - Legal_Liaison
+      - Communications_Lead
+    on_scope_expansion:
+      - Executive_Sponsor
+    time_threshold_minutes_to_escalate: 60
+
+  SEV3:
+    on_detection:
+      - IR_Commander
+      - Technical_Lead
+    on_confirmation:
+      - Legal_Liaison
+    on_scope_expansion:
+      - Executive_Sponsor
+      - Communications_Lead
+    time_threshold_minutes_to_escalate: 120
+
+  SEV4:
+    on_detection:
+      - IR_Commander
+    on_confirmation:
+      - Technical_Lead
+    on_scope_expansion:
+      - Executive_Sponsor
+    time_threshold_minutes_to_escalate: 240
