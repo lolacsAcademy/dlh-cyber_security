@@ -1,7 +1,11 @@
 roles:
   IR_Commander:
-    primary: James Chen, SOC Lead
-    backup: Robert Kim, Infrastructure Lead
+    primary:
+      name: James Chen
+      title: SOC Lead
+    backup:
+      name: Robert Kim
+      title: Infrastructure Lead
     responsibilities:
       - Owns incident coordination through closure
       - Runs the incident bridge and maintains the timeline
@@ -9,8 +13,12 @@ roles:
     authority_ceiling: SEV2
 
   Technical_Lead:
-    primary: Robert Kim, Infrastructure Lead
-    backup: Mike Torres, Network Engineer
+    primary:
+      name: Robert Kim
+      title: Infrastructure Lead
+    backup:
+      name: Mike Torres
+      title: Network Engineer
     responsibilities:
       - Leads technical investigation and evidence collection
       - Coordinates containment and system recovery
@@ -18,8 +26,12 @@ roles:
     authority_ceiling: SEV2
 
   Communications_Lead:
-    primary: Marcus Webb, Communications Director
-    backup: James Chen, SOC Lead
+    primary:
+      name: Marcus Webb
+      title: Communications Director
+    backup:
+      name: James Chen
+      title: SOC Lead
     responsibilities:
       - Coordinates internal and external communications
       - Prepares incident status updates
@@ -27,8 +39,12 @@ roles:
     authority_ceiling: SEV2
 
   Legal_Liaison:
-    primary: Helena Reyes, General Counsel
-    backup: Patricia Morales, CISO
+    primary:
+      name: Helena Reyes
+      title: General Counsel
+    backup:
+      name: Patricia Morales
+      title: CISO
     responsibilities:
       - Assesses HIPAA breach notification obligations
       - Coordinates regulatory and legal requirements
@@ -36,8 +52,12 @@ roles:
     authority_ceiling: SEV1
 
   Executive_Sponsor:
-    primary: Patricia Morales, CISO
-    backup: Sarah Park, IT Director
+    primary:
+      name: Patricia Morales
+      title: CISO
+    backup:
+      name: Sarah Park
+      title: IT Director
     responsibilities:
       - Owns executive-level incident decisions
       - Approves critical containment trade-offs
@@ -45,8 +65,12 @@ roles:
     authority_ceiling: SEV1
 
   Scribe:
-    primary: Mike Torres, Network Engineer
-    backup: Sarah Park, IT Director
+    primary:
+      name: Mike Torres
+      title: Network Engineer
+    backup:
+      name: Sarah Park
+      title: IT Director
     responsibilities:
       - Records incident actions and timestamps
       - Maintains the incident decision log
