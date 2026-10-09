@@ -1,0 +1,166 @@
+items:
+  - id: ERAD-001
+    category: malware_artifact
+    target_host: WST-WS-031
+    description: Remove confirmed malicious payload files and temporary execution artifacts.
+    command_or_action: Identify exact paths from preserved EDR evidence; remove confirmed malicious files after forensic preservation.
+    verification_command: Test-Path for each confirmed file path; compare with endpoint live-response file listing.
+    expected_verification_result: All identified malicious files absent; no matching artifacts in live-response results.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-002
+    category: malware_artifact
+    target_host: WST-WS-031
+    description: Remove attacker-created scheduled tasks and registry persistence.
+    command_or_action: Identify malicious task names and registry keys from endpoint evidence; delete confirmed persistence entries.
+    verification_command: schtasks /query; Get-ScheduledTask; Get-ItemProperty for identified registry keys.
+    expected_verification_result: No matching malicious tasks or registry persistence entries.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-003
+    category: process
+    target_host: WST-WS-031
+    description: Terminate verified malicious PowerShell, MSBuild and payload processes after evidence preservation.
+    command_or_action: Confirm process identity and command line; terminate verified malicious processes.
+    verification_command: Get-CimInstance Win32_Process; compare process paths, command lines and parent relationships with EDR evidence.
+    expected_verification_result: No remaining processes matching the confirmed malicious execution chain.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-004
+    category: malware_artifact
+    target_host: WST-WS-017
+    description: Remove malicious files, scheduled tasks and registry persistence identified during lateral movement investigation.
+    command_or_action: Preserve evidence; identify and remove confirmed malicious artifacts and persistence mechanisms.
+    verification_command: Test-Path; Get-ScheduledTask; Get-ItemProperty; endpoint live-response inspection.
+    expected_verification_result: No confirmed malicious artifacts or persistence entries remain.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-005
+    category: process
+    target_host: WST-WS-017
+    description: Eliminate attacker-controlled processes and remote execution sessions.
+    command_or_action: Identify and terminate confirmed malicious processes and unauthorized remote sessions.
+    verification_command: Get-CimInstance Win32_Process; review endpoint process tree and active remote sessions.
+    expected_verification_result: No matching attacker processes or unauthorized sessions remain.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-006
+    category: malware_artifact
+    target_host: LIS-WSIDE-01
+    description: Remove confirmed malicious payloads, scheduled tasks and registry persistence.
+    command_or_action: Preserve forensic evidence; remove verified malicious artifacts and persistence mechanisms.
+    verification_command: Test-Path; Get-ScheduledTask; Get-ItemProperty; endpoint live-response inspection.
+    expected_verification_result: No matching malicious files, tasks or registry entries remain.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-007
+    category: process
+    target_host: LIS-WSIDE-01
+    description: Stop attacker-controlled processes and unauthorized remote execution.
+    command_or_action: Identify malicious process instances and remote sessions; terminate after evidence capture.
+    verification_command: Get-CimInstance Win32_Process; inspect endpoint process tree and active sessions.
+    expected_verification_result: No confirmed malicious processes or unauthorized remote sessions remain.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-008
+    category: credential
+    target_host: domain
+    description: Reset MEDDEFENSE\dmarsh password and revoke active cloud sessions and refresh tokens.
+    command_or_action: Reset AD password using approved identity administration tools; revoke Microsoft Entra ID sessions and refresh tokens.
+    verification_command: Verify AD password reset timestamp; inspect Entra ID sign-in and token revocation records.
+    expected_verification_result: Password reset confirmed; old sessions revoked; no successful reuse of invalidated credentials or tokens.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-009
+    category: machine_account
+    target_host: WST-WS-031
+    description: Rotate workstation machine account password following compromise.
+    command_or_action: Reset machine account password through approved domain administration procedure.
+    verification_command: Test-ComputerSecureChannel; verify machine account password change timestamp in AD.
+    expected_verification_result: Secure channel healthy and machine account password rotation confirmed.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-010
+    category: machine_account
+    target_host: WST-WS-017
+    description: Rotate machine account password following suspected lateral movement.
+    command_or_action: Reset machine account password through approved domain administration procedure.
+    verification_command: Test-ComputerSecureChannel; verify machine account password change timestamp in AD.
+    expected_verification_result: Secure channel healthy and password rotation confirmed.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-011
+    category: machine_account
+    target_host: LIS-WSIDE-01
+    description: Rotate machine account password following compromise investigation.
+    command_or_action: Reset machine account password through approved domain administration procedure.
+    verification_command: Test-ComputerSecureChannel; verify machine account password change timestamp in AD.
+    expected_verification_result: Secure channel healthy and password rotation confirmed.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-012
+    category: krbtgt
+    target_host: domain
+    description: Evaluate and, if justified, perform controlled double-reset of the krbtgt account.
+    command_or_action: Obtain AD incident commander approval; coordinate two krbtgt password resets with full domain controller replication between resets.
+    rationale: Compromised Kerberos trust material requires investigation for forged-ticket capability. Pass-the-Ticket alone does not prove krbtgt key compromise. Double-reset is justified if krbtgt material or Golden Ticket capability is confirmed, following domain-wide impact assessment.
+    verification_command: Verify both password reset events, replication completion across domain controllers, and Kerberos authentication logs.
+    expected_verification_result: Two approved resets completed with replication verified; old krbtgt-key tickets no longer accepted.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-013
+    category: credential
+    target_host: domain
+    description: Invalidate compromised Kerberos tickets and review affected privileged or service credentials.
+    command_or_action: Purge compromised sessions and tickets; reset additional accounts only when evidence confirms exposure.
+    verification_command: Review Kerberos authentication events and affected account sign-in logs after invalidation.
+    expected_verification_result: No successful authentication using identified compromised tickets or revoked sessions.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-014
+    category: network
+    target_host: perimeter
+    description: Maintain outbound firewall denies for C2 IPs 185.220.101.47 and 91.234.99.107.
+    command_or_action: Apply or confirm explicit egress deny rules for both IP addresses.
+    verification_command: Review firewall policy and timestamped NetFlow records for both destinations over the post-block observation window.
+    expected_verification_result: Both deny rules active; zero permitted outbound packets to either C2 IP after enforcement.
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERAD-015
+    category: network
+    target_host: internal_network
+    description: Maintain segmentation preventing unauthorized lateral movement between affected hosts and production systems.
+    command_or_action: Enforce quarantine VLAN and approved internal access-control rules; permit only authorized IR jumpbox access.
+    verification_command: Inspect VLAN assignments and firewall rules; test connectivity from user VLAN and IR jumpbox.
+    expected_verification_result: Production access blocked; only explicitly authorized IR access succeeds.
+    status: pending
+    executed_at: null
+    executed_by: null

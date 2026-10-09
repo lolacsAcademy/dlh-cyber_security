@@ -4,4 +4,4 @@
 - Task 2: evidence_preservation.md
 - Task 3: containment_decision.md
 - Task 4: containment_execution.md
-- Task 4: containment_execution.md
+- Task 6: eradication_checklist.yaml
