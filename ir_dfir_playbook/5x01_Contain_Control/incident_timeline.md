@@ -38,3 +38,8 @@
 
 - 2026-04-14T02:51:04Z | DECISION | On-call SOC Analyst | Incident IR-20260414-01 declared at SEV2 due to suspicious execution and confirmed external connectivity on a high-criticality clinical workstation; patient data exposure and wider compromise remain unconfirmed | source=alert_A-20260414-9841.json | certainty=confirmed
 - 2026-04-14T02:51:04Z | DECISION | On-call SOC Analyst | Proposed quarantine VLAN isolation for WST-WS-031 after evidence preservation; approval pending from James Chen. See containment_decision.md for alternatives and rationale | source=containment_decision.md | certainty=confirmed
+- 2026-04-14T03:16:04Z | ACTION | Network Operations (simulated) | VLAN 999 reassignment for WST-WS-031; execution unverified | source=containment_execution.md | certainty=unverified
+- 2026-04-14T03:17:21Z | ACTION | Network Operations (simulated) | Firewall egress block for 185.220.101.47; execution unverified | source=containment_execution.md | certainty=unverified
+- Timestamp not established | ACTION | SOC Analyst (simulated) | C2 disruption verification planned; no timestamped Task 4 NetFlow or packet capture available | source=containment_execution.md | certainty=unverified
+- 2026-04-14T03:19:02Z | ACTION | Endpoint Security Analyst (simulated) | Endpoint containment flag planned; execution unverified | source=containment_execution.md | certainty=unverified
+- 2026-04-14T03:22:04Z | ACTION | SOC Analyst (simulated) | Jumpbox-only connectivity verification planned; results unavailable | source=containment_execution.md | certainty=unverified
