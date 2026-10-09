@@ -37,3 +37,4 @@
 - 2026-04-14T02:47:11Z | OBSERVATION | WazuhEDR rule wz-edr-100041 | Alert A-20260414-9841 fired for suspicious PowerShell-to-MSBuild execution and outbound communication on clinical workstation WST-WS-031 | source=alert_A-20260414-9841.json | certainty=confirmed
 
 - 2026-04-14T02:51:04Z | DECISION | On-call SOC Analyst | Incident IR-20260414-01 declared at SEV2 due to suspicious execution and confirmed external connectivity on a high-criticality clinical workstation; patient data exposure and wider compromise remain unconfirmed | source=alert_A-20260414-9841.json | certainty=confirmed
+- 2026-04-14T02:51:04Z | DECISION | On-call SOC Analyst | Proposed quarantine VLAN isolation for WST-WS-031 after evidence preservation; approval pending from James Chen. See containment_decision.md for alternatives and rationale | source=containment_decision.md | certainty=confirmed
