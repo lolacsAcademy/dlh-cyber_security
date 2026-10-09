@@ -1,0 +1,146 @@
+playbook_id: PB-CLIN-002
+title: Radiology Imaging Degradation During Emergency Care
+owner_role: IR_Commander
+
+applies_to:
+  triggers:
+    - ER nurses report delayed or unavailable X-ray retrieval
+    - Radiology imaging server response time exceeds its normal baseline
+    - Wazuh reports suspicious activity affecting imaging infrastructure
+  indicators:
+    - "Performance: high CPU, memory, or disk utilization without suspicious security events"
+    - "Performance: storage latency or application errors matching known maintenance activity"
+    - "Security: unexpected privileged logins or unauthorized configuration changes"
+    - "Security: suspicious processes, encryption activity, or unusual outbound connections"
+    - "Security: repeated authentication failures followed by successful privileged access"
+
+severity_mapping:
+  initial: SEV2
+  escalate_if:
+    - Imaging delays create high patient safety impact
+    - Imaging becomes completely unavailable during emergency care
+    - Confirmed compromise spreads to other clinical systems
+    - Broad patient data exposure is confirmed
+
+immediate_actions:
+  - step: Record the first reported delay and notify the IR Commander
+    owner: IR_Commander
+    timebox_minutes: 2
+  - step: Contact the ER charge nurse and on-call radiology clinical lead to assess patient impact
+    owner: IR_Commander
+    timebox_minutes: 3
+  - step: Compare server performance metrics with security alerts and authentication activity
+    owner: Technical_Lead
+    timebox_minutes: 5
+  - step: Preserve available evidence without interrupting imaging services
+    owner: Technical_Lead
+    timebox_minutes: 3
+  - step: Agree on continued operation or clinical downtime investigation
+    owner: IR_Commander
+    timebox_minutes: 2
+
+evidence_preservation:
+  - artifact: Imaging server performance records
+    method: Export CPU, memory, disk, and application latency metrics with timestamps
+    before_step: Service throttling or configuration changes
+  - artifact: Wazuh security alerts and endpoint events
+    method: Export relevant alerts and process activity for the affected server
+    before_step: Network segmentation
+  - artifact: Authentication and administrative activity
+    method: Export account sign-ins and privileged access events
+    before_step: Account restriction
+  - artifact: Radiology application and network connection logs
+    method: Export application errors and active connection records
+    before_step: Network segmentation
+
+containment_actions:
+  - step: Restrict imaging server communication to essential clinical network paths
+    owner: Technical_Lead
+    decision_point: >
+      Obtain patient safety assessment from the ER charge nurse and
+      on-call radiology clinical lead before changing network access.
+      IR Commander authorizes the restriction.
+    trade_off: >
+      Limits suspicious network activity while preserving approved
+      clinical connections. Some nonessential integrations may stop.
+
+  - step: Restrict suspicious administrative accounts
+    owner: Technical_Lead
+    decision_point: >
+      Confirm that affected accounts are not required for active
+      imaging workflows before restricting access.
+    trade_off: >
+      Reduces unauthorized access but may delay legitimate
+      maintenance or support activities.
+
+  - step: Throttle nonessential background services
+    owner: Technical_Lead
+    decision_point: >
+      Coordinate with clinical IT and radiology staff to identify
+      processes that can be safely limited without delaying imaging.
+    trade_off: >
+      Preserves resources for patient care but postpones
+      background processing.
+
+  - step: Select clinical downtime investigation or continued monitored operation
+    owner: IR_Commander
+    decision_point: >
+      If X-ray access is unsafe or insufficient for emergency care,
+      the on-call radiology clinical lead activates approved downtime
+      procedures immediately. Investigate while clinical staff use
+      the fallback workflow. If essential imaging remains usable,
+      continue service with elevated monitoring and constrained
+      access, subject to clinical lead agreement.
+    trade_off: >
+      Downtime protects patients from unreliable imaging access
+      but slows normal workflows. Continued operation preserves
+      availability but requires close monitoring of security risk.
+
+eradication_actions:
+  - Remove confirmed malicious processes only after evidence preservation
+  - Disable unauthorized access paths identified during investigation
+  - Correct verified configuration faults or resource exhaustion
+  - Apply approved security fixes without interrupting active patient care
+
+recovery_validation:
+  - check: Confirm X-ray retrieval with ER and radiology staff
+    criterion: Required images are accessible within clinically acceptable times
+  - check: Review imaging server performance
+    criterion: CPU, disk, memory, and response times return to approved baselines
+  - check: Review security monitoring after remediation
+    criterion: No continuing suspicious processes, logins, or connections
+  - check: Confirm clinical workflow restoration
+    criterion: On-call radiology clinical lead approves return to normal operations
+
+communication_plan:
+  - audience: IR_Commander
+    trigger: Imaging degradation reported and incident triage begins
+    template: "<incident_status_template.md>"
+  - audience: ER charge nurse and on-call radiology clinical lead
+    trigger: Before any isolation or access restriction affecting imaging
+    template: "<clinical_impact_template.md>"
+  - audience: Executive_Sponsor
+    trigger: Patient safety becomes high risk or severity reaches SEV1
+    template: "<executive_notification_template.md>"
+  - audience: Legal_Liaison
+    trigger: Investigation identifies possible patient data exposure
+    template: "<hipaa_assessment_template.md>"
+  - audience: Communications_Lead
+    trigger: Confirmed disruption requires coordinated stakeholder messaging
+    template: "<incident_communication_template.md>"
+
+escalation_triggers:
+  - ER clinicians cannot obtain imaging required for safe patient treatment
+  - Radiology clinical lead reports that available workarounds are insufficient
+  - Imaging disruption expands to additional MedDefense clinical services
+  - Evidence confirms ransomware or unauthorized privileged control
+  - Confirmed broad exposure of patient records
+  - SEV2 remains without meaningful progress for 60 minutes
+
+post_incident_tasks:
+  - Document imaging delays and their impact on emergency patient care
+  - Record clinical approvals and containment trade-offs
+  - Compare initial performance indicators with confirmed security findings
+  - Review the effectiveness of downtime procedures with radiology staff
+  - Update monitoring rules and clinical response procedures
+  - Record corrective actions and owners for the post-incident review
