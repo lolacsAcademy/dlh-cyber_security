@@ -1,0 +1,35 @@
+---
+title: PowerShell Spawning Trusted Developer Utility (LOLBin Proxy Execution)
+id: 6d9b2f47-8a31-4c56-9e20-7f4b1a63d805
+status: test
+description: Detects script hosts launching trusted developer utilities.
+references:
+  - https://lolbas-project.github.io/
+  - https://attack.mitre.org/techniques/T1127/001/
+author: MedDefense SOC
+date: 2026-10-16
+tags:
+  - attack.execution
+  - attack.defense_evasion
+  - attack.t1127.001
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_parent:
+    ParentImage|endswith:
+      - '\powershell.exe'
+      - '\pwsh.exe'
+      - '\wscript.exe'
+      - '\cscript.exe'
+  selection_child:
+    Image|endswith:
+      - '\MSBuild.exe'
+      - '\csc.exe'
+      - '\vbc.exe'
+      - '\jsc.exe'
+  condition: selection_parent and selection_child
+falsepositives:
+  - Authorized PowerShell build scripts launching MSBuild.
+  - Developer automation using csc.exe to compile internal tools.
+level: high
