@@ -4,3 +4,5 @@
 chain_of_custody.md
 ## Task 2
 verify_artifacts.sh
+## Task 3
+filesystem_analysis.md
