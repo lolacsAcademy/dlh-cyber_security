@@ -8,3 +8,5 @@ verify_artifacts.sh
 filesystem_analysis.md
 ## Task 4
 persistence_analysis.md
+## Task 5
+memory_analysis.md
