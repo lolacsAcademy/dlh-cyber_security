@@ -6,3 +6,5 @@ chain_of_custody.md
 verify_artifacts.sh
 ## Task 3
 filesystem_analysis.md
+## Task 4
+persistence_analysis.md
