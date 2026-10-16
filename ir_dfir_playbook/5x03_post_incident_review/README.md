@@ -3,3 +3,4 @@
 ## Task 1 — control_effectiveness.yaml
 ## Task 2 — gap_analysis.md
 ## Task 3 — sigma_powershell_msbuild_lolbin.yml
+## Task 5 — validate_rules.sh, rule_validation_report.md
