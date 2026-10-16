@@ -1,0 +1,75 @@
+---
+- phase: Credential phishing and submission
+  att_ck_technique: T1566.002 + T1078
+  controls_expected:
+    - Phishing URL filtering
+    - MFA and suspicious login detection
+  controls_fired:
+    - Proxy logging recorded the phishing visit
+  controls_missed:
+    - Phishing site was not blocked
+    - Stolen credentials were usable
+  gap_severity: critical
+  gap_reason: Phished credentials enabled unauthorized access.
+
+- phase: VPN access from a foreign IP
+  att_ck_technique: T1078
+  controls_expected:
+    - VPN geographic restrictions
+    - Risk-based access checks
+  controls_fired:
+    - Authentication logs recorded access
+  controls_missed:
+    - Foreign IP access was not prevented
+    - Risk signals were suppressed
+  gap_severity: critical
+  gap_reason: Stolen credentials bypassed access protections.
+
+- phase: PowerShell to MSBuild execution
+  att_ck_technique: T1127.001
+  controls_expected:
+    - Suspicious process detection
+    - Application execution controls
+  controls_fired:
+    - Process evidence captured the execution chain
+  controls_missed:
+    - Malicious MSBuild execution was not stopped
+  gap_severity: high
+  gap_reason: MSBuild executed attacker-controlled code.
+
+- phase: C2 beaconing
+  att_ck_technique: T1071.001
+  controls_expected:
+    - Outbound IP filtering
+    - Network beacon detection
+  controls_fired:
+    - Memory evidence recorded C2 connections
+  controls_missed:
+    - Connections to both C2 IPs were allowed
+  gap_severity: high
+  gap_reason: Compromised hosts communicated with external C2.
+
+- phase: LSASS access and Kerberos ticket extraction
+  att_ck_technique: T1003.001 + T1558.003
+  controls_expected:
+    - LSASS credential protection
+    - Kerberos abuse detection
+  controls_fired: []
+  controls_missed:
+    - Credential exposure was not prevented
+    - No effective ticket abuse control documented
+  gap_severity: critical
+  gap_reason: Credential material was exposed, enabling further compromise.
+
+- phase: Lateral movement and PHI access
+  att_ck_technique: T1550.003 + T1078
+  controls_expected:
+    - Lateral movement detection
+    - Restricted PHI share access
+  controls_fired:
+    - File audit recorded 14 PDF reads
+  controls_missed:
+    - Unauthorized movement was not stopped
+    - PHI access was not prevented
+  gap_severity: critical
+  gap_reason: Compromised credentials reached 14 patient reports.
