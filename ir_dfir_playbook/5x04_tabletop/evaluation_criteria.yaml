@@ -9,7 +9,8 @@ criteria:
       - Nexus vendor update risk is considered.
     fail_indicators:
       - No incident declaration or severity justification.
-      - No evidence preservation step identified.
+      - Required roles are not notified.
+      - No evidence preservation step is identified.
       - Vendor supply chain risk is ignored.
     finding_if_fail: >
       Vendor-origin traffic was not properly escalated or investigated.
@@ -22,30 +23,40 @@ criteria:
       - Isolation decision or escalation authority is named.
       - Clinical Director is consulted about patient impact.
       - Manual scheduling fallback is discussed.
+      - Appointment integrity verification has an assigned owner.
       - Signed updates are not automatically considered safe.
     fail_indicators:
       - Isolation decision is deferred without a deadline.
       - Clinical Operations is excluded from the decision.
       - No scheduling fallback is identified.
+      - No owner is assigned to verify appointment changes.
+      - Valid signatures are treated as proof of safety.
     finding_if_fail: >
-      Containment decisions lacked clinical coordination and a scheduling
-      fallback. Action: document joint isolation authority and test manual
-      scheduling. Owner: IT Director. Validation: continuity drill.
+      Containment decisions lacked clinical coordination, scheduling
+      fallback, or appointment integrity ownership.
+      Action: document joint isolation authority and test manual
+      scheduling and appointment verification.
+      Owner: IT Director and Clinical Director.
+      Validation: continuity and appointment integrity drill.
 
   - inject_id: INJ-02
     capability_tested: CAP-02
     pass_criteria:
-      - Nexus SecOps contact channel is identified.
+      - Nexus SecOps is contacted within 10 minutes of the inject.
       - A request for affected versions and indicators is stated.
+      - Contact time and escalation details are recorded.
       - Vendor response deadlines and escalation owners are assigned.
     fail_indicators:
-      - No named person contacts Nexus SecOps.
-      - No deadline is set for vendor updates.
-      - The previously untested communication path is ignored.
+      - Nexus SecOps is not contacted within 10 minutes.
+      - No request for affected versions or indicators is made.
+      - No contact or escalation record is created.
+      - No owner or deadline is assigned for vendor updates.
     finding_if_fail: >
-      Vendor incident coordination lacked ownership or response deadlines.
-      Action: test Nexus SecOps escalation and record contact procedures.
-      Owner: Vendor Risk Lead. Validation: joint communication drill.
+      Vendor incident communication was delayed or lacked documented
+      escalation. Action: establish a 10-minute contact target,
+      record Nexus SecOps communications, and test escalation.
+      Owner: Vendor Risk Lead.
+      Validation: timed joint communication drill.
 
   - inject_id: INJ-03
     capability_tested: CAP-04
@@ -60,23 +71,30 @@ criteria:
     finding_if_fail: >
       ePHI exposure assessment lacked defined data scope or supporting
       evidence. Action: create a vendor exposure assessment checklist.
-      Owner: Privacy Officer. Validation: sample exposure review.
+      Owner: Privacy Officer.
+      Validation: sample exposure review.
 
   - inject_id: INJ-04
     capability_tested: CAP-05
     pass_criteria:
       - Nexus's 24-hour BAA notification duty is identified.
-      - Legal and Privacy roles assess MedDefense's HIPAA obligations.
-      - Applicable deadlines and responsible owners are documented.
-      - Notification decisions reflect available evidence.
+      - Legal and Privacy assess MedDefense's separate HIPAA obligations.
+      - A named Privacy or Legal owner accepts the assessment.
+      - An assessment deadline is stated and documented.
+      - Notification decision and supporting evidence are recorded.
     fail_indicators:
       - BAA and HIPAA notification duties are confused.
       - Legal or Privacy is excluded.
-      - No notification assessment owner or deadline is named.
+      - No named owner accepts the notification assessment.
+      - No assessment deadline is documented.
+      - No evidence-based notification decision is recorded.
     finding_if_fail: >
-      Business Associate notification responsibilities were not clearly
-      assessed. Action: document BAA and HIPAA notification workflows.
-      Owner: Privacy Officer. Validation: notification decision exercise.
+      Business Associate notification assessment lacked clear
+      ownership, deadlines, or documented reasoning.
+      Action: establish a BAA and HIPAA notification decision
+      workflow with named ownership and assessment deadlines.
+      Owner: Privacy Officer.
+      Validation: timed notification decision exercise.
 
   - inject_id: INJ-05
     capability_tested:
@@ -94,8 +112,9 @@ criteria:
       - Unconfirmed breach details are presented as facts.
     finding_if_fail: >
       Appointment integrity or public communication lacked coordinated
-      response controls. Action: test appointment verification and media
-      approval procedures. Owners: Clinical Director and Communications Lead.
+      response controls. Action: test appointment verification and
+      media approval procedures.
+      Owners: Clinical Director and Communications Lead.
       Validation: joint patient safety and media simulation.
 
   - inject_id: INJ-06
@@ -115,6 +134,8 @@ criteria:
       - Unresolved findings are presented as confirmed conclusions.
     finding_if_fail: >
       Recovery decisions or executive reporting lacked clear ownership
-      and documented uncertainty. Action: establish recovery approval
-      criteria and a board briefing template. Owner: Incident Commander.
+      and documented uncertainty.
+      Action: establish recovery approval criteria and a board
+      briefing template.
+      Owner: Incident Commander.
       Validation: timed executive briefing exercise.

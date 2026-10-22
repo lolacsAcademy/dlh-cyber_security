@@ -24,15 +24,18 @@ injects:
       A malicious update was distributed with a valid Nexus signature.
       Security recommends isolating Nexus agents, but Clinical Operations
       warns that appointment disruption could affect patient care.
+      Clinical staff also report possible unauthorized appointment changes,
+      but the number of affected records is unknown.
     capability_tested: CAP-03
-    decision_point: Who authorizes isolation, and how will scheduling continue?
+    decision_point: Who authorizes isolation, and how will scheduling and appointment verification continue?
     roles_challenged:
       - IT Director
       - Clinical Director
       - Incident Commander
     expected_response: >
       Document the isolation decision, assess patient safety,
-      assign authorization, and activate manual scheduling if required.
+      assign authorization, activate manual scheduling if required,
+      and assign responsibility for checking appointment integrity.
 
   - id: INJ-02
     time_minutes: 35
@@ -42,14 +45,14 @@ injects:
       customers received affected updates. Its incident response team
       has not provided a recovery timeline.
     capability_tested: CAP-02
-    decision_point: How will MedDefense escalate and coordinate with Nexus?
+    decision_point: Who contacts Nexus within 10 minutes, and how will escalation be recorded?
     roles_challenged:
       - Vendor Risk Lead
       - Incident Commander
     expected_response: >
-      Contact Nexus SecOps through the documented 24x7 channel,
-      request affected versions and indicators, establish update deadlines,
-      and record all communications.
+      Contact Nexus SecOps through the documented 24x7 channel within
+      10 minutes, request affected versions and indicators, record
+      the contact and escalation, and assign vendor update deadlines.
 
   - id: INJ-03
     time_minutes: 50
@@ -78,23 +81,23 @@ injects:
       to MedDefense within 24 hours of discovery.
       Leadership requests an immediate notification recommendation.
     capability_tested: CAP-05
-    decision_point: What notification obligations apply and when?
+    decision_point: Who owns the notification assessment, what deadline applies, and how is the decision documented?
     roles_challenged:
       - Privacy Officer
       - Legal Counsel
     expected_response: >
-      Document the breach assessment, distinguish BAA duties
-      from HIPAA notification requirements, identify applicable
-      deadlines, and assign responsibility for follow-up.
+      Distinguish BAA duties from HIPAA notification requirements,
+      name a Privacy or Legal assessment owner, establish a deadline,
+      and document the notification decision using available evidence.
 
   - id: INJ-05
     time_minutes: 80
     delivery: facilitator reads aloud
     situation: >
-      Clinical Operations reports that several appointments appear
-      to have changed without staff authorization. At the same time,
-      a journalist requests confirmation of a patient data breach.
-      Neither the full integrity impact nor data exposure is confirmed.
+      Clinical Operations confirms that several appointments appear
+      to have changed without staff authorization. The full integrity
+      impact remains unknown. At the same time, a journalist requests
+      confirmation of a patient data breach. Data exposure is unconfirmed.
     capability_tested:
       - CAP-06
       - CAP-07
