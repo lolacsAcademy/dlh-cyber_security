@@ -1,0 +1,120 @@
+
+criteria:
+  - inject_id: INJ-00
+    capability_tested: CAP-01
+    pass_criteria:
+      - SOC declares an incident and explains its severity.
+      - Incident Commander and IT Director are notified.
+      - EDR and network evidence preservation is requested.
+      - Nexus vendor update risk is considered.
+    fail_indicators:
+      - No incident declaration or severity justification.
+      - No evidence preservation step identified.
+      - Vendor supply chain risk is ignored.
+    finding_if_fail: >
+      Vendor-origin traffic was not properly escalated or investigated.
+      Action: update SOC escalation and evidence preservation procedures.
+      Owner: SOC Lead. Validation: repeat alert triage simulation.
+
+  - inject_id: INJ-01
+    capability_tested: CAP-03
+    pass_criteria:
+      - Isolation decision or escalation authority is named.
+      - Clinical Director is consulted about patient impact.
+      - Manual scheduling fallback is discussed.
+      - Signed updates are not automatically considered safe.
+    fail_indicators:
+      - Isolation decision is deferred without a deadline.
+      - Clinical Operations is excluded from the decision.
+      - No scheduling fallback is identified.
+    finding_if_fail: >
+      Containment decisions lacked clinical coordination and a scheduling
+      fallback. Action: document joint isolation authority and test manual
+      scheduling. Owner: IT Director. Validation: continuity drill.
+
+  - inject_id: INJ-02
+    capability_tested: CAP-02
+    pass_criteria:
+      - Nexus SecOps contact channel is identified.
+      - A request for affected versions and indicators is stated.
+      - Vendor response deadlines and escalation owners are assigned.
+    fail_indicators:
+      - No named person contacts Nexus SecOps.
+      - No deadline is set for vendor updates.
+      - The previously untested communication path is ignored.
+    finding_if_fail: >
+      Vendor incident coordination lacked ownership or response deadlines.
+      Action: test Nexus SecOps escalation and record contact procedures.
+      Owner: Vendor Risk Lead. Validation: joint communication drill.
+
+  - inject_id: INJ-03
+    capability_tested: CAP-04
+    pass_criteria:
+      - Patient demographics, insurance data, and appointments are scoped.
+      - SOC and Privacy Officer request relevant access evidence.
+      - Confirmed exposure is separated from suspected access.
+    fail_indicators:
+      - Patient data categories are not identified.
+      - No evidence request is made.
+      - Unconfirmed exfiltration is reported as established fact.
+    finding_if_fail: >
+      ePHI exposure assessment lacked defined data scope or supporting
+      evidence. Action: create a vendor exposure assessment checklist.
+      Owner: Privacy Officer. Validation: sample exposure review.
+
+  - inject_id: INJ-04
+    capability_tested: CAP-05
+    pass_criteria:
+      - Nexus's 24-hour BAA notification duty is identified.
+      - Legal and Privacy roles assess MedDefense's HIPAA obligations.
+      - Applicable deadlines and responsible owners are documented.
+      - Notification decisions reflect available evidence.
+    fail_indicators:
+      - BAA and HIPAA notification duties are confused.
+      - Legal or Privacy is excluded.
+      - No notification assessment owner or deadline is named.
+    finding_if_fail: >
+      Business Associate notification responsibilities were not clearly
+      assessed. Action: document BAA and HIPAA notification workflows.
+      Owner: Privacy Officer. Validation: notification decision exercise.
+
+  - inject_id: INJ-05
+    capability_tested:
+      - CAP-06
+      - CAP-07
+    pass_criteria:
+      - Clinical Operations initiates appointment integrity verification.
+      - Patient safety risks and correction ownership are identified.
+      - Communications Lead coordinates an approved media response.
+      - Public statements distinguish verified facts from unknowns.
+    fail_indicators:
+      - Appointment changes receive no verification plan.
+      - No clinical owner is assigned.
+      - Media response is issued without approval.
+      - Unconfirmed breach details are presented as facts.
+    finding_if_fail: >
+      Appointment integrity or public communication lacked coordinated
+      response controls. Action: test appointment verification and media
+      approval procedures. Owners: Clinical Director and Communications Lead.
+      Validation: joint patient safety and media simulation.
+
+  - inject_id: INJ-06
+    capability_tested:
+      - CAP-03
+      - CAP-08
+    pass_criteria:
+      - Leadership states what remains offline and why.
+      - Clinical safeguards and decision owners are identified.
+      - A board briefing owner and 90-minute deadline are acknowledged.
+      - Briefing covers impact, decisions, uncertainty, and next steps.
+      - Unresolved appointment integrity questions are documented.
+    fail_indicators:
+      - No accountable continuity decision is made.
+      - Patient safety considerations are omitted.
+      - No board briefing owner or deadline is assigned.
+      - Unresolved findings are presented as confirmed conclusions.
+    finding_if_fail: >
+      Recovery decisions or executive reporting lacked clear ownership
+      and documented uncertainty. Action: establish recovery approval
+      criteria and a board briefing template. Owner: Incident Commander.
+      Validation: timed executive briefing exercise.
