@@ -1,0 +1,133 @@
+
+injects:
+  - id: INJ-00
+    time_minutes: 0
+    delivery: facilitator reads aloud
+    situation: >
+      The SOC reports unusual outbound traffic from SCHED-SVR-01 at Main campus.
+      EDR shows connections every four hours to an unknown external IP.
+      The alert appeared 45 minutes ago. Scheduling remains operational.
+    capability_tested: CAP-01
+    decision_point: Should an incident be declared, and who must be notified?
+    roles_challenged:
+      - SOC Lead
+      - IT Director
+    expected_response: >
+      Assess severity, activate incident response, notify the incident commander,
+      and preserve EDR and network evidence.
+
+  - id: INJ-01
+    time_minutes: 20
+    delivery: facilitator reads aloud
+    situation: >
+      Nexus confirms its build infrastructure was compromised three days ago.
+      A malicious update was distributed with a valid Nexus signature.
+      Security recommends isolating Nexus agents, but Clinical Operations
+      warns that appointment disruption could affect patient care.
+    capability_tested: CAP-03
+    decision_point: Who authorizes isolation, and how will scheduling continue?
+    roles_challenged:
+      - IT Director
+      - Clinical Director
+      - Incident Commander
+    expected_response: >
+      Document the isolation decision, assess patient safety,
+      assign authorization, and activate manual scheduling if required.
+
+  - id: INJ-02
+    time_minutes: 35
+    delivery: facilitator reads aloud
+    situation: >
+      Nexus SecOps acknowledges the incident but cannot confirm which
+      customers received affected updates. Its incident response team
+      has not provided a recovery timeline.
+    capability_tested: CAP-02
+    decision_point: How will MedDefense escalate and coordinate with Nexus?
+    roles_challenged:
+      - Vendor Risk Lead
+      - Incident Commander
+    expected_response: >
+      Contact Nexus SecOps through the documented 24x7 channel,
+      request affected versions and indicators, establish update deadlines,
+      and record all communications.
+
+  - id: INJ-03
+    time_minutes: 50
+    delivery: facilitator reads aloud
+    situation: >
+      Investigators identify suspicious access to scheduling data.
+      Nexus processes patient demographics, insurance information,
+      and appointment records. The number of affected patients
+      and whether data left the environment remain unknown.
+    capability_tested: CAP-04
+    decision_point: How will potential ePHI exposure be assessed?
+    roles_challenged:
+      - Privacy Officer
+      - SOC Lead
+    expected_response: >
+      Identify affected data and patients, preserve relevant logs,
+      request vendor evidence, and distinguish confirmed exposure
+      from suspected access.
+
+  - id: INJ-04
+    time_minutes: 65
+    delivery: facilitator reads aloud
+    situation: >
+      Nexus confirms an ongoing investigation but cannot establish
+      whether ePHI was accessed. Its BAA requires notification
+      to MedDefense within 24 hours of discovery.
+      Leadership requests an immediate notification recommendation.
+    capability_tested: CAP-05
+    decision_point: What notification obligations apply and when?
+    roles_challenged:
+      - Privacy Officer
+      - Legal Counsel
+    expected_response: >
+      Document the breach assessment, distinguish BAA duties
+      from HIPAA notification requirements, identify applicable
+      deadlines, and assign responsibility for follow-up.
+
+  - id: INJ-05
+    time_minutes: 80
+    delivery: facilitator reads aloud
+    situation: >
+      Clinical Operations reports that several appointments appear
+      to have changed without staff authorization. At the same time,
+      a journalist requests confirmation of a patient data breach.
+      Neither the full integrity impact nor data exposure is confirmed.
+    capability_tested:
+      - CAP-06
+      - CAP-07
+    decision_point: How will patient appointments be verified and media inquiries handled?
+    roles_challenged:
+      - Clinical Director
+      - Communications Lead
+      - Privacy Officer
+    expected_response: >
+      Prioritize patient safety, verify affected appointments against
+      trusted records, coordinate corrections, and issue only an
+      approved statement that separates facts from uncertainty.
+
+  - id: INJ-06
+    time_minutes: 95
+    delivery: facilitator reads aloud
+    situation: >
+      Nexus has no verified clean agent update or confirmed recovery
+      timeline. Leadership must decide whether scheduling can safely
+      resume. The board requests a status briefing within 90 minutes.
+      Investigators still cannot determine whether all appointment
+      changes have been identified.
+    capability_tested:
+      - CAP-03
+      - CAP-08
+    decision_point: What remains offline, what can resume, and what will the board be told?
+    roles_challenged:
+      - Incident Commander
+      - IT Director
+      - Clinical Director
+      - Executive Leadership
+    expected_response: >
+      Make a documented continuity decision with clinical safeguards,
+      assign owners and review deadlines, and prepare a board briefing
+      covering confirmed facts, risks, decisions, unresolved questions,
+      and next steps.
