@@ -1,0 +1,57 @@
+
+capabilities:
+  - capability_id: CAP-01
+    name: supply_chain_detection
+    expected_behavior: Investigate the signed Nexus update as a possible attack source and correlate EDR alerts with update history.
+    gap_hypothesis: The SOC may trust the vendor signature despite the missing independent hash check.
+    tested_by_inject: INJ-00, INJ-01
+    evaluation_owner: SOC facilitator
+
+  - capability_id: CAP-02
+    name: vendor_communication
+    expected_behavior: Contact Nexus SecOps, request incident details, and track responses and escalation.
+    gap_hypothesis: The joint communication process has not been tested and may delay coordination.
+    tested_by_inject: INJ-02
+    evaluation_owner: Vendor Risk facilitator
+
+  - capability_id: CAP-03
+    name: business_continuity_decision
+    expected_behavior: Decide whether to isolate Nexus agent hosts while protecting essential scheduling operations.
+    gap_hypothesis: Teams may delay containment because all three sites depend on Nexus.
+    tested_by_inject: INJ-01, INJ-06
+    evaluation_owner: Incident Commander
+
+  - capability_id: CAP-04
+    name: phi_exposure_assessment
+    expected_behavior: Identify potentially affected patient demographics, insurance data, and appointment records.
+    gap_hypothesis: Limited vendor visibility may prevent accurate ePHI exposure assessment.
+    tested_by_inject: INJ-03
+    evaluation_owner: Privacy Officer
+
+  - capability_id: CAP-05
+    name: hipaa_notification_posture
+    expected_behavior: Coordinate with Legal and Nexus to assess breach notification duties and document deadlines.
+    gap_hypothesis: Staff may confuse Nexus's 24-hour BAA reporting duty with MedDefense's own HIPAA obligations.
+    tested_by_inject: INJ-04
+    evaluation_owner: Legal and Privacy facilitator
+
+  - capability_id: CAP-06
+    name: data_integrity_response
+    expected_behavior: Verify appointment accuracy and coordinate corrections before patients are affected.
+    gap_hypothesis: The response may focus on data theft while overlooking altered appointments.
+    tested_by_inject: INJ-05
+    evaluation_owner: Clinical Operations facilitator
+
+  - capability_id: CAP-07
+    name: crisis_communications
+    expected_behavior: Prepare an approved factual response to media inquiries without disclosing unverified details.
+    gap_hypothesis: Uncoordinated public messaging may contradict the investigation or expose sensitive information.
+    tested_by_inject: INJ-07
+    evaluation_owner: Communications facilitator
+
+  - capability_id: CAP-08
+    name: executive_briefing_under_pressure
+    expected_behavior: Deliver a concise board briefing within 90 minutes covering facts, uncertainty, impact, decisions, and next steps.
+    gap_hypothesis: Leadership may receive an incomplete or overly confident status report.
+    tested_by_inject: INJ-08
+    evaluation_owner: Executive facilitator
