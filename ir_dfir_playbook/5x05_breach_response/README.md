@@ -10,3 +10,7 @@
 ## Task 4 — Investigate the Full 72-Hour Attack Chain
 
 - forensic_findings.md
+## Task 5 — Assess the Breach and Brief the Board
+
+- hipaa_assessment.md
+- executive_brief.md
