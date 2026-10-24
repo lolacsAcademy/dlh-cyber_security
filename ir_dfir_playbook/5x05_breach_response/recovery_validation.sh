@@ -1,4 +1,4 @@
-
+#!/bin/bash
 #!/usr/bin/env bash
 # 5x05 Task 7 — Recovery Validation
 # Incident: IR-2026-0420-01
