@@ -1,0 +1,251 @@
+
+# Task 7 — Eradication Checklist
+# Incident: IR-2026-0420-01
+# Status: Planned; no execution or verification claimed.
+# Commands are Windows PowerShell unless otherwise stated.
+# Run only through approved administrative access.
+# Record actual UTC timestamps, operators and verification evidence.
+
+incident_id: IR-2026-0420-01
+checklist:
+  - id: ERA-001
+    category: beacon_process
+    target_host: CS-WS-101
+    description: Remove Cobalt Strike beacon after preserving evidence.
+    command_or_action: "Approved EDR quarantine and remediation of svchost32.exe"
+    verification_command: "Get-CimInstance Win32_Process | Where-Object Name -eq 'svchost32.exe'; review EDR process-tree history"
+    expected_verification_result: "No active beacon; no related execution in 24h"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-002
+    category: beacon_process
+    target_host: CS-WS-104
+    description: Remove beacon and malicious process tree.
+    command_or_action: "Approved EDR remediation"
+    verification_command: "Get-CimInstance Win32_Process | Where-Object Name -eq 'svchost32.exe'; review EDR history"
+    expected_verification_result: "No beacon or related execution in 24h"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-003
+    category: beacon_process
+    target_host: CS-WS-107
+    description: Remove beacon and malicious process tree.
+    command_or_action: "Approved EDR remediation"
+    verification_command: "Get-CimInstance Win32_Process | Where-Object Name -eq 'svchost32.exe'; review EDR history"
+    expected_verification_result: "No beacon or related execution in 24h"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-004
+    category: beacon_process
+    target_host: CS-WS-112
+    description: Remove beacon and malicious process tree.
+    command_or_action: "Approved EDR remediation"
+    verification_command: "Get-CimInstance Win32_Process | Where-Object Name -eq 'svchost32.exe'; review EDR history"
+    expected_verification_result: "No beacon or related execution in 24h"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-005
+    category: persistence
+    target_host: CS-WS-101
+    description: Remove malicious service persistence.
+    command_or_action: "Export service configuration; remove confirmed malicious WinHealthSvc service"
+    verification_command: "Get-Service WinHealthSvc -ErrorAction SilentlyContinue"
+    expected_verification_result: "Malicious service absent"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-006
+    category: persistence
+    target_host: CS-WS-104
+    description: Remove malicious service persistence.
+    command_or_action: "Export service configuration; remove confirmed malicious WinHealthSvc service"
+    verification_command: "Get-Service WinHealthSvc -ErrorAction SilentlyContinue"
+    expected_verification_result: "Malicious service absent"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-007
+    category: persistence
+    target_host: CS-WS-107
+    description: Remove malicious registry Run-key persistence.
+    command_or_action: "Export registry key; remove confirmed malicious Run entry"
+    verification_command: "Get-ItemProperty 'HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run'; review HKCU Run keys"
+    expected_verification_result: "No confirmed malicious Run entry"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-008
+    category: persistence
+    target_host: CS-WS-112
+    description: Remove malicious scheduled-task persistence.
+    command_or_action: "Export task XML; remove confirmed malicious scheduled task"
+    verification_command: "Get-ScheduledTask; review task actions and EDR telemetry"
+    expected_verification_result: "No confirmed malicious scheduled task"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-009
+    category: staged_payload
+    target_host: CS-WS-101
+    description: Remove confirmed ransomware staging scripts.
+    command_or_action: "Preserve copies and hashes; quarantine confirmed malicious .bat and .ps1 scripts"
+    verification_command: "Inspect C:\\Windows\\System32 and C:\\ProgramData recursively; review EDR detections"
+    expected_verification_result: "No identified ransomware staging scripts remain"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-010
+    category: staged_payload
+    target_host: CS-WS-104
+    description: Remove confirmed ransomware staging scripts.
+    command_or_action: "Preserve copies and hashes; quarantine confirmed malicious scripts"
+    verification_command: "Inspect C:\\Windows\\System32 and C:\\ProgramData recursively; review EDR detections"
+    expected_verification_result: "No identified ransomware staging scripts remain"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-011
+    category: staged_payload
+    target_host: CS-WS-107
+    description: Remove confirmed ransomware staging scripts.
+    command_or_action: "Preserve copies and hashes; quarantine confirmed malicious scripts"
+    verification_command: "Inspect C:\\Windows\\System32 and C:\\ProgramData recursively; review EDR detections"
+    expected_verification_result: "No identified ransomware staging scripts remain"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-012
+    category: staged_payload
+    target_host: CS-WS-112
+    description: Remove confirmed ransomware staging scripts.
+    command_or_action: "Preserve copies and hashes; quarantine confirmed malicious scripts"
+    verification_command: "Inspect C:\\Windows\\System32 and C:\\ProgramData recursively; review EDR detections"
+    expected_verification_result: "No identified ransomware staging scripts remain"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-013
+    category: credential
+    target_host: domain
+    description: Remediate all compromised accounts identified in the 72-hour dwell period.
+    command_or_action: "Preserve audit logs; identify affected accounts; revoke sessions; rotate credentials"
+    verification_command: "Review AD and identity-provider audit logs for every affected account"
+    expected_verification_result: "All identified compromised credentials rotated; unauthorized sessions rejected"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-014
+    category: kerberos
+    target_host: domain
+    description: Invalidate compromised Kerberos tickets.
+    command_or_action: "Revoke affected sessions and tickets; coordinate KRBTGT rotation if warranted"
+    verification_command: "Review domain-controller authentication logs and ticket validity"
+    expected_verification_result: "Compromised tickets invalidated; no unauthorized reuse"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-015
+    category: network
+    target_host: perimeter_firewall
+    description: Block known C2 domain and IP egress.
+    command_or_action: "Deny and log staging.office365-cdn.net and 45.152.66.114"
+    verification_command: "Review firewall rule state and post-change connection logs"
+    expected_verification_result: "Rule active; no successful outbound C2 connections"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-016
+    category: network
+    target_host: enterprise_dns
+    description: Sinkhole the identified C2 lookalike domain.
+    command_or_action: "Configure approved DNS sinkhole for staging.office365-cdn.net"
+    verification_command: "Resolve domain through enterprise DNS and review DNS logs"
+    expected_verification_result: "Domain resolves to approved sinkhole; requests logged"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-017
+    category: machine_account
+    target_host: CS-WS-101
+    description: Rotate workstation machine-account secret after rebuilding trust.
+    command_or_action: "Approved machine-account password rotation"
+    verification_command: "Test-ComputerSecureChannel; review domain authentication logs"
+    expected_verification_result: "Secure channel healthy; new machine secret in use"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-018
+    category: machine_account
+    target_host: CS-WS-104
+    description: Rotate compromised machine-account secret.
+    command_or_action: "Approved machine-account password rotation"
+    verification_command: "Test-ComputerSecureChannel; review domain authentication logs"
+    expected_verification_result: "Secure channel healthy; new machine secret in use"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-019
+    category: machine_account
+    target_host: CS-WS-107
+    description: Rotate compromised machine-account secret.
+    command_or_action: "Approved machine-account password rotation"
+    verification_command: "Test-ComputerSecureChannel; review domain authentication logs"
+    expected_verification_result: "Secure channel healthy; new machine secret in use"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-020
+    category: machine_account
+    target_host: CS-WS-112
+    description: Rotate compromised machine-account secret.
+    command_or_action: "Approved machine-account password rotation"
+    verification_command: "Test-ComputerSecureChannel; review domain authentication logs"
+    expected_verification_result: "Secure channel healthy; new machine secret in use"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-021
+    category: persistence
+    target_host: FILE-SVR-01
+    description: Verify file server has no beacon, persistence, or staged payloads.
+    command_or_action: "Perform read-only forensic review before approving any remediation"
+    verification_command: "Review EDR process history, services, Run keys, tasks and staging directories"
+    expected_verification_result: "No attacker persistence or payloads detected"
+    status: pending
+    executed_at: null
+    executed_by: null
+
+  - id: ERA-022
+    category: credential
+    target_host: FILE-SVR-01
+    description: Review and remediate file-server service and access credentials exposed during dwell.
+    command_or_action: "Identify affected accounts from 72-hour access and authentication logs; rotate confirmed compromised credentials"
+    verification_command: "Review identity audit logs, service authentication and approved clinical access"
+    expected_verification_result: "No compromised credentials remain usable; clinical access verified"
+    status: pending
+    executed_at: null
+    executed_by: null

@@ -19,3 +19,6 @@
 
 - hipaa_assessment.md
 - executive_brief.md
+## Task 7 — Eradicate and Validate Recovery
+- eradication_checklist.yaml
+- recovery_validation.sh
