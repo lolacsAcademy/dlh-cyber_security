@@ -1,0 +1,387 @@
+[+] Security frameworks
+------------------------------------
+  - Checking presence AppArmor                               [ FOUND ]
+    - Checking AppArmor status                               [ DISABLED ]
+  - Checking presence SELinux                                [ NOT FOUND ]
+  - Checking presence TOMOYO Linux                           [ NOT FOUND ]
+  - Checking presence grsecurity                             [ NOT FOUND ]
+  - Checking for implemented MAC framework                   [ NONE ]
+
+[+] Software: file integrity
+------------------------------------
+  - Checking file integrity tools
+  - dm-integrity (status)                                    [ DISABLED ]
+  - dm-verity (status)                                       [ DISABLED ]
+  - Checking presence integrity tool                         [ NOT FOUND ]
+
+[+] Software: System tooling
+------------------------------------
+  - Checking automation tooling
+  - Automation tooling                                       [ NOT FOUND ]
+  - Checking for IDS/IPS tooling                             [ NONE ]
+
+[+] Software: Malware
+------------------------------------
+  - Malware software components                              [ NOT FOUND ]
+
+[+] File Permissions
+------------------------------------
+  - Starting file permissions check
+    File: /boot/grub/grub.cfg                                [ OK ]
+    File: /etc/crontab                                       [ SUGGESTION ]
+    File: /etc/group                                         [ OK ]
+    File: /etc/group-                                        [ OK ]
+    File: /etc/hosts.allow                                   [ OK ]
+    File: /etc/hosts.deny                                    [ OK ]
+    File: /etc/issue                                         [ OK ]
+    File: /etc/issue.net                                     [ OK ]
+    File: /etc/motd                                          [ OK ]
+    File: /etc/passwd                                        [ OK ]
+    File: /etc/passwd-                                       [ OK ]
+    File: /etc/ssh/sshd_config                               [ SUGGESTION ]
+    Directory: /root/.ssh                                    [ OK ]
+    Directory: /etc/cron.d                                   [ SUGGESTION ]
+    Directory: /etc/cron.daily                               [ SUGGESTION ]
+    Directory: /etc/cron.hourly                              [ SUGGESTION ]
+    Directory: /etc/cron.weekly                              [ SUGGESTION ]
+    Directory: /etc/cron.monthly                             [ SUGGESTION ]
+
+[+] Home directories
+------------------------------------
+  - Permissions of home directories                          [ WARNING ]
+  - Ownership of home directories                            [ OK ]
+  - Checking shell history files                             [ OK ]
+
+[+] Kernel Hardening
+------------------------------------
+  - Comparing sysctl key pairs with scan profile
+    - dev.tty.ldisc_autoload (exp: 0)                        [ DIFFERENT ]
+    - fs.protected_fifos (exp: 2)                            [ DIFFERENT ]
+    - fs.protected_hardlinks (exp: 1)                        [ OK ]
+    - fs.protected_regular (exp: 2)                          [ OK ]
+    - fs.protected_symlinks (exp: 1)                         [ OK ]
+    - fs.suid_dumpable (exp: 0)                              [ OK ]
+    - kernel.core_uses_pid (exp: 1)                          [ OK ]
+    - kernel.ctrl-alt-del (exp: 0)                           [ OK ]
+    - kernel.dmesg_restrict (exp: 1)                         [ DIFFERENT ]
+    - kernel.kptr_restrict (exp: 2)                          [ DIFFERENT ]
+    - kernel.modules_disabled (exp: 1)                       [ DIFFERENT ]
+    - kernel.perf_event_paranoid (exp: 2 3 4)                [ OK ]
+    - kernel.randomize_va_space (exp: 2)                     [ OK ]
+    - kernel.sysrq (exp: 0)                                  [ DIFFERENT ]
+    - kernel.unprivileged_bpf_disabled (exp: 1)              [ DIFFERENT ]
+    - kernel.yama.ptrace_scope (exp: 1 2 3)                  [ DIFFERENT ]
+    - net.core.bpf_jit_harden (exp: 2)                       [ DIFFERENT ]
+    - net.ipv4.conf.all.accept_redirects (exp: 0)            [ DIFFERENT ]
+    - net.ipv4.conf.all.accept_source_route (exp: 0)         [ OK ]
+    - net.ipv4.conf.all.bootp_relay (exp: 0)                 [ OK ]
+    - net.ipv4.conf.all.forwarding (exp: 0)                  [ OK ]
+    - net.ipv4.conf.all.log_martians (exp: 1)                [ DIFFERENT ]
+    - net.ipv4.conf.all.mc_forwarding (exp: 0)               [ OK ]
+    - net.ipv4.conf.all.proxy_arp (exp: 0)                   [ OK ]
+    - net.ipv4.conf.all.rp_filter (exp: 1)                   [ DIFFERENT ]
+    - net.ipv4.conf.all.send_redirects (exp: 0)              [ DIFFERENT ]
+    - net.ipv4.conf.default.accept_redirects (exp: 0)        [ DIFFERENT ]
+    - net.ipv4.conf.default.accept_source_route (exp: 0)     [ OK ]
+    - net.ipv4.conf.default.log_martians (exp: 1)            [ DIFFERENT ]
+    - net.ipv4.icmp_echo_ignore_broadcasts (exp: 1)          [ OK ]
+    - net.ipv4.icmp_ignore_bogus_error_responses (exp: 1)    [ OK ]
+    - net.ipv4.tcp_syncookies (exp: 1)                       [ OK ]
+    - net.ipv4.tcp_timestamps (exp: 0 1)                     [ OK ]
+    - net.ipv6.conf.all.accept_redirects (exp: 0)            [ DIFFERENT ]
+    - net.ipv6.conf.all.accept_source_route (exp: 0)         [ OK ]
+    - net.ipv6.conf.default.accept_redirects (exp: 0)        [ DIFFERENT ]
+    - net.ipv6.conf.default.accept_source_route (exp: 0)     [ OK ]
+
+[+] Hardening
+------------------------------------
+    - Installed compiler(s)                                  [ FOUND ]
+    - Installed malware scanner                              [ NOT FOUND ]
+    - Non-native binary formats                              [ FOUND ]
+
+[+] Custom tests
+------------------------------------
+  - Running custom tests...                                  [ NONE ]
+
+[+] Plugins (phase 2)
+------------------------------------
+
+================================================================================
+
+  -[ Lynis 3.1.6 Results ]-
+
+  Great, no warnings
+
+  Suggestions (47):
+  ----------------------------
+  * Install libpam-tmpdir to set $TMP and $TMPDIR for PAM sessions [DEB-0280] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/DEB-0280/
+
+  * Install apt-listbugs to display a list of critical bugs prior to each APT installation. [DEB-0810] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/DEB-0810/
+
+  * Install apt-listchanges to display any significant changes prior to any upgrade via APT. [DEB-0811] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/DEB-0811/
+
+  * Install needrestart, alternatively to debian-goodies, so that you can run needrestart after upgrades to determine which daemons are using old versions of libraries and need restarting. [DEB-0831] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/DEB-0831/
+
+  * Install fail2ban to automatically ban hosts that commit multiple authentication errors. [DEB-0880] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/DEB-0880/
+
+  * Set a password on GRUB boot loader to prevent altering boot configuration (e.g. boot in single user mode without password) [BOOT-5122] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/BOOT-5122/
+
+  * Determine runlevel and services at startup [BOOT-5180] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/BOOT-5180/
+
+  * Consider hardening system services [BOOT-5264] 
+    - Details  : Run '/usr/bin/systemd-analyze security SERVICE' for each service                                         
+    - Related resources
+      * Article: Systemd features to secure service files: https://linux-audit.com/systemd/systemd-features-to-secure-units-and-services/
+      * Website: https://cisofy.com/lynis/controls/BOOT-5264/
+
+  * Configure password hashing rounds in /etc/login.defs [AUTH-9230] 
+    - Related resources
+      * Article: Linux password security: hashing rounds: https://linux-audit.com/authentication/configure-the-minimum-password-length-on-linux-systems/
+      * Website: https://cisofy.com/lynis/controls/AUTH-9230/
+
+  * Install a PAM module for password strength testing like pam_cracklib or pam_passwdqc or libpam-passwdqc [AUTH-9262] 
+    - Related resources
+      * Article: Configure minimum password length for Linux systems: https://linux-audit.com/configure-the-minimum-password-length-on-linux-systems/
+      * Website: https://cisofy.com/lynis/controls/AUTH-9262/
+
+  * When possible set expire dates for all password protected accounts [AUTH-9282] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/AUTH-9282/
+
+  * Configure minimum password age in /etc/login.defs [AUTH-9286] 
+    - Related resources
+      * Article: Configure minimum password length for Linux systems: https://linux-audit.com/configure-the-minimum-password-length-on-linux-systems/
+      * Website: https://cisofy.com/lynis/controls/AUTH-9286/
+
+  * Configure maximum password age in /etc/login.defs [AUTH-9286] 
+    - Related resources
+      * Article: Configure minimum password length for Linux systems: https://linux-audit.com/configure-the-minimum-password-length-on-linux-systems/
+      * Website: https://cisofy.com/lynis/controls/AUTH-9286/
+
+  * Default umask in /etc/login.defs could not be found and defaults usually to 022, which could be more strict like 027 [AUTH-9328] 
+    - Related resources
+      * Article: Set default file permissions on Linux with umask: https://linux-audit.com/filesystems/file-permissions/set-default-file-permissions-with-umask/
+      * Website: https://cisofy.com/lynis/controls/AUTH-9328/
+
+  * To decrease the impact of a full /home file system, place /home on a separate partition [FILE-6310] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/FILE-6310/
+
+  * To decrease the impact of a full /var file system, place /var on a separate partition [FILE-6310] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/FILE-6310/
+
+  * Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft [USB-1000] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/USB-1000/
+
+  * Disable drivers like firewire storage when not used, to prevent unauthorized storage or data theft [STRG-1846] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/STRG-1846/
+
+  * Check DNS configuration for the dns domain name [NAME-4028] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/NAME-4028/
+
+  * Check RPM database as RPM binary available but does not reveal any packages [PKGS-7308] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/PKGS-7308/
+
+  * Install debsums utility for the verification of packages with known good database. [PKGS-7370] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/PKGS-7370/
+
+  * Install package apt-show-versions for patch management purposes [PKGS-7394] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/PKGS-7394/
+
+  * Consider using a tool to automatically apply upgrades [PKGS-7420] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/PKGS-7420/
+
+  * Determine if protocol 'dccp' is really needed on this system [NETW-3200] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/NETW-3200/
+
+  * Determine if protocol 'sctp' is really needed on this system [NETW-3200] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/NETW-3200/
+
+  * Determine if protocol 'rds' is really needed on this system [NETW-3200] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/NETW-3200/
+
+  * Determine if protocol 'tipc' is really needed on this system [NETW-3200] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/NETW-3200/
+
+  * Configure a firewall/packet filter to filter incoming and outgoing traffic [FIRE-4590] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/FIRE-4590/
+
+  * Install Apache mod_evasive to guard webserver against DoS/brute force attempts [HTTP-6640] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/HTTP-6640/
+
+  * Install Apache modsecurity to guard webserver against web application attacks [HTTP-6643] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/HTTP-6643/
+
+  * Change the allow_url_fopen line to: allow_url_fopen = Off, to disable downloads via PHP [PHP-2376] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/PHP-2376/
+
+  * Enable logging to an external logging host for archiving purposes and additional protection [LOGG-2154] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/LOGG-2154/
+
+  * Check what deleted files are still in use and why. [LOGG-2190] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/LOGG-2190/
+
+  * Remove rsh client when it is not in use or replace with the more secure SSH package [INSE-8300] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/INSE-8300/
+
+  * It is recommended that TFTP be removed, unless there is a specific need for TFTP (such as a boot server) [INSE-8318] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/INSE-8318/
+
+  * Removing the atftpd package decreases the risk of the accidental (or intentional) activation of tftp services [INSE-8320] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/INSE-8320/
+
+  * Add a legal banner to /etc/issue, to warn unauthorized users [BANN-7126] 
+    - Related resources
+      * Article: The real purpose of login banners: https://linux-audit.com/the-real-purpose-of-login-banners-on-linux/
+      * Website: https://cisofy.com/lynis/controls/BANN-7126/
+
+  * Add legal banner to /etc/issue.net, to warn unauthorized users [BANN-7130] 
+    - Related resources
+      * Article: The real purpose of login banners: https://linux-audit.com/the-real-purpose-of-login-banners-on-linux/
+      * Website: https://cisofy.com/lynis/controls/BANN-7130/
+
+  * Enable process accounting [ACCT-9622] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/ACCT-9622/
+
+  * Enable sysstat to collect accounting (disabled) [ACCT-9626] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/ACCT-9626/
+
+  * Install a file integrity tool to monitor changes to critical and sensitive files [FINT-4350] 
+    - Related resources
+      * Article: Monitoring Linux file access, changes and data modifications: https://linux-audit.com/monitoring-linux-file-access-changes-and-modifications/
+      * Article: Monitor for file changes on Linux: https://linux-audit.com/monitor-for-file-system-changes-on-linux/
+      * Website: https://cisofy.com/lynis/controls/FINT-4350/
+
+  * Determine if automation tools are present for system management [TOOL-5002] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/TOOL-5002/
+
+  * Consider restricting file permissions [FILE-7524] 
+    - Details  : See screen output or log file
+    - Solution : Use chmod to change file permissions
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/FILE-7524/
+
+  * Double check the permissions of home directories as some might be not strict enough. [HOME-9304] 
+    - Related resources
+      * Website: https://cisofy.com/lynis/controls/HOME-9304/
+
+  * One or more sysctl values differ from the scan profile and could be tweaked [KRNL-6000] 
+    - Solution : Change sysctl value or disable test (skip-test=KRNL-6000:<sysctl-key>)
+    - Related resources
+      * Article: Linux hardening with sysctl settings: https://linux-audit.com/linux-hardening-with-sysctl/
+      * Article: Overview of sysctl options and values: https://linux-audit.com/kernel/sysctl/
+      * Website: https://cisofy.com/lynis/controls/KRNL-6000/
+
+  * Harden compilers like restricting access to root user only [HRDN-7222] 
+    - Related resources
+      * Article: Why remove compilers from your system?: https://linux-audit.com/software/why-remove-compilers-from-your-system/
+      * Website: https://cisofy.com/lynis/controls/HRDN-7222/
+
+  * Harden the system by installing at least one malware scanner, to perform periodic file system scans [HRDN-7230] 
+    - Solution : Install a tool like rkhunter, chkrootkit, OSSEC, Wazuh
+    - Related resources
+      * Article: Antivirus for Linux: is it really needed?: https://linux-audit.com/malware/antivirus-for-linux-really-needed/
+      * Article: Monitoring Linux Systems for Rootkits: https://linux-audit.com/monitoring-linux-systems-for-rootkits/
+      * Website: https://cisofy.com/lynis/controls/HRDN-7230/
+
+  Follow-up:
+  ----------------------------
+  - Show details of a test (lynis show details TEST-ID)
+  - Check the logfile for all details (less /var/log/lynis.log)
+  - Read security controls texts (https://cisofy.com)
+  - Use --upload to upload data to central system (Lynis Enterprise users)
+
+================================================================================
+
+  Lynis security scan details:
+
+  Scan mode:
+  Normal [▆]  Forensics [ ]  Integration [ ]  Pentest [ ]
+
+  Lynis modules:
+  - Compliance status      [?]
+  - Security audit         [V]
+  - Vulnerability scan     [V]
+
+  Details:
+  Hardening index : 61 [############        ]
+  Tests performed : 271
+  Plugins enabled : 1
+
+  Software components:
+  - Firewall               [X]
+  - Intrusion software     [X]
+  - Malware scanner        [X]
+
+  Files:
+  - Test and debug information      : /var/log/lynis.log
+  - Report data                     : /var/log/lynis-report.dat                                                           
+
+================================================================================
+
+  Notice: This version of Lynis is older than 6 months and might be outdated. Check the project page if a newer version is available.                                                  
+
+================================================================================
+
+  Notice: No OS entry was found in the end-of-life database
+
+  What to do:
+  Please submit a pull request on GitHub to include your OS version and the end date of this OS version is being supported
+  URL: https://github.com/CISOfy/lynis
+
+================================================================================
+
+  Lynis 3.1.6
+
+  Auditing, system hardening, and compliance for UNIX-based systems
+  (Linux, macOS, BSD, and others)
+
+  2007-2025, CISOfy - https://cisofy.com/lynis/
+  Enterprise support available (compliance, plugins, interface and tools)                                                 
+
+================================================================================
+
+  [TIP]: Enhance Lynis audits by adding your settings to custom.prf (see /etc/lynis/default.prf for all settings)         
+
+                                                             
+┌──(kali㉿kali)-[~]
+└─$ 
+
